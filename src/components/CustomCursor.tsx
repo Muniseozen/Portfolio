@@ -29,10 +29,10 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div style={{ x: cursorX, y: cursorY }} className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference">
-        <motion.div animate={{ width: isPointer ? 48 : 12, height: isPointer ? 48 : 12, opacity: isVisible ? 1 : 0 }} transition={{ duration: 0.2 }} className="rounded-full bg-white -translate-x-1/2 -translate-y-1/2" />
+        <motion.div animate={{ width: isPointer ? 48 : 12, height: isPointer ? 48 : 12, opacity: isVisible ? 1 : 0 }} transition={{ duration: 0.2 }} className="rounded-full bg-zinc-900 -translate-x-1/2 -translate-y-1/2" />
       </motion.div>
       <motion.div style={{ x: glowX, y: glowY }} className="fixed top-0 left-0 z-[9998] pointer-events-none">
-        <motion.div animate={{ opacity: isVisible ? 0.12 : 0 }} className="w-64 h-64 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ background: "radial-gradient(circle, rgba(155,44,90,0.5) 0%, rgba(224,120,80,0.25) 40%, transparent 70%)" }} />
+        <motion.div animate={{ opacity: isVisible ? 0.08 : 0 }} className="w-64 h-64 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ background: "radial-gradient(circle, rgba(168,48,95,0.4) 0%, rgba(232,133,96,0.2) 40%, transparent 70%)" }} />
       </motion.div>
     </>
   );
