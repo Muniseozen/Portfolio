@@ -12,29 +12,28 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 px-6 bg-[#fafafa]">
-      <div className="max-w-6xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-20">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-4"><span className="gradient-text">Skills</span></h2>
-          <p className="text-zinc-500 text-lg max-w-xl">「それ、全部ひとりでできますか？」→ はい、できます。</p>
+    <section id="skills" className="py-20 px-6 bg-[#fafafa]">
+      <div className="max-w-5xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
+          <p className="text-zinc-500 text-sm max-w-xl">「それ、全部ひとりでできますか？」→ はい、できます。</p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div key={category.title} initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-              whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              className={`card-dark rounded-2xl p-6 transition-all duration-300 border-l-2 ${category.border}`}
+              className={`card-dark rounded-2xl p-5 border-l-2 ${category.border}`}
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-[10px] font-mono font-bold text-white`}>{category.icon}</div>
+                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-[9px] font-mono font-bold text-white`}>{category.icon}</div>
                 <div>
-                  <h3 className="text-lg font-bold text-zinc-900 leading-tight">{category.title}</h3>
-                  <span className="text-xs text-zinc-400">{category.tagline}</span>
+                  <h3 className="text-sm font-bold text-zinc-900 leading-tight">{category.title}</h3>
+                  <span className="text-[11px] text-zinc-400">{category.tagline}</span>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-1.5 mt-4">
+              <div className="flex flex-wrap gap-1.5 mt-3">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-black/[0.03] border border-black/[0.06] text-zinc-500 hover:text-zinc-900 hover:bg-black/[0.05] hover:border-black/[0.10] transition-all cursor-default">{skill}</span>
+                  <span key={skill} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
                 ))}
               </div>
             </motion.div>

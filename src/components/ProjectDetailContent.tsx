@@ -40,9 +40,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <Navigation variant="detail" />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6 bg-[#fafafa] relative overflow-hidden">
+      <section className="pt-28 pb-14 px-6 bg-[#fafafa] relative overflow-hidden">
         <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-[0.04]`} />
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -51,10 +51,10 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
               Project {project.num}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black tracking-tighter mt-3 mb-4 whitespace-pre-line">
+            <h1 className="text-3xl md:text-4xl font-black tracking-tighter mt-2 mb-3 whitespace-pre-line">
               <span className="gradient-text">{project.title}</span>
             </h1>
-            <p className="text-xl text-zinc-500 max-w-2xl mb-8">
+            <p className="text-sm text-zinc-500 max-w-2xl mb-6">
               {project.subtitle}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -72,8 +72,8 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Meta Bar */}
-      <section className="py-12 px-6 border-y border-black/5">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-8 px-6 border-y border-black/5">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
@@ -95,14 +95,14 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Screenshots Placeholder */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-14 px-6">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className={`aspect-video rounded-3xl bg-gradient-to-br ${project.gradient} p-[1px]`}>
               <div className="w-full h-full rounded-3xl bg-[#fafafa] flex items-center justify-center">
                 <div className="text-center">
                   <span
-                    className="text-7xl block mb-4"
+                    className="text-5xl block mb-3"
                     dangerouslySetInnerHTML={{ __html: project.emoji }}
                   />
                   <span className="text-zinc-400 text-sm font-mono">
@@ -116,20 +116,20 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Overview + Tech Stack */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-12">
+      <section className="py-14 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
             <FadeIn className="lg:col-span-2">
-              <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-6">
+              <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4">
                 <span className="gradient-text">Overview</span>
               </h2>
-              <p className="text-zinc-500 leading-relaxed text-lg">
+              <p className="text-sm text-zinc-500 leading-relaxed">
                 {project.longDescription}
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <div className="card-dark gradient-border rounded-3xl p-8">
-                <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-4">
+              <div className="card-dark gradient-border rounded-2xl p-6">
+                <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3">
                   Tech Stack
                 </h3>
                 <div className="flex flex-col gap-3">
@@ -150,18 +150,18 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* My Role */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-14 px-6">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">
+            <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-8">
               <span className="gradient-text">My Role</span>
             </h2>
           </FadeIn>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {project.roleBreakdown.map((role, index) => (
               <FadeIn key={role.title} delay={index * 0.1}>
-                <div className="card-dark gradient-border rounded-3xl p-8 h-full">
-                  <h3 className="text-lg font-bold text-zinc-900 mb-4">
+                <div className="card-dark gradient-border rounded-2xl p-6 h-full">
+                  <h3 className="text-sm font-bold text-zinc-900 mb-3">
                     {role.title}
                   </h3>
                   <ul className="space-y-3">
@@ -185,31 +185,31 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Challenges & Solutions */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-14 px-6">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-12">
+            <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-8">
               <span className="gradient-text">Challenges & Solutions</span>
             </h2>
           </FadeIn>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             {project.challenges.map((item, index) => (
               <FadeIn key={index} delay={index * 0.1}>
-                <div className="card-dark gradient-border rounded-3xl p-8 md:p-10">
-                  <div className="grid md:grid-cols-2 gap-8">
+                <div className="card-dark gradient-border rounded-2xl p-6 md:p-8">
+                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3 block">
+                      <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2 block">
                         Challenge
                       </span>
-                      <p className="text-zinc-600 leading-relaxed">
+                      <p className="text-sm text-zinc-600 leading-relaxed">
                         {item.problem}
                       </p>
                     </div>
                     <div>
-                      <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3 block">
+                      <span className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-2 block">
                         Solution
                       </span>
-                      <p className="text-zinc-600 leading-relaxed">
+                      <p className="text-sm text-zinc-600 leading-relaxed">
                         {item.solution}
                       </p>
                     </div>
@@ -222,19 +222,19 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Prev / Next Navigation */}
-      <section className="py-20 px-6 border-t border-black/5">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-14 px-6 border-t border-black/5">
+        <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="grid grid-cols-2 gap-6">
               {prev ? (
                 <Link
                   href={`/projects/${prev.slug}`}
-                  className="card-dark gradient-border rounded-3xl p-8 group transition-all duration-300 hover:bg-black/[0.02]"
+                  className="card-dark gradient-border rounded-2xl p-6 group transition-all duration-300 hover:bg-black/[0.02]"
                 >
                   <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
                     &larr; Previous
                   </span>
-                  <h3 className="text-lg md:text-xl font-bold text-zinc-900 mt-2 whitespace-pre-line group-hover:text-zinc-700 transition-colors">
+                  <h3 className="text-sm md:text-base font-bold text-zinc-900 mt-2 whitespace-pre-line group-hover:text-zinc-700 transition-colors">
                     {prev.title}
                   </h3>
                 </Link>
@@ -244,12 +244,12 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {next ? (
                 <Link
                   href={`/projects/${next.slug}`}
-                  className="card-dark gradient-border rounded-3xl p-8 group transition-all duration-300 text-right hover:bg-black/[0.02]"
+                  className="card-dark gradient-border rounded-2xl p-6 group transition-all duration-300 text-right hover:bg-black/[0.02]"
                 >
                   <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">
                     Next &rarr;
                   </span>
-                  <h3 className="text-lg md:text-xl font-bold text-zinc-900 mt-2 whitespace-pre-line group-hover:text-zinc-700 transition-colors">
+                  <h3 className="text-sm md:text-base font-bold text-zinc-900 mt-2 whitespace-pre-line group-hover:text-zinc-700 transition-colors">
                     {next.title}
                   </h3>
                 </Link>

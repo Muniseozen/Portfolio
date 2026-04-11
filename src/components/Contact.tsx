@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 bg-[#fafafa] relative">
-      <div className="max-w-4xl mx-auto relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
+    <section id="contact" className="py-20 px-6 bg-[#fafafa] relative">
+      <div className="max-w-3xl mx-auto relative z-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="text-center mb-10">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-3 pr-2">
             <span className="text-zinc-900">Let&apos;s work</span><br /><span className="gradient-text">together.</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-md mx-auto">「ちょっと相談したいんだけど」くらいの温度感で大丈夫です。<br />お気軽にどうぞ。</p>
+          <p className="text-zinc-500 text-sm max-w-md mx-auto">「ちょっと相談したいんだけど」くらいの温度感で大丈夫です。<br />お気軽にどうぞ。</p>
         </motion.div>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: 0.2 }} className="card-dark rounded-3xl p-8 md:p-12">
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.7, delay: 0.2 }} className="card-dark rounded-2xl p-6 md:p-8">
           <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="group">
@@ -39,7 +39,7 @@ export default function Contact() {
               <label htmlFor="message" className="block text-sm font-medium text-zinc-500 mb-2 group-focus-within:text-zinc-900 transition-colors">メッセージ</label>
               <textarea id="message" name="message" rows={5} placeholder="プロジェクトについて教えてください..." className="w-full px-5 py-3.5 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#a8305f]/60 focus:ring-1 focus:ring-[#a8305f]/30 transition-all resize-none" />
             </div>
-            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative group px-8 py-4 rounded-full overflow-hidden text-sm font-medium text-white self-center md:self-start">
+            <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="relative group px-6 py-3 rounded-full overflow-hidden text-sm font-medium text-white self-center md:self-start">
               <span className="absolute inset-0 gradient-bg" />
               <span className="relative flex items-center gap-2">送信する
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
@@ -47,7 +47,7 @@ export default function Contact() {
             </motion.button>
           </form>
         </motion.div>
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-12 flex flex-col items-center gap-6">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }} className="mt-8 flex flex-col items-center gap-4">
           <p className="text-sm text-zinc-500">SNSでもつながりましょう</p>
           <div className="flex items-center gap-4">
             {[

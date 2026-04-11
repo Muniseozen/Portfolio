@@ -2,17 +2,28 @@
 
 import { motion } from "framer-motion";
 
-const experiences = [
-  { year: "2024", title: "フリーランス開始", description: "PM/デザイン/開発をワンストップで提供" },
-  { year: "2023", title: "フルスタック開発", description: "React Native / Next.js でのアプリ開発" },
-  { year: "2022", title: "UI/UX デザイン", description: "Figma を使ったプロダクトデザイン" },
-];
+const GradientDefs = ({ id }: { id: string }) => (
+  <defs>
+    <linearGradient id={id} x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#a8305f" />
+      <stop offset="50%" stopColor="#d4567e" />
+      <stop offset="100%" stopColor="#e88560" />
+    </linearGradient>
+  </defs>
+);
+
+const TargetIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#target-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="target-grad" /><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>;
+const ChatIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#chat-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="chat-grad" /><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>;
+const ZapIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#zap-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="zap-grad" /><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>;
+const UsersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#users-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="users-grad" /><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>;
+const LayersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#layers-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="layers-grad" /><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>;
 
 const values = [
-  { icon: "🎯", title: "ゴール志向", description: "「何を作るか」より「なぜ作るか」を大切に" },
-  { icon: "🤝", title: "コミュニケーション", description: "認識のズレをなくす丁寧なすり合わせ" },
-  { icon: "⚡", title: "スピード感", description: "素早いプロトタイプで早期にフィードバック" },
-  { icon: "✨", title: "細部へのこだわり", description: "使い心地を左右する小さな部分も妥協しない" },
+  { icon: <TargetIcon />, title: "目的への純粋さ（ゴール志向）", description: <>「なぜ作るか」という本質。<br />AD時代に叩き込まれた、ターゲットへ届けるための視点。</> },
+  { icon: <ChatIcon />, title: "丁寧なすり合わせ（コミュニケーション）", description: <>言葉の裏にある意図を汲み取ること。<br />認識のズレをなくし、プロジェクトを確実に前へ進める対話。</> },
+  { icon: <ZapIcon />, title: "スピードと「更新感」", description: <>迷う前にまず形にする。<br />新しい技術を吸収し、常に自分をアップデートし続ける勢い。</> },
+  { icon: <UsersIcon />, title: "チームの和と心地よさ", description: <>職種の垣根を超えた最高の連携。<br />誰もが前向きに、仲良くプロジェクトを楽しめる空気感。</> },
+  { icon: <LayersIcon />, title: "実装の裏付けがあるデザイン", description: <>フロントエンドを理解した、地に足のついた設計。<br />女性目線の細やかな配慮と、確かなロジックの融合。</> },
 ];
 
 // Number rain columns
@@ -64,7 +75,7 @@ function NumberColumn({ index }: { index: number }) {
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 bg-[#fafafa] relative overflow-hidden">
+    <section id="about" className="py-20 px-6 bg-[#fafafa] relative overflow-hidden">
       {/* Falling numbers background */}
       <NumberRain />
 
@@ -72,23 +83,23 @@ export default function About() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#a8305f]/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#e88560]/10 rounded-full blur-3xl" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10"
         >
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-4">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">About</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl">
-            企画・デザイン・開発、ぜんぶやります。
+          <p className="text-zinc-500 text-sm max-w-xl">
+            戦略からデザイン、実装まで。
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Left: Story */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -96,44 +107,24 @@ export default function About() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7 }}
           >
-            <div className="card-dark rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-zinc-900 mb-6">自己紹介</h3>
-              <div className="space-y-4 text-zinc-500 leading-relaxed">
+            <h3 className="text-lg font-bold text-zinc-900 mb-4">自己紹介</h3>
+            <div className="card-dark rounded-2xl p-6">
+              <div className="space-y-3 text-sm text-zinc-500 leading-relaxed">
                 <p>
-                  はじめまして、<span className="text-zinc-900 font-medium">Munise</span> です。
+                  はじめまして、<span className="text-zinc-900 font-bold">Munise（むにせ）</span>です。
                 </p>
                 <p>
-                  PM（プロダクトマネージャー）として要件定義から、UI/UXデザイナーとしてユーザー体験の設計、
-                  そしてフロントエンド/モバイルエンジニアとして実装まで、
-                  <span className="text-zinc-900 font-medium">一気通貫</span>で対応できるのが強みです。
+                  18歳でトルコから来日し、日本の大学で国際関係を学びました。ゼロから新しい環境に飛び込み、文化や言葉を吸収してきたこの経験が、今の私の<span className="text-zinc-900 font-bold">柔軟な考え方や適応力</span>の土台になっています。
                 </p>
                 <p>
-                  「こんなアプリ作りたいんだけど...」という漠然としたアイデアから、
-                  実際に動くプロダクトまで、一緒に形にしていきましょう。
+                  新卒で入社したテレビ業界ではADとして、分刻みのスケジュールや多くの関係者が関わる番組制作の現場を走り回っていました。そこで身についた<span className="text-zinc-900 font-bold">「現場を動かす調整力」</span>や<span className="text-zinc-900 font-bold">「どうすれば視聴者に伝わるかという視点」</span>は、今のPMやディレクションの仕事にもそのまま活きています。
                 </p>
-              </div>
-
-              {/* Timeline */}
-              <div className="mt-8 pt-8 border-t border-zinc-200">
-                <h4 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-6">Experience</h4>
-                <div className="space-y-4">
-                  {experiences.map((exp, index) => (
-                    <motion.div
-                      key={exp.year}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex gap-4"
-                    >
-                      <span className="text-sm font-mono text-[#d4567e] w-12">{exp.year}</span>
-                      <div>
-                        <p className="text-zinc-900 font-medium">{exp.title}</p>
-                        <p className="text-sm text-zinc-400">{exp.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                <p>
+                  IT業界に入ってからは4年目になります。私は新しい技術に触れたり、未知の課題に挑戦したりすることが大好きで、常に自分自身をアップデートし続ける<span className="text-zinc-900 font-bold">「更新感」</span>を大切にしています。
+                </p>
+                <p>
+                  フロントエンド開発の知識があるからこそ、エンジニアが実装しやすく、かつユーザーが心地よさを感じるデザインを提案できるのが私の強みです。<span className="text-zinc-900 font-bold">女性目線のきめ細やかな配慮</span>と、<span className="text-zinc-900 font-bold">多角的な視点</span>を掛け合わせ、アイデアを迷いなく形にしていきます。貴社のビジョンを大切に受け止め、共にプロダクトを育てていけるパートナーでありたいと思っています。
+                </p>
               </div>
             </div>
           </motion.div>
@@ -145,8 +136,8 @@ export default function About() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7 }}
           >
-            <h3 className="text-2xl font-bold text-zinc-900 mb-6">大切にしていること</h3>
-            <div className="grid gap-4">
+            <h3 className="text-lg font-bold text-zinc-900 mb-4">大切にしていること</h3>
+            <div className="grid gap-2">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -154,39 +145,17 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ x: 8 }}
-                  className="card-dark rounded-xl p-5 flex gap-4 items-start group cursor-default"
+                  className="card-dark rounded-xl p-4 flex gap-3 items-start"
                 >
-                  <span className="text-2xl group-hover:scale-110 transition-transform">{value.icon}</span>
+                  <div className="flex-shrink-0 mt-0.5">{value.icon}</div>
                   <div>
-                    <h4 className="text-zinc-900 font-medium mb-1">{value.title}</h4>
+                    <h4 className="text-zinc-900 text-sm font-bold mb-1">{value.title}</h4>
                     <p className="text-sm text-zinc-400">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-[#a8305f]/10 to-[#e88560]/10 border border-[#a8305f]/20"
-            >
-              <p className="text-zinc-600 mb-4">
-                一緒にプロジェクトを進めてみませんか？
-              </p>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-[#d4567e] hover:text-[#e88560] transition-colors font-medium"
-              >
-                お問い合わせする
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </motion.div>
           </motion.div>
         </div>
       </div>

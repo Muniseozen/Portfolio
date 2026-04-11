@@ -7,6 +7,7 @@ import Link from "next/link";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#career", label: "Career" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
@@ -37,7 +38,7 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+      <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold gradient-text">
           MO
         </Link>
