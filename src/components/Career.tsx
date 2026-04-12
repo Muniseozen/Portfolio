@@ -261,7 +261,7 @@ export default function Career() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">Career</span>
           </h2>
-          <p className="text-zinc-500 text-sm max-w-xl">
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">
             テスターから開発リードへ。4年間の成長軌跡。
           </p>
         </motion.div>

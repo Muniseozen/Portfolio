@@ -12,12 +12,12 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
       <Link href={`/projects/${project.slug}`}>
-        <div className="card-dark gradient-border rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full">
+        <div className="card-clickable gradient-border rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full">
           <div className="flex gap-4 items-start">
             <div className="flex-shrink-0 w-28 h-20 rounded-lg bg-zinc-200 p-[1px] overflow-hidden">
               {project.thumbnail ? (
                 <div className="w-full h-full rounded-lg overflow-hidden relative">
-                  <Image src={project.thumbnail} alt={project.title} fill className="object-cover" />
+                  <Image src={project.thumbnail} alt={project.title} fill className="object-cover object-top" />
                 </div>
               ) : (
                 <div className="w-full h-full rounded-lg bg-white/80 flex items-center justify-center">
@@ -52,7 +52,7 @@ export default function Projects() {
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Projects</span></h2>
-          <p className="text-zinc-500 text-sm max-w-xl">企画からデザイン、実装まで。何よりも先に手を動かす。</p>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">企画からデザイン、実装まで。何よりも先に手を動かす。</p>
         </motion.div>
 
         {/* Selected Work */}

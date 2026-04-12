@@ -53,7 +53,7 @@ export default function Skills() {
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
-          <p className="text-zinc-500 text-sm max-w-xl">「それ、全部ひとりでできますか？」→ はい、できます。</p>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">「それ、全部ひとりでできますか？」→ はい、できます。</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (

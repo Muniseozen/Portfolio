@@ -109,31 +109,50 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             {project.preview ? (
-              <a href={project.url} target="_blank" rel="noopener noreferrer" className="block group">
-                <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm transition-transform duration-300 group-hover:scale-[1.01]">
-                  <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
-                    <div className="flex gap-1.5">
-                      <div className="w-3 h-3 rounded-full bg-red-400/70" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
-                      <div className="w-3 h-3 rounded-full bg-green-400/70" />
-                    </div>
-                    <div className="flex-1 mx-2">
-                      <div className="bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate">
-                        {project.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                      </div>
-                    </div>
+              <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
+                <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400/70" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                    <div className="w-3 h-3 rounded-full bg-green-400/70" />
                   </div>
-                  <div className="max-h-[600px] overflow-hidden">
-                    <Image
-                      src={project.preview}
-                      alt={`${project.title} - Preview`}
-                      width={1920}
-                      height={3000}
-                      className="w-full h-auto"
-                    />
+                  <div className="flex-1 mx-2">
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate hover:text-zinc-600 transition-colors">
+                      {project.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </a>
                   </div>
                 </div>
-              </a>
+                <div className="max-h-[600px] overflow-y-auto">
+                  <Image
+                    src={project.preview}
+                    alt={`${project.title} - Preview`}
+                    width={1920}
+                    height={3000}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
+            ) : project.url ? (
+              <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
+                <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400/70" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
+                    <div className="w-3 h-3 rounded-full bg-green-400/70" />
+                  </div>
+                  <div className="flex-1 mx-2">
+                    <div className="bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate">
+                      {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                    </div>
+                  </div>
+                </div>
+                <iframe
+                  src={project.url}
+                  title={project.title}
+                  className="w-full h-[600px]"
+                  loading="lazy"
+                />
+              </div>
             ) : (
               <div className={`aspect-video rounded-3xl bg-gradient-to-br ${project.gradient} p-[1px]`}>
                 <div className="w-full h-full rounded-3xl bg-white/80 flex items-center justify-center">
@@ -264,7 +283,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       )}
 
       {/* Design Process */}
-      {project.thumbnail && (
+      {project.designProcess && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
@@ -273,7 +292,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               </h2>
               <div className="rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm">
                 <Image
-                  src={project.thumbnail}
+                  src={project.designProcess}
                   alt={`${project.title} - Design Process`}
                   width={1920}
                   height={1080}
@@ -292,13 +311,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="flex justify-between items-center">
               {prev ? (
                 <Link href={`/projects/${prev.slug}`} className="flex flex-col items-center gap-3 group">
-                  <motion.div
-                    animate={{ x: [0, -4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500"
-                  >
+                  <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
                     <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                  </motion.div>
+                  </div>
                   <span className="text-sm text-zinc-400 tracking-widest uppercase">Previous</span>
                 </Link>
               ) : (
@@ -306,13 +321,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               )}
               {next ? (
                 <Link href={`/projects/${next.slug}`} className="flex flex-col items-center gap-3 group">
-                  <motion.div
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                    className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500"
-                  >
+                  <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
                     <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </motion.div>
+                  </div>
                   <span className="text-sm text-zinc-400 tracking-widest uppercase">Next</span>
                 </Link>
               ) : (

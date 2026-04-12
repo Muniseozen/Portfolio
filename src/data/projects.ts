@@ -13,6 +13,7 @@ export interface Project {
   thumbnail?: string;
   url?: string;
   preview?: string;
+  designProcess?: string;
   duration: string;
   team: string;
   status: string;
@@ -38,9 +39,10 @@ export const projects: Project[] = [
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
-    thumbnail: "/images/projects/ynp-figma-grids.png",
+    thumbnail: "/images/projects/ynp-preview.png",
     url: "https://y-n-p.co.jp/",
     preview: "/images/projects/ynp-preview.png",
+    designProcess: "/images/projects/ynp-figma-grids.png",
     duration: "",
     team: "",
     status: "Completed",
@@ -61,22 +63,25 @@ export const projects: Project[] = [
     slug: "naitei-lp",
     num: "02",
     title: "内定者向けLP制作",
-    subtitle: "LP / UI・UX Design",
+    subtitle: "LP / UI・UX Design / Planning",
     description:
-      "内定者向けのランディングページを企画・デザイン。ターゲットに響く構成とビジュアルで情報を届けるLPに仕上げました。",
+      "内定者向けLPの企画・構成・コピーライティング・デザインを全て担当。ターゲットに響く情報設計で仕上げました。",
     longDescription:
-      "内定者向けの情報発信を目的としたランディングページをCanvaで制作しました。ターゲットである内定者の視点に立ち、必要な情報を直感的に伝えるレイアウトとビジュアルデザインを設計しています。",
-    role: "UI・UX Designer",
+      "内定者向けの情報発信を目的としたランディングページを企画からデザインまで一人で担当しました。LPの構成設計、キャッチコピー・文章の作成、ビジュアルデザインまで全て自分で考え、Canvaで制作。内定者が知りたい情報を整理し、直感的に伝わるレイアウトに仕上げています。",
+    role: "Planner / Copywriter / UI・UX Designer",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
     emoji: "&#x1F4C4;",
+    thumbnail: "/images/projects/naitei-lp-preview.png",
     url: "https://ynp-naitei.my.canva.site/lp",
+    preview: "/images/projects/naitei-lp-preview.png",
     duration: "",
     team: "",
     status: "Completed",
     category: "work",
     roleBreakdown: [
-      { title: "Design", tasks: ["LP構成・ワイヤーフレーム設計", "Canvaでのビジュアルデザイン・制作"] },
+      { title: "企画・構成", tasks: ["LPの全体構成・情報設計", "キャッチコピー・文章の作成"] },
+      { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ターゲットに合わせたトーン設計"] },
     ],
     challenges: [],
     screenshots: [],

@@ -7,19 +7,19 @@ import Link from "next/link";
 
 const works = [
   { src: "/images/design/sp-1.png", alt: "Design Work 1", width: 1880, height: 1576 },
-  { src: "/images/design/sp-2.png", alt: "Design Work 2", width: 1880, height: 1576 },
-  { src: "/images/design/sp-3.png", alt: "Design Work 3", width: 1880, height: 1576 },
-  { src: "/images/design/sp-4.png", alt: "Design Work 4", width: 1880, height: 1576 },
-  { src: "/images/design/sp-5.png", alt: "Design Work 5", width: 1880, height: 1576 },
-  { src: "/images/design/sp-6.png", alt: "Design Work 6", width: 1880, height: 1576 },
-  { src: "/images/design/sp-7.png", alt: "Design Work 7", width: 1880, height: 1576 },
-  { src: "/images/design/sp-8.png", alt: "Design Work 8", width: 1880, height: 1576 },
-  { src: "/images/design/sp-9.png", alt: "Design Work 9", width: 1880, height: 1576 },
-  { src: "/images/design/sp-10.png", alt: "Design Work 10", width: 1880, height: 1576 },
   { src: "/images/design/sp-11.png", alt: "Design Work 11", width: 1880, height: 1576 },
+  { src: "/images/design/sp-8.png", alt: "Design Work 8", width: 1880, height: 1576 },
   { src: "/images/design/sp-12.png", alt: "Design Work 12", width: 1880, height: 1576 },
-  { src: "/images/design/sp-13.png", alt: "Design Work 13", width: 1880, height: 1576 },
+  { src: "/images/design/sp-10.png", alt: "Design Work 10", width: 1880, height: 1576 },
+  { src: "/images/design/sp-9.png", alt: "Design Work 9", width: 1880, height: 1576 },
+  { src: "/images/design/sp-6.png", alt: "Design Work 6", width: 1880, height: 1576 },
   { src: "/images/design/sp-14.png", alt: "Design Work 14", width: 1880, height: 1576 },
+  { src: "/images/design/sp-7.png", alt: "Design Work 7", width: 1880, height: 1576 },
+  { src: "/images/design/sp-13.png", alt: "Design Work 13", width: 1880, height: 1576 },
+  { src: "/images/design/sp-5.png", alt: "Design Work 5", width: 1880, height: 1576 },
+  { src: "/images/design/sp-4.png", alt: "Design Work 4", width: 1880, height: 1576 },
+  { src: "/images/design/sp-3.png", alt: "Design Work 3", width: 1880, height: 1576 },
+  { src: "/images/design/sp-2.png", alt: "Design Work 2", width: 1880, height: 1576 },
   { src: "/images/design/sp-15.png", alt: "Design Work 15", width: 1880, height: 1576 },
 ];
 
@@ -41,9 +41,10 @@ export default function DesignWorks() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <h2 className="text-5xl md:text-6xl font-black tracking-tighter pr-2">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">Design Works</span>
           </h2>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">バナー・グラフィックなどのデザイン制作物です。</p>
         </motion.div>
 
         {/* Grid - 6枚のみ */}
@@ -58,7 +59,7 @@ export default function DesignWorks() {
               className="cursor-pointer group"
               onClick={() => setSelected(index)}
             >
-              <div className="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="rounded-xl overflow-hidden card-clickable transition-transform duration-300 group-hover:scale-[1.02]">
                 <Image
                   src={work.src}
                   alt={work.alt}
