@@ -4,26 +4,42 @@ import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
-const roles = ["PM / プロダクトマネージャー", "UI/UX デザイナー", "フロントエンドエンジニア", "フルスタック開発者", "モバイルアプリ開発者"];
+const roles = ["PM/プロダクトマネージャー", "UI/UX デザイナー", "フロントエンドエンジニア"];
 
-function useTypingAnimation(texts: string[], typingSpeed = 80, deleteSpeed = 40, pauseTime = 2000) {
+function useTypingAnimation(texts: string[], typingSpeed = 70, deleteSpeed = 30, pauseTime = 2000) {
   const [displayText, setDisplayText] = useState("");
   const [textIndex, setTextIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) {
+      const pause = setTimeout(() => { setIsPaused(false); setIsDeleting(true); }, pauseTime);
+      return () => clearTimeout(pause);
+    }
+
     const current = texts[textIndex];
+    let delay: number;
+
+    if (isDeleting) {
+      delay = deleteSpeed + Math.random() * 15;
+    } else {
+      delay = typingSpeed + Math.random() * 40;
+    }
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
-        setDisplayText(current.slice(0, displayText.length + 1));
-        if (displayText.length === current.length) setTimeout(() => setIsDeleting(true), pauseTime);
+        const next = current.slice(0, displayText.length + 1);
+        setDisplayText(next);
+        if (next.length === current.length) setIsPaused(true);
       } else {
-        setDisplayText(current.slice(0, displayText.length - 1));
-        if (displayText.length === 0) { setIsDeleting(false); setTextIndex((prev) => (prev + 1) % texts.length); }
+        const next = current.slice(0, displayText.length - 1);
+        setDisplayText(next);
+        if (next.length === 0) { setIsDeleting(false); setTextIndex((prev) => (prev + 1) % texts.length); }
       }
-    }, isDeleting ? deleteSpeed : typingSpeed);
+    }, delay);
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, textIndex, texts, typingSpeed, deleteSpeed, pauseTime]);
+  }, [displayText, isDeleting, isPaused, textIndex, texts, typingSpeed, deleteSpeed, pauseTime]);
 
   return displayText;
 }
