@@ -13,6 +13,7 @@ export interface Project {
   thumbnail?: string;
   url?: string;
   preview?: string;
+  previewType?: "web" | "mobile";
   designProcess?: string;
   designSystem?: string;
   prototype?: string;
@@ -153,22 +154,27 @@ export const projects: Project[] = [
     slug: "mochibo",
     num: "01",
     title: "Mochibo",
-    subtitle: "iOS / UI・UX Design",
+    subtitle: "iOS / Language Learning App",
     description:
-      "個人開発のiOSアプリ。UI/UXデザインからSwift実装、Firebaseバックエンドまで一人で構築。",
+      "「餅」+「語」= Mochibo。単語帳・フラッシュカード・練習モードを搭載した多言語対応の語学学習iOSアプリ。",
     longDescription:
-      "個人プロジェクトとして企画・デザイン・開発を一人で手がけたiOSアプリです。FigmaでUI/UXデザインを行い、SwiftUIで実装。バックエンドはFirebaseを活用しています。",
-    role: "UI・UX Designer / iOS Dev",
-    tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "Firebase"],
+      "多言語対応の語学学習iOSアプリを個人で企画・デザイン・開発しました。ユーザーは複数の単語帳を作成し、フレーズ（原文＋翻訳）を登録して、フリップカード形式の練習モードで効率的に学習できます。Firebase AuthenticationとCloud Firestoreによるユーザー認証・リアルタイムデータ同期を実装。UIは日本語・英語・トルコ語の3言語に対応し、抹茶カラーをベースにした可愛いもちキャラクターがユーザーをナビゲートするデザインに仕上げました。",
+    role: "PM / UI・UX Designer / iOS Dev",
+    tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "Firebase Auth", "Cloud Firestore"],
     gradient: "from-[#9b2c5a] via-[#b84468] to-[#d4567e]",
     emoji: "&#x1F4F1;",
+    thumbnail: "/images/projects/mochibo-preview.png",
+    url: "https://github.com/Muniseozen/Mochibo",
+    preview: "/images/projects/mochibo-preview.png",
+    previewType: "mobile",
     duration: "",
     team: "1 member",
-    status: "Completed",
+    status: "In Development",
     category: "personal",
     roleBreakdown: [
-      { title: "UI/UX Design", tasks: ["Figmaでのアプリ全体のUI設計"] },
-      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "Firebaseバックエンドの構築"] },
+      { title: "企画", tasks: ["アプリコンセプト・機能設計", "多言語対応（日本語・英語・トルコ語）の設計"] },
+      { title: "UI/UX Design", tasks: ["抹茶カラーのデザインシステム構築", "もちキャラクターのデザイン・アニメーション設計", "単語帳・練習モードのユーザーフロー設計"] },
+      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "Firebase Authentication によるユーザー認証", "Cloud Firestore でのリアルタイムデータ同期", "フリップカード・スワイプ操作の実装"] },
     ],
     challenges: [],
     screenshots: [],
@@ -178,21 +184,26 @@ export const projects: Project[] = [
     slug: "earthquect",
     num: "02",
     title: "Earthquect",
-    subtitle: "Web App / UI・UX Design",
+    subtitle: "Web App / Real-time Earthquake Monitor",
     description:
-      "トルコ語の地震情報Webアプリ。Next.jsで構築した個人プロジェクト。",
+      "トルコの地震をリアルタイムで監視するWebアプリ。AFAD APIを活用し、地震情報・断層マップ・避難場所・防災ガイドを提供。トルコ語/英語対応。",
     longDescription:
-      "トルコ語で地震情報を提供するWebアプリケーションを個人プロジェクトとしてNext.jsで開発しました。",
+      "トルコは日本と同じく地震大国でありながら、日本のYahoo!防災速報のような、地震情報をリアルタイムで確認できる一般向けサービスがほとんどありません。防災意識や対策も日本に比べて十分とは言えない現状があります。「自分の国にも、誰でもすぐ使える防災ツールがあるべきだ」という思いから、既存サービスの調査・利用可能なAPIのリサーチ・情報設計を自分で行い、このプロジェクトを立ち上げました。AFAD（トルコ災害緊急事態管理庁）のAPIをメインデータソースとし、USGS（米国地質調査所）をフォールバックとして使用。直近30日間の地震データを30秒間隔で自動更新し、マグニチュード別に色分けされたインタラクティブマップ上に表示します。トルコの主要断層線（北アナトリア断層・東アナトリア断層）の可視化、避難場所情報、防災ガイドなども搭載。UIはトルコ語と英語に対応し、ブラウザ言語を自動検出します。",
     role: "UI・UX Designer / Full-stack Dev",
-    tech: ["UI/UX Design", "Next.js", "TypeScript", "React"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Leaflet", "i18next", "Axios"],
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
     emoji: "&#x1F30D;",
+    thumbnail: "/images/projects/earthquect-preview.png",
+    preview: "/images/projects/earthquect-preview.png",
+    designProcess: "/images/projects/earthquect-faultlines.png",
     duration: "",
     team: "1 member",
-    status: "Completed",
+    status: "In Development",
     category: "personal",
     roleBreakdown: [
-      { title: "Design & Development", tasks: ["UI設計", "Next.jsでのフルスタック実装"] },
+      { title: "企画・設計", tasks: ["防災情報アプリのコンセプト設計", "AFAD/USGS APIの調査とデータ設計"] },
+      { title: "UI/UX Design", tasks: ["マグニチュード別カラーコーディング設計", "インタラクティブマップのUX設計", "レスポンシブ対応（モバイル・タブレット・デスクトップ）"] },
+      { title: "Frontend", tasks: ["React + Vite でのSPA構築", "Leafletでのマップ・断層線・地震マーカー実装", "i18nextによるトルコ語/英語の多言語対応", "AFAD APIからのリアルタイムデータ取得（30秒自動更新）"] },
     ],
     challenges: [],
     screenshots: [],

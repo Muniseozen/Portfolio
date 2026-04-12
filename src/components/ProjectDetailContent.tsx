@@ -110,7 +110,33 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            {project.preview ? (
+            {project.preview && project.previewType === "mobile" ? (
+              <div className="flex justify-center">
+                <div className="relative w-[280px] md:w-[320px]">
+                  {/* Phone frame */}
+                  <div className="rounded-[3rem] border-[6px] border-zinc-900 bg-zinc-900 shadow-2xl overflow-hidden">
+                    {/* Notch */}
+                    <div className="relative bg-zinc-900 flex justify-center pt-2 pb-1">
+                      <div className="w-28 h-6 bg-zinc-900 rounded-full" />
+                    </div>
+                    {/* Screen */}
+                    <div className="bg-white overflow-hidden">
+                      <Image
+                        src={project.preview}
+                        alt={`${project.title} - Preview`}
+                        width={390}
+                        height={844}
+                        className="w-full h-auto"
+                      />
+                    </div>
+                    {/* Bottom bar */}
+                    <div className="bg-zinc-900 flex justify-center py-2">
+                      <div className="w-28 h-1 bg-zinc-600 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : project.preview ? (
               <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
                 <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
                   <div className="flex gap-1.5">
