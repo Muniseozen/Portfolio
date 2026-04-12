@@ -11,6 +11,8 @@ export interface Project {
   gradient: string;
   emoji: string;
   thumbnail?: string;
+  url?: string;
+  preview?: string;
   duration: string;
   team: string;
   status: string;
@@ -31,20 +33,27 @@ export const projects: Project[] = [
     description:
       "自社コーポレートサイトのリニューアルとブランディングを担当。デザインからコーディングまで一貫して対応。",
     longDescription:
-      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクト。ブランドイメージの刷新からFigmaでのデザイン、HTML/CSS/JavaScriptでの実装、WordPressでの構築まで一貫して担当しました。",
+      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクト。ブランドイメージの刷新からFigmaでのUI/UXデザインを担当し、フロントエンド実装のコードレビューとWordPress構築のディレクションを行いました。",
     role: "UI・UX Designer / Frontend Dev",
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
+    thumbnail: "/images/projects/ynp-figma-grids.png",
+    url: "https://y-n-p.co.jp/",
+    preview: "/images/projects/ynp-preview.png",
     duration: "",
     team: "",
     status: "Completed",
     category: "work",
     roleBreakdown: [
       { title: "Design", tasks: ["Figmaでのワイヤーフレーム・UIデザイン", "レスポンシブデザインの設計"] },
-      { title: "Frontend", tasks: ["HTML/CSS/JSでのコーディング", "WordPressテーマの構築・カスタマイズ"] },
+      { title: "Frontend", tasks: ["HTML/CSS/JSのコードレビュー", "WordPressテーマのディレクション"] },
     ],
-    challenges: [],
+    challenges: [
+      { problem: "ページ数・情報量が少なく、企業の魅力が十分に伝わっていなかった", solution: "事業内容・実績・採用情報などのページを新設し、訪問者が知りたい情報にアクセスしやすい構成に再設計" },
+      { problem: "キャッチコピーが企業の目的やビジョンと合っていなかった", solution: "ヒアリングを重ね、企業の強みとターゲットに刺さるメッセージを策定。ファーストビューで明確に伝わるコピーに刷新" },
+      { problem: "余白が多く、コンテンツが少ない印象で信頼感に欠けていた", solution: "適切な余白バランスとビジュアル要素を配置し、プロフェッショナルで信頼感のあるデザインに改善" },
+    ],
     screenshots: [],
   },
   {
@@ -61,6 +70,7 @@ export const projects: Project[] = [
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
     emoji: "&#x1F4C4;",
+    url: "https://ynp-naitei.my.canva.site/lp",
     duration: "",
     team: "",
     status: "Completed",

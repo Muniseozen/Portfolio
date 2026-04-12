@@ -25,7 +25,7 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
           }`}
       />
       <span
-        className={`absolute left-1/2 -translate-x-1/2 -top-6 text-[11px] font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"
+        className={`absolute left-1/2 -translate-x-1/2 -top-6 text-sm font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"
           }`}
       >
         {date}
@@ -47,7 +47,7 @@ function PhaseCard({ phase }: { phase: CareerPhase }) {
           }`}
       >
         <div className="flex flex-wrap items-center gap-2 mb-1">
-          <h3 className={`font-bold text-zinc-900 ${isHero ? "text-sm md:text-base" : "text-xs md:text-sm"}`}>
+          <h3 className="font-bold text-zinc-900 text-sm">
             {phase.title}
           </h3>
           {isCurrent && (
@@ -60,20 +60,20 @@ function PhaseCard({ phase }: { phase: CareerPhase }) {
             </span>
           )}
         </div>
-        <p className="text-xs text-[#d4567e] font-medium mb-2">{phase.role}</p>
-        <p className={`text-zinc-500 leading-relaxed ${isHero ? "text-xs" : "text-[11px]"}`}>
+        <p className="text-sm text-[#d4567e] font-medium mb-2">{phase.role}</p>
+        <p className="text-sm text-zinc-500 leading-relaxed">
           {phase.description}
         </p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {phase.highlights.map((h) => (
-            <span key={h} className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
+            <span key={h} className="text-sm px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
               {h}
             </span>
           ))}
         </div>
         <div className="mt-2.5 flex flex-wrap gap-1.5">
           {phase.tech.map((t) => (
-            <span key={t} className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
+            <span key={t} className="text-sm px-2 py-0.5 rounded-md font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
               {t}
             </span>
           ))}
@@ -88,19 +88,19 @@ function PhaseCard({ phase }: { phase: CareerPhase }) {
 function ConcurrentCard({ project }: { project: ConcurrentProject }) {
   return (
     <div className="card-dark rounded-2xl p-4 md:p-5 border-r-4 border-r-[#e88560]">
-      <h3 className="font-bold text-zinc-900 text-sm md:text-base mb-1">{project.title}</h3>
-      <p className="text-xs text-[#e88560] font-medium mb-2">{project.role}</p>
-      <p className="text-xs text-zinc-500 leading-relaxed">{project.description}</p>
+      <h3 className="font-bold text-zinc-900 text-sm mb-1">{project.title}</h3>
+      <p className="text-sm text-[#e88560] font-medium mb-2">{project.role}</p>
+      <p className="text-sm text-zinc-500 leading-relaxed">{project.description}</p>
       <div className="mt-3 flex flex-wrap gap-1.5">
         {project.highlights.map((h) => (
-          <span key={h} className="text-[11px] px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
+          <span key={h} className="text-sm px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
             {h}
           </span>
         ))}
       </div>
       <div className="mt-2.5 flex flex-wrap gap-1.5">
         {project.tech.map((t) => (
-          <span key={t} className="text-[11px] px-2 py-0.5 rounded-md font-mono bg-[#e88560]/5 text-[#e88560] border border-[#e88560]/10">
+          <span key={t} className="text-sm px-2 py-0.5 rounded-md font-mono bg-[#e88560]/5 text-[#e88560] border border-[#e88560]/10">
             {t}
           </span>
         ))}
@@ -261,7 +261,7 @@ export default function Career() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">Career</span>
           </h2>
-          <p className="text-zinc-500 text-lm max-w-xl">
+          <p className="text-zinc-500 text-sm max-w-xl">
             テスターから開発リードへ。4年間の成長軌跡。
           </p>
         </motion.div>

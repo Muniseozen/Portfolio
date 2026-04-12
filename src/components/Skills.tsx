@@ -6,7 +6,7 @@ import { certifications } from "@/data/career";
 
 const toolCategories: { title: string; tools: { name: string; logo: string }[] }[] = [
   {
-    title: "デザイン",
+    title: "UI/UX Design",
     tools: [
       { name: "Figma", logo: "/images/tools/figma.png" },
       { name: "Photoshop", logo: "/images/tools/photoshop.png" },
@@ -14,7 +14,7 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
     ],
   },
   {
-    title: "開発",
+    title: "Development Tools",
     tools: [
       { name: "VS Code", logo: "/images/tools/vscode.png" },
       { name: "Xcode", logo: "/images/tools/xcode.png" },
@@ -22,7 +22,7 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
     ],
   },
   {
-    title: "PM / コラボ",
+    title: "PM/Collaboration",
     tools: [
       { name: "Lark", logo: "/images/tools/lark.png" },
       { name: "Slack", logo: "/images/tools/slack.png" },
@@ -31,7 +31,7 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
     ],
   },
   {
-    title: "管理",
+    title: "Version Control",
     tools: [
       { name: "GitHub", logo: "/images/tools/github.png" },
       { name: "BitBucket", logo: "/images/tools/bitbucket.png" },
@@ -40,11 +40,11 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
 ];
 
 const skillCategories = [
-  { title: "UI / UX Design", icon: "~ *", tagline: "設計して作って検証する", skills: ["UI Design", "UX Research", "Prototyping", "Design System", "Figma"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
-  { title: "Frontend", icon: "{ }", tagline: "UIを作るのが一番好き", skills: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
-  { title: "Mobile", icon: "[ ]", tagline: "ネイティブもクロスも対応", skills: ["iOS (Swift)", "Android (Kotlin)", "Flutter"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
-  { title: "Backend", icon: "> _", tagline: "API設計から DB まで", skills: ["Node.js", "MySQL", "Firebase", "REST API"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
-  { title: "Product / PM", icon: "# +", tagline: "チームを回すのも得意", skills: ["Agile / Scrum", "要件定義", "Git / GitHub", "CI/CD"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
+  { title: "UI / UX Design", icon: "~ *", tagline: "体験設計からUI設計まで", skills: ["UI Design", "UX Research", "Prototyping", "Design System", "Figma"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
+  { title: "Frontend", icon: "{ }", tagline: "UIの実装とインタラクション設計", skills: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "Mobile", icon: "[ ]", tagline: "ネイティブ・クロスプラットフォーム開発", skills: ["iOS (Swift)", "Android (Kotlin)", "Flutter"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
+  { title: "Backend", icon: "> _", tagline: "API連携とデータの取得・表示", skills: ["Node.js", "MySQL", "Firebase", "REST API"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
+  { title: "Product / PM", icon: "# +", tagline: "要件定義と開発推進管理", skills: ["Agile / Scrum", "要件定義", "Git / GitHub", "CI/CD"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
 ];
 
 export default function Skills() {
@@ -53,7 +53,7 @@ export default function Skills() {
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
-          <p className="text-zinc-500 text-lm max-w-xl">「それ、全部ひとりでできますか？」→ はい、できます。</p>
+          <p className="text-zinc-500 text-sm max-w-xl">「それ、全部ひとりでできますか？」→ はい、できます。</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
@@ -65,7 +65,7 @@ export default function Skills() {
                 <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-[9px] font-mono font-bold text-white`}>{category.icon}</div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 leading-tight">{category.title}</h3>
-                  <span className="text-[11px] text-zinc-400">{category.tagline}</span>
+                  <span className="text-sm text-zinc-400">{category.tagline}</span>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">
@@ -97,7 +97,7 @@ export default function Skills() {
               transition={{ duration: 0.4, delay: catIndex * 0.06 }}
               className="card-dark rounded-xl p-4 flex-1 min-w-[140px]"
             >
-              <p className="text-[11px] font-mono text-zinc-400 mb-3">{category.title}</p>
+              <p className="text-[12px] font-mono text-zinc-400 mb-3">{category.title}</p>
               <div className="flex flex-wrap gap-4 justify-start">
                 {category.tools.map((tool) => (
                   <div key={tool.name} className="flex flex-col items-center gap-1.5 w-14">

@@ -27,8 +27,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-baseline gap-2 mb-0.5">
-                <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">{project.num}</span>
-                <span className="text-xs font-mono uppercase tracking-widest text-zinc-400">{project.subtitle}</span>
+                <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">{project.num}</span>
+                <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">{project.subtitle}</span>
               </div>
               <h3 className="text-base font-bold tracking-tight text-zinc-900 leading-tight mb-1">{project.title}</h3>
               <p className="text-sm text-zinc-400">{project.role}</p>
@@ -37,7 +37,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </div>
           <div className="flex flex-wrap gap-1.5 mt-3">
             {project.tech.map((t) => (
-              <span key={t} className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{t}</span>
+              <span key={t} className="px-2.5 py-0.5 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{t}</span>
             ))}
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Projects() {
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Projects</span></h2>
-          <p className="text-zinc-500 text-lm max-w-xl">企画からデザイン、実装まで。何よりも先に手を動かす。</p>
+          <p className="text-zinc-500 text-sm max-w-xl">企画からデザイン、実装まで。何よりも先に手を動かす。</p>
         </motion.div>
 
         {/* Selected Work */}

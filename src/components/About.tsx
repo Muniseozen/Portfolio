@@ -96,7 +96,7 @@ export default function About() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">About</span>
           </h2>
-          <p className="text-zinc-500 text-lm max-w-xl">
+          <p className="text-zinc-500 text-sm max-w-xl">
             戦略からデザイン、実装まで。
           </p>
         </motion.div>

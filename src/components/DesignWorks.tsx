@@ -87,7 +87,7 @@ export default function DesignWorks() {
             >
               <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </motion.div>
-            <span className="text-xs text-zinc-400 tracking-widest uppercase">View All</span>
+            <span className="text-sm text-zinc-400 tracking-widest uppercase">View All</span>
           </Link>
         </motion.div>
       </div>
