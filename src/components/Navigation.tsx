@@ -10,7 +10,6 @@ const navLinks = [
   { href: "#career", label: "Career" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
 ];
 
 interface NavigationProps {

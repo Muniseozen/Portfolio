@@ -46,8 +46,8 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
     >
       <div
         className={`w-4 h-4 rounded-full border-[3px] ${isCurrent
-            ? "border-emerald-500 bg-emerald-100"
-            : "border-[#d4567e] bg-white"
+          ? "border-emerald-500 bg-emerald-100"
+          : "border-[#d4567e] bg-white"
           }`}
       />
       <span
@@ -288,7 +288,7 @@ export default function Career() {
             <span className="gradient-text">Career</span>
           </h2>
           <p className="text-zinc-500 text-sm max-w-xl">
-            テスターから開発リードへ。3年間の成長軌跡。
+            テスターから開発リードへ。4年間の成長軌跡。
           </p>
         </motion.div>
 
@@ -324,7 +324,7 @@ export default function Career() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-16"
         >
-          <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-6 text-center">
+          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400 mb-6 text-center">
             Certifications
           </h3>
           <div className="grid grid-cols-3 gap-4">

@@ -1,13 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+const toolCategories: { title: string; tools: { name: string; logo: string }[] }[] = [
+  {
+    title: "デザイン",
+    tools: [
+      { name: "Figma", logo: "/images/tools/figma.png" },
+      { name: "Photoshop", logo: "/images/tools/photoshop.png" },
+      { name: "Canva", logo: "/images/tools/canva.png" },
+    ],
+  },
+  {
+    title: "開発",
+    tools: [
+      { name: "VS Code", logo: "/images/tools/vscode.png" },
+      { name: "Xcode", logo: "/images/tools/xcode.png" },
+      { name: "Android Studio", logo: "/images/tools/android-studio.png" },
+    ],
+  },
+  {
+    title: "PM / コラボ",
+    tools: [
+      { name: "Lark", logo: "/images/tools/lark.png" },
+      { name: "Slack", logo: "/images/tools/slack.png" },
+      { name: "Backlog", logo: "/images/tools/backlog.png" },
+      { name: "Teams", logo: "/images/tools/teams.png" },
+    ],
+  },
+  {
+    title: "管理",
+    tools: [
+      { name: "GitHub", logo: "/images/tools/github.png" },
+      { name: "BitBucket", logo: "/images/tools/bitbucket.png" },
+    ],
+  },
+];
 
 const skillCategories = [
-  { title: "Frontend", icon: "{ }", tagline: "UIを作るのが一番好き", skills: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS", "HTML/CSS"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
-  { title: "Mobile", icon: "[ ]", tagline: "ネイティブもクロスも対応", skills: ["React Native", "Flutter", "iOS (Swift)", "Android (Kotlin)"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
-  { title: "Backend", icon: "> _", tagline: "API設計から DB まで", skills: ["Node.js", "Express", "PostgreSQL", "Firebase", "REST API", "GraphQL"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
-  { title: "Design", icon: "~ *", tagline: "設計して作って検証する", skills: ["Figma", "UI Design", "UX Research", "Prototyping", "Design System"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
-  { title: "PM / Other", icon: "# +", tagline: "チームを回すのも得意", skills: ["Agile / Scrum", "要件定義", "Wireframing", "Git / GitHub", "CI/CD", "Vercel"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
+  { title: "UI / UX Design", icon: "~ *", tagline: "設計して作って検証する", skills: ["UI Design", "UX Research", "Prototyping", "Design System", "Figma"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
+  { title: "Frontend", icon: "{ }", tagline: "UIを作るのが一番好き", skills: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "Mobile", icon: "[ ]", tagline: "ネイティブもクロスも対応", skills: ["iOS (Swift)", "Android (Kotlin)", "Flutter"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
+  { title: "Backend", icon: "> _", tagline: "API設計から DB まで", skills: ["Node.js", "MySQL", "Firebase", "REST API"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
+  { title: "Product / PM", icon: "# +", tagline: "チームを回すのも得意", skills: ["Agile / Scrum", "要件定義", "Git / GitHub", "CI/CD"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
 ];
 
 export default function Skills() {
@@ -34,6 +70,41 @@ export default function Skills() {
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {category.skills.map((skill) => (
                   <span key={skill} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Tools */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 mb-6"
+        >
+          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Tools</h3>
+        </motion.div>
+        <div className="flex flex-wrap gap-4">
+          {toolCategories.map((category, catIndex) => (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: catIndex * 0.06 }}
+              className="card-dark rounded-xl p-4 flex-1 min-w-[140px]"
+            >
+              <p className="text-[11px] font-mono text-zinc-400 mb-3">{category.title}</p>
+              <div className="flex flex-wrap gap-4 justify-start">
+                {category.tools.map((tool) => (
+                  <div key={tool.name} className="flex flex-col items-center gap-1.5 w-14">
+                    <div className="w-11 h-11 rounded-lg bg-white/90 border border-black/[0.06] shadow-sm flex items-center justify-center p-1.5">
+                      <Image src={tool.logo} alt={tool.name} width={28} height={28} className="object-contain" />
+                    </div>
+                    <span className="text-[9px] text-zinc-500 text-center leading-tight">{tool.name}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>

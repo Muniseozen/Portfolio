@@ -320,13 +320,6 @@ export default function Hero() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
           {/* Left: Text Content */}
           <div className="flex-1 lg:min-w-[480px]">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex items-center gap-2 mb-5">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
-              </span>
-              <span className="text-sm text-zinc-500">Available for work</span>
-            </motion.div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-5">
               <span className="block text-zinc-900">
@@ -351,9 +344,9 @@ export default function Hero() {
             </motion.div>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-500 max-w-xl leading-relaxed mb-8">
-              女性ならではの感性を用いたUI/UXと、確かな技術力。<br />
-              実装の裏付けがあるデザインで、アイデアを迷いなく形にします。<br />
-              貴社のビジョンに深く寄り添い、共にプロダクトを育てる開発を。
+              ユーザーの感情や体験に寄り添ったUI/UXと、<br />
+              実装まで見据えたデザインで、アイデアを形にすることが好きです。<br />
+              チームと共にプロダクトを育てていく開発を大切にしています。
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.6 }} className="flex flex-wrap items-center gap-4">

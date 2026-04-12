@@ -13,6 +13,7 @@ export interface Project {
   duration: string;
   team: string;
   status: string;
+  category: "work" | "personal";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
   screenshots: string[];
@@ -36,6 +37,7 @@ export const projects: Project[] = [
     duration: "6 months",
     team: "3 members",
     status: "Completed",
+    category: "work",
     roleBreakdown: [
       {
         title: "Project Management",
@@ -95,6 +97,7 @@ export const projects: Project[] = [
     duration: "8 months",
     team: "5 members",
     status: "Completed",
+    category: "work",
     roleBreakdown: [
       {
         title: "Project Management",
@@ -154,6 +157,7 @@ export const projects: Project[] = [
     duration: "10 months",
     team: "4 members",
     status: "Completed",
+    category: "personal",
     roleBreakdown: [
       {
         title: "Project Management",
