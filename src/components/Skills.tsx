@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { certifications } from "@/data/career";
 
 const toolCategories: { title: string; tools: { name: string; logo: string }[] }[] = [
   {
@@ -48,7 +49,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
@@ -107,6 +108,34 @@ export default function Skills() {
                   </div>
                 ))}
               </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-12 mb-4"
+        >
+          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Certifications</h3>
+        </motion.div>
+        <div className="grid grid-cols-3 gap-3">
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={cert.name}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="card-dark rounded-xl p-5 text-center"
+            >
+              <p className="text-sm font-medium text-zinc-900 leading-tight">{cert.name}</p>
+              {cert.detail && (
+                <p className="text-xs text-zinc-400 mt-1">{cert.detail}</p>
+              )}
             </motion.div>
           ))}
         </div>

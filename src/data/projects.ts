@@ -10,6 +10,7 @@ export interface Project {
   tech: string[];
   gradient: string;
   emoji: string;
+  thumbnail?: string;
   duration: string;
   team: string;
   status: string;
@@ -20,184 +21,183 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ── Selected Work ──
   {
     id: 1,
-    slug: "corporate-website",
+    slug: "homepage",
     num: "01",
-    title: "Corporate Website\n& Landing Pages",
+    title: "ホームページ制作",
     subtitle: "Web Design / Frontend",
     description:
-      "クライアント企業のコーポレートサイトとLPをまるっと担当。ブランドの世界観を壊さず、ちゃんと成果が出るデザインを追求しました。",
+      "クライアント企業のホームページをデザインからコーディングまで一貫して担当。ブランドの世界観を大切にしながら、成果につながるサイトを制作しました。",
     longDescription:
-      "複数のクライアント企業に対して、コーポレートサイトとランディングページの企画・デザイン・実装を一貫して担当しました。ブランドガイドラインを深く理解した上で、コンバージョン率の向上を意識したUI設計を行い、A/Bテストを通じて継続的に改善。レスポンシブ対応はもちろん、Core Web Vitalsの最適化にも注力し、パフォーマンスとUXの両立を実現しました。",
-    role: "PM / Designer / Frontend Dev",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Figma"],
+      "クライアント企業のホームページをFigmaでデザインし、HTML/CSS/JavaScriptで実装。WordPressでの構築も対応し、クライアントが自分で更新できる運用体制まで整えました。ブランドガイドラインを理解した上で、レスポンシブ対応やパフォーマンス最適化にも注力しています。",
+    role: "Designer / Frontend Dev",
+    tech: ["Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
-    duration: "6 months",
-    team: "3 members",
+    duration: "",
+    team: "",
     status: "Completed",
     category: "work",
     roleBreakdown: [
-      {
-        title: "Project Management",
-        tasks: [
-          "クライアントとの要件定義・スケジュール管理",
-          "デザインレビューとフィードバックサイクルの運用",
-          "チーム間のコミュニケーションハブとしての役割",
-        ],
-      },
-      {
-        title: "Design",
-        tasks: [
-          "ブランドガイドラインに基づいたUIデザイン",
-          "ワイヤーフレーム・プロトタイプ作成（Figma）",
-          "レスポンシブデザインの設計",
-        ],
-      },
-      {
-        title: "Frontend Development",
-        tasks: [
-          "Next.js + TypeScriptでの実装",
-          "Tailwind CSSによるスタイリング",
-          "Core Web Vitalsの最適化",
-        ],
-      },
+      { title: "Design", tasks: ["Figmaでのワイヤーフレーム・UIデザイン", "レスポンシブデザインの設計"] },
+      { title: "Frontend", tasks: ["HTML/CSS/JSでのコーディング", "WordPressテーマの構築・カスタマイズ"] },
     ],
-    challenges: [
-      {
-        problem:
-          "ブランドの世界観を維持しながらコンバージョン率を向上させる必要があった",
-        solution:
-          "A/Bテストを実施し、デザインの美しさとCTA配置のバランスを数値で検証。ブランドカラーを活かしたCTAデザインで両立を達成",
-      },
-      {
-        problem:
-          "複数のLP間でデザインの一貫性を保ちつつ、各ページの目的に合わせたカスタマイズが必要だった",
-        solution:
-          "共通のデザインシステムとコンポーネントライブラリを構築し、再利用可能なパーツで効率的にページを量産",
-      },
-    ],
+    challenges: [],
     screenshots: [],
   },
   {
     id: 2,
-    slug: "hr-matching-platform",
+    slug: "naitei-lp",
     num: "02",
-    title: "HR Matching\nPlatform",
-    subtitle: "Mobile App & Web Admin",
+    title: "内定者LP制作",
+    subtitle: "Landing Page / Canva",
     description:
-      "求職者と企業をつなぐマッチングアプリ。スマホアプリとWeb管理画面の両方を設計・開発。「使いやすい」を何度も検証して磨きました。",
+      "内定者向けのランディングページをCanvaで制作。ターゲットに響くビジュアルと構成で、情報をわかりやすく届けるLPに仕上げました。",
     longDescription:
-      "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。求職者側はReact NativeによるクロスプラットフォームアプリでiOS/Androidに対応し、企業側はReactベースのWeb管理画面で求人管理・応募者管理を行えるようにしました。UXリサーチとユーザビリティテストを繰り返し、直感的に使える操作フローを実現しています。",
-    role: "PM / UI&UX Designer / Developer",
-    tech: ["React Native", "React", "Node.js", "PostgreSQL"],
-    gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
-    emoji: "&#x1F91D;",
-    duration: "8 months",
-    team: "5 members",
+      "内定者向けの情報発信を目的としたランディングページをCanvaで制作しました。ターゲットである内定者の視点に立ち、必要な情報を直感的に伝えるレイアウトとビジュアルデザインを設計しています。",
+    role: "Designer",
+    tech: ["Canva"],
+    gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
+    emoji: "&#x1F4C4;",
+    duration: "",
+    team: "",
     status: "Completed",
     category: "work",
     roleBreakdown: [
-      {
-        title: "Project Management",
-        tasks: [
-          "プロダクトロードマップの策定",
-          "スプリント計画とタスク管理",
-          "ステークホルダーへの進捗報告",
-        ],
-      },
-      {
-        title: "UI/UX Design",
-        tasks: [
-          "ユーザーリサーチとペルソナ設計",
-          "ユーザーフロー・ワイヤーフレーム作成",
-          "ユーザビリティテストの実施と改善",
-        ],
-      },
-      {
-        title: "Development",
-        tasks: [
-          "React Nativeでのモバイルアプリ実装",
-          "Reactでの管理画面実装",
-          "Node.js + PostgreSQLのAPI設計・実装",
-        ],
-      },
+      { title: "Design", tasks: ["LP構成・ワイヤーフレーム設計", "Canvaでのビジュアルデザイン・制作"] },
     ],
-    challenges: [
-      {
-        problem:
-          "求職者と企業の双方にとって使いやすいマッチングロジックの設計",
-        solution:
-          "ユーザーインタビューを重ね、スキル・希望条件・カルチャーフィットの3軸でスコアリングするアルゴリズムを設計",
-      },
-      {
-        problem:
-          "モバイルとWebで一貫したUXを提供しながら、各プラットフォームの特性を活かす必要があった",
-        solution:
-          "共通のデザイントークンとコンポーネント設計を基盤に、プラットフォーム固有のインタラクションパターンを適用",
-      },
-    ],
+    challenges: [],
     screenshots: [],
   },
   {
     id: 3,
-    slug: "influencer-resale-app",
+    slug: "hr-matching-mobile",
     num: "03",
-    title: "Influencer\nResale App",
-    subtitle: "Mobile App",
+    title: "人材マッチングアプリ",
+    subtitle: "Mobile App / iOS",
     description:
-      "インフルエンサーが自分のブランドで中古品を販売できるアプリ。出品から決済まで完結する体験と、各インフルエンサーの個性が出るUIを実現。",
+      "求職者と企業をつなぐiOSマッチングアプリ。UI/UXデザインからSwiftでの実装、AWS基盤構築、PMまで一気通貫で担当しリリース。",
     longDescription:
-      "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるC2Cプラットフォームを開発しました。各インフルエンサーのショップページは個別にカスタマイズ可能で、出品・購入・決済までアプリ内で完結する体験を設計。Stripeを活用した安全な決済フローと、Firebaseによるリアルタイム在庫管理を実装し、スケーラブルなアーキテクチャを実現しています。",
+      "求職者と企業をスムーズにマッチングさせるiOSアプリを、企画からリリースまで担当しました。Figmaでの UI/UXデザイン、SwiftUIでのフロントエンド実装、AWSを活用したサーバーレスバックエンドの構築まで幅広くカバー。PMとしてチームをリードしながら、ユーザビリティテストを繰り返して使いやすさを追求しました。",
+    role: "PM / UI&UX Designer / iOS Dev",
+    tech: ["Figma", "Swift", "SwiftUI", "AWS"],
+    gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
+    emoji: "&#x1F91D;",
+    duration: "",
+    team: "5 members",
+    status: "Released",
+    category: "work",
+    roleBreakdown: [
+      { title: "PM", tasks: ["プロダクトロードマップの策定", "スプリント計画とチームマネジメント"] },
+      { title: "UI/UX Design", tasks: ["Figmaでのユーザーフロー・UI設計", "ユーザビリティテストの実施と改善"] },
+      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "AWSバックエンドとの連携"] },
+    ],
+    challenges: [],
+    screenshots: [],
+  },
+  {
+    id: 4,
+    slug: "hr-matching-web",
+    num: "04",
+    title: "人材マッチング\nWeb ダッシュボード",
+    subtitle: "Web App",
+    description:
+      "人材マッチングプラットフォームの企業向けWeb管理画面。求人管理・応募者管理などのダッシュボード機能を設計・開発。",
+    longDescription:
+      "モバイルアプリと連携する企業向けのWeb管理画面を設計・開発しました。求人の作成・管理、応募者の一覧・ステータス管理、マッチングデータのダッシュボードなど、企業側に必要な機能を一通り実装しています。",
     role: "PM / UI&UX Designer / Frontend Dev",
-    tech: ["React Native", "TypeScript", "Firebase", "Stripe"],
+    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    gradient: "from-[#d45e6a] via-[#e07850] to-[#e8956a]",
+    emoji: "&#x1F4CA;",
+    duration: "",
+    team: "",
+    status: "In Progress",
+    category: "work",
+    roleBreakdown: [
+      { title: "PM", tasks: ["要件定義・機能設計", "チーム技術選定・アーキテクチャ設計"] },
+      { title: "UI/UX Design", tasks: ["ダッシュボードUI設計", "管理画面のユーザーフロー設計"] },
+      { title: "Frontend", tasks: ["React + TypeScriptでの実装", "Vite + Tailwind CSSでの基盤構築"] },
+    ],
+    challenges: [],
+    screenshots: [],
+  },
+  {
+    id: 5,
+    slug: "mycloset",
+    num: "05",
+    title: "My Closet",
+    subtitle: "iOS / Mobile App",
+    description:
+      "インフルエンサー向けフリマアプリ。出品・購入・決済までアプリ内で完結。SNSシェア・クーポン機能を搭載。",
+    longDescription:
+      "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるiOSアプリ。企画からUI/UXデザイン、Swift実装、AWSバックエンド構築、PMまで一気通貫で担当。",
+    role: "PM / UI&UX Designer / iOS Dev",
+    tech: ["Figma", "Swift", "SwiftUI", "AWS"],
     gradient: "from-[#e07850] via-[#e8956a] to-[#f0b080]",
-    emoji: "&#x2728;",
-    duration: "10 months",
-    team: "4 members",
+    emoji: "&#x1F45C;",
+    thumbnail: "/images/projects/mycloset.png",
+    duration: "",
+    team: "",
+    status: "Completed",
+    category: "work",
+    roleBreakdown: [
+      { title: "PM", tasks: ["プロダクト企画とビジネス要件の整理", "リリース計画と品質管理"] },
+      { title: "UI/UX Design", tasks: ["カスタマイズ可能なUIシステム設計", "出品〜購入〜決済のユーザーフロー設計"] },
+      { title: "iOS Development", tasks: ["SwiftUIでのアプリ実装", "AWSバックエンドとの連携"] },
+    ],
+    challenges: [],
+    screenshots: [],
+  },
+  // ── My Projects ──
+  {
+    id: 6,
+    slug: "mochibo",
+    num: "01",
+    title: "Mochibo",
+    subtitle: "Mobile App / iOS",
+    description:
+      "個人開発のiOSアプリ。UI/UXデザインからSwift実装、Firebaseバックエンドまで一人で構築。",
+    longDescription:
+      "個人プロジェクトとして企画・デザイン・開発を一人で手がけたiOSアプリです。FigmaでUI/UXデザインを行い、SwiftUIで実装。バックエンドはFirebaseを活用しています。",
+    role: "UI&UX Designer / iOS Dev",
+    tech: ["Figma", "Swift", "SwiftUI", "Firebase"],
+    gradient: "from-[#9b2c5a] via-[#b84468] to-[#d4567e]",
+    emoji: "&#x1F4F1;",
+    duration: "",
+    team: "1 member",
     status: "Completed",
     category: "personal",
     roleBreakdown: [
-      {
-        title: "Project Management",
-        tasks: [
-          "プロダクト企画とビジネス要件の整理",
-          "開発チームのリードとアジャイル運用",
-          "リリース計画と品質管理",
-        ],
-      },
-      {
-        title: "UI/UX Design",
-        tasks: [
-          "インフルエンサーごとのカスタマイズ可能なUIシステム設計",
-          "出品〜購入〜決済のユーザーフロー設計",
-          "ブランディングテンプレートの設計",
-        ],
-      },
-      {
-        title: "Frontend Development",
-        tasks: [
-          "React Native + TypeScriptでのアプリ実装",
-          "Stripe決済フローの統合",
-          "Firebaseリアルタイムデータ同期の実装",
-        ],
-      },
+      { title: "UI/UX Design", tasks: ["Figmaでのアプリ全体のUI設計"] },
+      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "Firebaseバックエンドの構築"] },
     ],
-    challenges: [
-      {
-        problem:
-          "各インフルエンサーの個性を出しながら、統一されたUXを提供する必要があった",
-        solution:
-          "テーマシステムを設計し、カラー・フォント・レイアウトをカスタマイズ可能にしつつ、操作フローは統一",
-      },
-      {
-        problem:
-          "出品から決済までのフローをシンプルに保ちながら、安全性も確保する必要があった",
-        solution:
-          "Stripeのエスクロー機能を活用し、商品受取確認後に売上を確定するフローを実装。UIはステップ形式で直感的に",
-      },
+    challenges: [],
+    screenshots: [],
+  },
+  {
+    id: 7,
+    slug: "earthquect",
+    num: "02",
+    title: "Earthquect",
+    subtitle: "Web App / Turkish",
+    description:
+      "トルコ語の地震情報Webアプリ。Next.jsで構築した個人プロジェクト。",
+    longDescription:
+      "トルコ語で地震情報を提供するWebアプリケーションを個人プロジェクトとしてNext.jsで開発しました。",
+    role: "Designer / Full-stack Dev",
+    tech: ["Next.js", "TypeScript", "React"],
+    gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
+    emoji: "&#x1F30D;",
+    duration: "",
+    team: "1 member",
+    status: "Completed",
+    category: "personal",
+    roleBreakdown: [
+      { title: "Design & Development", tasks: ["UI設計", "Next.jsでのフルスタック実装"] },
     ],
+    challenges: [],
     screenshots: [],
   },
 ];

@@ -5,6 +5,7 @@ import Career from "@/components/Career";
 import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
+import DesignWorks from "@/components/DesignWorks";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,18 +15,19 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Skills />
         <Marquee
           items={["PM", "UI/UX", "Frontend", "Mobile", "Backend", "Design System", "Agile"]}
           speed={25}
         />
         <Career />
         <Projects />
+        <DesignWorks />
         <Marquee
           items={["React", "Next.js", "TypeScript", "React Native", "Flutter", "Figma", "Node.js"]}
           speed={30}
           reverse
         />
-        <Skills />
       </main>
       <Footer />
     </>

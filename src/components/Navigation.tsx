@@ -7,9 +7,9 @@ import Link from "next/link";
 const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
   { href: "#career", label: "Career" },
   { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
 ];
 
 interface NavigationProps {

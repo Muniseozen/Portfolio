@@ -81,7 +81,7 @@ function NumberColumn({ index }: { index: number }) {
 
 export default function About() {
   return (
-    <section id="about" className="py-10 px-6 relative overflow-hidden">
+    <section id="about" className="py-6 px-6 relative overflow-hidden">
       {/* Falling numbers background */}
       <NumberRain />
 

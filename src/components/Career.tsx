@@ -3,35 +3,9 @@
 import { motion } from "framer-motion";
 import {
   careerPhases,
-  certifications,
   type CareerPhase,
   type ConcurrentProject,
-  type Certification,
 } from "@/data/career";
-
-/* ─── Icons ─── */
-
-function CertIcon({ category }: { category: Certification["category"] }) {
-  if (category === "language") {
-    return (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 5.487 14.07 5.64 14.95 5.84m-2.616-.476V3" />
-      </svg>
-    );
-  }
-  if (category === "cloud") {
-    return (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
-      </svg>
-    );
-  }
-  return (
-    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-    </svg>
-  );
-}
 
 /* ─── Date dot on the timeline ─── */
 
@@ -274,7 +248,7 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
 
 export default function Career() {
   return (
-    <section id="career" className="py-20 px-6">
+    <section id="career" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -316,40 +290,6 @@ export default function Career() {
           ))}
         </div>
 
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16"
-        >
-          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400 mb-6 text-center">
-            Certifications
-          </h3>
-          <div className="grid grid-cols-3 gap-4">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="card-dark rounded-xl p-4 text-center"
-              >
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-[#a8305f]/10 to-[#e88560]/10 text-[#d4567e] mb-3">
-                  <CertIcon category={cert.category} />
-                </div>
-                <p className="text-sm font-medium text-zinc-900 leading-tight">
-                  {cert.name}
-                </p>
-                {cert.detail && (
-                  <p className="text-xs text-zinc-400 mt-1">{cert.detail}</p>
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
