@@ -14,6 +14,8 @@ export interface Project {
   url?: string;
   preview?: string;
   designProcess?: string;
+  designSystem?: string;
+  prototype?: string;
   duration: string;
   team: string;
   status: string;
@@ -29,13 +31,13 @@ export const projects: Project[] = [
     id: 1,
     slug: "ynp-homepage",
     num: "01",
-    title: "YNPホームページ\nリニューアル & ブランディング",
+    title: "株式会社YNP ホームページ",
     subtitle: "Web / UI・UX Design / Frontend",
     description:
-      "自社コーポレートサイトのリニューアルとブランディングを担当。デザインからコーディングまで一貫して対応。",
+      "自社コーポレートサイトのリニューアルとブランディング。サイト構成・コピーライティング・デザインを担当。",
     longDescription:
-      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクト。ブランドイメージの刷新からFigmaでのUI/UXデザインを担当し、フロントエンド実装のコードレビューとWordPress構築のディレクションを行いました。",
-    role: "UI・UX Designer / Frontend Dev",
+      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクト。サイト全体の構成設計と文章作成から、ブランドイメージの刷新、FigmaでのUI/UXデザインまでを担当。フロントエンド実装のコードレビューとWordPress構築のディレクションも行いました。",
+    role: "Planner / Copywriter / UI・UX Designer",
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
@@ -88,18 +90,22 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    slug: "hr-matching-mobile",
+    slug: "hr-matching-platform",
     num: "03",
-    title: "人材マッチングアプリ",
-    subtitle: "iOS / UI・UX Design / PM",
+    title: "人材マッチングプラットフォーム",
+    subtitle: "iOS & Web / UI・UX Design / PM",
     description:
-      "求職者と企業をつなぐiOSマッチングアプリ。UI/UXデザインからSwiftでの実装、AWS基盤構築、PMまで一気通貫で担当しリリース。",
+      "求職者と企業をつなぐマッチングプラットフォーム。iOSアプリ + 企業向けWebダッシュボードを設計・開発。",
     longDescription:
-      "求職者と企業をスムーズにマッチングさせるiOSアプリを、企画からリリースまで担当しました。Figmaでの UI/UXデザイン、SwiftUIでのフロントエンド実装、AWSを活用したサーバーレスバックエンドの構築まで幅広くカバー。PMとしてチームをリードしながら、ユーザビリティテストを繰り返して使いやすさを追求しました。",
-    role: "PM / UI・UX Designer / iOS Dev",
-    tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS"],
+      "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。iOSアプリは企画からリリースまで担当し、FigmaでのUI/UXデザイン、SwiftUIでのフロントエンド実装、AWSバックエンドの構築まで幅広くカバー。企業向けWebダッシュボードではReact + TypeScriptでの実装をリードし、求人管理・応募者管理・マッチングデータの可視化を実現しています。",
+    role: "PM / UI・UX Designer / iOS Dev / Frontend Dev",
+    tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS", "React", "TypeScript", "Tailwind CSS"],
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
     emoji: "&#x1F91D;",
+    thumbnail: "/images/projects/uply-main.png",
+    designProcess: "/images/projects/uply-figma.png",
+    designSystem: "/images/projects/uply-components.png",
+    prototype: "/images/projects/uply-prototype.png",
     duration: "",
     team: "5 members",
     status: "Released",
@@ -107,41 +113,16 @@ export const projects: Project[] = [
     roleBreakdown: [
       { title: "PM", tasks: ["プロダクトロードマップの策定", "スプリント計画とチームマネジメント"] },
       { title: "UI/UX Design", tasks: ["Figmaでのユーザーフロー・UI設計", "ユーザビリティテストの実施と改善"] },
-      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "AWSバックエンドとの連携"] },
+      { title: "Mobile App (iOS)", tasks: ["SwiftUIでのフロントエンド実装", "AWSバックエンドとの連携"] },
+      { title: "+ Web Dashboard", tasks: ["React + TypeScriptでの管理画面実装", "求人管理・応募者管理・ダッシュボード機能"] },
     ],
     challenges: [],
     screenshots: [],
   },
   {
     id: 4,
-    slug: "hr-matching-web",
-    num: "04",
-    title: "人材マッチング\nWeb ダッシュボード",
-    subtitle: "Web App / UI・UX Design / PM",
-    description:
-      "人材マッチングプラットフォームの企業向けWeb管理画面。求人管理・応募者管理などのダッシュボード機能を設計・開発。",
-    longDescription:
-      "モバイルアプリと連携する企業向けのWeb管理画面を設計・開発しました。求人の作成・管理、応募者の一覧・ステータス管理、マッチングデータのダッシュボードなど、企業側に必要な機能を一通り実装しています。",
-    role: "PM / UI・UX Designer / Frontend Dev",
-    tech: ["UI/UX Design", "Figma", "React", "TypeScript", "Vite", "Tailwind CSS"],
-    gradient: "from-[#d45e6a] via-[#e07850] to-[#e8956a]",
-    emoji: "&#x1F4CA;",
-    duration: "",
-    team: "",
-    status: "In Progress",
-    category: "work",
-    roleBreakdown: [
-      { title: "PM", tasks: ["要件定義・機能設計", "チーム技術選定・アーキテクチャ設計"] },
-      { title: "UI/UX Design", tasks: ["ダッシュボードUI設計", "管理画面のユーザーフロー設計"] },
-      { title: "Frontend", tasks: ["React + TypeScriptでの実装", "Vite + Tailwind CSSでの基盤構築"] },
-    ],
-    challenges: [],
-    screenshots: [],
-  },
-  {
-    id: 5,
     slug: "mycloset",
-    num: "05",
+    num: "04",
     title: "My Closet",
     subtitle: "iOS / UI・UX Design / PM",
     description:
@@ -153,6 +134,7 @@ export const projects: Project[] = [
     gradient: "from-[#e07850] via-[#e8956a] to-[#f0b080]",
     emoji: "&#x1F45C;",
     thumbnail: "/images/projects/mycloset.png",
+    designProcess: "/images/projects/mycloset-screens.png",
     duration: "",
     team: "",
     status: "Completed",
@@ -167,7 +149,7 @@ export const projects: Project[] = [
   },
   // ── My Projects ──
   {
-    id: 6,
+    id: 5,
     slug: "mochibo",
     num: "01",
     title: "Mochibo",
@@ -192,7 +174,7 @@ export const projects: Project[] = [
     screenshots: [],
   },
   {
-    id: 7,
+    id: 6,
     slug: "earthquect",
     num: "02",
     title: "Earthquect",

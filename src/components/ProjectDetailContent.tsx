@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
@@ -35,6 +36,7 @@ function FadeIn({
 export default function ProjectDetailContent({ slug }: { slug: string }) {
   const project = getProjectBySlug(slug)!;
   const { prev, next } = getAdjacentProjects(slug);
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   const metaItems = [
     { label: "Role", value: project.role },
@@ -290,7 +292,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-5">
                 <span className="gradient-text">Design Process</span>
               </h2>
-              <div className="rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm">
+              <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designProcess!)}>
                 <Image
                   src={project.designProcess}
                   alt={`${project.title} - Design Process`}
@@ -300,6 +302,44 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 />
               </div>
             </FadeIn>
+          </div>
+        </section>
+      )}
+
+      {/* Design System & Prototype - 横並び */}
+      {(project.designSystem || project.prototype) && (
+        <section className="py-6 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-[7fr_3fr] gap-6 items-start">
+              {project.designSystem && (
+                <FadeIn>
+                  <h3 className="text-lg font-bold text-zinc-900 mb-3">Design System & Components</h3>
+                  <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designSystem!)}>
+                    <Image
+                      src={project.designSystem}
+                      alt={`${project.title} - Design System`}
+                      width={1920}
+                      height={1080}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </FadeIn>
+              )}
+              {project.prototype && (
+                <FadeIn delay={0.1}>
+                  <h3 className="text-lg font-bold text-zinc-900 mb-3">Prototype</h3>
+                  <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.prototype!)}>
+                    <Image
+                      src={project.prototype}
+                      alt={`${project.title} - Prototype`}
+                      width={1920}
+                      height={1080}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </FadeIn>
+              )}
+            </div>
           </div>
         </section>
       )}
@@ -333,6 +373,42 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
           </FadeIn>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 cursor-pointer"
+            onClick={() => setLightbox(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="max-w-5xl max-h-[85vh] relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightbox}
+                alt="Preview"
+                width={1920}
+                height={1080}
+                className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+              />
+              <button
+                onClick={() => setLightbox(null)}
+                className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white/90 text-zinc-900 flex items-center justify-center text-sm shadow-md hover:bg-white transition-colors"
+              >
+                &times;
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </PageTransition>
