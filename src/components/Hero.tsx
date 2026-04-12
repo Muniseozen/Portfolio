@@ -43,7 +43,7 @@ function FloatingPhone({ className, delay = 0 }: { className?: string; delay?: n
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute hidden lg:block scale-[0.8] origin-center ${className}`}
+      className={`absolute hidden lg:block scale-[0.9] origin-center ${className}`}
     >
       <motion.div
         animate={{ y: [0, -12, 0], rotate: [0, 2, 0] }}
@@ -120,7 +120,7 @@ function FloatingLaptop({ className, delay = 0 }: { className?: string; delay?: 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute hidden lg:block scale-[0.8] origin-center ${className}`}
+      className={`absolute hidden lg:block ${className}`}
     >
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, -1, 0] }}
@@ -174,7 +174,7 @@ function FloatingPalette({ className, delay = 0 }: { className?: string; delay?:
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute hidden lg:block scale-[0.8] origin-center ${className}`}
+      className={`absolute hidden lg:block ${className}`}
     >
       <motion.div
         animate={{ y: [0, -8, 0], rotate: [0, 3, 0] }}
@@ -202,7 +202,7 @@ function FloatingUICard({ className, delay = 0 }: { className?: string; delay?: 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute hidden lg:block scale-[0.8] origin-center ${className}`}
+      className={`absolute hidden lg:block ${className}`}
     >
       <motion.div
         animate={{ y: [0, -12, 0] }}
@@ -257,7 +257,7 @@ function FloatingDesignTool({ className, delay = 0 }: { className?: string; dela
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute hidden lg:block scale-[0.8] origin-center ${className}`}
+      className={`absolute hidden lg:block ${className}`}
     >
       <motion.div
         animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
@@ -360,11 +360,11 @@ export default function Hero() {
           >
             <div className="relative">
               {/* Floating Elements — surrounding profile photo */}
-              <FloatingLaptop className="-top-14 -left-32 z-0" delay={1.3} />
-              <FloatingPalette className="-top-20 -right-24 z-0" delay={1.9} />
-              <FloatingUICard className="top-1/2 -translate-y-1/2 -right-36 z-0" delay={1.7} />
-              <FloatingPhone className="-bottom-14 -left-24 z-0" delay={1.5} />
-              <FloatingDesignTool className="-bottom-18 -right-22 z-0" delay={2.1} />
+              <FloatingLaptop className="-top-24 -left-32 z-0" delay={1.3} />
+              <FloatingPalette className="-top-24 -right-24 z-0" delay={1.9} />
+              <FloatingUICard className="top-1/2 -translate-y-1/2 -right-40 z-0" delay={1.7} />
+              <FloatingPhone className="-bottom-28 -left-28 z-0" delay={1.5} />
+              <FloatingDesignTool className="-bottom-28 -right-16 z-0" delay={2.1} />
 
               {/* Decorative ring */}
               <motion.div
