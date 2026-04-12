@@ -19,13 +19,42 @@ html {
 }
 
 body {
-  background: #fafafa;
+  background: #fdf8f8;
   color: #18181b;
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(212,86,126,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 15%, rgba(232,166,140,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 70% 65%, rgba(200,140,200,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(232,133,96,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 50% 40%, rgba(245,190,200,0.08) 0%, transparent 50%);
+  animation: meshFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes meshFloat {
+  0% {
+    background-position: 0% 0%, 100% 0%, 70% 70%, 0% 100%, 50% 40%;
+  }
+  33% {
+    background-position: 10% 15%, 85% 10%, 60% 55%, 15% 85%, 45% 50%;
+  }
+  66% {
+    background-position: 5% 5%, 90% 20%, 75% 60%, 10% 90%, 55% 35%;
+  }
+  100% {
+    background-position: 15% 10%, 80% 5%, 65% 70%, 20% 80%, 40% 45%;
+  }
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, #a8305f, #d4567e, #e88560);
+  background: linear-gradient(135deg, #a8305f 0%, #d4567e 35%, #e88560 70%, #f0a060 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

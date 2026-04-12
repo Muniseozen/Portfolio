@@ -40,8 +40,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <Navigation variant="detail" />
 
       {/* Hero */}
-      <section className="pt-28 pb-14 px-6 bg-[#fafafa] relative overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-[0.04]`} />
+      <section className="pt-28 pb-14 px-6 relative overflow-hidden">
         <div className="max-w-5xl mx-auto relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +71,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Meta Bar */}
-      <section className="py-8 px-6 border-y border-black/5">
+      <section className="py-8 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -99,7 +98,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className={`aspect-video rounded-3xl bg-gradient-to-br ${project.gradient} p-[1px]`}>
-              <div className="w-full h-full rounded-3xl bg-[#fafafa] flex items-center justify-center">
+              <div className="w-full h-full rounded-3xl bg-white/80 flex items-center justify-center">
                 <div className="text-center">
                   <span
                     className="text-5xl block mb-3"
@@ -222,7 +221,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       </section>
 
       {/* Prev / Next Navigation */}
-      <section className="py-14 px-6 border-t border-black/5">
+      <section className="py-14 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="grid grid-cols-2 gap-6">

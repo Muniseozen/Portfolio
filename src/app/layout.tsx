@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Munise Ozen | PM & Frontend Developer",
+  title: "Munise Haruyama | PM & Frontend Developer",
   description:
     "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
   openGraph: {
-    title: "Munise Ozen | PM & Frontend Developer",
+    title: "Munise Haruyama | PM & Frontend Developer",
     description:
       "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
     type: "website",

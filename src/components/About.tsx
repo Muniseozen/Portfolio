@@ -31,24 +31,30 @@ function NumberRain() {
   const columns = 50;
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none z-0"
+      style={{ maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)" }}
+    >
       <div className="absolute inset-0 flex gap-2 justify-around">
         {[...Array(columns)].map((_, i) => (
           <NumberColumn key={i} index={i} />
         ))}
       </div>
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#fafafa] via-transparent to-[#fafafa]" />
     </div>
   );
 }
 
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 function NumberColumn({ index }: { index: number }) {
   const numbers = "0123456789";
-  const length = 30 + Math.floor(Math.random() * 20);
-  const chars = [...Array(length)].map(() => numbers[Math.floor(Math.random() * numbers.length)]);
-  const speed = 4 + Math.random() * 6;
-  // Stagger start positions so some are already mid-fall
+  const length = 30 + Math.floor(seededRandom(index + 1) * 20);
+  const chars = [...Array(length)].map((_, i) => numbers[Math.floor(seededRandom(index * 100 + i) * 10)]);
+  const speed = Math.round((4 + seededRandom(index + 50) * 6) * 10) / 10;
+  const delayVal = Math.round((-speed * (index % 10) / 10) * 10) / 10;
   const initialOffset = (index % 5) * -20;
 
   return (
@@ -56,7 +62,7 @@ function NumberColumn({ index }: { index: number }) {
       className="font-mono text-sm text-black/[0.08] leading-5 animate-number-fall whitespace-nowrap"
       style={{
         animationDuration: `${speed}s`,
-        animationDelay: `${-speed * (index % 10) / 10}s`,
+        animationDelay: `${delayVal}s`,
         transform: `translateY(${initialOffset}%)`,
       }}
     >
@@ -75,13 +81,9 @@ function NumberColumn({ index }: { index: number }) {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-6 bg-[#fafafa] relative overflow-hidden">
+    <section id="about" className="py-10 px-6 relative overflow-hidden">
       {/* Falling numbers background */}
       <NumberRain />
-
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#a8305f]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#e88560]/10 rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div

@@ -22,10 +22,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${project.title.replace("\n", " ")} | Munise Ozen`,
+    title: `${project.title.replace("\n", " ")} | Munise Haruyama`,
     description: project.description,
     openGraph: {
-      title: `${project.title.replace("\n", " ")} | Munise Ozen`,
+      title: `${project.title.replace("\n", " ")} | Munise Haruyama`,
       description: project.description,
       type: "article",
     },

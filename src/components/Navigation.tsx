@@ -40,7 +40,7 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
     >
       <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold gradient-text">
-          MO
+          MH
         </Link>
 
         {variant === "home" ? (

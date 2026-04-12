@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 px-6 bg-[#fafafa] relative">
+    <section id="contact" className="py-20 px-6 relative">
       <div className="max-w-3xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="text-center mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-3 pr-2">

@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 px-6 bg-[#fafafa]">
+    <section id="projects" className="py-20 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Projects</span></h2>
@@ -21,7 +21,7 @@ export default function Projects() {
                     <div className="relative flex flex-col lg:flex-row lg:items-start gap-6">
                       <div className="flex-shrink-0 w-full lg:w-56">
                         <div className={`aspect-[4/3] rounded-2xl bg-gradient-to-br ${project.gradient} p-[1px]`}>
-                          <div className="w-full h-full rounded-2xl bg-[#fafafa] flex flex-col items-center justify-center gap-3">
+                          <div className="w-full h-full rounded-2xl bg-white/80 flex flex-col items-center justify-center gap-3">
                             <span className="text-5xl" dangerouslySetInnerHTML={{ __html: project.emoji }} />
                             <span className="text-xs text-zinc-500 font-mono uppercase tracking-widest">{project.subtitle}</span>
                           </div>
