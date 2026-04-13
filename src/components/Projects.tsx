@@ -12,28 +12,25 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
       <Link href={`/projects/${project.slug}`}>
-        <div className="card-clickable rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full flex flex-col">
-          {/* 上段: 画像 + 番号・タイトル */}
-          <div className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-52 h-32 rounded-lg bg-zinc-200 p-[1px] overflow-hidden">
-              {project.thumbnail ? (
-                <div className="w-full h-full rounded-lg overflow-hidden relative">
-                  <Image src={project.thumbnail} alt={project.title} fill className="object-cover object-top" />
-                </div>
-              ) : (
-                <div className="w-full h-full rounded-lg bg-white/80 flex items-center justify-center">
-                  <span className="text-2xl" dangerouslySetInnerHTML={{ __html: project.emoji }} />
-                </div>
-              )}
-            </div>
-            <div className="flex-1 min-w-0 flex flex-col">
-              <span className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-1">{project.num}</span>
-              <h3 className="text-base font-bold tracking-tight text-zinc-900 leading-tight">{project.title}</h3>
-              <p className="text-sm text-zinc-400 mt-0.5">{project.role}</p>
-            </div>
+        <div className="card-clickable rounded-xl group relative overflow-hidden cursor-pointer h-full flex flex-col">
+          {/* タイトル */}
+          <div className="p-4 pb-2">
+            <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">{project.num}</span>
+            <h3 className="text-base font-bold tracking-tight text-zinc-900 leading-tight mt-0.5">{project.title}</h3>
+            <p className="text-sm text-zinc-400 mt-0.5">{project.role}</p>
           </div>
-          {/* 下段: タグ + View */}
-          <div className="flex items-end justify-between mt-3">
+          {/* 画像 */}
+          <div className="mx-4 rounded-lg aspect-[16/9] bg-zinc-200 overflow-hidden relative">
+            {project.thumbnail ? (
+              <Image src={project.thumbnail} alt={project.title} fill className="object-contain" />
+            ) : (
+              <div className="w-full h-full bg-white/80 flex items-center justify-center">
+                <span className="text-3xl" dangerouslySetInnerHTML={{ __html: project.emoji }} />
+              </div>
+            )}
+          </div>
+          {/* タグ + View */}
+          <div className="flex items-end justify-between p-4 pt-3">
             <div className="flex flex-wrap gap-1.5">
               {project.tech.map((t) => (
                 <span key={t} className="px-2.5 py-0.5 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{t}</span>

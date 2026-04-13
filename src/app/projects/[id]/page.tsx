@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { projects, getProjectBySlug } from "@/data/projects";
 import ProjectDetailContent from "@/components/ProjectDetailContent";
+import ComingSoon from "@/components/ComingSoon";
+
+const comingSoonSlugs = ["mycloset", "mochibo", "earthquect"];
 
 export function generateStaticParams() {
   return projects.map((project) => ({
@@ -42,6 +45,10 @@ export default async function ProjectPage({
 
   if (!project) {
     notFound();
+  }
+
+  if (comingSoonSlugs.includes(id)) {
+    return <ComingSoon title={project.title} />;
   }
 
   return <ProjectDetailContent slug={id} />;
