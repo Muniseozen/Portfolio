@@ -10,7 +10,7 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
     <motion.div
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "0px 0px -150px 0px" }}
       transition={{ duration: 0.3 }}
       className="relative z-10 flex items-center justify-center"
     >
@@ -130,7 +130,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               className="w-full"
             >
@@ -144,7 +144,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="w-0.5 h-full bg-gradient-to-b from-[#d4567e]/25 to-[#e88560]/15"
             style={{ transformOrigin: "top" }}
@@ -155,7 +155,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
             <ProjectCard project={project} />
@@ -203,7 +203,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
             <ProjectCard project={project} />
@@ -212,7 +212,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.1 + 0.15 }}
             >
               <p className="text-[10px] font-mono text-zinc-300 italic mb-1">同時進行</p>
@@ -300,7 +300,7 @@ export default function Career() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
           className="mb-10"
         >

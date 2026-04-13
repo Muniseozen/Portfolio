@@ -10,7 +10,7 @@ const personalProjects = projects.filter((p) => p.category === "personal");
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
       <Link href={`/projects/${project.slug}`}>
         <div className="card-clickable rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full flex flex-col">
           {/* 上段: 画像 + 番号・タイトル */}
@@ -54,7 +54,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Projects</span></h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">企画からデザイン、実装まで。何よりも先に手を動かす。</p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.5 }}
           className="flex items-center gap-4 mb-6"
         >
@@ -83,7 +83,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.5 }}
           className="flex items-center gap-4 mt-10 mb-4"
         >

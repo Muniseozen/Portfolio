@@ -90,7 +90,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
@@ -107,7 +107,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.7 }}
           >
             <h3 className="text-lg font-bold text-zinc-900 mb-4">自己紹介</h3>
@@ -133,7 +133,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.7 }}
           >
             <h3 className="text-lg font-bold text-zinc-900 mb-4">大切にしていること</h3>
@@ -143,7 +143,7 @@ export default function About() {
                   key={value.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, margin: "0px 0px -150px 0px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="card-dark rounded-xl p-4 flex gap-3 items-start"
                 >
@@ -164,7 +164,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-8"
         >

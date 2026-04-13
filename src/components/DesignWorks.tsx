@@ -37,7 +37,7 @@ export default function DesignWorks() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
@@ -54,7 +54,7 @@ export default function DesignWorks() {
               key={work.src}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="cursor-pointer group"
               onClick={() => setSelected(index)}
@@ -76,7 +76,7 @@ export default function DesignWorks() {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-10 flex justify-center"
         >

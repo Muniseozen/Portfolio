@@ -51,13 +51,13 @@ export default function Skills() {
   return (
     <section id="skills" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="mb-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">企画・デザイン・実装をカバーするスキルセット。</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
-            <motion.div key={category.title} initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-50px" }}
+            <motion.div key={category.title} initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
               className={`card-dark rounded-2xl p-5 border-l-2 ${category.border}`}
             >
@@ -81,7 +81,7 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
           className="mt-14 mb-6"
         >
@@ -93,7 +93,7 @@ export default function Skills() {
               key={category.title}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: catIndex * 0.06 }}
               className="card-dark rounded-xl p-4 flex-1 min-w-[140px]"
             >
@@ -116,7 +116,7 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
           className="mt-12 mb-4"
         >
@@ -128,7 +128,7 @@ export default function Skills() {
               key={cert.name}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="card-dark rounded-xl p-5 text-center"
             >
