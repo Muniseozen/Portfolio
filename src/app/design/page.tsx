@@ -6,7 +6,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
-import { works } from "@/components/DesignWorks";
+import { shuffledWorks } from "@/components/DesignWorks";
 
 export default function DesignPage() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -28,16 +28,16 @@ export default function DesignPage() {
             </h1>
           </motion.div>
 
-          {/* Full Gallery */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {works.map((work, index) => (
+          {/* Full Masonry Gallery */}
+          <div className="columns-2 md:columns-3 gap-3">
+            {shuffledWorks.map((work, index) => (
               <motion.div
                 key={work.src}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "0px 0px -150px 0px" }}
                 transition={{ duration: 0.4, delay: (index % 6) * 0.05 }}
-                className="cursor-pointer group"
+                className="cursor-pointer group mb-3 break-inside-avoid"
                 onClick={() => setSelected(index)}
               >
                 <div className="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
@@ -74,10 +74,10 @@ export default function DesignPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={works[selected].src}
-                alt={works[selected].alt}
-                width={works[selected].width}
-                height={works[selected].height}
+                src={shuffledWorks[selected].src}
+                alt={shuffledWorks[selected].alt}
+                width={shuffledWorks[selected].width}
+                height={shuffledWorks[selected].height}
                 className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
               />
               <button

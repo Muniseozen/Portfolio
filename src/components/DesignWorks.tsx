@@ -6,6 +6,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const works = [
+  { src: "/images/projects/uply-ad-1.png", alt: "Uply 広告 1", width: 1080, height: 1350 },
+  { src: "/images/projects/uply-ad-2.png", alt: "Uply 広告 2", width: 1080, height: 1350 },
+  { src: "/images/design/banner-uply-1.png", alt: "Uply バナー 1", width: 750, height: 700 },
+  { src: "/images/design/banner-uply-2.png", alt: "Uply LINEバナー", width: 750, height: 700 },
+  { src: "/images/design/banner-uply-3.png", alt: "Uply LINEバナー 横", width: 1200, height: 400 },
   { src: "/images/design/sp-1.png", alt: "Design Work 1", width: 1880, height: 1576 },
   { src: "/images/design/sp-11.png", alt: "Design Work 11", width: 1880, height: 1576 },
   { src: "/images/design/sp-8.png", alt: "Design Work 8", width: 1880, height: 1576 },
@@ -25,11 +30,36 @@ const works = [
 
 const PREVIEW_COUNT = 6;
 
-export { works };
+function shuffleWithSeed(arr: typeof works, seed: number) {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    seed = (seed * 16807 + 0) % 2147483647;
+    const j = seed % (i + 1);
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// 日付ベースのシードで1日ごとに並び順が変わる
+const dailySeed = Math.floor(Date.now() / 86400000);
+const shuffledWorks = shuffleWithSeed(works, dailySeed);
+
+export { works, shuffledWorks };
+
+// ホームプレビュー用: 色バランスを考慮した固定6枚
+const previewSources = [
+  "/images/design/sp-9.png",  // イエロー/水色
+  "/images/design/sp-1.png",  // パステル
+  "/images/design/sp-13.png", // グリーン
+  "/images/design/sp-10.png", // ピンク
+  "/images/design/sp-11.png", // グリーン/イエロー
+  "/images/design/sp-12.png", // ピンク
+];
+const uniformWorks = previewSources.map((src) => works.find((w) => w.src === src)!);
 
 export default function DesignWorks() {
   const [selected, setSelected] = useState<number | null>(null);
-  const preview = works.slice(0, PREVIEW_COUNT);
+  const preview = uniformWorks.slice(0, PREVIEW_COUNT);
 
   return (
     <section id="design" className="py-10 px-6">
@@ -47,7 +77,7 @@ export default function DesignWorks() {
           <p className="text-zinc-500 text-lg max-w-xl mt-2">バナー・グラフィックなどのデザイン制作物。</p>
         </motion.div>
 
-        {/* Grid - 6枚のみ */}
+        {/* Grid - 6枚プレビュー（統一サイズ） */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {preview.map((work, index) => (
             <motion.div
