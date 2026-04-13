@@ -17,13 +17,13 @@ export default function Home() {
         <About />
         <Skills />
         <Marquee
-          items={["PM", "UI/UX", "Frontend", "Mobile", "Backend", "Design System", "Agile"]}
+          items={["Figma", "UI/UX Design", "Frontend", "Mobile App", "SwiftUI"]}
           speed={25}
         />
         <Projects />
         <DesignWorks />
         <Marquee
-          items={["React", "Next.js", "TypeScript", "React Native", "Flutter", "Figma", "Node.js"]}
+          items={["Figma", "UI/UX Design", "Frontend", "Mobile App", "SwiftUI"]}
           speed={30}
           reverse
         />
