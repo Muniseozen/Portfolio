@@ -20,11 +20,11 @@ const UsersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" heigh
 const LayersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#layers-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="layers-grad" /><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>;
 
 const values = [
-  { icon: <TargetIcon />, title: "目的への純粋さ（ゴール志向）", description: <>「なぜ作るか」という本質。<br />AD時代に叩き込まれた、ターゲットへ届けるための視点。</> },
-  { icon: <ChatIcon />, title: "丁寧なすり合わせ（コミュニケーション）", description: <>言葉の裏にある意図を汲み取ること。<br />認識のズレをなくし、プロジェクトを確実に前へ進める対話。</> },
-  { icon: <ZapIcon />, title: "スピードと「更新感」", description: <>迷う前にまず形にする。<br />新しい技術を吸収し、常に自分をアップデートし続ける勢い。</> },
-  { icon: <UsersIcon />, title: "チームの和と心地よさ", description: <>職種の垣根を超えた最高の連携。<br />誰もが前向きに、仲良くプロジェクトを楽しめる空気感。</> },
-  { icon: <LayersIcon />, title: "実装の裏付けがあるデザイン", description: <>フロントエンドを理解した、地に足のついた設計。<br />女性目線の細やかな配慮と、確かなロジックの融合。</> },
+  { icon: <TargetIcon />, title: "「なぜ作るか」から考える", description: "ゴールから逆算する。届けるための視点を大事にする。" },
+  { icon: <ChatIcon />, title: "認識のズレをなくす対話", description: "言葉の裏にある意図を拾って、プロジェクトを前に進める。" },
+  { icon: <ZapIcon />, title: "迷う前にまず形にする", description: "考えすぎるより動く。出してから磨く。" },
+  { icon: <UsersIcon />, title: "チームが楽しく働ける空気", description: "職種関係なく、前向きに話せる場がいいものを作ると思っている。" },
+  { icon: <LayersIcon />, title: "実装がわかるデザイン", description: "きれいなだけじゃなく、ちゃんと動くものを。エンジニア目線とデザイン目線、両方持つ。" },
 ];
 
 // Number rain columns
@@ -117,16 +117,13 @@ export default function About() {
                   はじめまして、<span className="text-zinc-900 font-bold">Munise（むにせ）</span>です。
                 </p>
                 <p>
-                  18歳でトルコから来日し、日本の大学で国際関係を学びました。ゼロから新しい環境に飛び込み、文化や言葉を吸収してきたこの経験が、今の私の<span className="text-zinc-900 font-bold">柔軟な考え方や適応力</span>の土台になっています。
+                  18歳でトルコから来日し、新卒でテレビ制作の現場へ。分刻みのスケジュールの中で<span className="text-zinc-900 font-bold">「どうすれば伝わるか」</span>を叩き込まれました。その後、未経験からIT業界に飛び込み、QA・デザイン・モバイル・Webと領域を広げながら4年が経ちました。
                 </p>
                 <p>
-                  新卒で入社したテレビ業界ではADとして、分刻みのスケジュールや多くの関係者が関わる番組制作の現場を走り回っていました。そこで身についた<span className="text-zinc-900 font-bold">「現場を動かす調整力」</span>や<span className="text-zinc-900 font-bold">「どうすれば視聴者に伝わるかという視点」</span>は、今のPMやディレクションの仕事にもそのまま活きています。
+                  途中、自ら<span className="text-zinc-900 font-bold">開発事業部の立ち上げを提案・実現</span>し、チームを作ってアプリをリリース。<span className="text-zinc-900 font-bold">「やってみよう」と動き出すのが割と早い方</span>だと思っています。
                 </p>
                 <p>
-                  IT業界に入ってからは4年目になります。私は新しい技術に触れたり、未知の課題に挑戦したりすることが大好きで、常に自分自身をアップデートし続ける<span className="text-zinc-900 font-bold">「更新感」</span>を大切にしています。
-                </p>
-                <p>
-                  フロントエンド開発の知識があるからこそ、エンジニアが実装しやすく、かつユーザーが心地よさを感じるデザインを提案できるのが私の強みです。<span className="text-zinc-900 font-bold">女性目線のきめ細やかな配慮</span>と、<span className="text-zinc-900 font-bold">多角的な視点</span>を掛け合わせ、アイデアを迷いなく形にしていきます。チームと共にプロダクトを育てていくことを大切にしています。
+                  今は<span className="text-zinc-900 font-bold">フロントエンドとUIデザイン</span>を軸に、エンジニアが実装しやすく・ユーザーが迷わないUIを考えることが自分の得意なことです。チームと一緒にプロダクトを育てていくのが好きです。
                 </p>
               </div>
             </div>

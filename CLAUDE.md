@@ -50,6 +50,10 @@ AIが生成するUIは「統計的収束 (Distributional Convergence)」によ�
 - `category: "work"` = 実務、`category: "personal"` = 個人プロジェクト
 - `previewType: "mobile"` でスマホフレーム表示、未指定でブラウザChromeフレーム表示
 
+## 文体ルール
+- サイト内のテキストは文末の形を統一すること。「〜ます。」と「〜る。」を混在させない
+- 現在の方針: 言い切り形（「〜る。」「〜く。」）で統一
+
 ## Git
 - コミットメッセージは日本語で書く
 - mainブランチで直接作業

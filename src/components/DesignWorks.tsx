@@ -44,7 +44,7 @@ export default function DesignWorks() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">Design Works</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">バナー・グラフィックなどのデザイン制作物です。</p>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">バナー・グラフィックなどのデザイン制作物。</p>
         </motion.div>
 
         {/* Grid - 6枚のみ */}
