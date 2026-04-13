@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const GradientDefs = ({ id }: { id: string }) => (
   <defs>
@@ -158,8 +159,35 @@ export default function About() {
               ))}
             </div>
 
+
           </motion.div>
         </div>
+
+        {/* Career link — full width below the 2-col grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-8"
+        >
+          <Link href="/career" className="group block">
+            <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f] to-[#e88560] backdrop-blur-sm flex items-center justify-between hover:opacity-90 transition-opacity">
+              <div>
+                <span className="text-lg md:text-xl font-black tracking-tight text-white">My Career Story</span>
+                <p className="text-sm text-white/70 mt-0.5">テスターから開発リードへ。4年間の成長軌跡。</p>
+              </div>
+              <div className="flex items-center gap-2 shrink-0 ml-4">
+                <span className="text-xs text-white/70 tracking-widest uppercase hidden md:inline">View Timeline</span>
+                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </motion.div>
+              </div>
+            </div>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

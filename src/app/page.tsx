@@ -1,16 +1,16 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Career from "@/components/Career";
 import Marquee from "@/components/Marquee";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import DesignWorks from "@/components/DesignWorks";
 import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
 
 export default function Home() {
   return (
-    <>
+    <PageTransition>
       <Navigation />
       <main>
         <Hero />
@@ -20,7 +20,6 @@ export default function Home() {
           items={["PM", "UI/UX", "Frontend", "Mobile", "Backend", "Design System", "Agile"]}
           speed={25}
         />
-        <Career />
         <Projects />
         <DesignWorks />
         <Marquee
@@ -30,6 +29,6 @@ export default function Home() {
         />
       </main>
       <Footer />
-    </>
+    </PageTransition>
   );
 }

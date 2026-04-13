@@ -88,8 +88,34 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    slug: "hr-matching-platform",
+    slug: "netherlands-lp",
     num: "03",
+    title: "オランダIT研修LP制作",
+    subtitle: "LP / UI・UX Design / Planning",
+    description:
+      "オランダのIT企業で研修を行うブートキャンプ型プログラムの集客LP。企画・構成・コピーライティング・デザインを担当。",
+    longDescription:
+      "オランダのIT企業での実践型研修プログラムを訴求するランディングページを、企画・構成・デザインまで一貫して担当しました。ターゲットが「海外でキャリアを広げたいエンジニア」であることから、日本のLPによくある明るいトーンではなく、ダークネイビーを基調にした海外風のビジュアルに振り切りました。現地オフィスや街並みの写真を大きく配置し、「ここで働く自分」をイメージできる世界観を意識しています。プログラムの特長・スケジュール・料金・研修生の声・FAQなど情報量が多いLPですが、セクションごとにメリハリをつけたレイアウトで、スクロールしても読み疲れしない構成に仕上げました。",
+    role: "Planner / Copywriter / UI・UX Designer",
+    tech: ["UI/UX Design", "Canva"],
+    gradient: "from-[#1a1f3d] via-[#2a3060] to-[#3a4080]",
+    emoji: "&#x1F1F3;&#x1F1F1;",
+    thumbnail: "/images/projects/netherlands-lp-preview.png",
+    preview: "/images/projects/netherlands-lp-preview.png",
+    duration: "",
+    team: "",
+    status: "Completed",
+    category: "work",
+    roleBreakdown: [
+      { title: "企画・構成", tasks: ["LP全体の構成・情報設計", "キャッチコピー・セクション文章の作成", "研修内容・料金・フローの情報整理"] },
+      { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ダークネイビー基調のトーン設計", "写真・マップを活用したレイアウト設計"] },
+    ],
+    challenges: [],
+  },
+  {
+    id: 4,
+    slug: "hr-matching-platform",
+    num: "04",
     title: "人材マッチングプラットフォーム",
     subtitle: "iOS & Web / UI・UX Design / PM",
     description:
@@ -117,9 +143,9 @@ export const projects: Project[] = [
     challenges: [],
   },
   {
-    id: 4,
+    id: 5,
     slug: "mycloset",
-    num: "04",
+    num: "05",
     title: "My Closet",
     subtitle: "iOS / UI・UX Design / PM",
     description:
@@ -145,7 +171,7 @@ export const projects: Project[] = [
   },
   // ── My Projects ──
   {
-    id: 5,
+    id: 6,
     slug: "mochibo",
     num: "01",
     title: "Mochibo",
@@ -174,7 +200,7 @@ export const projects: Project[] = [
     challenges: [],
   },
   {
-    id: 6,
+    id: 7,
     slug: "earthquect",
     num: "02",
     title: "Earthquect",

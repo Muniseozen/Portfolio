@@ -22,10 +22,9 @@ function FadeIn({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay, ease }}
       className={className}
     >
       {children}
@@ -91,7 +90,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       {/* Meta Bar */}
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
-          <FadeIn>
+          <FadeIn delay={0.15}>
             <div className={`grid grid-cols-2 gap-8 ${{ 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[metaItems.length] ?? "md:grid-cols-4"}`}>
               {metaItems.map((item) => (
                 <div key={item.label}>
@@ -109,7 +108,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       {/* Preview / Screenshots */}
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
-          <FadeIn>
+          <FadeIn delay={0.25}>
             {project.preview && project.previewType === "mobile" ? (
               <div className="flex justify-center">
                 <div className="relative w-[280px] md:w-[320px]">

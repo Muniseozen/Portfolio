@@ -1,11 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  careerPhases,
-  type CareerPhase,
-  type ConcurrentProject,
-} from "@/data/career";
+import { careerProjects, type CareerProject, type ConcurrentProject } from "@/data/career";
 
 /* ─── Date dot on the timeline ─── */
 
@@ -25,7 +21,7 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
           }`}
       />
       <span
-        className={`absolute left-1/2 -translate-x-1/2 -top-6 text-sm font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"
+        className={`absolute left-1/2 -translate-x-1/2 -top-5 text-xs font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"
           }`}
       >
         {date}
@@ -34,50 +30,48 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
   );
 }
 
-/* ─── Main phase card (right side) ─── */
+/* ─── Project card ─── */
 
-function PhaseCard({ phase }: { phase: CareerPhase }) {
-  const isHero = phase.type === "hero";
-  const isCurrent = phase.type === "current";
+function ProjectCard({ project }: { project: CareerProject }) {
+  const isHero = project.type === "hero";
+  const isCurrent = project.type === "current";
 
   return (
-    <div>
-      <div
-        className={`card-dark rounded-2xl relative overflow-hidden ${isHero ? "p-4 md:p-5 border-l-4 border-l-[#d4567e]" : "p-3 md:p-4"
-          }`}
-      >
-        <div className="flex flex-wrap items-center gap-2 mb-1">
-          <h3 className="font-bold text-zinc-900 text-sm">
-            {phase.title}
-          </h3>
-          {isCurrent && (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-50 text-emerald-600 border border-emerald-200">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-              </span>
-              Now
+    <div
+      className={`card-dark rounded-xl relative overflow-hidden ${isHero ? "p-3 border-l-4 border-l-[#d4567e]" : "p-3"
+        }`}
+    >
+      <div className="flex flex-wrap items-center gap-2">
+        <h3 className="font-bold text-zinc-900 text-sm">{project.title}</h3>
+        {isCurrent && (
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-50 text-emerald-600 border border-emerald-200">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
             </span>
-          )}
-        </div>
-        <p className="text-sm text-[#d4567e] font-medium mb-2">{phase.role}</p>
-        <p className="text-sm text-zinc-500 leading-relaxed">
-          {phase.description}
-        </p>
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {phase.highlights.map((h) => (
-            <span key={h} className="text-sm px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
-              {h}
-            </span>
+            Now
+          </span>
+        )}
+      </div>
+      <p className="text-sm text-[#d4567e] font-medium">{project.role}</p>
+      {Array.isArray(project.description) ? (
+        <ul className="mt-1 space-y-0.5">
+          {project.description.map((item) => (
+            <li key={item} className="text-sm text-zinc-500 flex items-start gap-1.5">
+              <span className="gradient-text mt-0.5 shrink-0">▸</span>
+              <span>{item}</span>
+            </li>
           ))}
-        </div>
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {phase.tech.map((t) => (
-            <span key={t} className="text-sm px-2 py-0.5 rounded-md font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
-              {t}
-            </span>
-          ))}
-        </div>
+        </ul>
+      ) : (
+        <p className="text-sm text-zinc-500 leading-relaxed mt-1">{project.description}</p>
+      )}
+      <div className="mt-2 flex flex-wrap gap-1">
+        {project.tech.map((t) => (
+          <span key={t} className="text-xs px-1.5 py-0.5 rounded-md font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
+            {t}
+          </span>
+        ))}
       </div>
     </div>
   );
@@ -87,20 +81,23 @@ function PhaseCard({ phase }: { phase: CareerPhase }) {
 
 function ConcurrentCard({ project }: { project: ConcurrentProject }) {
   return (
-    <div className="card-dark rounded-2xl p-4 md:p-5 border-r-4 border-r-[#e88560]">
-      <h3 className="font-bold text-zinc-900 text-sm mb-1">{project.title}</h3>
-      <p className="text-sm text-[#e88560] font-medium mb-2">{project.role}</p>
-      <p className="text-sm text-zinc-500 leading-relaxed">{project.description}</p>
-      <div className="mt-3 flex flex-wrap gap-1.5">
-        {project.highlights.map((h) => (
-          <span key={h} className="text-sm px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 border border-zinc-200">
-            {h}
-          </span>
-        ))}
-      </div>
-      <div className="mt-2.5 flex flex-wrap gap-1.5">
+    <div className="card-dark rounded-xl p-3 border-r-4 border-r-[#e88560]">
+      <h3 className="font-bold text-zinc-900 text-sm">{project.title}</h3>
+      {Array.isArray(project.description) ? (
+        <ul className="mt-1 space-y-0.5">
+          {project.description.map((item) => (
+            <li key={item} className="text-sm text-zinc-500 flex items-start gap-1.5">
+              <span className="text-[#e88560] mt-0.5 shrink-0">▸</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-zinc-500 leading-relaxed mt-1">{project.description}</p>
+      )}
+      <div className="mt-2 flex flex-wrap gap-1">
         {project.tech.map((t) => (
-          <span key={t} className="text-sm px-2 py-0.5 rounded-md font-mono bg-[#e88560]/5 text-[#e88560] border border-[#e88560]/10">
+          <span key={t} className="text-xs px-1.5 py-0.5 rounded-md font-mono bg-[#e88560]/5 text-[#e88560] border border-[#e88560]/10">
             {t}
           </span>
         ))}
@@ -111,39 +108,37 @@ function ConcurrentCard({ project }: { project: ConcurrentProject }) {
 
 /* ─── Desktop timeline item ─── */
 
-function DesktopTimelineItem({ phase, index, isLast }: { phase: CareerPhase; index: number; isLast: boolean }) {
-  const hasConcurrent = !!phase.concurrent;
-  const isCurrent = phase.type === "current";
+function DesktopTimelineItem({ project, index, isLast }: { project: CareerProject; index: number; isLast: boolean }) {
+  const isCurrent = project.type === "current";
 
   return (
     <>
-      {/* ── Start date row ── */}
+      {/* Start date row */}
       <div className="grid grid-cols-[1fr_48px_1fr] items-center">
         <div />
         <div className="flex justify-center">
-          <DateDot date={phase.startDate} />
+          <DateDot date={project.startDate} />
         </div>
         <div />
       </div>
 
-      {/* ── Content row: left card? | line | right card ── */}
-      <div className="grid grid-cols-[1fr_48px_1fr] gap-x-6">
+      {/* Content row */}
+      <div className="grid grid-cols-[1fr_48px_1fr] gap-x-4">
         {/* Left column */}
-        <div className="flex justify-end items-start pt-4">
-          {hasConcurrent && (
+        <div className="flex justify-end items-start pt-10">
+          {project.concurrent && (
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 + 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.15 + 0.2 }}
               className="w-full"
             >
-              <ConcurrentCard project={phase.concurrent!} />
-              <p className="text-[10px] font-mono text-zinc-300 text-right mt-2 italic">同時進行</p>
+              <ConcurrentCard project={project.concurrent} />
+              <p className="text-[10px] font-mono text-zinc-300 text-right mt-1.5 italic">同時進行</p>
             </motion.div>
           )}
         </div>
-
         {/* Center line */}
         <div className="flex justify-center">
           <motion.div
@@ -155,26 +150,25 @@ function DesktopTimelineItem({ phase, index, isLast }: { phase: CareerPhase; ind
             style={{ transformOrigin: "top" }}
           />
         </div>
-
-        {/* Right column */}
-        <div className="pt-4 pb-6">
+        {/* Card */}
+        <div className="pt-1 pb-1">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.5, delay: index * 0.15 }}
           >
-            <PhaseCard phase={phase} />
+            <ProjectCard project={project} />
           </motion.div>
         </div>
       </div>
 
-      {/* ── End date row (only for last item) ── */}
+      {/* End date (last item only) */}
       {isLast && (
         <div className="grid grid-cols-[1fr_48px_1fr] items-center">
           <div />
           <div className="flex justify-center">
-            <DateDot date={phase.endDate} isCurrent={isCurrent} />
+            <DateDot date={project.endDate} isCurrent={isCurrent} />
           </div>
           <div />
         </div>
@@ -185,9 +179,8 @@ function DesktopTimelineItem({ phase, index, isLast }: { phase: CareerPhase; ind
 
 /* ─── Mobile timeline item ─── */
 
-function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; index: number; isLast: boolean }) {
-  const hasConcurrent = !!phase.concurrent;
-  const isCurrent = phase.type === "current";
+function MobileTimelineItem({ project, index, isLast }: { project: CareerProject; index: number; isLast: boolean }) {
+  const isCurrent = project.type === "current";
 
   return (
     <>
@@ -197,7 +190,7 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
           <div className={`w-3 h-3 rounded-full border-2 ${isCurrent ? "border-emerald-500 bg-emerald-100" : "border-[#d4567e] bg-white"} z-10`} />
         </div>
         <span className={`text-[10px] font-mono font-semibold ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"}`}>
-          {phase.startDate}
+          {project.startDate}
         </span>
       </div>
 
@@ -206,16 +199,16 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
         <div className="flex justify-center">
           <div className="w-0.5 h-full bg-gradient-to-b from-[#d4567e]/20 to-[#e88560]/10" />
         </div>
-        <div className="pb-6 space-y-4">
+        <div className="pb-3 space-y-3">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
           >
-            <PhaseCard phase={phase} />
+            <ProjectCard project={project} />
           </motion.div>
-          {hasConcurrent && (
+          {project.concurrent && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -223,7 +216,7 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
               transition={{ duration: 0.4, delay: index * 0.1 + 0.15 }}
             >
               <p className="text-[10px] font-mono text-zinc-300 italic mb-1">同時進行</p>
-              <ConcurrentCard project={phase.concurrent!} />
+              <ConcurrentCard project={project.concurrent} />
             </motion.div>
           )}
         </div>
@@ -236,7 +229,7 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
             <div className={`w-3 h-3 rounded-full border-2 ${isCurrent ? "border-emerald-500 bg-emerald-100" : "border-[#d4567e] bg-white"} z-10`} />
           </div>
           <span className={`text-[10px] font-mono font-semibold ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"}`}>
-            {phase.endDate}
+            {project.endDate}
           </span>
         </div>
       )}
@@ -244,13 +237,66 @@ function MobileTimelineItem({ phase, index, isLast }: { phase: CareerPhase; inde
   );
 }
 
+/* ─── Number rain background ─── */
+
+function seededRandom(seed: number) {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
+function NumberColumn({ index }: { index: number }) {
+  const numbers = "0123456789";
+  const length = 30 + Math.floor(seededRandom(index + 1) * 20);
+  const chars = [...Array(length)].map((_, i) => numbers[Math.floor(seededRandom(index * 100 + i) * 10)]);
+  const speed = Math.round((4 + seededRandom(index + 50) * 6) * 10) / 10;
+  const delayVal = Math.round((-speed * (index % 10) / 10) * 10) / 10;
+  const initialOffset = (index % 5) * -20;
+
+  return (
+    <div
+      className="font-mono text-sm text-black/[0.08] leading-5 animate-number-fall whitespace-nowrap"
+      style={{
+        animationDuration: `${speed}s`,
+        animationDelay: `${delayVal}s`,
+        transform: `translateY(${initialOffset}%)`,
+      }}
+    >
+      {chars.map((char, i) => (
+        <div
+          key={i}
+          style={{ opacity: Math.max(0.15, 0.8 - i * 0.025) }}
+          className="text-center"
+        >
+          {char}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function NumberRain() {
+  return (
+    <div
+      className="absolute inset-0 overflow-hidden pointer-events-none z-0"
+      style={{ maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)" }}
+    >
+      <div className="absolute inset-0 flex gap-2 justify-around">
+        {[...Array(50)].map((_, i) => (
+          <NumberColumn key={i} index={i} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main component ─── */
 
 export default function Career() {
   return (
-    <section id="career" className="py-10 px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Section Header */}
+    <section id="career" className="py-10 px-6 relative overflow-hidden">
+      <NumberRain />
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -264,32 +310,34 @@ export default function Career() {
           <p className="text-zinc-500 text-lg max-w-xl mt-2">
             テスターから開発リードへ。4年間の成長軌跡。
           </p>
+          <p className="text-sm text-zinc-500 leading-relaxed mt-4 max-w-3xl">
+            テレビ制作会社でのAD経験（2020〜2022年）を経て、2023年にIT業界へ未経験転職。マニュアル作成・QAを経験後、自ら開発事業部の立ち上げを発案・提案し承認を獲得。ゼロから5名チームを組成してiOSアプリ2本をリリース。現在はReact + TypeScriptを軸としたWebシステムの開発リードを担う。PM・デザイン・開発の三刀流と、事業部立ち上げ経験が最大の強み。
+          </p>
         </motion.div>
 
         {/* Desktop Timeline */}
         <div className="hidden md:block max-w-4xl mx-auto">
-          {careerPhases.map((phase, index) => (
+          {careerProjects.map((project, index) => (
             <DesktopTimelineItem
-              key={phase.period}
-              phase={phase}
+              key={project.period}
+              project={project}
               index={index}
-              isLast={index === careerPhases.length - 1}
+              isLast={index === careerProjects.length - 1}
             />
           ))}
         </div>
 
         {/* Mobile Timeline */}
         <div className="md:hidden">
-          {careerPhases.map((phase, index) => (
+          {careerProjects.map((project, index) => (
             <MobileTimelineItem
-              key={phase.period}
-              phase={phase}
+              key={project.period}
+              project={project}
               index={index}
-              isLast={index === careerPhases.length - 1}
+              isLast={index === careerProjects.length - 1}
             />
           ))}
         </div>
-
       </div>
     </section>
   );

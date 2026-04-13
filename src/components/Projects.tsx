@@ -15,7 +15,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div className="card-clickable rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full flex flex-col">
           {/* 上段: 画像 + 番号・タイトル */}
           <div className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-44 h-28 rounded-lg bg-zinc-200 p-[1px] overflow-hidden">
+            <div className="flex-shrink-0 w-52 h-32 rounded-lg bg-zinc-200 p-[1px] overflow-hidden">
               {project.thumbnail ? (
                 <div className="w-full h-full rounded-lg overflow-hidden relative">
                   <Image src={project.thumbnail} alt={project.title} fill className="object-cover object-top" />

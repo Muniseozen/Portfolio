@@ -8,7 +8,7 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#career", label: "Career" },
+  { href: "/career", label: "Career" },
   { href: "#projects", label: "Projects" },
 ];
 
@@ -45,9 +45,13 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
         {variant === "home" ? (
           <>
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300">{link.label}</a>
-              ))}
+              {navLinks.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link key={link.href} href={link.href} className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300">{link.label}</Link>
+                ) : (
+                  <a key={link.href} href={link.href} className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300">{link.label}</a>
+                )
+              )}
             </div>
             <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
               <motion.span animate={isMobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-zinc-900" />
@@ -71,9 +75,13 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
           {isMobileOpen && (
             <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="md:hidden bg-white/95 backdrop-blur-xl border-b border-black/5">
               <div className="flex flex-col items-center gap-6 py-8">
-                {navLinks.map((link) => (
-                  <a key={link.href} href={link.href} onClick={() => setIsMobileOpen(false)} className="text-lg text-zinc-500 hover:text-zinc-900 transition-colors">{link.label}</a>
-                ))}
+                {navLinks.map((link) =>
+                  link.href.startsWith("/") ? (
+                    <Link key={link.href} href={link.href} onClick={() => setIsMobileOpen(false)} className="text-lg text-zinc-500 hover:text-zinc-900 transition-colors">{link.label}</Link>
+                  ) : (
+                    <a key={link.href} href={link.href} onClick={() => setIsMobileOpen(false)} className="text-lg text-zinc-500 hover:text-zinc-900 transition-colors">{link.label}</a>
+                  )
+                )}
               </div>
             </motion.div>
           )}
