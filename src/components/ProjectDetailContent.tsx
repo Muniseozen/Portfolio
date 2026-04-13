@@ -92,7 +92,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className={`grid grid-cols-2 md:grid-cols-${metaItems.length} gap-8`}>
+            <div className={`grid grid-cols-2 gap-8 ${{ 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[metaItems.length] ?? "md:grid-cols-4"}`}>
               {metaItems.map((item) => (
                 <div key={item.label}>
                   <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">
@@ -213,7 +213,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               </p>
             </FadeIn>
             <FadeIn delay={0.15}>
-              <div className="card-dark gradient-border rounded-2xl p-6">
+              <div className="card-dark rounded-2xl p-6">
                 <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-3">
                   Tech Stack
                 </h3>
@@ -246,7 +246,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="grid md:grid-cols-2 gap-6">
               {project.roleBreakdown.map((role, index) => (
                 <FadeIn key={role.title} delay={index * 0.1}>
-                  <div className="card-dark gradient-border rounded-2xl p-6 h-full">
+                  <div className="card-dark rounded-2xl p-6 h-full">
                     <h3 className="text-sm font-bold text-zinc-900 mb-3">
                       {role.title}
                     </h3>
@@ -283,7 +283,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="flex flex-col gap-4">
               {project.challenges.map((item, index) => (
                 <FadeIn key={index} delay={index * 0.1}>
-                  <div className="card-dark gradient-border rounded-2xl p-5 md:p-6">
+                  <div className="card-dark rounded-2xl p-5 md:p-6">
                     <div className="grid md:grid-cols-2 gap-4 items-start">
                       <div className="flex gap-3">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">

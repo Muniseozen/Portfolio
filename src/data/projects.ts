@@ -23,7 +23,6 @@ export interface Project {
   category: "work" | "personal";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
-  screenshots: string[];
 }
 
 export const projects: Project[] = [
@@ -59,7 +58,6 @@ export const projects: Project[] = [
       { problem: "キャッチコピーが企業の目的やビジョンと合っていなかった", solution: "ヒアリングを重ね、企業の強みとターゲットに刺さるメッセージを策定。ファーストビューで明確に伝わるコピーに刷新" },
       { problem: "余白が多く、コンテンツが少ない印象で信頼感に欠けていた", solution: "適切な余白バランスとビジュアル要素を配置し、プロフェッショナルで信頼感のあるデザインに改善" },
     ],
-    screenshots: [],
   },
   {
     id: 2,
@@ -87,7 +85,6 @@ export const projects: Project[] = [
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ターゲットに合わせたトーン設計"] },
     ],
     challenges: [],
-    screenshots: [],
   },
   {
     id: 3,
@@ -118,7 +115,6 @@ export const projects: Project[] = [
       { title: "+ Web Dashboard", tasks: ["React + TypeScriptでの管理画面実装", "求人管理・応募者管理・ダッシュボード機能"] },
     ],
     challenges: [],
-    screenshots: [],
   },
   {
     id: 4,
@@ -146,7 +142,6 @@ export const projects: Project[] = [
       { title: "iOS Development", tasks: ["SwiftUIでのアプリ実装", "AWSバックエンドとの連携"] },
     ],
     challenges: [],
-    screenshots: [],
   },
   // ── My Projects ──
   {
@@ -177,7 +172,6 @@ export const projects: Project[] = [
       { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "Firebase Authentication によるユーザー認証", "Cloud Firestore でのリアルタイムデータ同期", "フリップカード・スワイプ操作の実装"] },
     ],
     challenges: [],
-    screenshots: [],
   },
   {
     id: 6,
@@ -206,7 +200,6 @@ export const projects: Project[] = [
       { title: "Frontend", tasks: ["React + Vite でのSPA構築", "Leafletでのマップ・断層線・地震マーカー実装", "i18nextによるトルコ語/英語の多言語対応", "AFAD APIからのリアルタイムデータ取得（30秒自動更新）"] },
     ],
     challenges: [],
-    screenshots: [],
   },
 ];
 

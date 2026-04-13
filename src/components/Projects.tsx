@@ -12,7 +12,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }} transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
       <Link href={`/projects/${project.slug}`}>
-        <div className="card-clickable gradient-border rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full flex flex-col">
+        <div className="card-clickable rounded-xl p-4 group relative overflow-hidden cursor-pointer h-full flex flex-col">
           {/* 上段: 画像 + 番号・タイトル */}
           <div className="flex gap-4 items-start">
             <div className="flex-shrink-0 w-44 h-28 rounded-lg bg-zinc-200 p-[1px] overflow-hidden">

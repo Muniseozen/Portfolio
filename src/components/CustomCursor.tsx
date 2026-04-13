@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 
 export default function CustomCursor() {
@@ -9,19 +9,16 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
 
-  const moveCursor = useCallback(
-    (e: MouseEvent) => {
-      cursorX.set(e.clientX);
-      cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
-    },
-    [cursorX, cursorY, isVisible]
-  );
-
   useEffect(() => {
     if ("ontouchstart" in window) return;
 
     document.body.style.cursor = "none";
+
+    const handleMouseMove = (e: MouseEvent) => {
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      setIsVisible(true);
+    };
 
     const handlePointerOver = (e: MouseEvent) => {
       const t = e.target as HTMLElement;
@@ -36,17 +33,17 @@ export default function CustomCursor() {
       );
     };
 
-    window.addEventListener("mousemove", moveCursor, { passive: true });
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseover", handlePointerOver, { passive: true });
     document.addEventListener("mouseleave", () => setIsVisible(false));
     document.addEventListener("mouseenter", () => setIsVisible(true));
 
     return () => {
       document.body.style.cursor = "";
-      window.removeEventListener("mousemove", moveCursor);
+      window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handlePointerOver);
     };
-  }, [moveCursor]);
+  }, [cursorX, cursorY]);
 
   if (typeof window !== "undefined" && "ontouchstart" in window) return null;
 

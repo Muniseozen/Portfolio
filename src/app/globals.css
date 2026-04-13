@@ -92,12 +92,6 @@ body::before {
   transform: translateY(-1px);
 }
 
-.gradient-border {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(168,48,95,0.3); border-radius: 3px; }

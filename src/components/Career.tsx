@@ -41,7 +41,7 @@ function PhaseCard({ phase }: { phase: CareerPhase }) {
   const isCurrent = phase.type === "current";
 
   return (
-    <div className={isHero ? "gradient-border" : ""}>
+    <div>
       <div
         className={`card-dark rounded-2xl relative overflow-hidden ${isHero ? "p-4 md:p-5 border-l-4 border-l-[#d4567e]" : "p-3 md:p-4"
           }`}
