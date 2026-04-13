@@ -184,7 +184,7 @@ export const projects: Project[] = [
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "Firebase Auth", "Cloud Firestore"],
     gradient: "from-[#9b2c5a] via-[#b84468] to-[#d4567e]",
     emoji: "&#x1F4F1;",
-    thumbnail: "/images/projects/mochibo-preview.png",
+    thumbnail: "",
     url: "https://github.com/Muniseozen/Mochibo",
     preview: "/images/projects/mochibo-preview.png",
     previewType: "mobile",
