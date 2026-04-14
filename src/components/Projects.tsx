@@ -30,6 +30,7 @@ function FeaturedCard({ project }: { project: Project }) {
                   alt={project.title}
                   width={1200}
                   height={800}
+                  sizes="(max-width: 768px) 100vw, 55vw"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               ) : (
@@ -97,6 +98,8 @@ function GridCard({ project, index }: { project: Project; index: number }) {
                 alt={project.title}
                 width={1200}
                 height={800}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.03]"
               />
             ) : (

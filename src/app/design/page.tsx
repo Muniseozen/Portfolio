@@ -46,6 +46,8 @@ export default function DesignPage() {
                     alt={work.alt}
                     width={work.width}
                     height={work.height}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 50vw, 33vw"
                     className="w-full h-auto"
                   />
                 </div>

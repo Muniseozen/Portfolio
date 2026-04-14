@@ -6,26 +6,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 const works = [
-  { src: "/images/projects/uply-ad-1.png", alt: "Uply 広告 1", width: 1080, height: 1350 },
-  { src: "/images/projects/uply-ad-2.png", alt: "Uply 広告 2", width: 1080, height: 1350 },
-  { src: "/images/design/banner-uply-1.png", alt: "Uply バナー 1", width: 750, height: 700 },
-  { src: "/images/design/banner-uply-2.png", alt: "Uply LINEバナー", width: 750, height: 700 },
-  { src: "/images/design/banner-uply-3.png", alt: "Uply LINEバナー 横", width: 1200, height: 400 },
-  { src: "/images/design/sp-1.png", alt: "Design Work 1", width: 1880, height: 1576 },
-  { src: "/images/design/sp-11.png", alt: "Design Work 11", width: 1880, height: 1576 },
-  { src: "/images/design/sp-8.png", alt: "Design Work 8", width: 1880, height: 1576 },
-  { src: "/images/design/sp-12.png", alt: "Design Work 12", width: 1880, height: 1576 },
-  { src: "/images/design/sp-10.png", alt: "Design Work 10", width: 1880, height: 1576 },
-  { src: "/images/design/sp-9.png", alt: "Design Work 9", width: 1880, height: 1576 },
-  { src: "/images/design/sp-6.png", alt: "Design Work 6", width: 1880, height: 1576 },
-  { src: "/images/design/sp-14.png", alt: "Design Work 14", width: 1880, height: 1576 },
-  { src: "/images/design/sp-7.png", alt: "Design Work 7", width: 1880, height: 1576 },
-  { src: "/images/design/sp-13.png", alt: "Design Work 13", width: 1880, height: 1576 },
-  { src: "/images/design/sp-5.png", alt: "Design Work 5", width: 1880, height: 1576 },
-  { src: "/images/design/sp-4.png", alt: "Design Work 4", width: 1880, height: 1576 },
-  { src: "/images/design/sp-3.png", alt: "Design Work 3", width: 1880, height: 1576 },
-  { src: "/images/design/sp-2.png", alt: "Design Work 2", width: 1880, height: 1576 },
-  { src: "/images/design/sp-15.png", alt: "Design Work 15", width: 1880, height: 1576 },
+  { src: "/images/projects/uply-ad-1.webp", alt: "Uply 広告 1", width: 1080, height: 1350 },
+  { src: "/images/projects/uply-ad-2.webp", alt: "Uply 広告 2", width: 1080, height: 1350 },
+  { src: "/images/design/banner-uply-1.webp", alt: "Uply バナー 1", width: 750, height: 700 },
+  { src: "/images/design/banner-uply-2.webp", alt: "Uply LINEバナー", width: 750, height: 700 },
+  { src: "/images/design/banner-uply-3.webp", alt: "Uply LINEバナー 横", width: 1200, height: 400 },
+  { src: "/images/design/sp-1.webp", alt: "Design Work 1", width: 1880, height: 1576 },
+  { src: "/images/design/sp-11.webp", alt: "Design Work 11", width: 1880, height: 1576 },
+  { src: "/images/design/sp-8.webp", alt: "Design Work 8", width: 1880, height: 1576 },
+  { src: "/images/design/sp-12.webp", alt: "Design Work 12", width: 1880, height: 1576 },
+  { src: "/images/design/sp-10.webp", alt: "Design Work 10", width: 1880, height: 1576 },
+  { src: "/images/design/sp-9.webp", alt: "Design Work 9", width: 1880, height: 1576 },
+  { src: "/images/design/sp-6.webp", alt: "Design Work 6", width: 1880, height: 1576 },
+  { src: "/images/design/sp-14.webp", alt: "Design Work 14", width: 1880, height: 1576 },
+  { src: "/images/design/sp-7.webp", alt: "Design Work 7", width: 1880, height: 1576 },
+  { src: "/images/design/sp-13.webp", alt: "Design Work 13", width: 1880, height: 1576 },
+  { src: "/images/design/sp-5.webp", alt: "Design Work 5", width: 1880, height: 1576 },
+  { src: "/images/design/sp-4.webp", alt: "Design Work 4", width: 1880, height: 1576 },
+  { src: "/images/design/sp-3.webp", alt: "Design Work 3", width: 1880, height: 1576 },
+  { src: "/images/design/sp-2.webp", alt: "Design Work 2", width: 1880, height: 1576 },
+  { src: "/images/design/sp-15.webp", alt: "Design Work 15", width: 1880, height: 1576 },
 ];
 
 const PREVIEW_COUNT = 6;
@@ -48,12 +48,12 @@ export { works, shuffledWorks };
 
 // ホームプレビュー用: 色バランスを考慮した固定6枚
 const previewSources = [
-  "/images/design/sp-9.png",  // イエロー/水色
-  "/images/design/sp-1.png",  // パステル
-  "/images/design/sp-13.png", // グリーン
-  "/images/design/sp-10.png", // ピンク
-  "/images/design/sp-11.png", // グリーン/イエロー
-  "/images/design/sp-12.png", // ピンク
+  "/images/design/sp-9.webp",  // イエロー/水色
+  "/images/design/sp-1.webp",  // パステル
+  "/images/design/sp-13.webp", // グリーン
+  "/images/design/sp-10.webp", // ピンク
+  "/images/design/sp-11.webp", // グリーン/イエロー
+  "/images/design/sp-12.webp", // ピンク
 ];
 const uniformWorks = previewSources.map((src) => works.find((w) => w.src === src)!);
 
@@ -95,6 +95,8 @@ export default function DesignWorks() {
                   alt={work.alt}
                   width={work.width}
                   height={work.height}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 33vw"
                   className="w-full h-auto"
                 />
               </div>

@@ -386,7 +386,7 @@ export default function Hero() {
               {/* Photo container */}
               <div className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white z-10">
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/profile.webp"
                   alt="Munise Haruyama"
                   fill
                   className="object-cover object-top scale-[1.2]"
