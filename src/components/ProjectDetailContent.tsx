@@ -135,7 +135,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                   </div>
                 </div>
               </div>
-            ) : project.preview && project.url ? (
+            ) : project.preview ? (
               <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
                 <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
                   <div className="flex gap-1.5">
@@ -143,11 +143,13 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                     <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
                     <div className="w-3 h-3 rounded-full bg-green-400/70" />
                   </div>
-                  <div className="flex-1 mx-2">
-                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate hover:text-zinc-600 transition-colors">
-                      {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                    </a>
-                  </div>
+                  {project.url && (
+                    <div className="flex-1 mx-2">
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate hover:text-zinc-600 transition-colors">
+                        {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                      </a>
+                    </div>
+                  )}
                 </div>
                 <div className="max-h-[600px] overflow-y-auto">
                   <Image
@@ -158,16 +160,6 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                     className="w-full h-auto"
                   />
                 </div>
-              </div>
-            ) : project.preview ? (
-              <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.preview!)}>
-                <Image
-                  src={project.preview}
-                  alt={`${project.title} - Screenshots`}
-                  width={1920}
-                  height={1080}
-                  className="w-full h-auto"
-                />
               </div>
             ) : project.url ? (
               <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
