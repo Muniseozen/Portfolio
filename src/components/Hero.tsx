@@ -315,6 +315,45 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center px-6 overflow-x-clip overflow-y-visible">
 
+      {/* ── Bauhaus geometric background ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 90%)", WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 90%)" }}
+      >
+        <svg
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] md:w-[1100px] md:h-[1100px] opacity-[0.07]"
+          viewBox="0 0 600 600"
+          fill="none"
+        >
+          {/* Row 1 */}
+          <path d="M0 0 L150 0 L150 150 A150 150 0 0 0 0 0 Z" fill="#a8305f" />
+          <path d="M150 0 L300 0 L300 150 L150 150 Z" fill="#d4567e" />
+          <circle cx="225" cy="0" r="75" fill="#fdf8f8" />
+          <circle cx="450" cy="75" r="75" fill="#e88560" />
+
+          {/* Row 2 */}
+          <path d="M0 150 L0 300 L150 300 L150 225 A75 75 0 0 0 0 225 Z" fill="#d4567e" />
+          <path d="M150 150 A150 150 0 0 1 300 300 L150 300 Z" fill="#a8305f" />
+          <path d="M300 150 A150 150 0 0 0 150 300 L300 300 Z" fill="#a8305f" />
+          <path d="M450 300 A150 150 0 0 0 300 150 L300 300 Z" fill="#e88560" />
+
+          {/* Row 3 */}
+          <rect x="0" y="300" width="150" height="150" fill="#d4567e" />
+          <circle cx="75" cy="375" r="50" fill="#fdf8f8" />
+          <path d="M150 300 L300 300 A150 150 0 0 1 150 450 Z" fill="#a8305f" />
+          <path d="M300 300 L300 450 L450 450 L450 300 Z" fill="#e88560" />
+          <path d="M300 300 L450 300 A75 75 0 0 0 300 300 Z" fill="#fdf8f8" />
+
+          {/* Row 4 */}
+          <path d="M75 450 A75 75 0 0 1 75 600 L0 600 L0 450 Z" fill="#a8305f" />
+          <path d="M150 450 L300 450 L300 600 A150 150 0 0 1 150 450 Z" fill="#d4567e" />
+          <path d="M300 450 L450 450 L450 600 L300 600 Z" fill="#a8305f" />
+          <path d="M450 600 A150 150 0 0 0 300 450 L300 600 Z" fill="#fdf8f8" />
+        </svg>
+      </motion.div>
 
       <motion.div style={{ opacity }} className="relative z-10 max-w-5xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row lg:items-center lg:gap-8">
