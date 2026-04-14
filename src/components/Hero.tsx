@@ -310,7 +310,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const typedRole = useTypingAnimation(roles);
   const line1 = "Hello, I'm";
-  const line2 = "Haruyama Munise.";
+  const line2 = "Munise Haruyama.";
 
   return (
     <section id="home" className="relative min-h-screen flex items-center px-6 overflow-x-clip overflow-y-visible">
