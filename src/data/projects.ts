@@ -127,6 +127,7 @@ export const projects: Project[] = [
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
     emoji: "&#x1F91D;",
     thumbnail: "/images/projects/uply-thumbnail.webp",
+    preview: "/images/projects/uply-dashboard-and-sp-screens.webp",
     designProcess: "/images/projects/uply-figma.webp",
     designSystem: "/images/projects/uply-components.webp",
     prototype: "/images/projects/uply-prototype.webp",
