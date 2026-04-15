@@ -323,11 +323,12 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none overflow-hidden"
         style={{ maskImage: "linear-gradient(to bottom, black 60%, transparent 90%)", WebkitMaskImage: "linear-gradient(to bottom, black 60%, transparent 90%)" }}
       >
+        {/* Desktop — 横長viewBoxで全体表示 */}
         <svg
-          className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1500 784"
+          className="hidden md:block absolute inset-0 w-full h-full"
+          viewBox="0 -50 1500 884"
           fill="none"
-          preserveAspectRatio="xMidYMid meet"
+          preserveAspectRatio="xMidYMid slice"
         >
           <path d="M1071 237.5C1071 154.381 1138.38 87 1221.5 87C1304.62 87 1372 154.381 1372 237.5C1372 320.619 1304.62 388 1221.5 388H1071V237.5Z" fill="#FAEFEB" />
           <path d="M1066 -77.5C1066 5.619 1133.38 73 1216.5 73C1299.62 73 1367 5.619 1367 -77.5C1367 -160.619 1299.62 -228 1216.5 -228H1066V-77.5Z" fill="#FAE8EC" />
@@ -336,6 +337,23 @@ export default function Hero() {
           <path d="M1071 547.5C1071 630.619 1138.38 698 1221.5 698C1304.62 698 1372 630.619 1372 547.5C1372 464.381 1304.62 397 1221.5 397H1071V547.5Z" fill="#FAEFEB" />
           <path d="M1056 241.5C1056 163.904 993.096 101 915.5 101C837.904 101 775 163.904 775 241.5V382H1056V241.5Z" fill="#FAEFEB" />
           <path d="M296 73C388.784 73 464 148.216 464 241V544C464 636.784 388.784 712 296 712C203.216 712 128 636.784 128 544V241C128 148.216 203.216 73 296 73ZM297.5 397C218.8 397 155 461.806 155 540.507C155 618.103 217.904 682 295.5 682C373.096 682 436 619.096 436 541.5V397H297.5Z" fill="#FAE8EC" />
+        </svg>
+        {/* Mobile — 90度回転して縦向きに表示 */}
+        <svg
+          className="md:hidden absolute inset-0 w-full h-full"
+          viewBox="250 -600 700 1200"
+          fill="none"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <g transform="rotate(90, 750, 242)">
+            <path d="M1071 237.5C1071 154.381 1138.38 87 1221.5 87C1304.62 87 1372 154.381 1372 237.5C1372 320.619 1304.62 388 1221.5 388H1071V237.5Z" fill="#FAEFEB" />
+            <path d="M1066 -77.5C1066 5.619 1133.38 73 1216.5 73C1299.62 73 1367 5.619 1367 -77.5C1367 -160.619 1299.62 -228 1216.5 -228H1066V-77.5Z" fill="#FAE8EC" />
+            <path d="M479 241.5C479 163.904 541.904 101 619.5 101C697.096 101 760 163.904 760 241.5C760 319.096 697.096 382 619.5 382H479V241.5Z" fill="#FAE8EC" />
+            <path d="M479 395H1056V423.5C1056 582.834 926.834 712 767.5 712C608.166 712 479 582.834 479 423.5V395Z" fill="#FAE8EC" />
+            <path d="M1071 547.5C1071 630.619 1138.38 698 1221.5 698C1304.62 698 1372 630.619 1372 547.5C1372 464.381 1304.62 397 1221.5 397H1071V547.5Z" fill="#FAEFEB" />
+            <path d="M1056 241.5C1056 163.904 993.096 101 915.5 101C837.904 101 775 163.904 775 241.5V382H1056V241.5Z" fill="#FAEFEB" />
+            <path d="M296 73C388.784 73 464 148.216 464 241V544C464 636.784 388.784 712 296 712C203.216 712 128 636.784 128 544V241C128 148.216 203.216 73 296 73ZM297.5 397C218.8 397 155 461.806 155 540.507C155 618.103 217.904 682 295.5 682C373.096 682 436 619.096 436 541.5V397H297.5Z" fill="#FAE8EC" />
+          </g>
         </svg>
       </motion.div>
 
