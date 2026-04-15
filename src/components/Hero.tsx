@@ -313,7 +313,7 @@ export default function Hero() {
   const line2 = "Munise Haruyama.";
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center px-6 overflow-x-clip overflow-y-visible">
+    <section id="home" className="relative min-h-screen flex items-start pt-24 md:items-center md:pt-0 px-6 overflow-x-clip overflow-y-visible">
 
       {/* ── Organic geometric background ── */}
       <motion.div
@@ -362,7 +362,7 @@ export default function Hero() {
           {/* Left: Text Content */}
           <div className="flex-1 lg:min-w-[480px]">
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-5">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-5">
               <span className="block text-zinc-900">
                 {line1.split("").map((char, i) => (
                   <motion.span key={`l1-${i}`} custom={i} variants={letterVariants} initial="hidden" animate="visible"
