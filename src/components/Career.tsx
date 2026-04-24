@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { careerProjects, type CareerProject, type ConcurrentProject } from "@/data/career";
 import NumberRain from "@/components/NumberRain";
+import { useLocale } from "@/i18n/LocaleContext";
 
 /* ─── Date dot on the timeline ─── */
 
@@ -111,6 +112,7 @@ function ConcurrentCard({ project }: { project: ConcurrentProject }) {
 
 function DesktopTimelineItem({ project, index, isLast }: { project: CareerProject; index: number; isLast: boolean }) {
   const isCurrent = project.type === "current";
+  const { m } = useLocale();
 
   return (
     <>
@@ -136,7 +138,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
               className="w-full"
             >
               <ConcurrentCard project={project.concurrent} />
-              <p className="text-[10px] font-mono text-zinc-300 text-right mt-1.5 italic">同時進行</p>
+              <p className="text-[10px] font-mono text-zinc-300 text-right mt-1.5 italic">{m.career.concurrent}</p>
             </motion.div>
           )}
         </div>
@@ -182,6 +184,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
 
 function MobileTimelineItem({ project, index, isLast }: { project: CareerProject; index: number; isLast: boolean }) {
   const isCurrent = project.type === "current";
+  const { m } = useLocale();
 
   return (
     <>
@@ -216,7 +219,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
               viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.1 + 0.15 }}
             >
-              <p className="text-[10px] font-mono text-zinc-300 italic mb-1">同時進行</p>
+              <p className="text-[10px] font-mono text-zinc-300 italic mb-1">{m.career.concurrent}</p>
               <ConcurrentCard project={project.concurrent} />
             </motion.div>
           )}
@@ -241,6 +244,8 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
 /* ─── Main component ─── */
 
 export default function Career() {
+  const { m } = useLocale();
+
   return (
     <section id="career" className="py-10 px-6 relative overflow-hidden">
       <NumberRain />
@@ -257,10 +262,10 @@ export default function Career() {
             <span className="gradient-text">Career</span>
           </h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">
-            テスターから開発リードへ。4年間の成長軌跡。
+            {m.career.tagline}
           </p>
           <p className="text-sm text-zinc-500 leading-relaxed mt-4 max-w-3xl">
-            テレビ制作会社でのAD経験（2020〜2022年）を経て、2023年にIT業界へ未経験転職。マニュアル作成・QAを経験後、自ら開発事業部の立ち上げを発案・提案し承認を獲得。ゼロから5名チームを組成してiOSアプリ2本をリリース。現在はReact + TypeScriptを軸としたWebシステムの開発リードを担う。PM・デザイン・開発の三刀流と、事業部立ち上げ経験が最大の強み。
+            {m.career.description}
           </p>
         </motion.div>
 

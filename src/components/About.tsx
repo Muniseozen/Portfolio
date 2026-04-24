@@ -1,8 +1,10 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import NumberRain from "@/components/NumberRain";
+import { useLocale } from "@/i18n/LocaleContext";
 
 const GradientDefs = ({ id }: { id: string }) => (
   <defs>
@@ -17,18 +19,13 @@ const GradientDefs = ({ id }: { id: string }) => (
 const TargetIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#target-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="target-grad" /><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>;
 const ChatIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#chat-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="chat-grad" /><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg>;
 const ZapIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#zap-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="zap-grad" /><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>;
-const UsersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#users-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="users-grad" /><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>;
-const LayersIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#layers-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="layers-grad" /><polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" /></svg>;
+const TrendingUpIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#trending-grad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><GradientDefs id="trending-grad" /><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg>;
 
-const values = [
-  { icon: <TargetIcon />, title: "「なぜ作るか」から考える", description: "ゴールから逆算する。届けるための視点を大事にする。" },
-  { icon: <ChatIcon />, title: "認識のズレをなくす対話", description: "言葉の裏にある意図を拾って、プロジェクトを前に進める。" },
-  { icon: <ZapIcon />, title: "迷う前にまず形にする", description: "考えすぎるより動く。出してから磨く。" },
-  { icon: <UsersIcon />, title: "チームが楽しく働ける空気", description: "職種関係なく、前向きに話せる場がいいものを作ると思っている。" },
-  { icon: <LayersIcon />, title: "実装がわかるデザイン", description: "きれいなだけじゃなく、ちゃんと動くものを。エンジニア目線とデザイン目線、両方持つ。" },
-];
+const valueIcons = [<ChatIcon key="chat" />, <TargetIcon key="target" />, <ZapIcon key="zap" />, <TrendingUpIcon key="trending" />];
 
 export default function About() {
+  const { m } = useLocale();
+
   return (
     <section id="about" className="py-6 px-6 relative overflow-hidden">
       {/* Falling numbers background */}
@@ -46,7 +43,7 @@ export default function About() {
             <span className="gradient-text">About</span>
           </h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">
-            戦略からデザイン、実装まで。
+            {m.about.tagline}
           </p>
         </motion.div>
 
@@ -58,21 +55,22 @@ export default function About() {
             viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.7 }}
           >
-            <h3 className="text-lg font-bold text-zinc-900 mb-4">自己紹介</h3>
+            <h3 className="text-lg font-bold text-zinc-900 mb-4">{m.about.selfIntroTitle}</h3>
             <div className="card-dark rounded-2xl p-6">
               <div className="space-y-3 text-sm text-zinc-500 leading-relaxed">
-                <p>
-                  はじめまして、<span className="text-zinc-900 font-bold">Munise（むにせ）</span>です。
-                </p>
-                <p>
-                  18歳でトルコから来日し、新卒でテレビ制作の現場へ。分刻みのスケジュールの中で<span className="text-zinc-900 font-bold">「どうすれば伝わるか」</span>を叩き込まれました。その後、未経験からIT業界に飛び込み、QA・デザイン・モバイル・Webと領域を広げながら4年が経ちました。
-                </p>
-                <p>
-                  途中、自ら<span className="text-zinc-900 font-bold">開発事業部の立ち上げを提案・実現</span>し、チームを作ってアプリをリリース。<span className="text-zinc-900 font-bold">「やってみよう」と動き出すのが割と早い方</span>だと思っています。
-                </p>
-                <p>
-                  今は<span className="text-zinc-900 font-bold">フロントエンドとUIデザイン</span>を軸に、エンジニアが実装しやすく・ユーザーが迷わないUIを考えることが自分の得意なことです。チームと一緒にプロダクトを育てていくのが好きです。
-                </p>
+                {m.about.selfIntroParagraphs.map((paragraph, pi) => (
+                  <p key={pi}>
+                    {paragraph.map((seg, si) =>
+                      seg.bold ? (
+                        <span key={si} className="text-zinc-900 font-bold">
+                          {seg.text}
+                        </span>
+                      ) : (
+                        <Fragment key={si}>{seg.text}</Fragment>
+                      )
+                    )}
+                  </p>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -84,9 +82,9 @@ export default function About() {
             viewport={{ once: true, margin: "0px 0px -150px 0px" }}
             transition={{ duration: 0.7 }}
           >
-            <h3 className="text-lg font-bold text-zinc-900 mb-4">大切にしていること</h3>
+            <h3 className="text-lg font-bold text-zinc-900 mb-4">{m.about.valuesTitle}</h3>
             <div className="grid gap-2">
-              {values.map((value, index) => (
+              {m.about.values.map((value, index) => (
                 <motion.div
                   key={value.title}
                   initial={{ opacity: 0, y: 20 }}
@@ -95,8 +93,9 @@ export default function About() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="card-dark rounded-xl p-4 flex gap-3 items-start"
                 >
-                  <div className="flex-shrink-0 mt-0.5">{value.icon}</div>
+                  <div className="flex-shrink-0 mt-0.5">{valueIcons[index]}</div>
                   <div>
+                    <p className="text-sm font-semibold text-[#a8305f] mb-1">{value.label}</p>
                     <h4 className="text-zinc-900 text-sm font-bold mb-1">{value.title}</h4>
                     <p className="text-sm text-zinc-400">{value.description}</p>
                   </div>
@@ -117,15 +116,15 @@ export default function About() {
           className="mt-8"
         >
           <Link href="/career" className="group block">
-            <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f] to-[#e88560] backdrop-blur-sm flex items-center justify-between hover:opacity-90 transition-opacity">
+            <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f]/8 to-[#e88560]/8 border border-[#a8305f]/15 backdrop-blur-sm flex items-center justify-between hover:from-[#a8305f]/12 hover:to-[#e88560]/12 transition-colors">
               <div>
-                <span className="text-lg md:text-xl font-black tracking-tight text-white">My Career Story</span>
-                <p className="text-sm text-white/70 mt-0.5">テスターから開発リードへ。4年間の成長軌跡。</p>
+                <span className="text-lg md:text-xl font-black tracking-tight gradient-text">My Career Story</span>
+                <p className="text-sm text-zinc-500 mt-0.5">{m.about.careerLinkDescription}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0 ml-4">
-                <span className="text-xs text-white/70 tracking-widest uppercase hidden md:inline">View Timeline</span>
+                <span className="text-xs text-[#a8305f]/70 tracking-widest uppercase hidden md:inline">View Timeline</span>
                 <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-5 h-5 text-[#a8305f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </motion.div>

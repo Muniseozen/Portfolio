@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { projects, type Project } from "@/data/projects";
+import { useLocale } from "@/i18n/LocaleContext";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const workProjects = projects.filter((p) => p.category === "work");
@@ -94,6 +95,8 @@ function SectionHeader({ num, title, delay = 0 }: { num: string; title: string; 
 /* ─── Main ─── */
 
 export default function Projects() {
+  const { m } = useLocale();
+
   return (
     <section id="projects" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
@@ -109,7 +112,7 @@ export default function Projects() {
             <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">
-            企画からデザイン、実装まで。何よりも先に手を動かす。
+            {m.projects.tagline}
           </p>
         </motion.div>
 

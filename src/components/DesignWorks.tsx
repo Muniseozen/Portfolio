@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "@/i18n/LocaleContext";
 
 const works = [
   { src: "/images/projects/uply-ad-1.webp", alt: "Uply 広告 1", width: 1080, height: 1350 },
@@ -60,6 +61,7 @@ const uniformWorks = previewSources.map((src) => works.find((w) => w.src === src
 export default function DesignWorks() {
   const [selected, setSelected] = useState<number | null>(null);
   const preview = uniformWorks.slice(0, PREVIEW_COUNT);
+  const { m } = useLocale();
 
   return (
     <section id="design" className="py-10 px-6">
@@ -74,7 +76,7 @@ export default function DesignWorks() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2">
             <span className="gradient-text">Design Works</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">バナー・グラフィックなどのデザイン制作。</p>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.designWorks.tagline}</p>
         </motion.div>
 
         {/* Grid - 6枚プレビュー（統一サイズ） */}

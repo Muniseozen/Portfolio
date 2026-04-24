@@ -3,14 +3,18 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import LanguageToggle from "@/components/LanguageToggle";
+import { useLocale } from "@/i18n/LocaleContext";
 
-const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "/career", label: "Career" },
-  { href: "#projects", label: "Projects" },
-];
+function buildNavLinks(homeHref: string) {
+  return [
+    { href: `${homeHref}#home`, label: "Home" },
+    { href: `${homeHref}#about`, label: "About" },
+    { href: `${homeHref}#skills`, label: "Skills" },
+    { href: "/career", label: "Career" },
+    { href: `${homeHref}#projects`, label: "Projects" },
+  ];
+}
 
 interface NavigationProps {
   variant?: "home" | "detail";
@@ -37,6 +41,9 @@ function NavLink({ href, label, onClick }: { href: string; label: string; onClic
 export default function Navigation({ variant = "home" }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const { locale } = useLocale();
+  const homeHref = locale === "en" ? "/en" : "/";
+  const navLinks = buildNavLinks(homeHref);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -57,7 +64,7 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
     >
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href={homeHref} className="flex items-center gap-2 group">
           <span className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-[#a8305f] via-[#d4567e] to-[#e88560] shadow-sm group-hover:shadow-md transition-shadow">
             <span className="text-sm font-black text-white tracking-tight">M</span>
           </span>
@@ -75,29 +82,30 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
                   <NavLink key={link.href} href={link.href} label={link.label} />
                 ))}
               </div>
-              <a
-                href="#projects"
-                className="px-4 py-1.5 rounded-full text-xs font-medium text-white bg-gradient-to-r from-[#a8305f] to-[#e88560] hover:opacity-90 transition-opacity"
-              >
-                Works
-              </a>
+              <LanguageToggle />
             </div>
 
-            {/* Mobile hamburger */}
-            <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-              <motion.span animate={isMobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-zinc-900" />
-              <motion.span animate={isMobileOpen ? { opacity: 0 } : { opacity: 1 }} className="block w-6 h-0.5 bg-zinc-900" />
-              <motion.span animate={isMobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-zinc-900" />
-            </button>
+            {/* Mobile: language toggle + hamburger */}
+            <div className="md:hidden flex items-center gap-4">
+              <LanguageToggle />
+              <button onClick={() => setIsMobileOpen(!isMobileOpen)} className="flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
+                <motion.span animate={isMobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-zinc-900" />
+                <motion.span animate={isMobileOpen ? { opacity: 0 } : { opacity: 1 }} className="block w-6 h-0.5 bg-zinc-900" />
+                <motion.span animate={isMobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }} className="block w-6 h-0.5 bg-zinc-900" />
+              </button>
+            </div>
           </>
         ) : (
-          <Link
-            href="/"
-            className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 flex items-center gap-2"
-          >
-            <span>&larr;</span>
-            <span>Back</span>
-          </Link>
+          <div className="flex items-center gap-6">
+            <LanguageToggle />
+            <Link
+              href={homeHref}
+              className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 flex items-center gap-2"
+            >
+              <span>&larr;</span>
+              <span>Back</span>
+            </Link>
+          </div>
         )}
       </div>
 

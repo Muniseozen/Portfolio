@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { certifications } from "@/data/career";
+import { useLocale } from "@/i18n/LocaleContext";
 
 const toolCategories: { title: string; tools: { name: string; logo: string }[] }[] = [
   {
@@ -40,20 +41,22 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
 ];
 
 const skillCategories = [
-  { title: "UI / UX Design", icon: "~ *", tagline: "体験設計からUI設計まで", skills: ["UI Design", "UX Research", "Prototyping", "Design System", "Figma"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
-  { title: "Frontend", icon: "{ }", tagline: "UIの実装とインタラクション設計", skills: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
-  { title: "Mobile", icon: "[ ]", tagline: "ネイティブ・クロスプラットフォーム開発", skills: ["iOS (Swift)", "Android (Kotlin)", "Flutter"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
-  { title: "Backend", icon: "> _", tagline: "API連携とデータの取得・表示", skills: ["Node.js", "MySQL", "Firebase", "REST API"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
-  { title: "Product / PM", icon: "# +", tagline: "要件定義と開発推進管理", skills: ["Agile / Scrum", "要件定義", "Git / GitHub", "CI/CD"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
+  { title: "UI / UX Design", icon: "~ *", skills: ["UI Design", "UX Research", "Prototyping", "Design System", "Figma"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
+  { title: "Frontend", icon: "{ }", skills: ["HTML / CSS", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "Mobile", icon: "[ ]", skills: ["iOS (Swift)", "Android (Kotlin)", "Flutter"], gradient: "from-[#d4567e] to-[#e88560]", border: "border-[#d4567e]/30" },
+  { title: "Backend", icon: "> _", skills: ["Node.js", "MySQL", "Firebase", "REST API"], gradient: "from-[#e88560] to-[#e8956a]", border: "border-[#e88560]/30" },
+  { title: "Product / PM", icon: "# +", skills: ["Agile / Scrum", "要件定義", "Git / GitHub", "CI/CD"], gradient: "from-[#e8956a] to-[#a8305f]", border: "border-[#e8956a]/30" },
 ];
 
 export default function Skills() {
+  const { m } = useLocale();
+
   return (
     <section id="skills" className="py-10 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-10">
           <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">企画・デザイン・実装をカバーするスキルセット。</p>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.skills.tagline}</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
@@ -65,7 +68,7 @@ export default function Skills() {
                 <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-[9px] font-mono font-bold text-white`}>{category.icon}</div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 leading-tight">{category.title}</h3>
-                  <span className="text-sm text-zinc-400">{category.tagline}</span>
+                  <span className="text-sm text-zinc-400">{m.skills.categoryTaglines[index]}</span>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">

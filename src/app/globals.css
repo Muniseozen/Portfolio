@@ -10,8 +10,9 @@
   --color-wine: #a8305f;
   --color-wine-light: #d4567e;
   --color-rose: #e88560;
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-geist-sans);
 }
 
 html {
@@ -22,6 +23,10 @@ body {
   background: #fdf8f8;
   color: #18181b;
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Hiragino Sans", "ヒラギノ角ゴシック", "Hiragino Kaku Gothic ProN", var(--font-display), system-ui, sans-serif;
 }
 
 body::before {

@@ -3,8 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-
-const roles = ["PM/プロダクトマネージャー", "UI/UX デザイナー", "フロントエンドエンジニア"];
+import { useLocale } from "@/i18n/LocaleContext";
 
 function useTypingAnimation(texts: string[], typingSpeed = 70, deleteSpeed = 30, pauseTime = 2000) {
   const [displayText, setDisplayText] = useState("");
@@ -308,9 +307,11 @@ function FloatingDesignTool({ className, delay = 0 }: { className?: string; dela
 export default function Hero() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
-  const typedRole = useTypingAnimation(roles);
+  const { m, locale } = useLocale();
+  const typedRole = useTypingAnimation(m.hero.roles);
   const line1 = "Hello, I'm";
   const line2 = "Munise Haruyama.";
+  const homeHref = locale === "en" ? "/en" : "/";
 
   return (
     <section id="home" className="relative min-h-screen flex items-start pt-24 md:items-center md:pt-0 px-6 overflow-x-clip overflow-y-visible">
@@ -384,16 +385,16 @@ export default function Hero() {
               <span className="text-base md:text-lg font-mono text-zinc-400">{">"} {typedRole}<span className="animate-pulse text-[#d4567e]">|</span></span>
             </motion.div>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-500 max-w-xl leading-relaxed mb-8">
-              ユーザーの感情や体験に寄り添ったUI/UXと、<br />
-              実装まで見据えたデザインで、アイデアを形にすることが好きです。<br />
-              チームと共にプロダクトを育てていく開発を大切にしています。
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-500 max-w-xl leading-relaxed mb-8 whitespace-pre-line">
+              {m.hero.descriptionBefore}
+              <span className="text-[#a8305f] font-bold">{m.hero.descriptionHighlight}</span>
+              {m.hero.descriptionAfter}
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.6 }} className="flex flex-wrap items-center gap-4">
-              <a href="#projects" className="group relative px-6 py-3 rounded-full overflow-hidden text-sm font-medium text-white transition-transform hover:scale-105 active:scale-95">
+              <a href={`${homeHref}#projects`} className="group relative px-6 py-3 rounded-full overflow-hidden text-sm font-medium text-white transition-transform hover:scale-105 active:scale-95">
                 <span className="absolute inset-0 gradient-bg" />
-                <span className="relative flex items-center gap-2">つくったもの見る
+                <span className="relative flex items-center gap-2">{m.hero.ctaWorks}
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </span>
               </a>
