@@ -59,7 +59,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <span className="text-base md:text-lg font-mono uppercase tracking-widest text-zinc-900">
               Project {project.num}  —  {project.subtitle}
             </span>
-            <h1 className="text-4xl md:text-5xl font-black tracking-tighter mt-3 mb-4 whitespace-pre-line">
+            <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4 whitespace-pre-line">
               <span className="gradient-text">{project.title}</span>
             </h1>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -206,7 +206,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
             <FadeIn className="lg:col-span-2">
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4">
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-4">
                 <span className="gradient-text">Overview</span>
               </h2>
               <p className="text-sm text-zinc-500 leading-relaxed">
@@ -240,7 +240,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-5">
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
                 <span className="gradient-text">My Role</span>
               </h2>
             </FadeIn>
@@ -277,7 +277,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-5">
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
                 <span className="text-zinc-900">Before</span> <span className="gradient-text">→ After</span>
               </h2>
             </FadeIn>
@@ -316,7 +316,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-5">
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
                 <span className="gradient-text">Design Process</span>
               </h2>
               <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designProcess!)}>

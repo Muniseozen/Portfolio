@@ -363,7 +363,7 @@ export default function Hero() {
           {/* Left: Text Content */}
           <div className="flex-1 lg:min-w-[480px]">
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.1] mb-5">
+            <h1 className="section-title text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-5">
               <span className="block text-zinc-900">
                 {line1.split("").map((char, i) => (
                   <motion.span key={`l1-${i}`} custom={i} variants={letterVariants} initial="hidden" animate="visible"

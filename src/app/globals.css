@@ -13,6 +13,7 @@
   --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-geist-sans);
+  --font-heading: var(--font-fraunces);
 }
 
 html {
@@ -56,6 +57,11 @@ body::before {
   100% {
     background-position: 15% 10%, 80% 5%, 65% 70%, 20% 80%, 40% 45%;
   }
+}
+
+.section-title {
+  font-family: var(--font-fraunces), "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", serif;
+  letter-spacing: -0.02em;
 }
 
 .gradient-text {

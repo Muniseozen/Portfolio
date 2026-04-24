@@ -23,7 +23,7 @@ export default function DesignPage() {
             transition={{ duration: 0.6 }}
             className="mb-10"
           >
-            <h1 className="text-4xl md:text-5xl font-black tracking-tighter pr-2">
+            <h1 className="section-title text-4xl md:text-5xl font-black pr-2">
               <span className="gradient-text">Design Works</span>
             </h1>
           </motion.div>
