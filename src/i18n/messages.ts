@@ -39,7 +39,7 @@ export type Messages = {
 export const messages: Record<Locale, Messages> = {
   ja: {
     hero: {
-      roles: ["PM/プロダクトマネージャー", "UI/UX デザイナー", "フロントエンドエンジニア"],
+      roles: ["UI/UX デザイナー", "フロントエンドエンジニア"],
       descriptionBefore:
         "デザインだけでなく、実装まで見据えた設計を大切にしています。\n見た目だけで終わらない、",
       descriptionHighlight: "「成果につながるクリエイティブ」",
