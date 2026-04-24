@@ -106,9 +106,7 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "体験設計からUI設計まで",
         "UIの実装とインタラクション設計",
-        "ネイティブ・クロスプラットフォーム開発",
-        "API連携とデータの取得・表示",
-        "要件定義と開発推進管理",
+        "Figmaを軸にしたデザイン制作",
       ],
     },
     projects: {
@@ -193,9 +191,7 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "From UX research to UI design",
         "UI implementation and interaction design",
-        "Native and cross-platform mobile",
-        "API integration and data display",
-        "Requirements, roadmap, and delivery",
+        "Design craft centered on Figma",
       ],
     },
     projects: {
