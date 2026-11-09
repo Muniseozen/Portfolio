@@ -25,8 +25,8 @@ export function designMetadata(locale: Locale) {
     const title = `${messages[locale].projects.graphicCategories[cat.key]} | Munise Haruyama`;
     return {
       title,
-      description: cat.description,
-      openGraph: { title, description: cat.description, type: "article" },
+      description: cat.summary || cat.purpose,
+      openGraph: { title, description: cat.summary || cat.purpose, type: "article" },
     };
   };
 }

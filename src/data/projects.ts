@@ -287,9 +287,9 @@ export type DesignWork = {
 export const works: DesignWork[] = [
   { src: "/images/projects/uply-ad-1.webp", alt: "Uply 広告 1", width: 1080, height: 1350, category: "app" },
   { src: "/images/projects/uply-ad-2.webp", alt: "Uply 広告 2", width: 1080, height: 1350, category: "app" },
-  { src: "/images/design/banner-uply-1.webp", alt: "Uply バナー 1", width: 750, height: 700, category: "campaign" },
-  { src: "/images/design/banner-uply-2.webp", alt: "Uply LINEバナー", width: 750, height: 700, category: "campaign" },
-  { src: "/images/design/banner-uply-3.webp", alt: "Uply LINEバナー 横", width: 1200, height: 400, category: "campaign" },
+  { src: "/images/design/banner-cosme-1.webp", alt: "口コミサービス リニューアル告知バナー", width: 750, height: 700, category: "campaign" },
+  { src: "/images/design/banner-cosme-2.webp", alt: "LINE公式アカウント 友だち募集バナー", width: 750, height: 700, category: "campaign" },
+  { src: "/images/design/banner-cosme-3.webp", alt: "LINE公式アカウント 友だち募集バナー（横長）", width: 1200, height: 400, category: "campaign" },
   { src: "/images/design/sp-1.webp", alt: "Design Work 1", width: 1880, height: 1576, category: "recruit" },
   { src: "/images/design/sp-11.webp", alt: "Design Work 11", width: 1880, height: 1576, category: "recruit" },
   { src: "/images/design/sp-8.webp", alt: "Design Work 8", width: 1880, height: 1576, category: "recruit" },
@@ -307,21 +307,111 @@ export const works: DesignWork[] = [
   { src: "/images/design/sp-15.webp", alt: "Design Work 15", width: 1880, height: 1576, category: "recruit" },
 ];
 
+// 分類ページの紹介文。空欄の項目は表示しない
 export type GraphicCategory = {
   key: WorkCategory;
   cover: string; // トップページのカードに使う代表画像
-  description: string; // 概要
-  role: string;
-  tools: string[];
-  points: string[]; // 担当内容・工夫した点
-  en?: Partial<Pick<GraphicCategory, "description" | "role" | "points">>; // 英語版の文章
+  kind: string; // 制作区分：実案件／自主制作／スクール課題
+  summary: string; // 制作概要
+  purpose: string; // 目的：商品購入、イベント申し込み、サービス認知など
+  target: string; // ターゲット：年齢層だけでなく、関心や悩みまで
+  placement: string; // 掲載場所・サイズ：SNS広告、Webサイト内など／幅×高さ
+  intent: string[]; // デザインの意図：配色、文字の優先順位、写真、ボタンの工夫
+  role: string; // 担当範囲
+  tools: string[]; // 使用ツール
+  time: string; // 制作時間
+  result: string; // 成果や改善点：実績があれば数値、自主制作なら振り返りや改善案
+  en?: Partial<Pick<GraphicCategory, "kind" | "summary" | "purpose" | "target" | "placement" | "intent" | "role" | "time" | "result">>; // 英語版の文章
 };
 
 // 並び順 = トップのカード順・詳細ページの番号順
 export const graphicCategories: GraphicCategory[] = [
-  { key: "recruit", cover: "/images/design/sp-9.webp", description: "", role: "", tools: [], points: [] },
-  { key: "app", cover: "/images/projects/uply-ad-2.webp", description: "", role: "", tools: [], points: [] },
-  { key: "campaign", cover: "/images/design/banner-uply-2.webp", description: "", role: "", tools: [], points: [] },
+  {
+    key: "recruit",
+    cover: "/images/design/recruit-thumbnail.webp",
+    kind: "実案件",
+    summary: "SES企業の求人媒体・アプリ内に掲載する採用バナー15点を制作。",
+    purpose: "未経験からIT業界への転職を検討している方に、研修制度や働く環境を伝え、求人への関心と応募につなげる。",
+    target: "IT業界に興味があり、未経験からキャリアを築きたい女性。仕事内容やスキル習得に不安があり、教育体制や働きやすさを重視する方。",
+    placement: "",
+    intent: [
+      "求人サイトに並ぶ多数の求人の中でも目を引くよう、鮮やかな配色とメリハリのある文字・図形の配置を取り入れた。社員の笑顔や動きのあるポーズを大きく見せることで、若手社員が活躍する、明るく活気のある社風を表現している。",
+      "各バナーでは「研修制度」「休日」「子育て支援」など、求職者の関心に合わせて訴求を変え、挑戦を支える環境や働きやすさを伝えた。「この仲間と一緒に働きたい」「ここで新しいキャリアに挑戦したい」と感じてもらえるデザインを目指した。",
+    ],
+    role: "",
+    tools: [],
+    time: "",
+    result: "バナー変更後、求人のクリック数が従来の約3倍に増加した。",
+    en: {
+      kind: "Client Work",
+      summary: "Created 15 recruitment banners for an SES (IT staffing) company, published on job boards and in-app job listings.",
+      purpose: "Show people considering a move into IT with no prior experience what the training programs and work environment are like, and turn that interest into applications.",
+      target: "Women interested in the IT industry who want to build a career from scratch — people uneasy about the work itself or learning new skills, who value strong training and a good place to work.",
+      intent: [
+        "Vivid colors and a punchy layout of type and shapes help the banners stand out among the many listings on job sites. Large photos of smiling employees in lively poses express a bright, energetic culture where young employees thrive.",
+        "Each banner shifts its message to what job seekers care about — training, time off, or childcare support — to show an environment that supports new challenges and makes work easier. The goal was a design that makes people feel \"I want to work with this team\" and \"I want to start a new career here.\"",
+      ],
+      result: "After the banners were replaced, clicks on the job listings roughly tripled.",
+    },
+  },
+  {
+    key: "app",
+    cover: "/images/design/sns-ad-thumbnail.webp",
+    kind: "実案件",
+    summary: "",
+    purpose: "Uplyアプリのダウンロードを増やす",
+    target: "転職を考えている求職者。求人を探す手間を減らしたい人",
+    placement: "InstagramなどのSNS広告／1080×1350",
+    intent: [
+      "アプリのテーマカラーのオレンジで統一し、ブランドを覚えてもらえるようにする",
+      "実際のアプリ画面を見せ、「応募」「スキップ」のスタンプでスワイプ操作を直感的に伝える",
+      "App StoreボタンとQRコードを下部に置き、その場でダウンロードできるようにする",
+    ],
+    role: "",
+    tools: [],
+    time: "",
+    result: "",
+    en: {
+      kind: "Client Work",
+      purpose: "Drive downloads of the Uply app",
+      target: "Job seekers considering a career change who want to spend less time searching for jobs",
+      placement: "Social media ads such as Instagram / 1080×1350",
+      intent: [
+        "Everything is unified in the app's signature orange so the brand sticks",
+        "Real app screens with \"Apply\" and \"Skip\" stamps make the swipe interaction instantly clear",
+        "The App Store button and QR code sit at the bottom so viewers can download on the spot",
+      ],
+    },
+  },
+  {
+    key: "campaign",
+    cover: "/images/design/campaign-thumbnail.webp",
+    kind: "実案件",
+    summary: "",
+    purpose: "口コミ機能のリニューアルを告知し、LINE公式アカウントの友だち登録を増やす",
+    target: "化粧品ECサイトの利用者。口コミを参考に商品を選びたい人や、お得な情報をいち早く知りたい人",
+    placement: "ECサイト内のバナー枠／750×700・1200×400",
+    intent: [
+      "口コミ告知はブランドに合わせたピンク基調にし、「WEBでも！アプリでも！」を大きく見せて、どちらからでも使えることを伝える",
+      "LINEバナーはLINEのブランドカラーの緑を使い、ひと目でLINEの告知だと分かるようにする",
+      "「500円OFFクーポン」を吹き出しで目立たせ、友だち登録のメリットを最初に伝える",
+    ],
+    role: "",
+    tools: [],
+    time: "",
+    result: "",
+    en: {
+      kind: "Client Work",
+      purpose: "Announce the renewal of the review feature and grow followers of the LINE official account",
+      target: "Shoppers on a cosmetics e-commerce site — people who choose products based on reviews, and those who want to hear about deals first",
+      placement: "Banner slots on the e-commerce site / 750×700, 1200×400",
+      intent: [
+        "The review announcement uses a pink palette that matches the brand, with \"On the web! In the app!\" set large to show it works on both",
+        "The LINE banners use LINE's signature green so they are instantly recognizable as a LINE announcement",
+        "The ¥500-off coupon is highlighted in a speech bubble so the benefit of adding the account comes across first",
+      ],
+    },
+  },
 ];
 
 function shuffleWithSeed(arr: DesignWork[], seed: number) {

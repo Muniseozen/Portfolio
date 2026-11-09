@@ -126,7 +126,7 @@ export const messages: Record<Locale, Messages> = {
       tagline: "企画からデザイン、実装まで。何よりも先に手を動かします。",
       workLabel: "実務",
       personalLabel: "個人",
-      graphicCategories: { recruit: "求人バナー", app: "アプリ広告", campaign: "キャンペーンバナー" },
+      graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "キャンペーンバナー" },
       graphicCount: "{n}点",
     },
     career: {
@@ -213,7 +213,7 @@ export const messages: Record<Locale, Messages> = {
         "Planning, design, implementation — I'd rather get my hands on it first.",
       workLabel: "Client",
       personalLabel: "Personal",
-      graphicCategories: { recruit: "Recruitment Banners", app: "App Ads", campaign: "Campaign Banners" },
+      graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },
       graphicCount: "{n} pieces",
     },
     career: {

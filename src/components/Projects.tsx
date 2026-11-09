@@ -159,7 +159,7 @@ export default function Projects() {
         ))}
 
         {/* ── Graphic ── */}
-        <SectionHeader num="03" title="Graphic" />
+        <SectionHeader num="03" title="Graphic Design" />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {graphicCategories.map((cat, index) => (
             <GridCard
