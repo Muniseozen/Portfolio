@@ -62,7 +62,7 @@ export const careerProjects: CareerProject[] = [
     type: "compact",
     concurrent: {
       title: "プログラミングスクール",
-      description: "Pythonを中心にプログラミングの基礎を体系的に習得。",
+      description: "Pythonを中心にプログラミングの基礎を体系的に習得しました。",
       tech: ["Python"],
     },
     en: {
@@ -116,7 +116,7 @@ export const careerProjects: CareerProject[] = [
     type: "hero",
     concurrent: {
       title: "侍エンジニア アプリ開発コース（6ヶ月）",
-      description: "iOS開発・AWSバックエンド構築を体系的に習得。",
+      description: "iOS開発・AWSバックエンド構築を体系的に習得しました。",
       tech: ["Swift", "Swift Data", "AWS Lambda", "API Gateway", "MySQL", "S3"],
     },
     en: {

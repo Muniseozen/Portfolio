@@ -24,11 +24,10 @@ export interface Project {
   type: "web" | "app";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
-  points?: { title: string; body: string }[]; // デザインの工夫（Overview の概要文の下に表示）
   en: ProjectText; // 英語版の文章
 }
 
-type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges" | "screens" | "points">;
+type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges" | "screens">;
 
 export const projects: Project[] = [
   // ── Selected Work ──
@@ -38,9 +37,9 @@ export const projects: Project[] = [
     title: "株式会社YNP ホームページ",
     subtitle: "Web / UI・UX Design / Frontend",
     description:
-      "自社コーポレートサイトのリニューアルとブランディング。サイト構成・コピーライティング・デザインを担当。",
+      "自社コーポレートサイトのリニューアルとブランディングです。サイト構成・コピーライティング・デザインを担当しました。",
     longDescription:
-      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクト。サイト全体の構成設計と文章作成から、ブランドイメージの刷新、FigmaでのUI/UXデザインまでを担当。フロントエンド実装のコードレビューとWordPress構築のディレクションも行いました。",
+      "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクトです。サイト全体の構成設計と文章作成から、ブランドイメージの刷新、FigmaでのUI/UXデザインまでを担当しました。フロントエンド実装のコードレビューとWordPress構築のディレクションも行いました。",
     role: "Planner / Copywriter / UI・UX Designer",
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
@@ -60,7 +59,7 @@ export const projects: Project[] = [
     ],
     challenges: [
       { problem: "ページ数・情報量が少なく、企業の魅力が十分に伝わっていなかった", solution: "事業内容・実績・採用情報などのページを新設し、訪問者が知りたい情報にアクセスしやすい構成に再設計" },
-      { problem: "キャッチコピーが企業の目的やビジョンと合っていなかった", solution: "ヒアリングを重ね、企業の強みとターゲットに刺さるメッセージを策定。ファーストビューで明確に伝わるコピーに刷新" },
+      { problem: "キャッチコピーが企業の目的やビジョンと合っていなかった", solution: "ヒアリングを重ね、企業の強みとターゲットに刺さるメッセージを策定し、ファーストビューで明確に伝わるコピーに刷新" },
       { problem: "余白が多く、コンテンツが少ない印象で信頼感に欠けていた", solution: "適切な余白バランスとビジュアル要素を配置し、プロフェッショナルで信頼感のあるデザインに改善" },
     ],
     en: {
@@ -88,9 +87,9 @@ export const projects: Project[] = [
     title: "内定者向けLP制作",
     subtitle: "LP / UI・UX Design / Planning",
     description:
-      "内定者向けLPの企画・構成・コピーライティング・デザインを全て担当。ターゲットに響く情報設計で仕上げました。",
+      "内定者向けLPの企画・構成・コピーライティング・デザインを全て担当しました。ターゲットに響く情報設計で仕上げました。",
     longDescription:
-      "内定者向けの情報発信を目的としたランディングページを企画からデザインまで一人で担当しました。LPの構成設計、キャッチコピー・文章の作成、ビジュアルデザインまで全て自分で考え、Canvaで制作。内定者が知りたい情報を整理し、直感的に伝わるレイアウトに仕上げています。",
+      "内定者向けの情報発信を目的としたランディングページを企画からデザインまで一人で担当しました。LPの構成設計、キャッチコピー・文章の作成、ビジュアルデザインまで全て自分で考え、Canvaで制作しました。内定者が知りたい情報を整理し、直感的に伝わるレイアウトに仕上げています。",
     role: "Planner / Copywriter / UI・UX Designer",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
@@ -129,7 +128,7 @@ export const projects: Project[] = [
     title: "オランダIT研修LP制作",
     subtitle: "LP / UI・UX Design / Planning",
     description:
-      "オランダのIT企業で研修を行うブートキャンプ型プログラムの集客LP。企画・構成・コピーライティング・デザインを担当。",
+      "オランダのIT企業で研修を行うブートキャンプ型プログラムの集客LPです。企画・構成・コピーライティング・デザインを担当しました。",
     longDescription:
       "オランダのIT企業での実践型研修プログラムを訴求するランディングページを、企画・構成・デザインまで一貫して担当しました。ターゲットが「海外でキャリアを広げたいエンジニア」であることから、日本のLPによくある明るいトーンではなく、ダークネイビーを基調にした海外風のビジュアルに振り切りました。現地オフィスや街並みの写真を大きく配置し、「ここで働く自分」をイメージできる世界観を意識しています。プログラムの特長・スケジュール・料金・研修生の声・FAQなど情報量が多いLPですが、セクションごとにメリハリをつけたレイアウトで、スクロールしても読み疲れしない構成に仕上げました。",
     role: "Planner / Copywriter / UI・UX Designer",
@@ -169,15 +168,9 @@ export const projects: Project[] = [
     title: "ECサイト 美容コラム",
     subtitle: "Web / Editorial Design / SP",
     description:
-      "30〜40代の女性に向けた連載美容コラムから、3号をピックアップして紹介。",
+      "30〜40代の女性に向けた連載美容コラムから、3号をピックアップして紹介します。",
     longDescription:
-      "30〜40代の女性に向けた、連載美容コラムのページデザイン。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップして紹介する。美容の知識を日々のお手入れに役立ててもらえるよう、親しみやすく読みやすいページにまとめた。",
-    points: [
-      { title: "30〜40代の女性に合う雰囲気づくり", body: "淡い配色と繊細な装飾を取り入れ、女性らしく、落ち着いた印象にまとめた。美容の知識を扱うページとして、親しみやすさと清潔感を意識している。" },
-      { title: "長い文章を読みやすく整理", body: "内容のまとまりごとに見出しや囲みを設け、ポイントとなる言葉は色や文字の大きさで強調した。説明が続く部分にも余白を取り、スマートフォンで少しずつ読み進めやすい構成にしている。" },
-      { title: "内容に合わせた見せ方の工夫", body: "比較する情報は横に並べ、手順やポイントは番号で整理するなど、内容に合わせてレイアウトを変えた。図解やイラストも組み合わせ、美容の知識を視覚的に理解しやすくしている。" },
-      { title: "シリーズとしての統一感と変化", body: "タイトルや見出しの基本ルールをそろえながら、各テーマに合わせてアクセントカラーや囲みの形を変えた。同じシリーズだと分かりつつ、それぞれの内容に合ったデザインにしている。" },
-    ],
+      "30〜40代の女性に向けた連載美容コラムのページデザインです。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップしました。\n\n淡い配色と繊細な装飾で、甘くなりすぎない、清潔感のある女性らしさを表現しました。長い記事でもスマートフォンで読み進めやすいよう、見出しや余白で情報を区切り、比較は横並び、ポイントは番号付きで整理しています。図解やイラストも交え、内容を視覚的に理解しやすくしました。\n\nシリーズ共通のタイトルや見出しのルールを保ちながら、号ごとにアクセントカラーや囲みの形を変え、統一感とテーマごとの違いを両立させています。",
     role: "Planner / Designer",
     tech: ["Editorial Design", "Figma"],
     gradient: "from-[#c2456e] via-[#d4567e] to-[#e88560]",
@@ -200,13 +193,7 @@ export const projects: Project[] = [
       description:
         "Three issues picked from a beauty column series aimed at women in their 30s and 40s.",
       longDescription:
-        "Page design for a beauty column series aimed at women in their 30s and 40s. Here I've picked three issues from the series, on UV care, pore care, and collagen. The pages are friendly and easy to read, so readers can put beauty knowledge to use in their daily skincare.",
-      points: [
-        { title: "A look suited to women in their 30s and 40s", body: "Pale colors and delicate ornaments create a feminine, calm impression. As pages about beauty knowledge, they aim to feel approachable and clean." },
-        { title: "Making long text easy to read", body: "Each block of content gets its own heading or box, and key words are emphasized with color and type size. Generous spacing around longer explanations lets readers move through the article bit by bit on a smartphone." },
-        { title: "Layouts that fit the content", body: "Information to compare sits side by side, while steps and key points are numbered, so the layout changes to suit the content. Diagrams and illustrations make beauty knowledge easier to grasp visually." },
-        { title: "Consistency and variety across the series", body: "Titles and headings follow shared rules, while accent colors and box shapes change with each theme, so the pages read as one series yet each suits its own topic." },
-      ],
+        "Page design for a beauty column series aimed at women in their 30s and 40s. From the series, I picked three issues on UV care, pore care, and collagen.\n\nPale colors and delicate ornaments express a clean, feminine feel that never gets too sweet. So that long articles stay easy to read on a smartphone, information is divided with headings and spacing, comparisons are laid out side by side, and key points are numbered. Diagrams and illustrations make the content easier to grasp visually.\n\nWhile keeping the series' shared rules for titles and headings, each issue changes its accent color and box shapes, balancing consistency with the character of each theme.",
       role: "Planner / Designer",
       roleBreakdown: [],
       challenges: [],
@@ -223,9 +210,9 @@ export const projects: Project[] = [
     title: "人材マッチングプラットフォーム",
     subtitle: "iOS & Web / UI・UX Design / PM",
     description:
-      "求職者と企業をつなぐマッチングプラットフォーム。iOSアプリ + 企業向けWebダッシュボードを設計・開発。",
+      "求職者と企業をつなぐマッチングプラットフォームです。iOSアプリと企業向けWebダッシュボードを設計・開発しました。",
     longDescription:
-      "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。iOSアプリは企画からリリースまで担当し、FigmaでのUI/UXデザイン、SwiftUIでのフロントエンド実装、AWSバックエンドの構築まで幅広くカバー。企業向けWebダッシュボードではReact + TypeScriptでの実装をリードし、求人管理・応募者管理・マッチングデータの可視化を実現しています。",
+      "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。iOSアプリは企画からリリースまで担当し、FigmaでのUI/UXデザイン、SwiftUIでのフロントエンド実装、AWSバックエンドの構築まで幅広く担当しました。企業向けWebダッシュボードではReact + TypeScriptでの実装をリードし、求人管理・応募者管理・マッチングデータの可視化を実現しています。",
     role: "PM / UI・UX Designer / iOS Dev / Frontend Dev",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS", "React", "TypeScript", "Tailwind CSS"],
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
@@ -270,9 +257,9 @@ export const projects: Project[] = [
     title: "My Closet",
     subtitle: "iOS / UI・UX Design / PM",
     description:
-      "インフルエンサー向けフリマアプリ。出品・購入・決済までアプリ内で完結。SNSシェア・クーポン機能を搭載。",
+      "インフルエンサー向けのフリマアプリです。出品・購入・決済までアプリ内で完結し、SNSシェア・クーポン機能も搭載しています。",
     longDescription:
-      "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるiOSアプリ。企画からUI/UXデザイン、Swift実装、AWSバックエンド構築、PMまで一気通貫で担当。",
+      "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるiOSアプリです。企画からUI/UXデザイン、Swift実装、AWSバックエンド構築、PMまで一気通貫で担当しました。",
     role: "PM / UI・UX Designer / iOS Dev",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS"],
     gradient: "from-[#e07850] via-[#e8956a] to-[#f0b080]",
@@ -387,18 +374,18 @@ export const graphicCategories: GraphicCategory[] = [
     key: "recruit",
     cover: "/images/design/recruit-cover.webp",
     kind: "実案件",
-    summary: "SES企業の求人媒体・アプリ内に掲載する採用バナー15点を制作。",
-    purpose: "未経験からIT業界への転職を検討している方に、研修制度や働く環境を伝え、求人への関心と応募につなげる。",
+    summary: "SES企業の求人媒体・アプリ内に掲載する採用バナー15点を制作しました。",
+    purpose: "未経験からIT業界への転職を検討している方に、研修制度や働く環境を伝え、求人への関心と応募につなげます。",
     target: "IT業界に興味があり、未経験からキャリアを築きたい女性。仕事内容やスキル習得に不安があり、教育体制や働きやすさを重視する方。",
     placement: "",
     intent: [
-      "求人サイトに並ぶ多数の求人の中でも目を引くよう、鮮やかな配色とメリハリのある文字・図形の配置を取り入れた。社員の笑顔や動きのあるポーズを大きく見せることで、若手社員が活躍する、明るく活気のある社風を表現している。",
-      "各バナーでは「研修制度」「休日」「子育て支援」など、求職者の関心に合わせて訴求を変え、挑戦を支える環境や働きやすさを伝えた。「この仲間と一緒に働きたい」「ここで新しいキャリアに挑戦したい」と感じてもらえるデザインを目指した。",
+      "求人サイトに並ぶ多数の求人の中でも目を引くよう、鮮やかな配色とメリハリのある文字・図形の配置を取り入れました。社員の笑顔や動きのあるポーズを大きく見せることで、若手社員が活躍する、明るく活気のある社風を表現しています。",
+      "各バナーでは「研修制度」「休日」「子育て支援」など、求職者の関心に合わせて訴求を変え、挑戦を支える環境や働きやすさを伝えました。「この仲間と一緒に働きたい」「ここで新しいキャリアに挑戦したい」と感じてもらえるデザインを目指しました。",
     ],
     role: "",
     tools: [],
     time: "",
-    result: "バナー変更後、求人のクリック数が従来の約3倍に増加した。",
+    result: "バナー変更後、求人のクリック数が従来の約3倍に増加しました。",
     en: {
       kind: "Client Work",
       summary: "Created 15 recruitment banners for an SES (IT staffing) company, published on job boards and in-app job listings.",
@@ -416,13 +403,13 @@ export const graphicCategories: GraphicCategory[] = [
     cover: "/images/design/campaign-cover.webp",
     kind: "実案件",
     summary: "",
-    purpose: "口コミ機能のリニューアルを告知し、LINE公式アカウントの友だち登録を増やす",
+    purpose: "口コミ機能のリニューアルを告知し、LINE公式アカウントの友だち登録を増やします。",
     target: "化粧品ECサイトの利用者。口コミを参考に商品を選びたい人や、お得な情報をいち早く知りたい人",
     placement: "ECサイト内のバナー枠／750×700・1200×400",
     intent: [
-      "口コミ告知はブランドに合わせたピンク基調にし、「WEBでも！アプリでも！」を大きく見せて、どちらからでも使えることを伝える",
-      "LINEバナーはLINEのブランドカラーの緑を使い、ひと目でLINEの告知だと分かるようにする",
-      "「500円OFFクーポン」を吹き出しで目立たせ、友だち登録のメリットを最初に伝える",
+      "口コミ告知はブランドに合わせたピンク基調にし、「WEBでも！アプリでも！」を大きく見せて、どちらからでも使えることを伝えました。",
+      "LINEバナーはLINEのブランドカラーの緑を使い、ひと目でLINEの告知だと分かるようにしました。",
+      "「500円OFFクーポン」を吹き出しで目立たせ、友だち登録のメリットを最初に伝えました。",
     ],
     role: "",
     tools: [],
@@ -445,13 +432,13 @@ export const graphicCategories: GraphicCategory[] = [
     cover: "/images/design/sns-ad-thumbnail.webp",
     kind: "実案件",
     summary: "",
-    purpose: "Uplyアプリのダウンロードを増やす",
+    purpose: "Uplyアプリのダウンロード数を増やします。",
     target: "転職を考えている求職者。求人を探す手間を減らしたい人",
     placement: "InstagramなどのSNS広告／1080×1350",
     intent: [
-      "アプリのテーマカラーのオレンジで統一し、ブランドを覚えてもらえるようにする",
-      "実際のアプリ画面を見せ、「応募」「スキップ」のスタンプでスワイプ操作を直感的に伝える",
-      "App StoreボタンとQRコードを下部に置き、その場でダウンロードできるようにする",
+      "アプリのテーマカラーのオレンジで統一し、ブランドを覚えてもらえるようにしました。",
+      "実際のアプリ画面を見せ、「応募」「スキップ」のスタンプでスワイプ操作を直感的に伝えました。",
+      "App StoreボタンとQRコードを下部に置き、その場でダウンロードできるようにしました。",
     ],
     role: "",
     tools: [],

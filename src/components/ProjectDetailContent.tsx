@@ -300,20 +300,14 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               <h2 className="section-title text-2xl md:text-3xl font-black mb-4">
                 <span className="gradient-text">Overview</span>
               </h2>
-              <p className="text-sm text-zinc-500 leading-relaxed">
-                {project.longDescription}
-              </p>
-              {/* デザインの工夫: 概要の続きとして、タイトルと説明文だけで並べる */}
-              {project.points && project.points.length > 0 && (
-                <div className="mt-8 space-y-6">
-                  {project.points.map((point) => (
-                    <div key={point.title}>
-                      <h3 className="text-sm font-bold text-zinc-900">{point.title}</h3>
-                      <p className="text-sm text-zinc-500 leading-relaxed mt-2">{point.body}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+              {/* 空行（\n\n）で段落を分ける */}
+              <div className="space-y-4">
+                {project.longDescription.split("\n\n").map((paragraph) => (
+                  <p key={paragraph} className="text-sm text-zinc-500 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="card-dark rounded-2xl p-6">
