@@ -42,6 +42,11 @@ export type Messages = {
     graphicCategories: { recruit: string; app: string; campaign: string };
     graphicCount: string;
   };
+  process: {
+    intro: string;
+    loopLabel: string;
+    steps: { title: string; body: string }[];
+  };
   career: {
     tagline: string;
     description: string;
@@ -129,6 +134,17 @@ export const messages: Record<Locale, Messages> = {
       graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "キャンペーンバナー" },
       graphicCount: "{n}点",
     },
+    process: {
+      intro: "こまめにお見せして、ご相談しながら進めます。",
+      loopLabel: "必要に応じてくり返し",
+      steps: [
+        { title: "ご相談", body: "作りたいものや目的、ご予算、スケジュールを伺います。まだ決まっていないことがあっても大丈夫です。" },
+        { title: "リサーチ", body: "ターゲットや競合を調べ、伝えるべきことを見極めます。" },
+        { title: "ご提案・制作", body: "お話をもとに方向性を整理し、まずはデザイン案をお見せします。" },
+        { title: "確認・調整", body: "気になる点を伺い、修正します。必要に応じて制作と確認を繰り返します。" },
+        { title: "納品", body: "最終確認後、ご希望の形式でお渡しします。" },
+      ],
+    },
     career: {
       tagline: "テスターから開発リードへ。4年間の成長軌跡。",
       description:
@@ -215,6 +231,17 @@ export const messages: Record<Locale, Messages> = {
       personalLabel: "Personal",
       graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },
       graphicCount: "{n} pieces",
+    },
+    process: {
+      intro: "I share work early and often, and shape it together with you.",
+      loopLabel: "Repeat as needed",
+      steps: [
+        { title: "Consultation", body: "Tell me what you'd like to make, its goals, budget, and timeline. It's fine if some things aren't decided yet." },
+        { title: "Research", body: "I look into your audience and competitors to pin down what needs to come across." },
+        { title: "Proposal & Design", body: "Based on our conversation, I shape the direction and show you a first design draft." },
+        { title: "Review & Refine", body: "I hear what you'd like changed and revise it. We go back and forth between design and review as needed." },
+        { title: "Delivery", body: "After a final check, I hand everything over in the format you prefer." },
+      ],
     },
     career: {
       tagline: "From QA tester to dev lead — a four-year journey.",
