@@ -15,11 +15,12 @@ export default function CustomCursor() {
   const ringX = useSpring(mouseX, springConfig);
   const ringY = useSpring(mouseY, springConfig);
 
-  // Hover transitions
-  const ringSize = useTransform(isHover, [0, 1], [32, 52]);
-  const ringBorder = useTransform(isHover, [0, 1], [1.5, 2]);
-  const ringBg = useTransform(isHover, [0, 1], ["rgba(168,48,95,0)", "rgba(168,48,95,0.08)"]);
-  const dotScale = useTransform(isHover, [0, 1], [1, 0]);
+  // Hover transitions: 0/1 を切り替えるだけだと一瞬で変わるため、スプリングで補間する。
+  // 輪は 52px 固定で scale を変える（width/height を動かすとレイアウト計算が毎フレーム走る）
+  const hover = useSpring(isHover, { stiffness: 400, damping: 30 });
+  const ringScale = useTransform(hover, [0, 1], [32 / 52, 1]);
+  const ringBg = useTransform(hover, [0, 1], ["rgba(168,48,95,0)", "rgba(168,48,95,0.08)"]);
+  const dotScale = useTransform(hover, [0, 1], [1, 0]);
 
   useEffect(() => {
     if ("ontouchstart" in window) {
@@ -74,13 +75,8 @@ export default function CustomCursor() {
         className="fixed top-0 left-0 z-[9998] pointer-events-none"
       >
         <motion.div
-          style={{
-            width: ringSize,
-            height: ringSize,
-            borderWidth: ringBorder,
-            backgroundColor: ringBg,
-          }}
-          className="rounded-full -translate-x-1/2 -translate-y-1/2 border-[#d4567e]/60 border-solid"
+          style={{ scale: ringScale, backgroundColor: ringBg }}
+          className="w-[52px] h-[52px] -ml-[26px] -mt-[26px] rounded-full border-2 border-[#d4567e]/60 border-solid"
         />
       </motion.div>
     </>

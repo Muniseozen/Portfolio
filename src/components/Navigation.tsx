@@ -29,7 +29,7 @@ function NavLink({ href, label, onClick }: { href: string; label: string; onClic
   const inner = (
     <>
       {label}
-      <span className="absolute -bottom-1 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-300 bg-gradient-to-r from-[#a8305f] to-[#e88560] rounded-full" />
+      <span className="absolute -bottom-1 left-0 h-[2px] w-full scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 bg-gradient-to-r from-[#a8305f] to-[#e88560] rounded-full" />
     </>
   );
 
@@ -58,7 +58,7 @@ export default function Navigation({ variant = "home", backHash }: NavigationPro
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         isScrolled
           ? "bg-white/90 backdrop-blur-xl"
           : "bg-transparent"

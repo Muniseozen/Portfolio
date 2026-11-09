@@ -60,10 +60,9 @@ function FloatingPhone({ className, delay = 0 }: { className?: string; delay?: n
       transition={{ duration: 0.8, delay }}
       className={`absolute hidden lg:block scale-[0.9] origin-center ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -12, 0], rotate: [0, 2, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="relative"
+      <div
+        className="relative animate-float"
+        style={{ "--float-y": "-12px", "--float-r": "2deg", animationDuration: "5s" } as React.CSSProperties}
       >
         <div className="w-[130px] h-[260px] bg-zinc-800 rounded-[26px] p-[4px] shadow-2xl border border-zinc-700">
           <div className="w-full h-full bg-white rounded-[22px] relative overflow-hidden flex flex-col">
@@ -123,7 +122,7 @@ function FloatingPhone({ className, delay = 0 }: { className?: string; delay?: n
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -137,10 +136,9 @@ function FloatingLaptop({ className, delay = 0 }: { className?: string; delay?: 
       transition={{ duration: 0.8, delay }}
       className={`absolute hidden lg:block ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -10, 0], rotate: [0, -1, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="relative"
+      <div
+        className="relative animate-float"
+        style={{ "--float-y": "-10px", "--float-r": "-1deg", animationDuration: "6s", animationDelay: "0.5s" } as React.CSSProperties}
       >
         {/* Screen */}
         <div className="w-[190px] h-[125px] bg-zinc-800 rounded-t-lg p-[3px] shadow-2xl border border-zinc-700">
@@ -176,7 +174,7 @@ function FloatingLaptop({ className, delay = 0 }: { className?: string; delay?: 
         <div className="w-[190px] h-[8px] bg-gradient-to-b from-zinc-300 to-zinc-400 rounded-b-xl relative shadow-md">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-[3px] bg-zinc-400/60 rounded-b" />
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -191,10 +189,9 @@ function FloatingPalette({ className, delay = 0 }: { className?: string; delay?:
       transition={{ duration: 0.8, delay }}
       className={`absolute hidden lg:block ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -8, 0], rotate: [0, 3, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="bg-white/90 backdrop-blur-sm border border-zinc-200 rounded-xl p-3 shadow-lg"
+      <div
+        className="bg-white/90 border border-zinc-200 rounded-xl p-3 shadow-lg animate-float"
+        style={{ "--float-y": "-8px", "--float-r": "3deg", animationDuration: "5s" } as React.CSSProperties}
       >
         <div className="text-[9px] font-mono text-zinc-400 mb-2">Brand Colors</div>
         <div className="flex gap-1.5">
@@ -205,7 +202,7 @@ function FloatingPalette({ className, delay = 0 }: { className?: string; delay?:
             </div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -219,10 +216,9 @@ function FloatingUICard({ className, delay = 0 }: { className?: string; delay?: 
       transition={{ duration: 0.8, delay }}
       className={`absolute hidden lg:block ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-        className="bg-white/90 backdrop-blur-sm border border-zinc-200 rounded-xl p-3 shadow-lg w-[160px]"
+      <div
+        className="bg-white/90 border border-zinc-200 rounded-xl p-3 shadow-lg w-[160px] animate-float"
+        style={{ "--float-y": "-12px", "--float-r": "0deg", animationDuration: "5.5s", animationDelay: "0.3s" } as React.CSSProperties}
       >
         <div className="text-[9px] font-mono text-zinc-400 mb-2.5 flex items-center gap-1.5">
           <svg className="w-3 h-3 text-[#d4567e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
@@ -260,7 +256,7 @@ function FloatingUICard({ className, delay = 0 }: { className?: string; delay?: 
             <span className="text-[6px] text-[#e88560] font-medium">New</span>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -274,10 +270,9 @@ function FloatingDesignTool({ className, delay = 0 }: { className?: string; dela
       transition={{ duration: 0.8, delay }}
       className={`absolute hidden lg:block ${className}`}
     >
-      <motion.div
-        animate={{ y: [0, -10, 0], rotate: [0, -2, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        className="bg-white/90 backdrop-blur-sm border border-zinc-200 rounded-xl p-3 shadow-lg w-[150px]"
+      <div
+        className="bg-white/90 border border-zinc-200 rounded-xl p-3 shadow-lg w-[150px] animate-float"
+        style={{ "--float-y": "-10px", "--float-r": "-2deg", animationDuration: "4.5s" } as React.CSSProperties}
       >
         <div className="text-[9px] font-mono text-zinc-400 mb-2 flex items-center gap-1.5">
           <svg className="w-3 h-3 text-[#e88560]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
@@ -299,7 +294,7 @@ function FloatingDesignTool({ className, delay = 0 }: { className?: string; dela
             <div className="w-4 h-4 rounded bg-zinc-100 border border-zinc-200" />
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 }
@@ -418,11 +413,7 @@ export default function Hero() {
               <FloatingDesignTool className="-bottom-28 -right-16 z-0" delay={2.1} />
 
               {/* Decorative ring */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 rounded-full border-2 border-dashed border-zinc-300 z-10"
-              />
+              <div className="absolute -inset-4 rounded-full border-2 border-dashed border-zinc-300 z-10 animate-[spin_20s_linear_infinite]" />
               {/* Gradient ring */}
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#a8305f] via-[#d4567e] to-[#e88560] opacity-75 blur-sm z-10" />
               {/* Photo container */}
@@ -442,9 +433,9 @@ export default function Hero() {
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <span className="text-xs text-zinc-400 tracking-widest uppercase">Scroll</span>
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+        <div className="animate-float" style={{ "--float-y": "6px", animationDuration: "1.5s" } as React.CSSProperties}>
           <svg className="w-5 h-5 text-zinc-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );

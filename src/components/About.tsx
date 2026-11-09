@@ -117,18 +117,18 @@ export default function About() {
           className="mt-8"
         >
           <Link href={localePath(locale, "/career")} className="group block">
-            <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f]/8 to-[#e88560]/8 border border-[#a8305f]/15 backdrop-blur-sm flex items-center justify-between hover:from-[#a8305f]/12 hover:to-[#e88560]/12 transition-colors">
+            <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f]/8 to-[#e88560]/8 bg-white/70 border border-[#a8305f]/15 flex items-center justify-between hover:from-[#a8305f]/12 hover:to-[#e88560]/12 transition-colors">
               <div>
                 <span className="text-lg md:text-xl font-black tracking-tight gradient-text">My Career Story</span>
                 <p className="text-sm text-zinc-500 mt-0.5">{m.about.careerLinkDescription}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0 ml-4">
                 <span className="text-xs text-[#a8305f]/70 tracking-widest uppercase hidden md:inline">View Timeline</span>
-                <motion.div animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                <div className="animate-float" style={{ "--float-x": "4px", animationDuration: "1.5s" } as React.CSSProperties}>
                   <svg className="w-5 h-5 text-[#a8305f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
-                </motion.div>
+                </div>
               </div>
             </div>
           </Link>
