@@ -165,20 +165,21 @@ export const projects: Project[] = [
   {
     id: 6,
     slug: "beauty-column",
-    title: "ECサイト 美容コラム",
-    subtitle: "Web / Editorial Design / SP",
+    title: "ECサイト 美容コラム vol.10–12",
+    subtitle: "Web / Editorial Design / SP Only",
     description:
       "30〜40代の女性に向けた連載美容コラムから、3号をピックアップして紹介します。",
     longDescription:
-      "30〜40代の女性に向けた連載美容コラムのページデザインです。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップしました。\n\n淡い配色と繊細な装飾で、甘くなりすぎない、清潔感のある女性らしさを表現しました。長い記事でもスマートフォンで読み進めやすいよう、見出しや余白で情報を区切り、比較は横並び、ポイントは番号付きで整理しています。図解やイラストも交え、内容を視覚的に理解しやすくしました。\n\nシリーズ共通のタイトルや見出しのルールを保ちながら、号ごとにアクセントカラーや囲みの形を変え、統一感とテーマごとの違いを両立させています。",
+      "30〜40代の女性に向けた連載美容コラムの、スマートフォン専用のページデザインです。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップしました。\n\n淡い配色と繊細な装飾で、甘くなりすぎない、清潔感のある女性らしさを表現しました。長い記事でもスマートフォンで読み進めやすいよう、見出しや余白で情報を区切り、比較は横並び、ポイントは番号付きで整理しています。図解やイラストも交え、内容を視覚的に理解しやすくしました。\n\nシリーズ共通のタイトルや見出しのルールを保ちながら、号ごとにアクセントカラーや囲みの形を変え、統一感とテーマごとの違いを両立させています。",
     role: "Planner / Designer",
     tech: ["Editorial Design", "Figma"],
     gradient: "from-[#c2456e] via-[#d4567e] to-[#e88560]",
     emoji: "&#x1F484;",
+    thumbnail: "/images/projects/beauty-column-thumbnail.webp",
     screens: [
       { src: "/images/projects/beauty-column-vol10.webp", label: "vol.10", title: "UVケアと紫外線にまつわる豆知識", width: 750, height: 9316 },
       { src: "/images/projects/beauty-column-vol11.webp", label: "vol.11", title: "大人の毛穴ケア対策ガイド", width: 750, height: 9574 },
-      { src: "/images/projects/beauty-column-vol12.webp", label: "vol.12", title: "美肌のカナメ「コラーゲン」の上手な摂り方", width: 750, height: 8764 },
+      { src: "/images/projects/beauty-column-vol12-2.webp", label: "vol.12", title: "美肌のカナメ「コラーゲン」の上手な摂り方", width: 750, height: 8764 },
     ],
     duration: "",
     team: "",
@@ -188,19 +189,19 @@ export const projects: Project[] = [
     roleBreakdown: [],
     challenges: [],
     en: {
-      title: "E-commerce Beauty Column",
-      subtitle: "Web / Editorial Design / SP",
+      title: "E-commerce Beauty Column Vol. 10–12",
+      subtitle: "Web / Editorial Design / SP Only",
       description:
         "Three issues picked from a beauty column series aimed at women in their 30s and 40s.",
       longDescription:
-        "Page design for a beauty column series aimed at women in their 30s and 40s. From the series, I picked three issues on UV care, pore care, and collagen.\n\nPale colors and delicate ornaments express a clean, feminine feel that never gets too sweet. So that long articles stay easy to read on a smartphone, information is divided with headings and spacing, comparisons are laid out side by side, and key points are numbered. Diagrams and illustrations make the content easier to grasp visually.\n\nWhile keeping the series' shared rules for titles and headings, each issue changes its accent color and box shapes, balancing consistency with the character of each theme.",
+        "Smartphone-only page design for a beauty column series aimed at women in their 30s and 40s. From the series, I picked three issues on UV care, pore care, and collagen.\n\nPale colors and delicate ornaments express a clean, feminine feel that never gets too sweet. So that long articles stay easy to read on a smartphone, information is divided with headings and spacing, comparisons are laid out side by side, and key points are numbered. Diagrams and illustrations make the content easier to grasp visually.\n\nWhile keeping the series' shared rules for titles and headings, each issue changes its accent color and box shapes, balancing consistency with the character of each theme.",
       role: "Planner / Designer",
       roleBreakdown: [],
       challenges: [],
       screens: [
         { src: "/images/projects/beauty-column-vol10.webp", label: "Vol. 10", title: "Fun facts about UV care and ultraviolet rays", width: 750, height: 9316 },
         { src: "/images/projects/beauty-column-vol11.webp", label: "Vol. 11", title: "A guide to pore care for adults", width: 750, height: 9574 },
-        { src: "/images/projects/beauty-column-vol12.webp", label: "Vol. 12", title: "How to get the most out of collagen", width: 750, height: 8764 },
+        { src: "/images/projects/beauty-column-vol12-2.webp", label: "Vol. 12", title: "How to get the most out of collagen", width: 750, height: 8764 },
       ],
     },
   },
