@@ -119,7 +119,7 @@ body::before {
 .animate-marquee { animation: marquee linear infinite; }
 .animate-marquee-reverse { animation: marquee-reverse linear infinite; }
 
-section { position: relative; overflow-x: clip; }
+section { position: relative; overflow-x: clip; scroll-margin-top: 72px; }
 
 @keyframes numberFall {
   0% { transform: translateY(-50%); }
