@@ -7,7 +7,9 @@
 - フォント: Geist Sans / Geist Mono
 
 ## Project Structure
-- `src/app/` — ページ (App Router)
+- `src/app/(ja)/` — 日本語ページ、`src/app/en/` — 英語ページ。それぞれが `<html lang>` を持つルートレイアウト
+  - ページ本体とメタ情報は `src/app/_shared/` に置き、両言語のページファイルから再エクスポートする
+  - 404 は `src/app/global-not-found.tsx`（`next.config.ts` の `experimental.globalNotFound`）
 - `src/components/` — UIコンポーネント
 - `src/data/` — プロジェクト・キャリアデータ (`projects.ts`, `career.ts`)
 - `public/images/projects/` — プロジェクトのスクリーンショット・サムネイル
@@ -49,6 +51,7 @@ AIが生成するUIは「統計的収束 (Distributional Convergence)」によ�
 - プロジェクトデータは `src/data/projects.ts` で一元管理
 - `category: "work"` = 実務、`category: "personal"` = 個人プロジェクト
 - `previewType: "mobile"` でスマホフレーム表示、未指定でブラウザChromeフレーム表示
+- 英語版の文章は各データの `en` フィールドに書く（`localize()` で英語版のときだけ上書き）。日本語を追加・変更したら `en` も更新する
 
 ## 文体ルール
 - サイト内のテキストは文末の形を統一すること。「〜ます。」と「〜る。」を混在させない

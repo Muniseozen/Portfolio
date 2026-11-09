@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LocaleProvider } from "@/i18n/LocaleContext";
+import RootDocument from "@/app/_shared/RootDocument";
 
 export const metadata: Metadata = {
   title: "Munise Haruyama | Designer × Developer",
@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
-  return <LocaleProvider locale="en">{children}</LocaleProvider>;
+  return <RootDocument locale="en">{children}</RootDocument>;
 }

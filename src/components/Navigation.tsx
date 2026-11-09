@@ -5,13 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localePath, type Locale } from "@/i18n/messages";
 
-function buildNavLinks(homeHref: string) {
+function buildNavLinks(homeHref: string, locale: Locale) {
   return [
     { href: `${homeHref}#home`, label: "Home" },
     { href: `${homeHref}#about`, label: "About" },
     { href: `${homeHref}#skills`, label: "Skills" },
-    { href: "/career", label: "Career" },
+    { href: localePath(locale, "/career"), label: "Career" },
     { href: `${homeHref}#projects`, label: "My Works" },
   ];
 }
@@ -44,7 +45,7 @@ export default function Navigation({ variant = "home", backHash }: NavigationPro
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { locale } = useLocale();
   const homeHref = locale === "en" ? "/en" : "/";
-  const navLinks = buildNavLinks(homeHref);
+  const navLinks = buildNavLinks(homeHref, locale);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);

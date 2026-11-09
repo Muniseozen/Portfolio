@@ -2,16 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localePath } from "@/i18n/messages";
 
 const options = [
-  { locale: "ja" as const, href: "/", label: "JA", name: "日本語" },
-  { locale: "en" as const, href: "/en", label: "EN", name: "English" },
+  { locale: "ja" as const, label: "JA", name: "日本語" },
+  { locale: "en" as const, label: "EN", name: "English" },
 ];
 
 export default function LanguageToggle() {
   const { locale } = useLocale();
+  // 今いるページの言語違い（/career ⇄ /en/career）へ切り替える
+  const pathname = usePathname();
+  const basePath = pathname.replace(/^\/en(?=\/|$)/, "") || "/";
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -82,7 +87,7 @@ export default function LanguageToggle() {
               return (
                 <li key={opt.locale} role="option" aria-selected={isActive}>
                   <Link
-                    href={opt.href}
+                    href={localePath(opt.locale, basePath)}
                     onClick={() => setOpen(false)}
                     className={`flex items-center justify-between gap-3 px-3.5 py-2.5 text-xs font-mono transition-colors ${
                       isActive

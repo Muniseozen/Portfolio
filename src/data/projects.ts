@@ -23,7 +23,10 @@ export interface Project {
   type: "web" | "app";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
+  en: ProjectText; // 英語版の文章
 }
+
+type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges">;
 
 export const projects: Project[] = [
   // ── Selected Work ──
@@ -58,6 +61,24 @@ export const projects: Project[] = [
       { problem: "キャッチコピーが企業の目的やビジョンと合っていなかった", solution: "ヒアリングを重ね、企業の強みとターゲットに刺さるメッセージを策定。ファーストビューで明確に伝わるコピーに刷新" },
       { problem: "余白が多く、コンテンツが少ない印象で信頼感に欠けていた", solution: "適切な余白バランスとビジュアル要素を配置し、プロフェッショナルで信頼感のあるデザインに改善" },
     ],
+    en: {
+      title: "YNP Inc. Corporate Website",
+      subtitle: "Web / UI/UX Design / Frontend",
+      description:
+        "Renewal and rebranding of the company's corporate website. Handled site structure, copywriting, and design.",
+      longDescription:
+        "A renewal project for the company's corporate website (y-n-p.co.jp). I handled everything from the overall site structure and copywriting to refreshing the brand image and UI/UX design in Figma. I also reviewed the frontend code and directed the WordPress build.",
+      role: "Planner / Copywriter / UI/UX Designer",
+      roleBreakdown: [
+        { title: "Design", tasks: ["Wireframes and UI design in Figma", "Responsive design planning"] },
+        { title: "Frontend", tasks: ["Code review of HTML/CSS/JS", "Direction of the WordPress theme"] },
+      ],
+      challenges: [
+        { problem: "With few pages and little content, the site wasn't conveying the company's strengths", solution: "Added pages for services, track record, and recruiting, and restructured the site so visitors can easily reach the information they want" },
+        { problem: "The tagline didn't match the company's purpose or vision", solution: "Through repeated interviews, defined a message built on the company's strengths that resonates with its audience, and rewrote the copy so it lands clearly in the first view" },
+        { problem: "Excessive whitespace made the content feel thin and undermined trust", solution: "Balanced spacing and visual elements to create a professional, trustworthy design" },
+      ],
+    },
   },
   {
     id: 2,
@@ -85,6 +106,20 @@ export const projects: Project[] = [
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ターゲットに合わせたトーン設計"] },
     ],
     challenges: [],
+    en: {
+      title: "Landing Page for Incoming Hires",
+      subtitle: "LP / UI/UX Design / Planning",
+      description:
+        "Handled planning, structure, copywriting, and design of a landing page for incoming hires, built around the information they want to know.",
+      longDescription:
+        "I took a landing page for incoming hires from planning to design on my own. I designed the structure, wrote the headlines and copy, and created the visuals in Canva. I organized the information new hires want to know into a layout that communicates intuitively.",
+      role: "Planner / Copywriter / UI/UX Designer",
+      roleBreakdown: [
+        { title: "Planning & Structure", tasks: ["Overall LP structure and information architecture", "Headlines and copywriting"] },
+        { title: "Design", tasks: ["Visual design and production in Canva", "Tone design tailored to the target audience"] },
+      ],
+      challenges: [],
+    },
   },
   {
     id: 3,
@@ -111,6 +146,20 @@ export const projects: Project[] = [
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ダークネイビー基調のトーン設計", "写真・マップを活用したレイアウト設計"] },
     ],
     challenges: [],
+    en: {
+      title: "Netherlands IT Training Program LP",
+      subtitle: "LP / UI/UX Design / Planning",
+      description:
+        "A lead-generation LP for a bootcamp-style program that trains participants at IT companies in the Netherlands. Handled planning, structure, copywriting, and design.",
+      longDescription:
+        "I led a landing page promoting a hands-on training program at IT companies in the Netherlands, from planning and structure through design. Since the target audience was engineers looking to grow their careers abroad, I went all in on an international look built on dark navy, rather than the bright tone common in Japanese LPs. Large photos of the local offices and streets help visitors picture themselves working there. The page carries a lot of information — program highlights, schedule, pricing, participant testimonials, and FAQ — but a clear rhythm between sections keeps it easy to read all the way down.",
+      role: "Planner / Copywriter / UI/UX Designer",
+      roleBreakdown: [
+        { title: "Planning & Structure", tasks: ["Overall LP structure and information architecture", "Headlines and section copy", "Organizing training content, pricing, and flow"] },
+        { title: "Design", tasks: ["Visual design and production in Canva", "Tone design based on dark navy", "Layouts using photos and maps"] },
+      ],
+      challenges: [],
+    },
   },
   {
     id: 4,
@@ -142,6 +191,22 @@ export const projects: Project[] = [
       { title: "+ Web Dashboard", tasks: ["React + TypeScriptでの管理画面実装", "求人管理・応募者管理・ダッシュボード機能"] },
     ],
     challenges: [],
+    en: {
+      title: "HR Matching Platform",
+      subtitle: "iOS & Web / UI/UX Design / PM",
+      description:
+        "A matching platform connecting job seekers and companies. Designed and built an iOS app and a web dashboard for employers.",
+      longDescription:
+        "I designed and developed a platform that smoothly matches job seekers with companies, covering both the mobile app and the web admin. For the iOS app, I was involved from planning to release, spanning UI/UX design in Figma, frontend implementation in SwiftUI, and building the AWS backend. For the employer web dashboard, I led the implementation in React + TypeScript, delivering job management, applicant management, and visualization of matching data.",
+      role: "PM / UI/UX Designer / iOS Dev / Frontend Dev",
+      roleBreakdown: [
+        { title: "PM", tasks: ["Product roadmap planning", "Sprint planning and team management"] },
+        { title: "UI/UX Design", tasks: ["User flows and UI design in Figma", "Usability testing and iteration"] },
+        { title: "Mobile App (iOS)", tasks: ["Frontend implementation in SwiftUI", "Integration with the AWS backend"] },
+        { title: "+ Web Dashboard", tasks: ["Admin dashboard built with React + TypeScript", "Job management, applicant management, and dashboard features"] },
+      ],
+      challenges: [],
+    },
   },
   {
     id: 5,
@@ -169,6 +234,21 @@ export const projects: Project[] = [
       { title: "iOS Development", tasks: ["SwiftUIでのアプリ実装", "AWSバックエンドとの連携"] },
     ],
     challenges: [],
+    en: {
+      title: "My Closet",
+      subtitle: "iOS / UI/UX Design / PM",
+      description:
+        "A flea-market app for influencers. Listing, purchase, and payment all happen in-app, with social sharing and coupon features.",
+      longDescription:
+        "An iOS app that lets influencers sell secondhand items while keeping their personal brand intact. I handled everything end to end: planning, UI/UX design, Swift implementation, the AWS backend, and project management.",
+      role: "PM / UI/UX Designer / iOS Dev",
+      roleBreakdown: [
+        { title: "PM", tasks: ["Product planning and business requirements", "Release planning and quality management"] },
+        { title: "UI/UX Design", tasks: ["Customizable UI system design", "User flows from listing to purchase and payment"] },
+        { title: "iOS Development", tasks: ["App implementation in SwiftUI", "Integration with the AWS backend"] },
+      ],
+      challenges: [],
+    },
   },
 ];
 
@@ -234,6 +314,7 @@ export type GraphicCategory = {
   role: string;
   tools: string[];
   points: string[]; // 担当内容・工夫した点
+  en?: Partial<Pick<GraphicCategory, "description" | "role" | "points">>; // 英語版の文章
 };
 
 // 並び順 = トップのカード順・詳細ページの番号順

@@ -8,6 +8,7 @@ import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import { works, shuffledWorks, graphicCategories, type DesignWork } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localize } from "@/i18n/messages";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -34,9 +35,9 @@ function FadeIn({
 
 export default function GraphicDetailContent({ categoryKey }: { categoryKey: string }) {
   const index = graphicCategories.findIndex((c) => c.key === categoryKey);
-  const cat = graphicCategories[index];
   const [selected, setSelected] = useState<DesignWork | null>(null);
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
+  const cat = localize(graphicCategories[index], locale);
   // 静的生成時（ビルド日）と閲覧日でシャッフル結果が変わり hydration がずれるため、
   // サーバー・hydration 時は元の順、クライアント確定後に日替わりシャッフル順へ切り替える
   const isClient = useSyncExternalStore(() => () => {}, () => true, () => false);

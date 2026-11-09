@@ -5,10 +5,13 @@ import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import { useLocale } from "@/i18n/LocaleContext";
+import { localePath } from "@/i18n/messages";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function ComingSoon({ title }: { title: string }) {
+  const { locale } = useLocale();
   return (
     <PageTransition>
       <Navigation variant="detail" backHash="projects" />
@@ -24,7 +27,7 @@ export default function ComingSoon({ title }: { title: string }) {
           </h1>
           <p className="text-zinc-400 text-lg mb-8">Coming Soon</p>
           <Link
-            href="/"
+            href={localePath(locale, "/")}
             className="text-sm font-mono text-zinc-400 hover:text-zinc-600 transition-colors flex items-center justify-center gap-2"
           >
             <span>&larr;</span>

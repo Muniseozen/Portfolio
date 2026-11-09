@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans_JP, Fraunces } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 import { LocaleProvider } from "@/i18n/LocaleContext";
+import type { Locale } from "@/i18n/messages";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,29 +31,14 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Munise Haruyama | Designer & Developer",
-  description:
-    "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
-  openGraph: {
-    title: "Munise Haruyama | Designer & Developer",
-    description:
-      "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
-    type: "website",
-  },
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+// (ja) と en の2つのルートレイアウトで共通の <html> / <body>
+export default function RootDocument({ locale, children }: { locale: Locale; children: React.ReactNode }) {
   return (
-    <html lang="ja" data-scroll-behavior="smooth">
+    <html lang={locale} data-scroll-behavior="smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} ${fraunces.variable} antialiased`}
       >
-        <LocaleProvider locale="ja">
+        <LocaleProvider locale={locale}>
           <CustomCursor />
           <ScrollProgress />
           {children}

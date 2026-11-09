@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { projects, projectTypeLabels, works, graphicCategories } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localize, localePath } from "@/i18n/messages";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const groups = [
@@ -112,7 +113,7 @@ function SectionHeader({ num, title, delay = 0 }: { num: string; title: string; 
 /* ─── Main ─── */
 
 export default function Projects() {
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
 
   return (
     <section id="projects" className="py-10 px-6">
@@ -139,10 +140,11 @@ export default function Projects() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {projects
                 .filter((p) => p.type === group.type)
+                .map((p) => localize(p, locale))
                 .map((project, index) => (
                   <GridCard
                     key={project.id}
-                    href={`/projects/${project.slug}`}
+                    href={localePath(locale, `/projects/${project.slug}`)}
                     image={project.thumbnail}
                     emoji={project.emoji}
                     title={project.title}
@@ -162,7 +164,7 @@ export default function Projects() {
           {graphicCategories.map((cat, index) => (
             <GridCard
               key={cat.key}
-              href={`/design/${cat.key}`}
+              href={localePath(locale, `/design/${cat.key}`)}
               image={cat.cover}
               title={m.projects.graphicCategories[cat.key]}
               subtitle={m.projects.graphicCount.replace("{n}", String(works.filter((w) => w.category === cat.key).length))}

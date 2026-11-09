@@ -14,12 +14,14 @@ export interface CareerProject {
   tech: string[];
   type: "compact" | "hero" | "current";
   concurrent?: ConcurrentProject;
+  en: Partial<Pick<CareerProject, "period" | "endDate" | "title" | "role" | "description" | "tech" | "concurrent">>; // 英語版で上書きする項目
 }
 
 export interface Certification {
   name: string;
   category: "language" | "cloud" | "development";
   detail?: string;
+  en?: Partial<Pick<Certification, "name" | "detail">>; // 英語版で上書きする項目
 }
 
 export const careerProjects: CareerProject[] = [
@@ -36,6 +38,16 @@ export const careerProjects: CareerProject[] = [
     ],
     tech: ["番組制作", "撮影", "動画編集", "ディレクション", "スケジュール管理"],
     type: "compact",
+    en: {
+      title: "TV Program Production",
+      role: "Assistant Director",
+      description: [
+        "Produced programs across genres including variety and information shows",
+        "Handled filming, video editing, and production management",
+        "Client communication and schedule management",
+      ],
+      tech: ["TV Production", "Filming", "Video Editing", "Directing", "Scheduling"],
+    },
   },
   {
     period: "2023.1 — 2023.3",
@@ -53,6 +65,18 @@ export const careerProjects: CareerProject[] = [
       description: "Pythonを中心にプログラミングの基礎を体系的に習得。",
       tech: ["Python"],
     },
+    en: {
+      title: "Billing System User Manual",
+      role: "Technical Writer",
+      description: [
+        "Wrote user manuals for an enterprise billing management system based on its design documents",
+      ],
+      concurrent: {
+        title: "Programming School",
+        description: "Learned programming fundamentals systematically, centered on Python.",
+        tech: ["Python"],
+      },
+    },
   },
   {
     period: "2023.4 — 2023.6",
@@ -66,6 +90,15 @@ export const careerProjects: CareerProject[] = [
     ],
     tech: ["テスト設計", "QA", "品質保証"],
     type: "compact",
+    en: {
+      title: "Billing / POS System Testing",
+      role: "QA Engineer",
+      description: [
+        "Test design, execution, and evidence for a billing management system",
+        "Integration testing and evidence for a convenience-store POS system",
+      ],
+      tech: ["Test Design", "QA", "Quality Assurance"],
+    },
   },
   {
     period: "2023.10 — 2025.2",
@@ -85,6 +118,21 @@ export const careerProjects: CareerProject[] = [
       title: "侍エンジニア アプリ開発コース（6ヶ月）",
       description: "iOS開発・AWSバックエンド構築を体系的に習得。",
       tech: ["Swift", "Swift Data", "AWS Lambda", "API Gateway", "MySQL", "S3"],
+    },
+    en: {
+      title: "My Closet (Secondhand Marketplace)",
+      role: "PM / UI&UX Designer / iOS Engineer",
+      description: [
+        "Owned the project from planning and requirements to App Store release",
+        "Design and prototyping in Figma",
+        "iOS implementation in SwiftUI",
+        "Designed and built a serverless AWS backend",
+      ],
+      concurrent: {
+        title: "SAMURAI ENGINEER App Development Course (6 months)",
+        description: "Systematically learned iOS development and building AWS backends.",
+        tech: ["Swift", "Swift Data", "AWS Lambda", "API Gateway", "MySQL", "S3"],
+      },
     },
   },
   {
@@ -110,6 +158,25 @@ export const careerProjects: CareerProject[] = [
       ],
       tech: ["HTML/CSS", "JavaScript", "Figma"],
     },
+    en: {
+      title: "Uply (HR Matching App)",
+      role: "PM / UI&UX Designer / iOS Engineer",
+      description: [
+        "Owned the project from planning and requirements to App Store release",
+        "UI/UX design in Figma",
+        "SwiftUI implementation and AWS infrastructure",
+      ],
+      concurrent: {
+        title: "Website & LP Production (4 projects)",
+        description: [
+          "Company website",
+          "LP for incoming hires",
+          "Netherlands program LP",
+          "Client LP",
+        ],
+        tech: ["HTML/CSS", "JavaScript", "Figma"],
+      },
+    },
   },
   {
     period: "2026.1 — 2026.1",
@@ -124,6 +191,15 @@ export const careerProjects: CareerProject[] = [
     ],
     tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Figma"],
     type: "compact",
+    en: {
+      title: "Uply Employer Web Admin System",
+      role: "PM / UI&UX Designer / Frontend",
+      description: [
+        "Designed and built the dashboard and admin screens used by employers",
+        "Built with React + TypeScript / Vite + React Router v7",
+        "Tech selection, architecture design, and team management",
+      ],
+    },
   },
   {
     period: "2026.2 — 現在",
@@ -138,11 +214,22 @@ export const careerProjects: CareerProject[] = [
     ],
     tech: ["HTML", "CSS", "JavaScript", "UI/UX Design", "VSCode", "Bitbucket"],
     type: "current",
+    en: {
+      period: "2026.2 — Present",
+      endDate: "Present",
+      title: "Major Cosmetics Brand: E-commerce Review Feature & LP/Banner Design",
+      role: "Frontend / Designer",
+      description: [
+        "Added a review feature to a major cosmetics brand's e-commerce site",
+        "LP design",
+        "Banner design",
+      ],
+    },
   },
 ];
 
 export const certifications: Certification[] = [
-  { name: "BJT J1", category: "language", detail: "ビジネス日本語最上級" },
-  { name: "AWS Cloud Practitioner", category: "cloud", detail: "クラウド基礎" },
-  { name: "Python 3 エンジニア認定基礎", category: "development", detail: "プログラミング基礎" },
+  { name: "BJT J1", category: "language", detail: "ビジネス日本語最上級", en: { detail: "Highest level of Business Japanese" } },
+  { name: "AWS Cloud Practitioner", category: "cloud", detail: "クラウド基礎", en: { detail: "Cloud fundamentals" } },
+  { name: "Python 3 エンジニア認定基礎", category: "development", detail: "プログラミング基礎", en: { name: "Python 3 Engineer Certification (Basic)", detail: "Programming fundamentals" } },
 ];

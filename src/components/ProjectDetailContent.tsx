@@ -7,6 +7,8 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
+import { useLocale } from "@/i18n/LocaleContext";
+import { localize, localePath } from "@/i18n/messages";
 import { getProjectBySlug, getAdjacentProjects, getProjectNumber, projectTypeLabels } from "@/data/projects";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -33,7 +35,8 @@ function FadeIn({
 }
 
 export default function ProjectDetailContent({ slug }: { slug: string }) {
-  const project = getProjectBySlug(slug)!;
+  const { locale } = useLocale();
+  const project = localize(getProjectBySlug(slug)!, locale);
   const { prev, next } = getAdjacentProjects(slug);
   const [lightbox, setLightbox] = useState<string | null>(null);
 
@@ -377,7 +380,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
           <FadeIn>
             <div className="flex justify-between items-center">
               {prev ? (
-                <Link href={`/projects/${prev.slug}`} className="flex flex-col items-center gap-3 group">
+                <Link href={localePath(locale, `/projects/${prev.slug}`)} className="flex flex-col items-center gap-3 group">
                   <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
                     <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                   </div>
@@ -387,7 +390,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 <div />
               )}
               {next ? (
-                <Link href={`/projects/${next.slug}`} className="flex flex-col items-center gap-3 group">
+                <Link href={localePath(locale, `/projects/${next.slug}`)} className="flex flex-col items-center gap-3 group">
                   <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
                     <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </div>

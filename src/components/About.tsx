@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import NumberRain from "@/components/NumberRain";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localePath } from "@/i18n/messages";
 
 const GradientDefs = ({ id }: { id: string }) => (
   <defs>
@@ -24,7 +25,7 @@ const TrendingUpIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" 
 const valueIcons = [<ChatIcon key="chat" />, <TargetIcon key="target" />, <ZapIcon key="zap" />, <TrendingUpIcon key="trending" />];
 
 export default function About() {
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
 
   return (
     <section id="about" className="py-6 px-6 relative overflow-hidden">
@@ -115,7 +116,7 @@ export default function About() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-8"
         >
-          <Link href="/career" className="group block">
+          <Link href={localePath(locale, "/career")} className="group block">
             <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f]/8 to-[#e88560]/8 border border-[#a8305f]/15 backdrop-blur-sm flex items-center justify-between hover:from-[#a8305f]/12 hover:to-[#e88560]/12 transition-colors">
               <div>
                 <span className="text-lg md:text-xl font-black tracking-tight gradient-text">My Career Story</span>

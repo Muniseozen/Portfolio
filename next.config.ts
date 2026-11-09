@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false,
+  experimental: {
+    // app/layout.tsx が無い（(ja) と en でルートレイアウトが別）構成で 404 を表示するため
+    globalNotFound: true,
+  },
 };
 
 export default nextConfig;

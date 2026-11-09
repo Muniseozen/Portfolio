@@ -3,17 +3,18 @@ import Career from "@/components/Career";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import { messages, type Locale } from "@/i18n/messages";
 
-export const metadata: Metadata = {
-  title: "Career | Munise Haruyama",
-  description:
-    "テスターから開発リードへ。4年間の成長軌跡。",
-  openGraph: {
+// /career と /en/career で共通のページ
+
+export function careerMetadata(locale: Locale): Metadata {
+  const description = messages[locale].career.tagline;
+  return {
     title: "Career | Munise Haruyama",
-    description: "テスターから開発リードへ。4年間の成長軌跡。",
-    type: "article",
-  },
-};
+    description,
+    openGraph: { title: "Career | Munise Haruyama", description, type: "article" },
+  };
+}
 
 export default function CareerPage() {
   return (

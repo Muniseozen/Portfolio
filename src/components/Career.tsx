@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { careerProjects, type CareerProject, type ConcurrentProject } from "@/data/career";
 import NumberRain from "@/components/NumberRain";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localize } from "@/i18n/messages";
 
 /* ─── Date dot on the timeline ─── */
 
@@ -244,7 +245,8 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
 /* ─── Main component ─── */
 
 export default function Career() {
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
+  const items = careerProjects.map((p) => localize(p, locale));
 
   return (
     <section id="career" className="py-10 px-6 relative overflow-hidden">
@@ -271,24 +273,24 @@ export default function Career() {
 
         {/* Desktop Timeline */}
         <div className="hidden md:block max-w-4xl mx-auto">
-          {careerProjects.map((project, index) => (
+          {items.map((project, index) => (
             <DesktopTimelineItem
               key={project.period}
               project={project}
               index={index}
-              isLast={index === careerProjects.length - 1}
+              isLast={index === items.length - 1}
             />
           ))}
         </div>
 
         {/* Mobile Timeline */}
         <div className="md:hidden">
-          {careerProjects.map((project, index) => (
+          {items.map((project, index) => (
             <MobileTimelineItem
               key={project.period}
               project={project}
               index={index}
-              isLast={index === careerProjects.length - 1}
+              isLast={index === items.length - 1}
             />
           ))}
         </div>

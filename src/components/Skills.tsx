@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { certifications } from "@/data/career";
 import { useLocale } from "@/i18n/LocaleContext";
+import { localize } from "@/i18n/messages";
 
 const toolCategories: { title: string; tools: { name: string; logo: string }[] }[] = [
   {
@@ -47,7 +48,7 @@ const skillCategories = [
 ];
 
 export default function Skills() {
-  const { m } = useLocale();
+  const { m, locale } = useLocale();
 
   return (
     <section id="skills" className="py-10 px-6">
@@ -124,7 +125,7 @@ export default function Skills() {
           <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Certifications</h3>
         </motion.div>
         <div className="grid grid-cols-3 gap-3">
-          {certifications.map((cert, index) => (
+          {certifications.map((c) => localize(c, locale)).map((cert, index) => (
             <motion.div
               key={cert.name}
               initial={{ opacity: 0, y: 16 }}

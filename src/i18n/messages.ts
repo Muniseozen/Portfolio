@@ -1,6 +1,17 @@
 export type Locale = "ja" | "en";
 export const defaultLocale: Locale = "ja";
 
+// 英語版のパスは /en を前につける（"/" → "/en", "/career" → "/en/career"）
+export function localePath(locale: Locale, path: string): string {
+  if (locale === "ja") return path;
+  return path === "/" ? "/en" : `/en${path}`;
+}
+
+// データの日本語を、英語版のときだけ en フィールドの内容で上書きする
+export function localize<T extends { en?: object }>(item: T, locale: Locale): T {
+  return locale === "en" && item.en ? { ...item, ...item.en } : item;
+}
+
 type Segment = { text: string; bold?: boolean };
 type Paragraph = Segment[];
 
