@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,11 +34,47 @@ function FadeIn({
   );
 }
 
+// 記事の上に重なる細いスクロールバー（標準のバーはクラスで非表示）。
+// スクロールのたびに state を使わず transform を直接書き換えて、再描画を起こさない
+function OverlayScroll({ children }: { children: React.ReactNode }) {
+  const areaRef = useRef<HTMLDivElement>(null);
+  const thumbRef = useRef<HTMLSpanElement>(null);
+
+  const update = () => {
+    const area = areaRef.current;
+    const thumb = thumbRef.current;
+    if (!area || !thumb) return;
+    const { scrollTop, scrollHeight, clientHeight } = area;
+    const height = Math.max(24, (clientHeight * clientHeight) / scrollHeight);
+    const top = (scrollTop / (scrollHeight - clientHeight || 1)) * (clientHeight - height);
+    thumb.style.height = `${height}px`;
+    thumb.style.transform = `translateY(${top}px)`;
+  };
+
+  // 画像は width/height 指定で高さが先に決まるので、表示直後に一度合わせる
+  useEffect(update, []);
+
+  return (
+    <div className="relative">
+      <div ref={areaRef} onScroll={update} className="h-[510px] overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden overscroll-contain border-t border-black/[0.06]">
+        {children}
+      </div>
+      <span ref={thumbRef} aria-hidden className="pointer-events-none absolute top-0 right-1 w-1 rounded-full bg-zinc-300" />
+    </div>
+  );
+}
+
 export default function ProjectDetailContent({ slug }: { slug: string }) {
   const { locale } = useLocale();
-  const project = localize(getProjectBySlug(slug)!, locale);
+  const original = getProjectBySlug(slug)!;
+  const project = localize(original, locale);
+  // タイトルは英語を大きく見せ、日本語版ではその下に日本語を添える（同じ表記なら出さない）
+  const titleEn = original.en.title;
+  const titleJa = locale === "ja" && original.title !== titleEn ? original.title : null;
   const { prev, next } = getAdjacentProjects(slug);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  // 縦長の記事画像はスマホ枠なしで大きく表示する（中をスクロールして読む）
+  const [screenView, setScreenView] = useState<NonNullable<typeof project.screens>[number] | null>(null);
 
   const metaItems = [
     { label: "Role", value: project.role },
@@ -63,8 +99,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {projectTypeLabels[project.type]} {getProjectNumber(project)}  —  {project.subtitle}
             </span>
             <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4 whitespace-pre-line">
-              <span className="gradient-text">{project.title}</span>
+              <span className="gradient-text">{titleEn}</span>
             </h1>
+            {titleJa && <p className="-mt-2 mb-5 text-lg text-zinc-500">{titleJa}</p>}
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tech.map((t) => (
                 <span
@@ -112,7 +149,58 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn delay={0.25}>
-            {project.preview && project.previewType === "mobile" ? (
+            {project.screens ? (
+              // 縦長のスマホ画面を並べ、各枠の中をスクロールして全体を読めるようにする
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
+                {project.screens.map((screen) => (
+                  <figure key={screen.src} className="w-full max-w-[300px]">
+                    <figcaption className="mb-3 min-h-16 flex flex-col justify-end text-center">
+                      <span className="text-sm font-bold text-zinc-900">{screen.label}</span>
+                      <span className="text-sm text-zinc-500">{screen.title}</span>
+                    </figcaption>
+                    {/* iPhone 風の本体 + スマホブラウザの画面で、記事をブラウザで見ているように見せる */}
+                    <div className="rounded-[2rem] bg-zinc-900 p-[5px] shadow-xl">
+                      <div className="rounded-[1.7rem] bg-white overflow-hidden">
+                        {/* ステータスバー + ダイナミックアイランド */}
+                        <div aria-hidden className="relative flex items-center justify-between px-6 pt-3 pb-1 text-xs font-semibold text-zinc-900">
+                          <span>9:41</span>
+                          <span className="absolute left-1/2 top-2.5 -translate-x-1/2 w-20 h-5 rounded-full bg-zinc-900" />
+                          <span className="flex items-center gap-1">
+                            <svg className="w-4 h-3" viewBox="0 0 16 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="4.3" y="5.5" width="3" height="6.5" rx="1" /><rect x="8.6" y="3" width="3" height="9" rx="1" /><rect x="12.9" y="0" width="3" height="12" rx="1" /></svg>
+                            <svg className="w-6 h-3" viewBox="0 0 24 12" fill="none"><rect x="0.5" y="0.5" width="20" height="11" rx="3" stroke="currentColor" opacity="0.4" /><rect x="2" y="2" width="15" height="8" rx="1.8" fill="currentColor" /><rect x="22" y="4" width="1.5" height="4" rx="0.75" fill="currentColor" opacity="0.4" /></svg>
+                          </span>
+                        </div>
+                        {/* アドレスバー */}
+                        <div aria-hidden className="px-3 pb-2">
+                          <div className="flex items-center justify-center gap-1.5 h-8 rounded-xl bg-zinc-100 text-xs text-zinc-700">
+                            <svg className="w-3 h-3 text-zinc-500" viewBox="0 0 24 24" fill="currentColor"><path d="M17 10V8a5 5 0 00-10 0v2H6a1 1 0 00-1 1v9a1 1 0 001 1h12a1 1 0 001-1v-9a1 1 0 00-1-1h-1zm-8 0V8a3 3 0 016 0v2H9z" /></svg>
+                            beauty-column.example.jp
+                          </div>
+                        </div>
+                        {/* 記事（ここをスクロールして全体を読める） */}
+                        <OverlayScroll>
+                          <button
+                            type="button"
+                            onClick={() => setScreenView(screen)}
+                            aria-label={`${screen.label} ${screen.title}`}
+                            className="block w-full cursor-zoom-in"
+                          >
+                            <Image
+                              src={screen.src}
+                              alt={`${screen.label} ${screen.title}`}
+                              width={screen.width}
+                              height={screen.height}
+                              sizes="300px"
+                              className="w-full h-auto"
+                            />
+                          </button>
+                        </OverlayScroll>
+                      </div>
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            ) : project.preview && project.previewType === "mobile" ? (
               <div className="flex justify-center">
                 <div className="relative w-[280px] md:w-[320px]">
                   {/* Phone frame */}
@@ -237,6 +325,28 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
+
+      {/* Design Points: デザインの工夫 */}
+      {project.points && project.points.length > 0 && (
+        <section className="py-6 px-6">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                <span className="gradient-text">Design Points</span>
+              </h2>
+            </FadeIn>
+            {/* 装飾は付けず、タイトルと説明文だけで見せる */}
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+              {project.points.map((point, index) => (
+                <FadeIn key={point.title} delay={index * 0.08}>
+                  <h3 className="text-sm font-bold text-zinc-900">{point.title}</h3>
+                  <p className="text-sm text-zinc-500 leading-relaxed mt-2">{point.body}</p>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* My Role */}
       {project.roleBreakdown.length > 0 && (
@@ -436,6 +546,45 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 &times;
               </button>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* 記事画像の拡大表示: 画像のみを大きめに表示し、縦にスクロールして読む */}
+      <AnimatePresence>
+        {screenView && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[200] bg-black/80 overflow-y-auto overscroll-contain cursor-pointer"
+            onClick={() => setScreenView(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.3, ease }}
+              className="mx-auto my-10 w-[min(340px,calc(100vw-3rem))] cursor-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={screenView.src}
+                alt={`${screenView.label} ${screenView.title}`}
+                width={screenView.width}
+                height={screenView.height}
+                sizes="(max-width: 388px) 100vw, 340px"
+                className="w-full h-auto rounded-lg"
+              />
+            </motion.div>
+            <button
+              onClick={() => setScreenView(null)}
+              aria-label="Close"
+              className="fixed top-5 right-5 w-9 h-9 rounded-full bg-white/90 text-zinc-900 flex items-center justify-center text-lg shadow-md hover:bg-white transition-colors"
+            >
+              &times;
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

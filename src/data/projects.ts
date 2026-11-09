@@ -16,6 +16,7 @@ export interface Project {
   designProcess?: string;
   designSystem?: string;
   prototype?: string;
+  screens?: { src: string; label: string; title: string; width: number; height: number }[]; // 縦長のスマホ画面を並べて見せる（各画面は枠内スクロール）
   duration: string;
   team: string;
   status: string;
@@ -23,10 +24,11 @@ export interface Project {
   type: "web" | "app";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
+  points?: { title: string; body: string }[]; // デザインの工夫（Design Points として表示）
   en: ProjectText; // 英語版の文章
 }
 
-type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges">;
+type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges" | "screens" | "points">;
 
 export const projects: Project[] = [
   // ── Selected Work ──
@@ -162,6 +164,60 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 6,
+    slug: "beauty-column",
+    title: "ECサイト 美容コラム",
+    subtitle: "Web / Editorial Design / SP",
+    description:
+      "30〜40代の女性に向けた連載美容コラムから、3号をピックアップして紹介。",
+    longDescription:
+      "30〜40代の女性に向けた、連載美容コラムのページデザイン。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップして紹介する。美容の知識を日々のお手入れに役立ててもらえるよう、親しみやすく読みやすいページにまとめた。",
+    points: [
+      { title: "30〜40代の女性に合う雰囲気づくり", body: "淡い配色と繊細な装飾を取り入れ、女性らしく、落ち着いた印象にまとめた。美容の知識を扱うページとして、親しみやすさと清潔感を意識している。" },
+      { title: "長い文章を読みやすく整理", body: "内容のまとまりごとに見出しや囲みを設け、ポイントとなる言葉は色や文字の大きさで強調した。説明が続く部分にも余白を取り、スマートフォンで少しずつ読み進めやすい構成にしている。" },
+      { title: "内容に合わせた見せ方の工夫", body: "比較する情報は横に並べ、手順やポイントは番号で整理するなど、内容に合わせてレイアウトを変えた。図解やイラストも組み合わせ、美容の知識を視覚的に理解しやすくしている。" },
+      { title: "シリーズとしての統一感と変化", body: "タイトルや見出しの基本ルールをそろえながら、各テーマに合わせてアクセントカラーや囲みの形を変えた。同じシリーズだと分かりつつ、それぞれの内容に合ったデザインにしている。" },
+    ],
+    role: "Planner / Designer",
+    tech: ["Editorial Design", "Figma"],
+    gradient: "from-[#c2456e] via-[#d4567e] to-[#e88560]",
+    emoji: "&#x1F484;",
+    screens: [
+      { src: "/images/projects/beauty-column-vol10.webp", label: "vol.10", title: "UVケアと紫外線にまつわる豆知識", width: 750, height: 9316 },
+      { src: "/images/projects/beauty-column-vol11.webp", label: "vol.11", title: "大人の毛穴ケア対策ガイド", width: 750, height: 9574 },
+      { src: "/images/projects/beauty-column-vol12.webp", label: "vol.12", title: "美肌のカナメ「コラーゲン」の上手な摂り方", width: 750, height: 8764 },
+    ],
+    duration: "",
+    team: "",
+    status: "Completed",
+    category: "work",
+    type: "web",
+    roleBreakdown: [],
+    challenges: [],
+    en: {
+      title: "E-commerce Beauty Column",
+      subtitle: "Web / Editorial Design / SP",
+      description:
+        "Three issues picked from a beauty column series aimed at women in their 30s and 40s.",
+      longDescription:
+        "Page design for a beauty column series aimed at women in their 30s and 40s. Here I've picked three issues from the series, on UV care, pore care, and collagen. The pages are friendly and easy to read, so readers can put beauty knowledge to use in their daily skincare.",
+      points: [
+        { title: "A look suited to women in their 30s and 40s", body: "Pale colors and delicate ornaments create a feminine, calm impression. As pages about beauty knowledge, they aim to feel approachable and clean." },
+        { title: "Making long text easy to read", body: "Each block of content gets its own heading or box, and key words are emphasized with color and type size. Generous spacing around longer explanations lets readers move through the article bit by bit on a smartphone." },
+        { title: "Layouts that fit the content", body: "Information to compare sits side by side, while steps and key points are numbered, so the layout changes to suit the content. Diagrams and illustrations make beauty knowledge easier to grasp visually." },
+        { title: "Consistency and variety across the series", body: "Titles and headings follow shared rules, while accent colors and box shapes change with each theme, so the pages read as one series yet each suits its own topic." },
+      ],
+      role: "Planner / Designer",
+      roleBreakdown: [],
+      challenges: [],
+      screens: [
+        { src: "/images/projects/beauty-column-vol10.webp", label: "Vol. 10", title: "Fun facts about UV care and ultraviolet rays", width: 750, height: 9316 },
+        { src: "/images/projects/beauty-column-vol11.webp", label: "Vol. 11", title: "A guide to pore care for adults", width: 750, height: 9574 },
+        { src: "/images/projects/beauty-column-vol12.webp", label: "Vol. 12", title: "How to get the most out of collagen", width: 750, height: 8764 },
+      ],
+    },
+  },
+  {
     id: 4,
     slug: "hr-matching-platform",
     title: "人材マッチングプラットフォーム",
@@ -256,7 +312,8 @@ export const projectTypeLabels = { web: "Web", app: "App" } as const;
 
 // トップのカードと同じく、分類（web / app）内での並び順を番号にする
 export function getProjectNumber(project: Project): string {
-  const index = projects.filter((p) => p.type === project.type).indexOf(project);
+  // 英語版は localize() で作ったコピーが渡されるため、オブジェクトではなく slug で探す
+  const index = projects.filter((p) => p.type === project.type).findIndex((p) => p.slug === project.slug);
   return String(index + 1).padStart(2, "0");
 }
 

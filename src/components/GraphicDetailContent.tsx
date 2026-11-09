@@ -8,7 +8,7 @@ import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import { works, shuffledWorks, graphicCategories, type DesignWork } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
-import { localize } from "@/i18n/messages";
+import { localize, messages } from "@/i18n/messages";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -70,9 +70,11 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
             <span className="text-base md:text-lg font-mono uppercase tracking-widest text-zinc-900">
               Graphic Design {String(index + 1).padStart(2, "0")}
             </span>
+            {/* タイトルは英語を大きく見せ、日本語版ではその下に日本語を添える */}
             <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4">
-              <span className="gradient-text">{m.projects.graphicCategories[cat.key]}</span>
+              <span className="gradient-text">{messages.en.projects.graphicCategories[cat.key]}</span>
             </h1>
+            {locale === "ja" && <p className="-mt-2 mb-5 text-lg text-zinc-500">{m.projects.graphicCategories[cat.key]}</p>}
           </motion.div>
         </div>
       </section>
