@@ -8,7 +8,6 @@ const About = dynamic(() => import("@/components/About"));
 const Skills = dynamic(() => import("@/components/Skills"));
 const Marquee = dynamic(() => import("@/components/Marquee"));
 const Projects = dynamic(() => import("@/components/Projects"));
-const DesignWorks = dynamic(() => import("@/components/DesignWorks"));
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
           speed={25}
         />
         <Projects />
-        <DesignWorks />
         <Marquee
           items={["Figma", "UI/UX Design", "Frontend", "Mobile App", "SwiftUI"]}
           speed={30}

@@ -1,7 +1,6 @@
 export interface Project {
   id: number;
   slug: string;
-  num: string;
   title: string;
   subtitle: string;
   description: string;
@@ -21,6 +20,7 @@ export interface Project {
   team: string;
   status: string;
   category: "work" | "personal";
+  type: "web" | "app";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
 }
@@ -30,7 +30,6 @@ export const projects: Project[] = [
   {
     id: 1,
     slug: "ynp-homepage",
-    num: "01",
     title: "株式会社YNP ホームページ",
     subtitle: "Web / UI・UX Design / Frontend",
     description:
@@ -49,6 +48,7 @@ export const projects: Project[] = [
     team: "",
     status: "Completed",
     category: "work",
+    type: "web",
     roleBreakdown: [
       { title: "Design", tasks: ["Figmaでのワイヤーフレーム・UIデザイン", "レスポンシブデザインの設計"] },
       { title: "Frontend", tasks: ["HTML/CSS/JSのコードレビュー", "WordPressテーマのディレクション"] },
@@ -62,7 +62,6 @@ export const projects: Project[] = [
   {
     id: 2,
     slug: "naitei-lp",
-    num: "02",
     title: "内定者向けLP制作",
     subtitle: "LP / UI・UX Design / Planning",
     description:
@@ -80,6 +79,7 @@ export const projects: Project[] = [
     team: "",
     status: "Completed",
     category: "work",
+    type: "web",
     roleBreakdown: [
       { title: "企画・構成", tasks: ["LPの全体構成・情報設計", "キャッチコピー・文章の作成"] },
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ターゲットに合わせたトーン設計"] },
@@ -89,7 +89,6 @@ export const projects: Project[] = [
   {
     id: 3,
     slug: "netherlands-lp",
-    num: "03",
     title: "オランダIT研修LP制作",
     subtitle: "LP / UI・UX Design / Planning",
     description:
@@ -106,6 +105,7 @@ export const projects: Project[] = [
     team: "",
     status: "Completed",
     category: "work",
+    type: "web",
     roleBreakdown: [
       { title: "企画・構成", tasks: ["LP全体の構成・情報設計", "キャッチコピー・セクション文章の作成", "研修内容・料金・フローの情報整理"] },
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ダークネイビー基調のトーン設計", "写真・マップを活用したレイアウト設計"] },
@@ -115,7 +115,6 @@ export const projects: Project[] = [
   {
     id: 4,
     slug: "hr-matching-platform",
-    num: "04",
     title: "人材マッチングプラットフォーム",
     subtitle: "iOS & Web / UI・UX Design / PM",
     description:
@@ -135,6 +134,7 @@ export const projects: Project[] = [
     team: "5 members",
     status: "Released",
     category: "work",
+    type: "app",
     roleBreakdown: [
       { title: "PM", tasks: ["プロダクトロードマップの策定", "スプリント計画とチームマネジメント"] },
       { title: "UI/UX Design", tasks: ["Figmaでのユーザーフロー・UI設計", "ユーザビリティテストの実施と改善"] },
@@ -146,7 +146,6 @@ export const projects: Project[] = [
   {
     id: 5,
     slug: "mycloset",
-    num: "05",
     title: "My Closet",
     subtitle: "iOS / UI・UX Design / PM",
     description:
@@ -163,6 +162,7 @@ export const projects: Project[] = [
     team: "",
     status: "Completed",
     category: "work",
+    type: "app",
     roleBreakdown: [
       { title: "PM", tasks: ["プロダクト企画とビジネス要件の整理", "リリース計画と品質管理"] },
       { title: "UI/UX Design", tasks: ["カスタマイズ可能なUIシステム設計", "出品〜購入〜決済のユーザーフロー設計"] },
@@ -170,65 +170,15 @@ export const projects: Project[] = [
     ],
     challenges: [],
   },
-  // ── My Projects ──
-  {
-    id: 6,
-    slug: "mochibo",
-    num: "01",
-    title: "Mochibo",
-    subtitle: "iOS / Language Learning App",
-    description:
-      "「餅」+「語」= Mochibo。単語帳・フラッシュカード・練習モードを搭載した多言語対応の語学学習iOSアプリ。",
-    longDescription:
-      "多言語対応の語学学習iOSアプリを個人で企画・デザイン・開発しました。ユーザーは複数の単語帳を作成し、フレーズ（原文＋翻訳）を登録して、フリップカード形式の練習モードで効率的に学習できます。Firebase AuthenticationとCloud Firestoreによるユーザー認証・リアルタイムデータ同期を実装。UIは日本語・英語・トルコ語の3言語に対応し、抹茶カラーをベースにした可愛いもちキャラクターがユーザーをナビゲートするデザインに仕上げました。",
-    role: "PM / UI・UX Designer / iOS Dev",
-    tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "Firebase Auth", "Cloud Firestore"],
-    gradient: "from-[#9b2c5a] via-[#b84468] to-[#d4567e]",
-    emoji: "&#x1F4F1;",
-    thumbnail: "",
-    url: "https://github.com/Muniseozen/Mochibo",
-    preview: "/images/projects/mochibo-preview.webp",
-    previewType: "mobile",
-    duration: "",
-    team: "1 member",
-    status: "In Development",
-    category: "personal",
-    roleBreakdown: [
-      { title: "企画", tasks: ["アプリコンセプト・機能設計", "多言語対応（日本語・英語・トルコ語）の設計"] },
-      { title: "UI/UX Design", tasks: ["抹茶カラーのデザインシステム構築", "もちキャラクターのデザイン・アニメーション設計", "単語帳・練習モードのユーザーフロー設計"] },
-      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "Firebase Authentication によるユーザー認証", "Cloud Firestore でのリアルタイムデータ同期", "フリップカード・スワイプ操作の実装"] },
-    ],
-    challenges: [],
-  },
-  {
-    id: 7,
-    slug: "earthquect",
-    num: "02",
-    title: "Earthquect",
-    subtitle: "Web App / Real-time Earthquake Monitor",
-    description:
-      "トルコの地震をリアルタイムで監視するWebアプリ。AFAD APIを活用し、地震情報・断層マップ・避難場所・防災ガイドを提供。トルコ語/英語対応。",
-    longDescription:
-      "トルコは日本と同じく地震大国でありながら、日本のYahoo!防災速報のような、地震情報をリアルタイムで確認できる一般向けサービスがほとんどありません。防災意識や対策も日本に比べて十分とは言えない現状があります。「自分の国にも、誰でもすぐ使える防災ツールがあるべきだ」という思いから、既存サービスの調査・利用可能なAPIのリサーチ・情報設計を自分で行い、このプロジェクトを立ち上げました。AFAD（トルコ災害緊急事態管理庁）のAPIをメインデータソースとし、USGS（米国地質調査所）をフォールバックとして使用。直近30日間の地震データを30秒間隔で自動更新し、マグニチュード別に色分けされたインタラクティブマップ上に表示します。トルコの主要断層線（北アナトリア断層・東アナトリア断層）の可視化、避難場所情報、防災ガイドなども搭載。UIはトルコ語と英語に対応し、ブラウザ言語を自動検出します。",
-    role: "UI・UX Designer / Full-stack Dev",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "Leaflet", "i18next", "Axios"],
-    gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
-    emoji: "&#x1F30D;",
-    thumbnail: "/images/projects/earthquect-preview.webp",
-    preview: "/images/projects/earthquect-preview.webp",
-    designProcess: "/images/projects/earthquect-faultlines.webp",
-    duration: "",
-    team: "1 member",
-    status: "In Development",
-    category: "personal",
-    roleBreakdown: [
-      { title: "企画・設計", tasks: ["防災情報アプリのコンセプト設計", "AFAD/USGS APIの調査とデータ設計"] },
-      { title: "UI/UX Design", tasks: ["マグニチュード別カラーコーディング設計", "インタラクティブマップのUX設計", "レスポンシブ対応（モバイル・タブレット・デスクトップ）"] },
-      { title: "Frontend", tasks: ["React + Vite でのSPA構築", "Leafletでのマップ・断層線・地震マーカー実装", "i18nextによるトルコ語/英語の多言語対応", "AFAD APIからのリアルタイムデータ取得（30秒自動更新）"] },
-    ],
-    challenges: [],
-  },
 ];
+
+export const projectTypeLabels = { web: "Web", app: "App" } as const;
+
+// トップのカードと同じく、分類（web / app）内での並び順を番号にする
+export function getProjectNumber(project: Project): string {
+  const index = projects.filter((p) => p.type === project.type).indexOf(project);
+  return String(index + 1).padStart(2, "0");
+}
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
@@ -241,3 +191,68 @@ export function getAdjacentProjects(slug: string): { prev: Project | null; next:
     next: index < projects.length - 1 ? projects[index + 1] : null,
   };
 }
+
+// ── Graphic（デザイン制作物） ──
+
+export type WorkCategory = "recruit" | "app" | "campaign";
+
+export type DesignWork = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  category: WorkCategory;
+};
+
+export const works: DesignWork[] = [
+  { src: "/images/projects/uply-ad-1.webp", alt: "Uply 広告 1", width: 1080, height: 1350, category: "app" },
+  { src: "/images/projects/uply-ad-2.webp", alt: "Uply 広告 2", width: 1080, height: 1350, category: "app" },
+  { src: "/images/design/banner-uply-1.webp", alt: "Uply バナー 1", width: 750, height: 700, category: "campaign" },
+  { src: "/images/design/banner-uply-2.webp", alt: "Uply LINEバナー", width: 750, height: 700, category: "campaign" },
+  { src: "/images/design/banner-uply-3.webp", alt: "Uply LINEバナー 横", width: 1200, height: 400, category: "campaign" },
+  { src: "/images/design/sp-1.webp", alt: "Design Work 1", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-11.webp", alt: "Design Work 11", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-8.webp", alt: "Design Work 8", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-12.webp", alt: "Design Work 12", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-10.webp", alt: "Design Work 10", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-9.webp", alt: "Design Work 9", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-6.webp", alt: "Design Work 6", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-14.webp", alt: "Design Work 14", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-7.webp", alt: "Design Work 7", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-13.webp", alt: "Design Work 13", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-5.webp", alt: "Design Work 5", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-4.webp", alt: "Design Work 4", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-3.webp", alt: "Design Work 3", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-2.webp", alt: "Design Work 2", width: 1880, height: 1576, category: "recruit" },
+  { src: "/images/design/sp-15.webp", alt: "Design Work 15", width: 1880, height: 1576, category: "recruit" },
+];
+
+export type GraphicCategory = {
+  key: WorkCategory;
+  cover: string; // トップページのカードに使う代表画像
+  description: string; // 概要
+  role: string;
+  tools: string[];
+  points: string[]; // 担当内容・工夫した点
+};
+
+// 並び順 = トップのカード順・詳細ページの番号順
+export const graphicCategories: GraphicCategory[] = [
+  { key: "recruit", cover: "/images/design/sp-9.webp", description: "", role: "", tools: [], points: [] },
+  { key: "app", cover: "/images/projects/uply-ad-2.webp", description: "", role: "", tools: [], points: [] },
+  { key: "campaign", cover: "/images/design/banner-uply-2.webp", description: "", role: "", tools: [], points: [] },
+];
+
+function shuffleWithSeed(arr: DesignWork[], seed: number) {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    seed = (seed * 16807 + 0) % 2147483647;
+    const j = seed % (i + 1);
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// 日付ベースのシードで1日ごとに並び順が変わる
+const dailySeed = Math.floor(Date.now() / 86400000);
+export const shuffledWorks = shuffleWithSeed(works, dailySeed);

@@ -7,7 +7,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
-import { getProjectBySlug, getAdjacentProjects } from "@/data/projects";
+import { getProjectBySlug, getAdjacentProjects, getProjectNumber, projectTypeLabels } from "@/data/projects";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -46,7 +46,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
 
   return (
     <PageTransition>
-      <Navigation variant="detail" />
+      <Navigation variant="detail" backHash="projects" />
 
       {/* Hero */}
       <section className="pt-24 pb-8 px-6 relative overflow-hidden">
@@ -57,7 +57,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             transition={{ duration: 0.6, ease }}
           >
             <span className="text-base md:text-lg font-mono uppercase tracking-widest text-zinc-900">
-              Project {project.num}  —  {project.subtitle}
+              {projectTypeLabels[project.type]} {getProjectNumber(project)}  —  {project.subtitle}
             </span>
             <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4 whitespace-pre-line">
               <span className="gradient-text">{project.title}</span>

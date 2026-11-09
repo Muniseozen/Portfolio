@@ -4,7 +4,7 @@ import { projects, getProjectBySlug } from "@/data/projects";
 import ProjectDetailContent from "@/components/ProjectDetailContent";
 import ComingSoon from "@/components/ComingSoon";
 
-const comingSoonSlugs = ["mycloset", "mochibo", "earthquect"];
+const comingSoonSlugs = ["mycloset"];
 
 export function generateStaticParams() {
   return projects.map((project) => ({

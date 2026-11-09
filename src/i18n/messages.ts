@@ -1,4 +1,5 @@
-import type { Locale } from "./config";
+export type Locale = "ja" | "en";
+export const defaultLocale: Locale = "ja";
 
 type Segment = { text: string; bold?: boolean };
 type Paragraph = Segment[];
@@ -25,9 +26,10 @@ export type Messages = {
   };
   projects: {
     tagline: string;
-  };
-  designWorks: {
-    tagline: string;
+    workLabel: string;
+    personalLabel: string;
+    graphicCategories: { recruit: string; app: string; campaign: string };
+    graphicCount: string;
   };
   career: {
     tagline: string;
@@ -111,9 +113,10 @@ export const messages: Record<Locale, Messages> = {
     },
     projects: {
       tagline: "企画からデザイン、実装まで。何よりも先に手を動かします。",
-    },
-    designWorks: {
-      tagline: "バナー・グラフィックなどのデザイン制作。",
+      workLabel: "実務",
+      personalLabel: "個人",
+      graphicCategories: { recruit: "求人バナー", app: "アプリ広告", campaign: "キャンペーンバナー" },
+      graphicCount: "{n}点",
     },
     career: {
       tagline: "テスターから開発リードへ。4年間の成長軌跡。",
@@ -197,9 +200,10 @@ export const messages: Record<Locale, Messages> = {
     projects: {
       tagline:
         "Planning, design, implementation — I'd rather get my hands on it first.",
-    },
-    designWorks: {
-      tagline: "Banners, graphics, and visual design work.",
+      workLabel: "Client",
+      personalLabel: "Personal",
+      graphicCategories: { recruit: "Recruitment Banners", app: "App Ads", campaign: "Campaign Banners" },
+      graphicCount: "{n} pieces",
     },
     career: {
       tagline: "From QA tester to dev lead — a four-year journey.",

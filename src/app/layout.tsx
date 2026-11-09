@@ -32,11 +32,11 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Munise Haruyama | PM & Frontend Developer",
+  title: "Munise Haruyama | Designer & Developer",
   description:
     "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
   openGraph: {
-    title: "Munise Haruyama | PM & Frontend Developer",
+    title: "Munise Haruyama | Designer & Developer",
     description:
       "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
     type: "website",
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" data-scroll-behavior="smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} ${fraunces.variable} antialiased`}
       >

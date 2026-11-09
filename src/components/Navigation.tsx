@@ -12,12 +12,13 @@ function buildNavLinks(homeHref: string) {
     { href: `${homeHref}#about`, label: "About" },
     { href: `${homeHref}#skills`, label: "Skills" },
     { href: "/career", label: "Career" },
-    { href: `${homeHref}#projects`, label: "Projects" },
+    { href: `${homeHref}#projects`, label: "My Works" },
   ];
 }
 
 interface NavigationProps {
   variant?: "home" | "detail";
+  backHash?: string; // detail の Back で戻るトップページのセクション（例: "projects"）
 }
 
 function NavLink({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) {
@@ -38,7 +39,7 @@ function NavLink({ href, label, onClick }: { href: string; label: string; onClic
   );
 }
 
-export default function Navigation({ variant = "home" }: NavigationProps) {
+export default function Navigation({ variant = "home", backHash }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { locale } = useLocale();
@@ -99,7 +100,7 @@ export default function Navigation({ variant = "home" }: NavigationProps) {
           <div className="flex items-center gap-6">
             <LanguageToggle />
             <Link
-              href={homeHref}
+              href={backHash ? `${homeHref}#${backHash}` : homeHref}
               className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 flex items-center gap-2"
             >
               <span>&larr;</span>
