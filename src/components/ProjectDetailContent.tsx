@@ -303,6 +303,17 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               <p className="text-sm text-zinc-500 leading-relaxed">
                 {project.longDescription}
               </p>
+              {/* デザインの工夫: 概要の続きとして、タイトルと説明文だけで並べる */}
+              {project.points && project.points.length > 0 && (
+                <div className="mt-8 space-y-6">
+                  {project.points.map((point) => (
+                    <div key={point.title}>
+                      <h3 className="text-sm font-bold text-zinc-900">{point.title}</h3>
+                      <p className="text-sm text-zinc-500 leading-relaxed mt-2">{point.body}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="card-dark rounded-2xl p-6">
@@ -325,28 +336,6 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
           </div>
         </div>
       </section>
-
-      {/* Design Points: デザインの工夫 */}
-      {project.points && project.points.length > 0 && (
-        <section className="py-6 px-6">
-          <div className="max-w-5xl mx-auto">
-            <FadeIn>
-              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
-                <span className="gradient-text">Design Points</span>
-              </h2>
-            </FadeIn>
-            {/* 装飾は付けず、タイトルと説明文だけで見せる */}
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-              {project.points.map((point, index) => (
-                <FadeIn key={point.title} delay={index * 0.08}>
-                  <h3 className="text-sm font-bold text-zinc-900">{point.title}</h3>
-                  <p className="text-sm text-zinc-500 leading-relaxed mt-2">{point.body}</p>
-                </FadeIn>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* My Role */}
       {project.roleBreakdown.length > 0 && (

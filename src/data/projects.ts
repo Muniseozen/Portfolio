@@ -24,7 +24,7 @@ export interface Project {
   type: "web" | "app";
   roleBreakdown: { title: string; tasks: string[] }[];
   challenges: { problem: string; solution: string }[];
-  points?: { title: string; body: string }[]; // デザインの工夫（Design Points として表示）
+  points?: { title: string; body: string }[]; // デザインの工夫（Overview の概要文の下に表示）
   en: ProjectText; // 英語版の文章
 }
 
