@@ -50,9 +50,9 @@ export default function Skills() {
   const { m, locale } = useLocale();
 
   return (
-    <section id="skills" className="py-10 px-6">
+    <section id="skills" className="py-8 px-6">
       <div className="max-w-5xl mx-auto">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-8">
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.skills.tagline}</p>
         </motion.div>
@@ -60,18 +60,18 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <motion.div key={category.title} initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-              className={`card-dark rounded-2xl p-5 border-l-2 ${category.border}`}
+              className={`card-dark rounded-xl p-5 border-l-2 ${category.border}`}
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-[9px] font-mono font-bold text-white`}>{category.icon}</div>
+                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-xs font-mono font-bold text-white`}>{category.icon}</div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 leading-tight">{category.title}</h3>
-                  <span className="text-sm text-zinc-400">{m.skills.categoryTaglines[index]}</span>
+                  <span className="text-sm text-zinc-500">{m.skills.categoryTaglines[index]}</span>
                 </div>
               </div>
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="px-3 py-1.5 rounded-lg text-xs font-medium bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
+                  <span key={skill} className="px-3 py-1 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
                 ))}
               </div>
             </motion.div>
@@ -86,7 +86,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mt-8 mb-6"
         >
-          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Tools</h3>
+          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-500">Tools</h3>
         </motion.div>
         <div className="flex flex-wrap gap-4">
           {toolCategories.map((category, catIndex) => (
@@ -96,16 +96,18 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: catIndex * 0.06 }}
-              className="card-dark rounded-xl p-4 flex-1 min-w-[140px]"
+              // PC ではツールの数に応じて幅を配分し、4つ並ぶ PM/Collaboration でも折り返さないようにする（スマホは均等）
+              style={{ "--grow": category.tools.length } as React.CSSProperties}
+              className="card-dark rounded-xl p-4 flex-1 min-w-[140px] md:[flex-grow:var(--grow)]"
             >
-              <p className="text-[12px] font-mono text-zinc-400 mb-3">{category.title}</p>
+              <p className="text-xs font-mono text-zinc-500 mb-3">{category.title}</p>
               <div className="flex flex-wrap gap-4 justify-start">
                 {category.tools.map((tool) => (
                   <div key={tool.name} className="flex flex-col items-center gap-1.5 w-14">
                     <div className="w-11 h-11 rounded-lg bg-white/90 border border-black/[0.06] shadow-sm flex items-center justify-center p-1.5">
                       <Image src={tool.logo} alt={tool.name} width={28} height={28} className="object-contain" />
                     </div>
-                    <span className="text-[9px] text-zinc-500 text-center leading-tight">{tool.name}</span>
+                    <span className="text-xs text-zinc-500 text-center leading-tight">{tool.name}</span>
                   </div>
                 ))}
               </div>
@@ -121,7 +123,7 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mt-8 mb-4"
         >
-          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Certifications</h3>
+          <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-500">Certifications</h3>
         </motion.div>
         <div className="grid grid-cols-3 gap-3">
           {certifications.map((c) => localize(c, locale)).map((cert, index) => (
@@ -135,7 +137,7 @@ export default function Skills() {
             >
               <p className="text-sm font-medium text-zinc-900 leading-tight">{cert.name}</p>
               {cert.detail && (
-                <p className="text-xs text-zinc-400 mt-1">{cert.detail}</p>
+                <p className="text-xs text-zinc-500 mt-1">{cert.detail}</p>
               )}
             </motion.div>
           ))}

@@ -58,27 +58,27 @@ function GridCard({ href, image, emoji, title, subtitle, isWork, tags = [], inde
           {/* Content */}
           <div className="p-4 flex flex-col flex-1">
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-[11px] font-mono tracking-[0.15em] text-[#d4567e]">{String(index + 1).padStart(2, "0")}</span>
+              <span className="text-xs font-mono tracking-[0.15em] text-[#a8305f]">{String(index + 1).padStart(2, "0")}</span>
               <div className="flex-1 h-px bg-zinc-200" />
-              <span className={`text-xs ${isWork ? "text-[#a8305f]" : "text-zinc-400"}`}>
+              <span className={`text-xs ${isWork ? "text-[#a8305f]" : "text-zinc-500"}`}>
                 {isWork ? m.projects.workLabel : m.projects.personalLabel}
               </span>
             </div>
             <h3 className="text-sm font-bold tracking-tight text-zinc-900 leading-snug">
               {title}
             </h3>
-            <p className="text-xs text-zinc-400 mt-0.5">{subtitle}</p>
+            <p className="text-xs text-zinc-500 mt-0.5">{subtitle}</p>
             <div className="flex flex-wrap gap-1 mt-auto pt-3">
               {tags.slice(0, 3).map((t) => (
                 <span
                   key={t}
-                  className="px-1.5 py-0.5 rounded-full text-[11px] font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500"
+                  className="px-2 py-0.5 rounded-full text-xs font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500"
                 >
                   {t}
                 </span>
               ))}
               {tags.length > 3 && (
-                <span className="px-1.5 py-0.5 rounded-full text-[11px] font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-400">
+                <span className="px-2 py-0.5 rounded-full text-xs font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">
                   +{tags.length - 3}
                 </span>
               )}
@@ -101,7 +101,7 @@ function SectionHeader({ num, title, delay = 0 }: { num: string; title: string; 
       transition={{ duration: 0.5, delay }}
       className="flex items-center gap-4 mb-6"
     >
-      <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400 flex items-baseline gap-3 shrink-0">
+      <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-500 flex items-baseline gap-3 shrink-0">
         <span>{num}</span>
         {title}
       </h3>
@@ -116,7 +116,7 @@ export default function Projects() {
   const { m, locale } = useLocale();
 
   return (
-    <section id="projects" className="py-10 px-6">
+    <section id="projects" className="py-8 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <motion.div
@@ -124,7 +124,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
-          className="mb-10"
+          className="mb-8"
         >
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">My Works</span>

@@ -19,6 +19,15 @@
 - グラデーションテキスト: `.gradient-text` クラスを使用
 - カードスタイル: `.card-dark`（静的カード）/ `.card-clickable`（ホバーエフェクト付き）
 - 本文テキストサイズ: `text-sm` に統一済み。独自サイズ (`text-[11px]` 等) を使わないこと
+- 統一ルール（全ページ共通）
+  - 幅: 本文・ナビ・フッターとも `px-6` の内側に `max-w-5xl mx-auto`。トップと Career のセクションは `py-8`、見出しブロックは `mb-8`
+  - 見出し: トップ / Career のセクション見出しは `section-title text-5xl md:text-6xl font-black` + `gradient-text`
+  - 文字サイズは `text-xs` 以上（Hero の装飾モック内は例外）
+  - 読ませる文字の色は `zinc-500` 以上の濃さ、小さいアクセント文字は wine `#a8305f`（`zinc-300/400`・wine-light・rose はコントラスト不足のため文字に使わない。装飾・アイコンは可）
+  - タグ: `rounded-full font-mono`。小 `px-2 py-0.5 text-xs`（カード内）／大 `px-3 py-1 text-sm`（単独で並べるとき）
+  - 角丸: グリッド・リストで繰り返すカードは `rounded-xl`、単独のパネルは `rounded-2xl`
+  - クリックできる画像は `<button type="button">` にする。閉じるボタンなどアイコンだけのボタンには `aria-label`。装飾（NumberRain・Marquee）は `aria-hidden`
+  - 「視差効果を減らす」設定には `MotionConfig reducedMotion="user"` と globals.css の `prefers-reduced-motion` で対応済み。新しい無限ループアニメーションを作ったら globals.css の一覧に追加する
 - Tailwind のクラスは必ず静的に記述すること。`grid-cols-${n}` のような動的クラスは本番で消えるため禁止。マッピングオブジェクトを使う
 
 ## AI生成っぽいデザインを避けるルール

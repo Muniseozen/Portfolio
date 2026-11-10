@@ -22,13 +22,13 @@ export default function ComingSoon({ title }: { title: string }) {
           transition={{ duration: 0.6, ease }}
           className="text-center"
         >
-          <h1 className="text-3xl md:text-4xl font-black tracking-tighter mb-3">
+          <h1 className="section-title text-3xl md:text-4xl font-black mb-3">
             <span className="gradient-text">{title.replace("\n", " ")}</span>
           </h1>
-          <p className="text-zinc-400 text-lg mb-8">Coming Soon</p>
+          <p className="text-zinc-500 text-lg mb-8">Coming Soon</p>
           <Link
             href={localePath(locale, "/")}
-            className="text-sm font-mono text-zinc-400 hover:text-zinc-600 transition-colors flex items-center justify-center gap-2"
+            className="text-sm font-mono text-zinc-500 hover:text-zinc-700 transition-colors flex items-center justify-center gap-2"
           >
             <span>&larr;</span>
             <span>Back to Home</span>

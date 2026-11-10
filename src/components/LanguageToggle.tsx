@@ -97,7 +97,7 @@ export default function LanguageToggle() {
                   >
                     <span className="flex items-center gap-2">
                       <span className="font-semibold tracking-widest">{opt.label}</span>
-                      <span className="text-zinc-400 normal-case tracking-normal">{opt.name}</span>
+                      <span className="text-zinc-500 normal-case tracking-normal">{opt.name}</span>
                     </span>
                     {isActive && (
                       <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

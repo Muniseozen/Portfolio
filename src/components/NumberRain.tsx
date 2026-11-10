@@ -36,6 +36,7 @@ function NumberColumn({ index }: { index: number }) {
 export default function NumberRain() {
   return (
     <div
+      aria-hidden
       className="absolute inset-0 overflow-hidden pointer-events-none z-0"
       style={{ maskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)" }}
     >

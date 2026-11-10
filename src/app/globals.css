@@ -121,3 +121,17 @@ section { position: relative; overflow-x: clip; scroll-margin-top: 72px; }
   animation: numberFall linear infinite;
   will-change: transform;
 }
+
+/* OS の「視差効果を減らす」設定では、ループし続けるアニメーションを止める */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .animate-float,
+  .animate-number-fall,
+  .animate-spin,
+  .animate-ping,
+  .gradient-bg {
+    animation: none !important;
+  }
+}

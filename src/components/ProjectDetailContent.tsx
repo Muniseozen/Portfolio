@@ -107,7 +107,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="px-4 py-2 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500"
+                  className="px-3 py-1 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500"
                 >
                   {t}
                 </span>
@@ -118,7 +118,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-[#d4567e] hover:text-[#a8305f] transition-colors font-medium"
+                className="inline-flex items-center gap-2 text-sm text-[#a8305f] hover:opacity-70 transition-opacity font-medium"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
                 {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
@@ -135,7 +135,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className={`grid grid-cols-2 gap-8 ${{ 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[metaItems.length] ?? "md:grid-cols-4"}`}>
               {metaItems.map((item) => (
                 <div key={item.label}>
-                  <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">
+                  <span className="text-sm font-mono uppercase tracking-widest text-zinc-500">
                     {item.label}
                   </span>
                   <p className="text-zinc-900 mt-1 text-sm">{item.value}</p>
@@ -239,7 +239,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                   </div>
                   {project.url && (
                     <div className="flex-1 mx-2">
-                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate hover:text-zinc-600 transition-colors">
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="block bg-white rounded-md px-3 py-1 text-sm text-zinc-500 font-mono truncate hover:text-zinc-700 transition-colors">
                         {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                       </a>
                     </div>
@@ -299,7 +299,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                     <div className="w-3 h-3 rounded-full bg-green-400/70" />
                   </div>
                   <div className="flex-1 mx-2">
-                    <div className="bg-white rounded-md px-3 py-1 text-sm text-zinc-400 font-mono truncate">
+                    <div className="bg-white rounded-md px-3 py-1 text-sm text-zinc-500 font-mono truncate">
                       {project.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                     </div>
                   </div>
@@ -319,7 +319,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                       className="text-5xl block mb-3"
                       dangerouslySetInnerHTML={{ __html: project.emoji }}
                     />
-                    <span className="text-zinc-400 text-sm font-mono">
+                    <span className="text-zinc-500 text-sm font-mono">
                       Screenshots Coming Soon
                     </span>
                   </div>
@@ -351,7 +351,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             </FadeIn>
             <FadeIn delay={0.15}>
               <div className="card-dark rounded-2xl p-6">
-                <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-3">
+                <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-3">
                   Tech Stack
                 </h3>
                 <div className="flex flex-col gap-3">
@@ -383,7 +383,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="grid md:grid-cols-2 gap-6">
               {project.roleBreakdown.map((role, index) => (
                 <FadeIn key={role.title} delay={index * 0.1}>
-                  <div className="card-dark rounded-2xl p-6 h-full">
+                  <div className="card-dark rounded-xl p-6 h-full">
                     <h3 className="text-sm font-bold text-zinc-900 mb-3">
                       {role.title}
                     </h3>
@@ -420,7 +420,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="flex flex-col gap-4">
               {project.challenges.map((item, index) => (
                 <FadeIn key={index} delay={index * 0.1}>
-                  <div className="card-dark rounded-2xl p-5 md:p-6">
+                  <div className="card-dark rounded-xl p-5 md:p-6">
                     <div className="grid md:grid-cols-2 gap-4 items-start">
                       <div className="flex gap-3">
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
@@ -455,7 +455,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
                 <span className="gradient-text">Design Process</span>
               </h2>
-              <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designProcess!)}>
+              <button type="button" className="block w-full rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designProcess!)}>
                 <Image
                   src={project.designProcess}
                   alt={`${project.title} - Design Process`}
@@ -463,7 +463,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                   height={1080}
                   className="w-full h-auto"
                 />
-              </div>
+              </button>
             </FadeIn>
           </div>
         </section>
@@ -507,7 +507,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {project.designSystem && (
                 <FadeIn>
                   <h3 className="text-lg font-bold text-zinc-900 mb-3">Design System & Components</h3>
-                  <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designSystem!)}>
+                  <button type="button" className="block w-full rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designSystem!)}>
                     <Image
                       src={project.designSystem}
                       alt={`${project.title} - Design System`}
@@ -515,13 +515,13 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                       height={1080}
                       className="w-full h-auto"
                     />
-                  </div>
+                  </button>
                 </FadeIn>
               )}
               {project.prototype && (
                 <FadeIn delay={0.1}>
                   <h3 className="text-lg font-bold text-zinc-900 mb-3">Prototype</h3>
-                  <div className="rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.prototype!)}>
+                  <button type="button" className="block w-full rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.prototype!)}>
                     <Image
                       src={project.prototype}
                       alt={`${project.title} - Prototype`}
@@ -529,7 +529,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                       height={1080}
                       className="w-full h-auto"
                     />
-                  </div>
+                  </button>
                 </FadeIn>
               )}
             </div>
@@ -601,9 +601,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {prev ? (
                 <Link href={localePath(locale, `/projects/${prev.slug}`)} className="flex flex-col items-center gap-3 group">
                   <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
-                    <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    <svg className="w-5 h-5 text-zinc-500 transition-colors group-hover:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                   </div>
-                  <span className="text-sm text-zinc-400 tracking-widest uppercase">Previous</span>
+                  <span className="text-sm text-zinc-500 tracking-widest uppercase">Previous</span>
                 </Link>
               ) : (
                 <div />
@@ -611,9 +611,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {next ? (
                 <Link href={localePath(locale, `/projects/${next.slug}`)} className="flex flex-col items-center gap-3 group">
                   <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
-                    <svg className="w-5 h-5 text-zinc-400 transition-colors group-hover:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <svg className="w-5 h-5 text-zinc-500 transition-colors group-hover:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                   </div>
-                  <span className="text-sm text-zinc-400 tracking-widest uppercase">Next</span>
+                  <span className="text-sm text-zinc-500 tracking-widest uppercase">Next</span>
                 </Link>
               ) : (
                 <div />
@@ -650,6 +650,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               />
               <button
                 onClick={() => setLightbox(null)}
+                aria-label="Close"
                 className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white/90 text-zinc-900 flex items-center justify-center text-sm shadow-md hover:bg-white transition-colors"
               >
                 &times;

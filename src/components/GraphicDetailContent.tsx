@@ -85,7 +85,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
             <div className={`grid grid-cols-2 gap-8 ${{ 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[metaItems.length] ?? "md:grid-cols-4"}`}>
               {metaItems.map((item) => (
                 <div key={item.label}>
-                  <span className="text-sm font-mono uppercase tracking-widest text-zinc-400">
+                  <span className="text-sm font-mono uppercase tracking-widest text-zinc-500">
                     {item.label}
                   </span>
                   <p className="text-zinc-900 mt-1 text-sm">{item.value}</p>
@@ -109,7 +109,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                 <dl className="space-y-4">
                   {overviewItems.map((item) => (
                     <div key={item.label}>
-                      <dt className="text-sm font-mono uppercase tracking-widest text-zinc-400">{item.label}</dt>
+                      <dt className="text-sm font-mono uppercase tracking-widest text-zinc-500">{item.label}</dt>
                       <dd className="text-sm text-zinc-500 leading-relaxed mt-1">{item.value}</dd>
                     </div>
                   ))}
@@ -120,13 +120,13 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                   <div className="card-dark rounded-2xl p-6 space-y-4">
                     {cat.role && (
                       <div>
-                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-1">Role</h3>
+                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-1">Role</h3>
                         <p className="text-sm text-zinc-900">{cat.role}</p>
                       </div>
                     )}
                     {cat.tools.length > 0 && (
                       <div>
-                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-1">Tools</h3>
+                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-1">Tools</h3>
                         <p className="text-sm text-zinc-900">{cat.tools.join(" / ")}</p>
                       </div>
                     )}
@@ -202,7 +202,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                         style={{ "--ratio": img.width / img.height } as React.CSSProperties}
                         className="md:[flex:var(--ratio)_1_0%]"
                       >
-                        <p className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-2">
+                        <p className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-2">
                           {m.projects.deviceLabels[img.device]}
                         </p>
                         <div className="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm">
@@ -231,13 +231,14 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
         <div className="max-w-5xl mx-auto">
           <div className="columns-2 md:columns-3 gap-3">
             {categoryWorks.map((work, i) => (
-              <motion.div
+              <motion.button
+                type="button"
                 key={work.src}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "0px 0px -150px 0px" }}
                 transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
-                className="cursor-pointer group mb-3 break-inside-avoid"
+                className="block w-full cursor-pointer group mb-3 break-inside-avoid"
                 onClick={() => setSelected(work)}
               >
                 <div className="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm transition-transform duration-300 group-hover:scale-[1.02]">
@@ -251,7 +252,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                     className="w-full h-auto"
                   />
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -285,6 +286,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
               />
               <button
                 onClick={() => setSelected(null)}
+                aria-label="Close"
                 className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-white/90 text-zinc-900 flex items-center justify-center text-sm shadow-md hover:bg-white transition-colors"
               >
                 &times;

@@ -24,7 +24,7 @@ function DateDot({ date, isCurrent }: { date: string; isCurrent?: boolean }) {
           }`}
       />
       <span
-        className={`absolute left-1/2 -translate-x-1/2 -top-5 text-xs font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"
+        className={`absolute left-1/2 -translate-x-1/2 -top-5 text-xs font-mono font-semibold whitespace-nowrap ${isCurrent ? "text-emerald-700" : "text-[#a8305f]"
           }`}
       >
         {date}
@@ -47,7 +47,7 @@ function ProjectCard({ project }: { project: CareerProject }) {
       <div className="flex flex-wrap items-center gap-2">
         <h3 className="font-bold text-zinc-900 text-sm">{project.title}</h3>
         {isCurrent && (
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-50 text-emerald-600 border border-emerald-200">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
             <span className="relative flex h-1.5 w-1.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
@@ -56,7 +56,7 @@ function ProjectCard({ project }: { project: CareerProject }) {
           </span>
         )}
       </div>
-      <p className="text-sm text-[#d4567e] font-medium">{project.role}</p>
+      <p className="text-sm text-[#a8305f] font-medium">{project.role}</p>
       {Array.isArray(project.description) ? (
         <ul className="mt-1 space-y-0.5">
           {project.description.map((item) => (
@@ -71,7 +71,7 @@ function ProjectCard({ project }: { project: CareerProject }) {
       )}
       <div className="mt-2 flex flex-wrap gap-1">
         {project.tech.map((t) => (
-          <span key={t} className="text-xs px-1.5 py-0.5 rounded-md font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
+          <span key={t} className="text-xs px-2 py-0.5 rounded-full font-mono bg-[#a8305f]/5 text-[#a8305f] border border-[#a8305f]/10">
             {t}
           </span>
         ))}
@@ -100,7 +100,7 @@ function ConcurrentCard({ project }: { project: ConcurrentProject }) {
       )}
       <div className="mt-2 flex flex-wrap gap-1">
         {project.tech.map((t) => (
-          <span key={t} className="text-xs px-1.5 py-0.5 rounded-md font-mono bg-[#e88560]/5 text-[#e88560] border border-[#e88560]/10">
+          <span key={t} className="text-xs px-2 py-0.5 rounded-full font-mono bg-[#e88560]/5 text-[#a8305f] border border-[#e88560]/20">
             {t}
           </span>
         ))}
@@ -139,7 +139,7 @@ function DesktopTimelineItem({ project, index, isLast }: { project: CareerProjec
               className="w-full"
             >
               <ConcurrentCard project={project.concurrent} />
-              <p className="text-[10px] font-mono text-zinc-300 text-right mt-1.5 italic">{m.career.concurrent}</p>
+              <p className="text-xs font-mono text-zinc-500 text-right mt-1.5 italic">{m.career.concurrent}</p>
             </motion.div>
           )}
         </div>
@@ -194,7 +194,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
         <div className="flex justify-center">
           <div className={`w-3 h-3 rounded-full border-2 ${isCurrent ? "border-emerald-500 bg-emerald-100" : "border-[#d4567e] bg-white"} z-10`} />
         </div>
-        <span className={`text-[10px] font-mono font-semibold ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"}`}>
+        <span className={`text-xs font-mono font-semibold ${isCurrent ? "text-emerald-700" : "text-[#a8305f]"}`}>
           {project.startDate}
         </span>
       </div>
@@ -220,7 +220,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
               viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.4, delay: index * 0.1 + 0.15 }}
             >
-              <p className="text-[10px] font-mono text-zinc-300 italic mb-1">{m.career.concurrent}</p>
+              <p className="text-xs font-mono text-zinc-500 italic mb-1">{m.career.concurrent}</p>
               <ConcurrentCard project={project.concurrent} />
             </motion.div>
           )}
@@ -233,7 +233,7 @@ function MobileTimelineItem({ project, index, isLast }: { project: CareerProject
           <div className="flex justify-center">
             <div className={`w-3 h-3 rounded-full border-2 ${isCurrent ? "border-emerald-500 bg-emerald-100" : "border-[#d4567e] bg-white"} z-10`} />
           </div>
-          <span className={`text-[10px] font-mono font-semibold ${isCurrent ? "text-emerald-600" : "text-[#d4567e]"}`}>
+          <span className={`text-xs font-mono font-semibold ${isCurrent ? "text-emerald-700" : "text-[#a8305f]"}`}>
             {project.endDate}
           </span>
         </div>
@@ -249,7 +249,7 @@ export default function Career() {
   const items = careerProjects.map((p) => localize(p, locale));
 
   return (
-    <section id="career" className="py-10 px-6 relative overflow-hidden">
+    <section id="career" className="py-8 px-6 relative overflow-hidden">
       <NumberRain />
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header */}
@@ -258,7 +258,7 @@ export default function Career() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
-          className="mb-10"
+          className="mb-8"
         >
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">Career</span>

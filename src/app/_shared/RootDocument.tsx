@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Noto_Sans_JP, Fraunces } from "next/font/google";
+import { MotionConfig } from "framer-motion";
 import "../globals.css";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -38,11 +39,14 @@ export default function RootDocument({ locale, children }: { locale: Locale; chi
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${notoSansJp.variable} ${fraunces.variable} antialiased`}
       >
-        <LocaleProvider locale={locale}>
-          <CustomCursor />
-          <ScrollProgress />
-          {children}
-        </LocaleProvider>
+        {/* OS の「視差効果を減らす」設定のときは Framer Motion の移動・拡大を省く */}
+        <MotionConfig reducedMotion="user">
+          <LocaleProvider locale={locale}>
+            <CustomCursor />
+            <ScrollProgress />
+            {children}
+          </LocaleProvider>
+        </MotionConfig>
       </body>
     </html>
   );

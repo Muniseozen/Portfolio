@@ -14,7 +14,7 @@ export default function GlobalNotFound() {
     <RootDocument locale="en">
       <div className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center">
-          <h1 className="text-8xl md:text-9xl font-black tracking-tighter mb-4">
+          <h1 className="section-title text-8xl md:text-9xl font-black mb-4">
             <span className="gradient-text">404</span>
           </h1>
           <p className="text-zinc-500 text-lg mb-8">

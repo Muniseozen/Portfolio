@@ -28,7 +28,7 @@ export default function About() {
   const { m, locale } = useLocale();
 
   return (
-    <section id="about" className="py-6 px-6 relative overflow-hidden">
+    <section id="about" className="py-8 px-6 relative overflow-hidden">
       {/* Falling numbers background */}
       <NumberRain />
 
@@ -38,7 +38,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
-          className="mb-10"
+          className="mb-8"
         >
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">About</span>
@@ -97,7 +97,7 @@ export default function About() {
                   <div className="flex-shrink-0 mt-0.5">{valueIcons[index]}</div>
                   <div>
                     <p className="text-sm font-semibold text-[#a8305f] mb-1">{value.label}</p>
-                    <p className="text-sm text-zinc-400">{value.description}</p>
+                    <p className="text-sm text-zinc-500">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -122,7 +122,7 @@ export default function About() {
                 <p className="text-sm text-zinc-500 mt-0.5">{m.about.careerLinkDescription}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0 ml-4">
-                <span className="text-xs text-[#a8305f]/70 tracking-widest uppercase hidden md:inline">View Timeline</span>
+                <span className="text-xs text-[#a8305f] tracking-widest uppercase hidden md:inline">View Timeline</span>
                 <div className="animate-float" style={{ "--float-x": "4px", animationDuration: "1.5s" } as React.CSSProperties}>
                   <svg className="w-5 h-5 text-[#a8305f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -14,7 +14,7 @@ export default function Process() {
   const steps = m.process.steps;
 
   return (
-    <section id="process" className="py-10 px-6">
+    <section id="process" className="py-8 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section title */}
         <motion.div
@@ -22,10 +22,10 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={view}
           transition={{ duration: 0.6 }}
-          className="mb-14 md:mb-24 text-center"
+          className="mb-8 md:mb-20"
         >
-          <h2 className="section-title text-3xl md:text-4xl font-black text-zinc-900 mb-2">How I Work</h2>
-          <p className="text-zinc-500 text-lg max-w-xl mx-auto mt-2">{m.process.intro}</p>
+          <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2"><span className="gradient-text">How I Work</span></h2>
+          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.process.intro}</p>
         </motion.div>
 
         {/* タイムライン: スマホは左に縦線、PC は上に横線 */}
@@ -85,7 +85,7 @@ export default function Process() {
                       className="hidden md:block absolute left-[5px] -right-[37px] -top-[30px] h-[30px]"
                     >
                       <div className="absolute inset-0 rounded-t-full border-t border-x border-dashed border-[#d4567e]/60" />
-                      <span className="absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap text-xs font-mono text-[#d4567e]">
+                      <span className="absolute left-1/2 -translate-x-1/2 -top-6 whitespace-nowrap text-xs font-mono text-[#a8305f]">
                         {m.process.loopLabel}
                       </span>
                     </motion.div>
@@ -107,7 +107,7 @@ export default function Process() {
                 <h3 className="text-sm font-bold text-zinc-900 mt-2">{step.title}</h3>
                 <p className="text-sm text-zinc-500 leading-relaxed mt-2">{step.body}</p>
                 {index === LOOP_FROM && (
-                  <p className="md:hidden mt-3 text-xs font-mono text-[#d4567e]">↻ {m.process.loopLabel}</p>
+                  <p className="md:hidden mt-3 text-xs font-mono text-[#a8305f]">↻ {m.process.loopLabel}</p>
                 )}
               </motion.li>
             );
