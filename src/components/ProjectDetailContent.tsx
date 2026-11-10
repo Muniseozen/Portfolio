@@ -345,6 +345,8 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                     {paragraph}
                   </p>
                 ))}
+                {/* サンプル画面がある場合は、実際の画面ではない旨を添える */}
+                {project.samples && <p className="text-sm text-zinc-500 leading-relaxed">{m.projects.sampleNote}</p>}
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
@@ -551,13 +553,13 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* Other Screens - 横並び */}
+      {/* Sample Screens - 横並び */}
       {project.samples && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
-                <span className="gradient-text">Other Screens</span>
+                <span className="gradient-text">Sample Screens</span>
               </h2>
               {/* 画像の縦横比で幅を配分し、高さをそろえて横に並べる */}
               <div className="flex flex-col md:flex-row gap-4 md:items-start">

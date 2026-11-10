@@ -270,6 +270,7 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/staff-portal-thumbnail.webp",
     preview: "/images/projects/staff-portal-preview.webp",
     previewSp: { src: "/images/projects/staff-portal-sp.webp", width: 375, height: 812 },
+    designProcess: "/images/projects/staff-portal-figma.webp",
     designDoc: "/docs/staff-portal-design.pdf",
     samples: [
       { src: "/images/projects/staff-portal-applicant-detail.webp", title: "応募者詳細（PC）", width: 1440, height: 3390 },

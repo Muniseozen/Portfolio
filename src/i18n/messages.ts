@@ -17,9 +17,7 @@ type Paragraph = Segment[];
 
 export type Messages = {
   hero: {
-    descriptionBefore: string;
-    descriptionHighlight: string;
-    descriptionAfter: string;
+    description: string;
     ctaWorks: string;
   };
   about: {
@@ -42,6 +40,7 @@ export type Messages = {
     graphicCount: string;
     deviceLabels: { pc: string; sp: string };
     viewAll: string;
+    sampleNote: string;
   };
   process: {
     intro: string;
@@ -58,10 +57,8 @@ export type Messages = {
 export const messages: Record<Locale, Messages> = {
   ja: {
     hero: {
-      descriptionBefore:
-        "デザインだけでなく、実装まで見据えた設計を大切にしています。\n見た目だけで終わらない、",
-      descriptionHighlight: "「成果につながるクリエイティブ」",
-      descriptionAfter: "を、\nお客様のご要望に寄り添いながらご提案します。",
+      description:
+        "アイデアを整理して、デザインして、動く形へ。\nUIデザインとフロントエンドを軸に、企画の整理から実装まで関わっています。\n話して、つくって、試して。少しずつ形にしていくのが好きです。",
       ctaWorks: "つくったもの見る",
     },
     about: {
@@ -70,25 +67,22 @@ export const messages: Record<Locale, Messages> = {
       selfIntroParagraphs: [
         [
           { text: "はじめまして、" },
-          { text: "Munise（むにせ）", bold: true },
+          { text: "Munise（むにせ）" },
           { text: "です。" },
         ],
         [
-          { text: "18歳でトルコから来日し、新卒でテレビ制作の現場へ。分刻みのスケジュールの中で" },
-          { text: "「どうすれば伝わるか」", bold: true },
-          { text: "を叩き込まれました。その後、未経験からIT業界に飛び込み、QA・デザイン・モバイル・Webと領域を広げながら4年が経ちました。" },
+          { text: "18歳で、大学進学のためにトルコから日本へ。テレビ制作の現場を経て、今は" },
+          { text: "UIデザインとフロントエンド" },
+          { text: "を軸に、ものづくりに取り組んでいます。" },
         ],
         [
-          { text: "途中、自ら" },
-          { text: "開発事業部の立ち上げを提案・実現", bold: true },
-          { text: "し、チームを作ってアプリをリリースしました。" },
-          { text: "「やってみよう」と動き出すのが割と早い方", bold: true },
-          { text: "だと思っています。" },
+          { text: "大切にしているのは、" },
+          { text: "「どうすれば、もっと伝わるだろう？」" },
+          { text: "と考えること。使う人が迷わず、開発する人も実装しやすいデザインを目指しています。" },
         ],
         [
-          { text: "今は" },
-          { text: "フロントエンドとUIデザイン", bold: true },
-          { text: "を軸に、エンジニアが実装しやすく・ユーザーが迷わないUIを考えることが自分の得意なことです。チームと一緒にプロダクトを育てていくのが好きです。" },
+          { text: "「やってみよう」と、まず動いてみるタイプ" },
+          { text: "です。関わる人の声を聞きながら、アイデアや課題、優先順位を整理し、プロジェクトを前に進めることも得意です。それぞれの得意を活かして、一緒に形にしていく時間が好きです。" },
         ],
       ],
       valuesTitle: "大切にしていること",
@@ -117,7 +111,6 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "体験設計からUI設計まで",
         "UIの実装とインタラクション設計",
-        "Figmaを軸にしたデザイン制作",
       ],
     },
     projects: {
@@ -128,6 +121,7 @@ export const messages: Record<Locale, Messages> = {
       graphicCount: "{n}点",
       deviceLabels: { pc: "PC専用", sp: "SP専用" },
       viewAll: "タップで全体を見る",
+      sampleNote: "実際の制作画面は公開できないため、制作実績をもとに、内容を一部変更したサンプルを掲載しています。",
     },
     process: {
       intro: "こまめにお見せして、ご相談しながら進めます。",
@@ -149,10 +143,8 @@ export const messages: Record<Locale, Messages> = {
   },
   en: {
     hero: {
-      descriptionBefore:
-        "I design with implementation in mind — not just how it looks, but how it works.\nI craft ",
-      descriptionHighlight: "\"creative work that drives real outcomes,\"",
-      descriptionAfter: "\nshaped closely around each client's needs.",
+      description:
+        "Organizing ideas, designing them, and turning them into something that works.\nWith UI design and frontend at the core, I'm involved from shaping the plan to implementation.\nTalk, build, test. I love bringing things to life step by step.",
       ctaWorks: "See my work",
     },
     about: {
@@ -161,24 +153,22 @@ export const messages: Record<Locale, Messages> = {
       selfIntroParagraphs: [
         [
           { text: "I'm " },
-          { text: "Munise", bold: true },
+          { text: "Munise" },
           { text: " — nice to meet you." },
         ],
         [
-          { text: "I moved to Japan from Turkey at 18 and started my career in TV production. Working inside minute-by-minute broadcast schedules, I learned one thing deeply: " },
-          { text: "how to make things actually land.", bold: true },
-          { text: " I later pivoted into IT with zero prior experience, and over the past four years I've expanded across QA, design, mobile, and web." },
+          { text: "I came to Japan from Turkey at 18 to go to university. After working in TV production, I now build things with a focus on " },
+          { text: "UI design and frontend" },
+          { text: "." },
         ],
         [
-          { text: "Along the way, I " },
-          { text: "proposed and launched a new development division from scratch", bold: true },
-          { text: ", built the team, and shipped apps to the App Store. I tend to be " },
-          { text: "quick to move and prototype rather than overthink.", bold: true },
+          { text: "What I care about most is asking, " },
+          { text: "\"How can this come across even better?\"" },
+          { text: " I aim for designs that users can navigate without getting lost and that developers can implement easily." },
         ],
         [
-          { text: "Today I focus on " },
-          { text: "frontend and UI design", bold: true },
-          { text: " — shaping UIs that are easy to implement and easy for users to navigate. What I love most: growing products alongside the team." },
+          { text: "I'm the type who says \"let's try it\" and gets moving first." },
+          { text: " I'm also good at listening to the people involved, sorting out ideas, issues, and priorities, and moving projects forward. I love the time spent bringing things to life together, with everyone making the most of their strengths." },
         ],
       ],
       valuesTitle: "What I value",
@@ -207,7 +197,6 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "From UX research to UI design",
         "UI implementation and interaction design",
-        "Design craft centered on Figma",
       ],
     },
     projects: {
@@ -219,6 +208,7 @@ export const messages: Record<Locale, Messages> = {
       graphicCount: "{n} pieces",
       deviceLabels: { pc: "Desktop", sp: "Mobile" },
       viewAll: "Tap to view all",
+      sampleNote: "The actual production screens can't be made public, so these are samples based on the real work, with some content changed.",
     },
     process: {
       intro: "I share work early and often, and shape it together with you.",
