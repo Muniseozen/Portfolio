@@ -17,7 +17,6 @@ type Paragraph = Segment[];
 
 export type Messages = {
   hero: {
-    roles: string[];
     descriptionBefore: string;
     descriptionHighlight: string;
     descriptionAfter: string;
@@ -28,7 +27,7 @@ export type Messages = {
     selfIntroTitle: string;
     selfIntroParagraphs: Paragraph[];
     valuesTitle: string;
-    values: { label: string; title: string; description: string }[];
+    values: { label: string; description: string }[];
     careerLinkDescription: string;
   };
   skills: {
@@ -59,7 +58,6 @@ export type Messages = {
 export const messages: Record<Locale, Messages> = {
   ja: {
     hero: {
-      roles: ["UI/UX デザイナー", "フロントエンドエンジニア"],
       descriptionBefore:
         "デザインだけでなく、実装まで見据えた設計を大切にしています。\n見た目だけで終わらない、",
       descriptionHighlight: "「成果につながるクリエイティブ」",
@@ -97,26 +95,19 @@ export const messages: Record<Locale, Messages> = {
       values: [
         {
           label: "コミュニケーション",
-          title: "認識のズレをなくす対話",
-          description:
-            "言葉の裏にある意図もくみ取りながら、認識のズレが出ないように対話を大切にしています。",
+          description: "言葉の裏にある意図もくみ取り、認識のズレを防ぎます。",
         },
         {
           label: "リサーチ",
-          title: "ユーザーと競合から学ぶ",
-          description: "ユーザーや競合を見ながら、本当に必要なものは何かを考えています。",
+          description: "ユーザーや競合から、本当に必要なものを考えます。",
         },
         {
           label: "実行力",
-          title: "まず形にして検証する",
-          description:
-            "やってみると見えることも多いので、まず形にして、そこから磨いていくことを大切にしています。",
+          description: "まず形にして、そこから磨いていきます。",
         },
         {
           label: "成長",
-          title: "学び続け、より良いものへ",
-          description:
-            "変化に合わせて学び続けながら、より良い形にしていくことを大切にしています。",
+          description: "変化に合わせて学び続け、より良い形にしていきます。",
         },
       ],
       careerLinkDescription: "テスターから開発リードへ。4年間の成長軌跡。",
@@ -158,7 +149,6 @@ export const messages: Record<Locale, Messages> = {
   },
   en: {
     hero: {
-      roles: ["Product Manager", "UI/UX Designer", "Frontend Developer"],
       descriptionBefore:
         "I design with implementation in mind — not just how it looks, but how it works.\nI craft ",
       descriptionHighlight: "\"creative work that drives real outcomes,\"",
@@ -195,27 +185,19 @@ export const messages: Record<Locale, Messages> = {
       values: [
         {
           label: "COMMUNICATION",
-          title: "Aligning on what's truly meant",
-          description:
-            "I listen for the intent behind the words and work to keep everyone on the same page.",
+          description: "I read the intent behind the words to keep everyone aligned.",
         },
         {
           label: "RESEARCH",
-          title: "Learning from users and competitors",
-          description:
-            "I study both user behavior and the competitive landscape to find what really matters.",
+          description: "I look at users and competitors to find what really matters.",
         },
         {
           label: "EXECUTION",
-          title: "Ship first, refine next",
-          description:
-            "You see more once it's real. I build something tangible quickly, then iterate from there.",
+          description: "I build something real first, then refine it.",
         },
         {
           label: "GROWTH",
-          title: "Always learning, always improving",
-          description:
-            "I adapt as things change and keep pushing the work toward something better.",
+          description: "I keep learning and keep improving the work.",
         },
       ],
       careerLinkDescription: "From QA tester to dev lead — a four-year journey.",

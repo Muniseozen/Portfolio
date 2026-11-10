@@ -213,9 +213,9 @@ export const projects: Project[] = [
     title: "メンタルヘルス管理システム",
     subtitle: "Web / UI・UX Design",
     description:
-      "従業員のストレスチェック結果を、ひと目で把握できるように設計した管理画面です。",
+      "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。",
     longDescription:
-      "従業員向けメンタルヘルス管理システムの、ストレス診断結果画面のUIデザインです。\n\n総合判定を最上部に大きく示し、「仕事の負担感」「心身の反応」「周囲のサポート」の3つの観点をカードで要約しました。各観点はレーダーチャートで前回との比較を、表で項目ごとのスコアと判定を確認できるようにし、全体から詳細へと段階的に読み進められる構成にしています。",
+      "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。数値の多い結果画面を、利用者が自身の状態や変化を把握しやすいように設計しました。\n\n総合判定や主要な指標を画面上部にまとめ、全体の傾向から詳しい結果へと読み進められる構成にしています。項目ごとの比較には棒グラフ、時系列の変化には折れ線グラフなど、情報に合わせて表現を使い分けました。グラフで傾向をつかみ、表で具体的な数値を確認できるようにしています。\n\n清潔感のあるブルーを基調に、余白とカードで情報を整理しました。判定は色だけに頼らず、ラベルやアイコンも添えて伝えています。PC・スマートフォンそれぞれで情報の配置を調整し、画面サイズが変わっても結果を確認しやすいデザインにまとめました。",
     role: "UI・UX Designer",
     tech: ["UI/UX Design", "Figma"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
@@ -240,9 +240,9 @@ export const projects: Project[] = [
       title: "Mental Health Management System",
       subtitle: "Web / UI/UX Design",
       description:
-        "A dashboard designed so employees' stress check results can be understood at a glance.",
+        "UI design for a mental health care system where employees review the results of stress checks and other surveys.",
       longDescription:
-        "UI design for the stress check results screen of an employee mental health management system.\n\nThe overall assessment is shown prominently at the top, and three cards summarize the key areas: job strain, stress reactions, and support from others. For each area, a radar chart compares the results with the previous check and a table shows each item's score and rating, so the page reads step by step from the big picture to the details.",
+        "UI design for a mental health care system where employees review the results of stress checks and other surveys. I designed the number-heavy results screens so users can easily understand their own condition and how it has changed.\n\nThe overall assessment and key indicators are gathered at the top of the screen, so users can read from overall trends down to detailed results. Each kind of information gets a fitting format: bar charts for comparing items, line charts for changes over time. Charts show the trends, and tables give the specific numbers.\n\nA clean blue base, generous spacing, and cards keep the information organized. Ratings never rely on color alone; labels and icons accompany them. The layout is adjusted separately for desktop and smartphone, so results stay easy to check at any screen size.",
       role: "UI/UX Designer",
       roleBreakdown: [],
       challenges: [],
@@ -251,6 +251,41 @@ export const projects: Project[] = [
         { src: "/images/projects/mental-health-presenteeism-who-hpq.webp", title: "Presenteeism (WHO-HPQ)", width: 1600, height: 2376 },
         { src: "/images/projects/mental-health-wellbeing-survey.webp", title: "Wellbeing Survey", width: 1600, height: 2649 },
       ],
+    },
+  },
+  {
+    id: 8,
+    slug: "staff-portal",
+    title: "スタッフ管理ポータル",
+    subtitle: "Web / UI・UX Design",
+    description:
+      "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。",
+    longDescription:
+      "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。\n\n管理者向けのPC画面では、応募者の氏名・連絡先・来場情報・ステータスを一覧で確認でき、詳細や受注情報へすぐに移動できる構成にしました。ステータスは色付きのラベルで示し、対応状況をひと目で把握できるようにしています。\n\n応募者向けのスマートフォン画面では、入職までの手続きを4つのステップに分け、いま何をすればよいかが分かるマイページにまとめました。",
+    role: "UI・UX Designer",
+    tech: ["UI/UX Design", "Figma"],
+    gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
+    emoji: "&#x1F4CB;",
+    thumbnail: "/images/projects/staff-portal-thumbnail.webp",
+    preview: "/images/projects/staff-portal-preview.webp",
+    previewSp: { src: "/images/projects/staff-portal-sp.webp", width: 375, height: 812 },
+    duration: "",
+    team: "",
+    status: "Completed",
+    category: "work",
+    type: "web",
+    roleBreakdown: [],
+    challenges: [],
+    en: {
+      title: "Staff Management Portal",
+      subtitle: "Web / UI/UX Design",
+      description:
+        "UI design for a staff management system that brings together applicant management and the steps up to onboarding.",
+      longDescription:
+        "UI design for a staff management system that brings together applicant management and the steps up to onboarding.\n\nOn the desktop screen for administrators, applicants' names, contact details, visit information, and status are listed in one table, with quick access to their details and order information. Statuses are shown as colored labels so progress can be grasped at a glance.\n\nOn the smartphone screen for applicants, the steps up to onboarding are divided into four stages and gathered on a My Page that makes clear what to do next.",
+      role: "UI/UX Designer",
+      roleBreakdown: [],
+      challenges: [],
     },
   },
   {

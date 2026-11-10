@@ -87,7 +87,7 @@ export default function About() {
             <div className="grid gap-2">
               {m.about.values.map((value, index) => (
                 <motion.div
-                  key={value.title}
+                  key={value.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "0px 0px -150px 0px" }}
@@ -97,7 +97,6 @@ export default function About() {
                   <div className="flex-shrink-0 mt-0.5">{valueIcons[index]}</div>
                   <div>
                     <p className="text-sm font-semibold text-[#a8305f] mb-1">{value.label}</p>
-                    <h4 className="text-zinc-900 text-sm font-bold mb-1">{value.title}</h4>
                     <p className="text-sm text-zinc-400">{value.description}</p>
                   </div>
                 </motion.div>

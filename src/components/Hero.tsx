@@ -1,47 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useLocale } from "@/i18n/LocaleContext";
-
-function useTypingAnimation(texts: string[], typingSpeed = 70, deleteSpeed = 30, pauseTime = 2000) {
-  const [displayText, setDisplayText] = useState("");
-  const [textIndex, setTextIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) {
-      const pause = setTimeout(() => { setIsPaused(false); setIsDeleting(true); }, pauseTime);
-      return () => clearTimeout(pause);
-    }
-
-    const current = texts[textIndex];
-    let delay: number;
-
-    if (isDeleting) {
-      delay = deleteSpeed + Math.random() * 15;
-    } else {
-      delay = typingSpeed + Math.random() * 40;
-    }
-
-    const timeout = setTimeout(() => {
-      if (!isDeleting) {
-        const next = current.slice(0, displayText.length + 1);
-        setDisplayText(next);
-        if (next.length === current.length) setIsPaused(true);
-      } else {
-        const next = current.slice(0, displayText.length - 1);
-        setDisplayText(next);
-        if (next.length === 0) { setIsDeleting(false); setTextIndex((prev) => (prev + 1) % texts.length); }
-      }
-    }, delay);
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, isPaused, textIndex, texts, typingSpeed, deleteSpeed, pauseTime]);
-
-  return displayText;
-}
 
 const letterVariants = {
   hidden: { opacity: 0, y: 50, rotateX: -90 },
@@ -303,7 +264,6 @@ export default function Hero() {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const { m, locale } = useLocale();
-  const typedRole = useTypingAnimation(m.hero.roles);
   const line1 = "Hello, I'm";
   const line2 = "Munise Haruyama.";
   const homeHref = locale === "en" ? "/en" : "/";
@@ -377,7 +337,7 @@ export default function Hero() {
             </h1>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1 }} className="mb-5">
-              <span className="text-base md:text-lg font-mono text-zinc-400">{">"} {typedRole}<span className="animate-pulse text-[#d4567e]">|</span></span>
+              <span className="text-base md:text-lg font-mono text-zinc-400">{">"} DESIGNER &amp; DEVELOPER</span>
             </motion.div>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-500 max-w-xl leading-relaxed mb-8 whitespace-pre-line">

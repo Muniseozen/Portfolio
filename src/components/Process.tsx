@@ -22,12 +22,10 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={view}
           transition={{ duration: 0.6 }}
-          className="mb-14 md:mb-24"
+          className="mb-14 md:mb-24 text-center"
         >
-          <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
-            <span className="gradient-text">How I Work</span>
-          </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.process.intro}</p>
+          <h2 className="section-title text-3xl md:text-4xl font-black text-zinc-900 mb-2">How I Work</h2>
+          <p className="text-zinc-500 text-lg max-w-xl mx-auto mt-2">{m.process.intro}</p>
         </motion.div>
 
         {/* タイムライン: スマホは左に縦線、PC は上に横線 */}

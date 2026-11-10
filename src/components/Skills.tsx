@@ -85,7 +85,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
-          className="mt-14 mb-6"
+          className="mt-8 mb-6"
         >
           <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Tools</h3>
         </motion.div>
@@ -120,7 +120,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -150px 0px" }}
           transition={{ duration: 0.6 }}
-          className="mt-12 mb-4"
+          className="mt-8 mb-4"
         >
           <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400">Certifications</h3>
         </motion.div>
