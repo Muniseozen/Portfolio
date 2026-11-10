@@ -7,6 +7,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
+import PdfViewer from "@/components/PdfViewer";
 import { useLocale } from "@/i18n/LocaleContext";
 import { localize, localePath } from "@/i18n/messages";
 import { getProjectBySlug, getAdjacentProjects, getProjectNumber, projectTypeLabels } from "@/data/projects";
@@ -534,21 +535,16 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         </section>
       )}
 
-      {/* Design System（PDF）: ページ内で読めて、別タブでも開ける */}
+      {/* Design System（PDF）: ページ内で読めるようにする（ダウンロード導線は置かない） */}
       {project.designDoc && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
-              <div className="flex items-end justify-between gap-4 mb-5">
-                <h2 className="section-title text-2xl md:text-3xl font-black">
-                  <span className="gradient-text">Design System</span>
-                </h2>
-                <a href={project.designDoc} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm text-[#a8305f] hover:underline">
-                  {m.projects.openPdf} ↗
-                </a>
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm bg-white">
-                <iframe src={`${project.designDoc}#view=FitH`} title={`${project.title} - Design System`} className="block w-full h-[360px] md:h-[600px]" />
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                <span className="gradient-text">Design System</span>
+              </h2>
+              <div className="max-h-[400px] md:max-h-[600px] overflow-y-auto rounded-2xl border border-black/[0.06] shadow-sm bg-[#f5f0ee] p-3 md:p-5">
+                <PdfViewer src={project.designDoc} title={`${project.title} - Design System`} />
               </div>
             </FadeIn>
           </div>

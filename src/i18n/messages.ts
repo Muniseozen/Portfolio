@@ -42,7 +42,6 @@ export type Messages = {
     graphicCount: string;
     deviceLabels: { pc: string; sp: string };
     viewAll: string;
-    openPdf: string;
   };
   process: {
     intro: string;
@@ -129,7 +128,6 @@ export const messages: Record<Locale, Messages> = {
       graphicCount: "{n}点",
       deviceLabels: { pc: "PC専用", sp: "SP専用" },
       viewAll: "タップで全体を見る",
-      openPdf: "PDFを開く",
     },
     process: {
       intro: "こまめにお見せして、ご相談しながら進めます。",
@@ -221,7 +219,6 @@ export const messages: Record<Locale, Messages> = {
       graphicCount: "{n} pieces",
       deviceLabels: { pc: "Desktop", sp: "Mobile" },
       viewAll: "Tap to view all",
-      openPdf: "Open PDF",
     },
     process: {
       intro: "I share work early and often, and shape it together with you.",
