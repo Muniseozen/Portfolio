@@ -19,16 +19,11 @@ export default function Home() {
         <About />
         <Skills />
         <Marquee
-          items={["Figma", "UI/UX Design", "Frontend", "Mobile App", "SwiftUI"]}
-          speed={25}
+          items={["Design", "Frontend", "Mobile App", "Home Page", "Figma"]}
+          speed={70}
         />
         <Projects />
         <Process />
-        <Marquee
-          items={["Figma", "UI/UX Design", "Frontend", "Mobile App", "SwiftUI"]}
-          speed={30}
-          reverse
-        />
       </main>
       <Footer />
     </PageTransition>

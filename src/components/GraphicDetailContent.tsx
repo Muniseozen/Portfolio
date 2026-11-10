@@ -67,7 +67,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
             transition={{ duration: 0.6, ease }}
           >
             <span className="text-base md:text-lg font-mono uppercase tracking-widest text-zinc-900">
-              Graphic Design {String(index + 1).padStart(2, "0")}
+              Graphic {String(index + 1).padStart(2, "0")}
             </span>
             {/* タイトルは英語を大きく見せ、日本語版ではその下に日本語を添える */}
             <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4">

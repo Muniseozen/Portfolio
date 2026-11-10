@@ -62,7 +62,7 @@ export const messages: Record<Locale, Messages> = {
       ctaWorks: "つくったもの見る",
     },
     about: {
-      tagline: "戦略からデザイン、実装まで。",
+      tagline: "これまでのことと、ものづくりで大切にしていること。",
       selfIntroTitle: "自己紹介",
       selfIntroParagraphs: [
         [
@@ -107,14 +107,14 @@ export const messages: Record<Locale, Messages> = {
       careerLinkDescription: "テスターから開発リードへ。4年間の成長軌跡。",
     },
     skills: {
-      tagline: "企画・デザイン・実装をカバーするスキルセット。",
+      tagline: "できることと、普段使っているツール。",
       categoryTaglines: [
         "体験設計からUI設計まで",
         "UIの実装とインタラクション設計",
       ],
     },
     projects: {
-      tagline: "企画からデザイン、実装まで。何よりも先に手を動かします。",
+      tagline: "これまでに手がけた、Web・アプリ・グラフィック。",
       workLabel: "実務",
       personalLabel: "個人",
       graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "キャンペーンバナー" },
@@ -148,7 +148,7 @@ export const messages: Record<Locale, Messages> = {
       ctaWorks: "See my work",
     },
     about: {
-      tagline: "Strategy, design, and implementation — end to end.",
+      tagline: "My story so far, and what I value in making things.",
       selfIntroTitle: "About me",
       selfIntroParagraphs: [
         [
@@ -193,15 +193,14 @@ export const messages: Record<Locale, Messages> = {
       careerLinkDescription: "From QA tester to dev lead — a four-year journey.",
     },
     skills: {
-      tagline: "A skill set that spans planning, design, and implementation.",
+      tagline: "What I can do, and the tools I use every day.",
       categoryTaglines: [
         "From UX research to UI design",
         "UI implementation and interaction design",
       ],
     },
     projects: {
-      tagline:
-        "Planning, design, implementation — I'd rather get my hands on it first.",
+      tagline: "Web, app, and graphic work I've created so far.",
       workLabel: "Client",
       personalLabel: "Personal",
       graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },

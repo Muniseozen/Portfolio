@@ -101,8 +101,8 @@ function SectionHeader({ num, title, delay = 0 }: { num: string; title: string; 
       transition={{ duration: 0.5, delay }}
       className="flex items-center gap-4 mb-6"
     >
-      <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400 flex items-end gap-3 shrink-0">
-        <span className="font-light text-3xl text-zinc-300 leading-none">{num}</span>
+      <h3 className="text-lg font-mono uppercase tracking-widest text-zinc-400 flex items-baseline gap-3 shrink-0">
+        <span>{num}</span>
         {title}
       </h3>
       <div className="flex-1 h-px bg-gradient-to-r from-zinc-200 to-transparent" />
@@ -159,7 +159,7 @@ export default function Projects() {
         ))}
 
         {/* ── Graphic ── */}
-        <SectionHeader num="03" title="Graphic Design" />
+        <SectionHeader num="03" title="Graphic" />
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {graphicCategories.map((cat, index) => (
             <GridCard
