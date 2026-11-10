@@ -16,6 +16,7 @@ export interface Project {
   previewSp?: { src: string; width: number; height: number }; // PC版プレビューの横に並べるSP版
   designProcess?: string;
   designSystem?: string;
+  designDoc?: string; // デザイン説明資料（PDF）をページ内に埋め込んで見せる
   prototype?: string;
   screens?: { src: string; label: string; title: string; width: number; height: number }[]; // 縦長のスマホ画面を並べて見せる（各画面は枠内スクロール）
   samples?: { src: string; title: string; width: number; height: number }[]; // ページ下部にその他の画面を横並びで見せる
@@ -269,6 +270,11 @@ export const projects: Project[] = [
     thumbnail: "/images/projects/staff-portal-thumbnail.webp",
     preview: "/images/projects/staff-portal-preview.webp",
     previewSp: { src: "/images/projects/staff-portal-sp.webp", width: 375, height: 812 },
+    designDoc: "/docs/staff-portal-design.pdf",
+    samples: [
+      { src: "/images/projects/staff-portal-applicant-detail.webp", title: "応募者詳細（PC）", width: 1440, height: 3390 },
+      { src: "/images/projects/staff-portal-step2-sp.webp", title: "STEP2 入力画面（SP）", width: 375, height: 1907 },
+    ],
     duration: "",
     team: "",
     status: "Completed",
@@ -286,6 +292,10 @@ export const projects: Project[] = [
       role: "UI/UX Designer",
       roleBreakdown: [],
       challenges: [],
+      samples: [
+        { src: "/images/projects/staff-portal-applicant-detail.webp", title: "Applicant Details (Desktop)", width: 1440, height: 3390 },
+        { src: "/images/projects/staff-portal-step2-sp.webp", title: "STEP2 Form (Mobile)", width: 375, height: 1907 },
+      ],
     },
   },
   {

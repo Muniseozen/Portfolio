@@ -534,6 +534,27 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* Design System（PDF）: ページ内で読めて、別タブでも開ける */}
+      {project.designDoc && (
+        <section className="py-6 px-6">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <div className="flex items-end justify-between gap-4 mb-5">
+                <h2 className="section-title text-2xl md:text-3xl font-black">
+                  <span className="gradient-text">Design System</span>
+                </h2>
+                <a href={project.designDoc} target="_blank" rel="noopener noreferrer" className="shrink-0 text-sm text-[#a8305f] hover:underline">
+                  {m.projects.openPdf} ↗
+                </a>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-black/[0.06] shadow-sm bg-white">
+                <iframe src={`${project.designDoc}#view=FitH`} title={`${project.title} - Design System`} className="block w-full h-[360px] md:h-[600px]" />
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* Other Screens - 横並び */}
       {project.samples && (
         <section className="py-6 px-6">
@@ -542,9 +563,14 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
                 <span className="gradient-text">Other Screens</span>
               </h2>
-              <div className="grid md:grid-cols-3 gap-4 items-start">
+              {/* 画像の縦横比で幅を配分し、高さをそろえて横に並べる */}
+              <div className="flex flex-col md:flex-row gap-4 md:items-start">
                 {project.samples.map((sample) => (
-                  <div key={sample.src}>
+                  <div
+                    key={sample.src}
+                    style={{ "--ratio": (sample.width / sample.height) * 100 } as React.CSSProperties} // flex-grow の合計が1未満だと横幅が余るため100倍する
+                    className={`md:[flex:var(--ratio)_1_0%] ${sample.width < 600 ? "w-full max-w-[260px] mx-auto md:max-w-none md:mx-0" : ""}`}
+                  >
                     <p className="text-sm text-zinc-500 mb-2">{sample.title}</p>
                     <button
                       type="button"
@@ -557,7 +583,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                         alt={`${project.title} - ${sample.title}`}
                         width={sample.width}
                         height={sample.height}
-                        sizes="(max-width: 768px) 100vw, 340px"
+                        sizes="(max-width: 768px) 100vw, 700px"
                         className="w-full h-auto"
                       />
                     </button>
