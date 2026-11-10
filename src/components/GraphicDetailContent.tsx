@@ -6,7 +6,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
-import { works, shuffledWorks, graphicCategories, type DesignWork } from "@/data/projects";
+import { works, shuffledWorks, graphicCategories, graphicWorkCount, type DesignWork } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
 import { localize, messages } from "@/i18n/messages";
 
@@ -45,14 +45,13 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
 
   const metaItems = [
     ...(cat.kind ? [{ label: "Type", value: cat.kind }] : []),
+    ...(cat.target ? [{ label: "Target", value: cat.target }] : []),
     ...(cat.placement ? [{ label: "Placement", value: cat.placement }] : []),
     ...(cat.time ? [{ label: "Time", value: cat.time }] : []),
-    { label: "Works", value: m.projects.graphicCount.replace("{n}", String(categoryWorks.length)) },
+    { label: "Works", value: m.projects.graphicCount.replace("{n}", String(graphicWorkCount(cat))) },
   ];
   const overviewItems = [
-    ...(cat.summary ? [{ label: "Summary", value: cat.summary }] : []),
     ...(cat.purpose ? [{ label: "Goal", value: cat.purpose }] : []),
-    ...(cat.target ? [{ label: "Target", value: cat.target }] : []),
   ];
 
   return (
@@ -98,7 +97,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
       </section>
 
       {/* Overview: 目的・ターゲット ＋ 担当範囲・使用ツール */}
-      {(overviewItems.length > 0 || cat.role || cat.tools.length > 0) && (
+      {(cat.summary || overviewItems.length > 0 || cat.role || cat.tools.length > 0) && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8">
@@ -106,6 +105,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                 <h2 className="section-title text-2xl md:text-3xl font-black mb-4">
                   <span className="gradient-text">Overview</span>
                 </h2>
+                {cat.summary && <p className="text-sm text-zinc-500 leading-relaxed mb-4">{cat.summary}</p>}
                 <dl className="space-y-4">
                   {overviewItems.map((item) => (
                     <div key={item.label}>
@@ -175,7 +175,58 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
         </section>
       )}
 
+      {/* Sets: 企画ごとに画像と説明を並べる */}
+      {cat.sets && (
+        <section className="py-6 pb-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            {cat.sets.map((rawSet, i) => {
+              const set = localize(rawSet, locale);
+              return (
+                <motion.div
+                  key={set.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                  transition={{ duration: 0.5, ease }}
+                  className="py-12 border-t border-black/[0.06] first:border-t-0 first:pt-6"
+                >
+                  <h2 className="text-lg font-bold text-zinc-900">
+                    {String(i + 1).padStart(2, "0")} - {set.title}
+                  </h2>
+                  <p className="text-sm text-zinc-500 leading-relaxed mt-3">{set.description}</p>
+                  {/* PC版・SP版を高さをそろえて横に並べる（幅を縦横比で配分） */}
+                  <div className="mt-8 flex flex-col md:flex-row gap-6 md:gap-3">
+                    {set.images.map((img) => (
+                      <div
+                        key={img.src}
+                        style={{ "--ratio": img.width / img.height } as React.CSSProperties}
+                        className="md:[flex:var(--ratio)_1_0%]"
+                      >
+                        <p className="text-sm font-mono uppercase tracking-widest text-zinc-400 mb-2">
+                          {m.projects.deviceLabels[img.device]}
+                        </p>
+                        <div className="rounded-xl overflow-hidden border border-black/[0.06] shadow-sm">
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            width={img.width}
+                            height={img.height}
+                            sizes="(max-width: 768px) 100vw, 700px"
+                            className="w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+      )}
+
       {/* Gallery */}
+      {categoryWorks.length > 0 && (
       <section className="py-6 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="columns-2 md:columns-3 gap-3">
@@ -205,6 +256,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
           </div>
         </div>
       </section>
+      )}
 
       {/* Lightbox */}
       <AnimatePresence>

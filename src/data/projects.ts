@@ -13,10 +13,12 @@ export interface Project {
   url?: string;
   preview?: string;
   previewType?: "web" | "mobile";
+  previewSp?: { src: string; width: number; height: number }; // PC版プレビューの横に並べるSP版
   designProcess?: string;
   designSystem?: string;
   prototype?: string;
   screens?: { src: string; label: string; title: string; width: number; height: number }[]; // 縦長のスマホ画面を並べて見せる（各画面は枠内スクロール）
+  samples?: { src: string; title: string; width: number; height: number }[]; // ページ下部にその他の画面を横並びで見せる
   duration: string;
   team: string;
   status: string;
@@ -27,7 +29,7 @@ export interface Project {
   en: ProjectText; // 英語版の文章
 }
 
-type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges" | "screens">;
+type ProjectText = Pick<Project, "title" | "subtitle" | "description" | "longDescription" | "role" | "roleBreakdown" | "challenges" | "screens" | "samples">;
 
 export const projects: Project[] = [
   // ── Selected Work ──
@@ -206,6 +208,52 @@ export const projects: Project[] = [
     },
   },
   {
+    id: 7,
+    slug: "mental-health-system",
+    title: "メンタルヘルス管理システム",
+    subtitle: "Web / UI・UX Design",
+    description:
+      "従業員のストレスチェック結果を、ひと目で把握できるように設計した管理画面です。",
+    longDescription:
+      "従業員向けメンタルヘルス管理システムの、ストレス診断結果画面のUIデザインです。\n\n総合判定を最上部に大きく示し、「仕事の負担感」「心身の反応」「周囲のサポート」の3つの観点をカードで要約しました。各観点はレーダーチャートで前回との比較を、表で項目ごとのスコアと判定を確認できるようにし、全体から詳細へと段階的に読み進められる構成にしています。",
+    role: "UI・UX Designer",
+    tech: ["UI/UX Design", "Figma"],
+    gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
+    emoji: "&#x1F4CA;",
+    thumbnail: "/images/projects/mental-health-thumbnail.webp",
+    preview: "/images/projects/mental-health-preview.webp",
+    previewSp: { src: "/images/projects/mental-health-stress-result-sp.webp", width: 375, height: 4062 },
+    designSystem: "/images/projects/mental-health-design-system.webp",
+    samples: [
+      { src: "/images/projects/mental-health-presenteeism-1item.webp", title: "プレゼンティーズム（東大1項目）", width: 1600, height: 2300 },
+      { src: "/images/projects/mental-health-presenteeism-who-hpq.webp", title: "プレゼンティーズム（WHO-HPQ）", width: 1600, height: 2376 },
+      { src: "/images/projects/mental-health-wellbeing-survey.webp", title: "こころサーベイ", width: 1600, height: 2649 },
+    ],
+    duration: "",
+    team: "",
+    status: "Completed",
+    category: "work",
+    type: "web",
+    roleBreakdown: [],
+    challenges: [],
+    en: {
+      title: "Mental Health Management System",
+      subtitle: "Web / UI/UX Design",
+      description:
+        "A dashboard designed so employees' stress check results can be understood at a glance.",
+      longDescription:
+        "UI design for the stress check results screen of an employee mental health management system.\n\nThe overall assessment is shown prominently at the top, and three cards summarize the key areas: job strain, stress reactions, and support from others. For each area, a radar chart compares the results with the previous check and a table shows each item's score and rating, so the page reads step by step from the big picture to the details.",
+      role: "UI/UX Designer",
+      roleBreakdown: [],
+      challenges: [],
+      samples: [
+        { src: "/images/projects/mental-health-presenteeism-1item.webp", title: "Presenteeism (Single-Item)", width: 1600, height: 2300 },
+        { src: "/images/projects/mental-health-presenteeism-who-hpq.webp", title: "Presenteeism (WHO-HPQ)", width: 1600, height: 2376 },
+        { src: "/images/projects/mental-health-wellbeing-survey.webp", title: "Wellbeing Survey", width: 1600, height: 2649 },
+      ],
+    },
+  },
+  {
     id: 4,
     slug: "hr-matching-platform",
     title: "人材マッチングプラットフォーム",
@@ -332,9 +380,6 @@ export type DesignWork = {
 export const works: DesignWork[] = [
   { src: "/images/projects/uply-ad-1.webp", alt: "Uply 広告 1", width: 1080, height: 1350, category: "app" },
   { src: "/images/projects/uply-ad-2.webp", alt: "Uply 広告 2", width: 1080, height: 1350, category: "app" },
-  { src: "/images/design/banner-cosme-1.webp", alt: "口コミサービス リニューアル告知バナー", width: 750, height: 700, category: "campaign" },
-  { src: "/images/design/banner-cosme-2.webp", alt: "LINE公式アカウント 友だち募集バナー", width: 750, height: 700, category: "campaign" },
-  { src: "/images/design/banner-cosme-3.webp", alt: "LINE公式アカウント 友だち募集バナー（横長）", width: 1200, height: 400, category: "campaign" },
   { src: "/images/design/sp-1.webp", alt: "Design Work 1", width: 1880, height: 1576, category: "recruit" },
   { src: "/images/design/sp-11.webp", alt: "Design Work 11", width: 1880, height: 1576, category: "recruit" },
   { src: "/images/design/sp-8.webp", alt: "Design Work 8", width: 1880, height: 1576, category: "recruit" },
@@ -366,8 +411,22 @@ export type GraphicCategory = {
   tools: string[]; // 使用ツール
   time: string; // 制作時間
   result: string; // 成果や改善点：実績があれば数値、自主制作なら振り返りや改善案
+  sets?: GraphicSet[]; // 指定するとギャラリーの代わりに、企画ごとに画像と説明を並べる
   en?: Partial<Pick<GraphicCategory, "kind" | "summary" | "purpose" | "target" | "placement" | "intent" | "role" | "time" | "result">>; // 英語版の文章
 };
+
+// 1つの企画（サイズ違いのバナーはまとめる）
+export type GraphicSet = {
+  title: string;
+  images: (Omit<DesignWork, "category"> & { device: "pc" | "sp" })[];
+  description: string;
+  en?: Partial<Pick<GraphicSet, "title" | "description">>;
+};
+
+// 分類ごとの作品数（ギャラリー画像 ＋ 企画ごとの画像）
+export function graphicWorkCount(cat: GraphicCategory) {
+  return works.filter((w) => w.category === cat.key).length + (cat.sets ?? []).reduce((n, s) => n + s.images.length, 0);
+}
 
 // 並び順 = トップのカード順・詳細ページの番号順
 export const graphicCategories: GraphicCategory[] = [
@@ -402,30 +461,123 @@ export const graphicCategories: GraphicCategory[] = [
   {
     key: "campaign",
     cover: "/images/design/campaign-cover.webp",
-    kind: "実案件",
-    summary: "",
-    purpose: "口コミ機能のリニューアルを告知し、LINE公式アカウントの友だち登録を増やします。",
-    target: "化粧品ECサイトの利用者。口コミを参考に商品を選びたい人や、お得な情報をいち早く知りたい人",
-    placement: "ECサイト内のバナー枠／750×700・1200×400",
-    intent: [
-      "口コミ告知はブランドに合わせたピンク基調にし、「WEBでも！アプリでも！」を大きく見せて、どちらからでも使えることを伝えました。",
-      "LINEバナーはLINEのブランドカラーの緑を使い、ひと目でLINEの告知だと分かるようにしました。",
-      "「500円OFFクーポン」を吹き出しで目立たせ、友だち登録のメリットを最初に伝えました。",
-    ],
+    kind: "実績・ブランド名非公開",
+    summary:
+      "化粧品メーカーのECサイト向けに制作したバナーです。ブランド名は非公開とし、掲載画像の一部をポートフォリオ用に差し替えています。キャンペーン内容やデザインの異なる7企画をピックアップしました。同じブランドの中でも、企画ごとの目的や季節感に合わせて表現を変えています。各企画のPC・スマートフォン向けデザインを紹介します。",
+    purpose: "",
+    target: "30〜40代女性",
+    placement: "ECサイト内",
+    intent: [],
     role: "",
     tools: [],
     time: "",
     result: "",
+    sets: [
+      {
+        title: "美白ケアレベルで選べるセット 10%OFF",
+        images: [
+          { src: "/images/design/banner-whitening-set-pc.webp", alt: "美白ケアレベルで選べるセット 10%OFF バナー（横長）", width: 2000, height: 667, device: "pc" },
+          { src: "/images/design/banner-whitening-set-sp.webp", alt: "美白ケアレベルで選べるセット 10%OFF バナー", width: 1296, height: 1213, device: "sp" },
+        ],
+        description:
+          "淡いブルーからパープルへのグラデーションで、透明感のある肌をイメージさせるデザインにしました。3つのセットはモデル写真と商品を並べ、A・B・Cのラベルを色分けすることで、違いを比べながら選べるようにしています。「10%OFF」には下線のようなグラデーションを敷き、上品さを保ちながら割引が目に留まるようにしました。",
+        en: {
+          title: "Choose-by-Level Whitening Sets 10% OFF",
+          description:
+            "A soft gradient from blue to purple evokes clear, translucent skin. Each of the three sets pairs a model photo with its products, and color-coded A/B/C labels make it easy to compare and choose. A gradient underline beneath \"10% OFF\" draws the eye to the discount while keeping the look elegant.",
+        },
+      },
+      {
+        title: "口コミサービスリニューアル スタートキャンペーン",
+        images: [
+          { src: "/images/design/banner-review-renewal-pc.webp", alt: "口コミサービスリニューアル スタートキャンペーン バナー（横長）", width: 2204, height: 874, device: "pc" },
+          { src: "/images/design/banner-review-renewal-sp.webp", alt: "口コミサービスリニューアル スタートキャンペーン バナー", width: 1380, height: 1406, device: "sp" },
+        ],
+        description:
+          "口コミサービスのリニューアルを記念したキャンペーンとして、ピンクを基調にプレゼントボックスとコインを添え、お祝いの華やかさとポイントがもらえる楽しさを表現しました。「500ポイント」は大きく赤で見せ、特典がひと目で伝わるようにしています。キャンペーン期間は帯にまとめ、見落とさないようにしました。",
+        en: {
+          title: "Review Service Renewal Launch Campaign",
+          description:
+            "For a campaign celebrating the renewal of the review service, a pink base with gift boxes and coins conveys a festive mood and the fun of earning points. \"500 points\" is set large in red so the reward is clear at a glance, and the campaign period sits in a band so it isn't missed.",
+        },
+      },
+      {
+        title: "口コミ投稿 ポイントプレゼント",
+        images: [
+          { src: "/images/design/banner-review-point-pc.webp", alt: "口コミ投稿で300ポイントプレゼント バナー（横長）", width: 1991, height: 790, device: "pc" },
+          { src: "/images/design/banner-review-point-sp.webp", alt: "口コミ投稿で300ポイントプレゼント バナー", width: 1243, height: 1266, device: "sp" },
+        ],
+        description:
+          "対象商品のテクスチャーを背景に取り入れ、質感や色味が伝わるデザインにしました。ベージュとブラウンで全体をまとめ、商品の写真になじむ落ち着いた雰囲気にしています。「300ポイント」を大きく見せ、口コミ投稿でもらえる特典がひと目で伝わるようにしました。",
+        en: {
+          title: "Review Post Point Reward",
+          description:
+            "Textures of the featured products are worked into the background so their feel and color come across. Beige and brown tie everything together into a calm mood that blends with the product photos. \"300 points\" is set large so the reward for posting a review is clear at a glance.",
+        },
+      },
+      {
+        title: "LINE公式アカウント 友だち募集",
+        images: [
+          { src: "/images/design/banner-cosme-3.webp", alt: "LINE公式アカウント 友だち募集バナー（横長）", width: 1200, height: 400, device: "pc" },
+          { src: "/images/design/banner-cosme-2.webp", alt: "LINE公式アカウント 友だち募集バナー", width: 750, height: 700, device: "sp" },
+        ],
+        description:
+          "LINEのブランドカラーであるグリーンを基調に、500円OFFクーポンがもらえるお得感を、紙吹雪を使ったパーティーのような明るく元気なデザインで表現しました。スマートフォンを持つ手のイラストを添え、LINEで友だち登録するイメージが伝わるようにしています。",
+        en: {
+          title: "LINE Official Account Sign-ups",
+          description:
+            "Built around LINE's signature green, the banner expresses the value of a ¥500-off coupon with a bright, upbeat, party-like design full of confetti. An illustration of a hand holding a smartphone helps people picture adding the account as a friend on LINE.",
+        },
+      },
+      {
+        title: "この時期におすすめ プラスワン商品",
+        images: [
+          { src: "/images/design/banner-plus-one-pc.webp", alt: "透明美肌に差をつける プラスワン商品 バナー（横長）", width: 2000, height: 667, device: "pc" },
+          { src: "/images/design/banner-plus-one-sp.webp", alt: "透明美肌に差をつける プラスワン商品 バナー", width: 1299, height: 1211, device: "sp" },
+        ],
+        description:
+          "梅雨の時期に合わせて紫陽花を四隅に配置し、淡いブルーとパープルで季節感と透明感を表現しました。商品は動きのある角度で散りばめ、軽やかでいろいろな商品を選ぶ楽しさが伝わるようにしています。「透明美肌」にはゴールドを使い、肌がきれいに見えるイメージを印象づけました。",
+        en: {
+          title: "Seasonal Pick: Plus-One Products",
+          description:
+            "Hydrangeas in each corner match the rainy season, and soft blues and purples convey both the season and a sense of clarity. Products are scattered at lively angles to feel light and to suggest the fun of choosing from a range of items. \"Clear, radiant skin\" is set in gold to leave an impression of beautiful-looking skin.",
+        },
+      },
+      {
+        title: "WEB SALE",
+        images: [
+          { src: "/images/design/banner-web-sale-pc.webp", alt: "WEB SALE 最大50%OFF バナー（横長）", width: 1200, height: 400, device: "pc" },
+          { src: "/images/design/banner-web-sale-sp.webp", alt: "WEB SALE 最大50%OFF バナー", width: 750, height: 700, device: "sp" },
+        ],
+        description:
+          "水面の写真とブルーを基調に、夏らしい清涼感を表現しました。「最大50％OFF」にはアクセントとなるオレンジを使い、涼しげな雰囲気の中でも割引率がひと目で伝わるようにしています。",
+        en: {
+          title: "Web Sale",
+          description:
+            "A water-surface photo and a blue palette create a fresh, summery coolness. \"Up to 50% OFF\" is set in an accent orange so the discount stands out at a glance, even within the cool mood.",
+        },
+      },
+      {
+        title: "夏のお買い物応援クーポン",
+        images: [
+          { src: "/images/design/banner-summer-coupon-pc.webp", alt: "夏のお買い物応援 10%OFFクーポン バナー（横長）", width: 1200, height: 400, device: "pc" },
+          { src: "/images/design/banner-summer-coupon-sp.webp", alt: "夏のお買い物応援 10%OFFクーポン バナー", width: 750, height: 700, device: "sp" },
+        ],
+        description:
+          "ファブリック商品を扱うコレクションに合わせ、布の風合いを感じる背景を取り入れました。ベージュとブラウンを基調に、ブランドに合う落ち着いた雰囲気にまとめています。「10％OFF」を大きく見せ、クーポン番号は赤い帯で強調することで、お得感と使いやすさを意識しました。",
+        en: {
+          title: "Summer Shopping Coupon",
+          description:
+            "To match a collection of fabric products, the background brings in the feel of woven cloth. Beige and brown give it a calm mood that suits the brand. \"10% OFF\" is set large and the coupon code is highlighted in a red band, aiming for a sense of value and ease of use.",
+        },
+      },
+    ],
     en: {
-      kind: "Client Work",
-      purpose: "Announce the renewal of the review feature and grow followers of the LINE official account",
-      target: "Shoppers on a cosmetics e-commerce site — people who choose products based on reviews, and those who want to hear about deals first",
-      placement: "Banner slots on the e-commerce site / 750×700, 1200×400",
-      intent: [
-        "The review announcement uses a pink palette that matches the brand, with \"On the web! In the app!\" set large to show it works on both",
-        "The LINE banners use LINE's signature green so they are instantly recognizable as a LINE announcement",
-        "The ¥500-off coupon is highlighted in a speech bubble so the benefit of adding the account comes across first",
-      ],
+      kind: "Client Work (brand undisclosed)",
+      target: "Women in their 30s–40s",
+      placement: "On the e-commerce site",
+      summary:
+        "Banners created for a cosmetics maker's e-commerce site. The brand name is kept private, and some images have been replaced for this portfolio. Seven campaigns with different content and design are featured here. Even within one brand, the look shifts to fit each campaign's goal and season. Each campaign is shown in its desktop and mobile versions.",
     },
   },
   {

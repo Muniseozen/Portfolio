@@ -65,7 +65,7 @@ function OverlayScroll({ children }: { children: React.ReactNode }) {
 }
 
 export default function ProjectDetailContent({ slug }: { slug: string }) {
-  const { locale } = useLocale();
+  const { m, locale } = useLocale();
   const original = getProjectBySlug(slug)!;
   const project = localize(original, locale);
   // タイトルは英語を大きく見せ、日本語版ではその下に日本語を添える（同じ表記なら出さない）
@@ -74,7 +74,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
   const { prev, next } = getAdjacentProjects(slug);
   const [lightbox, setLightbox] = useState<string | null>(null);
   // 縦長の記事画像はスマホ枠なしで大きく表示する（中をスクロールして読む）
-  const [screenView, setScreenView] = useState<NonNullable<typeof project.screens>[number] | null>(null);
+  const [screenView, setScreenView] = useState<{ src: string; alt: string; width: number; height: number } | null>(null);
 
   const metaItems = [
     { label: "Role", value: project.role },
@@ -181,7 +181,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                         <OverlayScroll>
                           <button
                             type="button"
-                            onClick={() => setScreenView(screen)}
+                            onClick={() => setScreenView({ src: screen.src, alt: `${screen.label} ${screen.title}`, width: screen.width, height: screen.height })}
                             aria-label={`${screen.label} ${screen.title}`}
                             className="block w-full cursor-zoom-in"
                           >
@@ -227,7 +227,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 </div>
               </div>
             ) : project.preview ? (
-              <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
+              // SP版があれば PC版の右に高さをそろえて並べる
+              <div className="flex flex-col md:flex-row gap-4">
+              <div className={`flex-1 min-w-0 ${project.previewSp ? "rounded-xl" : "rounded-3xl"} overflow-hidden border border-black/[0.06] shadow-sm`}>
                 <div className="bg-zinc-100 px-4 py-2 flex items-center gap-2 border-b border-black/[0.06]">
                   <div className="flex gap-1.5">
                     <div className="w-3 h-3 rounded-full bg-red-400/70" />
@@ -242,15 +244,50 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                     </div>
                   )}
                 </div>
-                <div className="max-h-[600px] overflow-y-auto">
-                  <Image
-                    src={project.preview}
-                    alt={`${project.title} - Preview`}
-                    width={1920}
-                    height={3000}
-                    className="w-full h-auto"
-                  />
+                <div className={`${project.previewSp ? "max-h-[480px]" : "max-h-[600px]"} overflow-y-auto`}>
+                  <button
+                    type="button"
+                    onClick={() => setScreenView({ src: project.preview!, alt: `${project.title} - Preview`, width: 1920, height: 3000 })}
+                    aria-label={`${project.title} - Preview`}
+                    className="block w-full cursor-zoom-in"
+                  >
+                    <Image
+                      src={project.preview}
+                      alt={`${project.title} - Preview`}
+                      width={1920}
+                      height={3000}
+                      className="w-full h-auto"
+                    />
+                  </button>
                 </div>
+              </div>
+              {project.previewSp && (
+                // シンプルな iPhone 風の本体（ダイナミックアイランド付き）。画面の中をスクロールして全体を見られる
+                <div className="relative w-[260px] md:w-[240px] mx-auto md:mx-0 shrink-0 rounded-[1.4rem] bg-zinc-900 p-[5px] shadow-xl">
+                  <div className="h-[480px] md:h-auto md:absolute md:inset-[5px] flex flex-col rounded-[1.1rem] bg-white overflow-hidden">
+                    <div aria-hidden className="flex justify-center pt-2 pb-1.5">
+                      <span className="w-16 h-4 rounded-full bg-zinc-900" />
+                    </div>
+                    <div className="flex-1 min-h-0 overflow-y-auto">
+                      <button
+                        type="button"
+                        onClick={() => setScreenView({ ...project.previewSp!, alt: `${project.title} - SP Preview` })}
+                        aria-label={`${project.title} - SP Preview`}
+                        className="block w-full cursor-zoom-in"
+                      >
+                        <Image
+                          src={project.previewSp.src}
+                          alt={`${project.title} - SP Preview`}
+                          width={project.previewSp.width}
+                          height={project.previewSp.height}
+                          sizes="260px"
+                          className="w-full h-auto"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
               </div>
             ) : project.url ? (
               <div className="rounded-3xl overflow-hidden border border-black/[0.06] shadow-sm">
@@ -429,8 +466,38 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         </section>
       )}
 
+      {/* Design System（Prototype なし）: 上部だけ見せ、タップで全体を拡大 */}
+      {project.designSystem && !project.prototype && (
+        <section className="py-6 px-6">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                <span className="gradient-text">Design System</span>
+              </h2>
+              <button
+                type="button"
+                onClick={() => setScreenView({ src: project.designSystem!, alt: `${project.title} - Design System`, width: 1920, height: 1080 })}
+                className="relative block w-full h-[480px] overflow-hidden rounded-2xl card-clickable cursor-zoom-in"
+              >
+                <Image
+                  src={project.designSystem}
+                  alt={`${project.title} - Design System`}
+                  width={1920}
+                  height={1080}
+                  className="w-full h-auto"
+                />
+                <span aria-hidden className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
+                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-zinc-900/80 px-4 py-1.5 text-sm text-white">
+                  {m.projects.viewAll}
+                </span>
+              </button>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
       {/* Design System & Prototype - 横並び */}
-      {(project.designSystem || project.prototype) && (
+      {project.prototype && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-[7fr_3fr] gap-6 items-start">
@@ -463,6 +530,41 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                 </FadeIn>
               )}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Other Screens - 横並び */}
+      {project.samples && (
+        <section className="py-6 px-6">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                <span className="gradient-text">Other Screens</span>
+              </h2>
+              <div className="grid md:grid-cols-3 gap-4 items-start">
+                {project.samples.map((sample) => (
+                  <div key={sample.src}>
+                    <p className="text-sm text-zinc-500 mb-2">{sample.title}</p>
+                    <button
+                      type="button"
+                      onClick={() => setScreenView({ src: sample.src, alt: `${project.title} - ${sample.title}`, width: sample.width, height: sample.height })}
+                      aria-label={`${project.title} - ${sample.title}`}
+                      className="block w-full rounded-xl overflow-hidden border border-black/[0.06] shadow-sm cursor-zoom-in"
+                    >
+                      <Image
+                        src={sample.src}
+                        alt={`${project.title} - ${sample.title}`}
+                        width={sample.width}
+                        height={sample.height}
+                        sizes="(max-width: 768px) 100vw, 340px"
+                        className="w-full h-auto"
+                      />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
           </div>
         </section>
       )}
@@ -533,7 +635,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
         )}
       </AnimatePresence>
 
-      {/* 記事画像の拡大表示: 画像のみを大きめに表示し、縦にスクロールして読む */}
+      {/* 画面の拡大表示: 画像のみを大きめに表示し、縦にスクロールして読む（PC画面は横幅を広く） */}
       <AnimatePresence>
         {screenView && (
           <motion.div
@@ -549,15 +651,15 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 16 }}
               transition={{ duration: 0.3, ease }}
-              className="mx-auto my-10 w-[min(340px,calc(100vw-3rem))] cursor-auto"
+              className={`mx-auto my-10 ${screenView.width >= 1000 ? "w-[min(1024px,calc(100vw-3rem))]" : "w-[min(340px,calc(100vw-3rem))]"} cursor-auto`}
               onClick={(e) => e.stopPropagation()}
             >
               <Image
                 src={screenView.src}
-                alt={`${screenView.label} ${screenView.title}`}
+                alt={screenView.alt}
                 width={screenView.width}
                 height={screenView.height}
-                sizes="(max-width: 388px) 100vw, 340px"
+                sizes={screenView.width >= 1000 ? "(max-width: 1072px) 100vw, 1024px" : "(max-width: 388px) 100vw, 340px"}
                 className="w-full h-auto rounded-lg"
               />
             </motion.div>

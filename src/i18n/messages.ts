@@ -41,6 +41,8 @@ export type Messages = {
     personalLabel: string;
     graphicCategories: { recruit: string; app: string; campaign: string };
     graphicCount: string;
+    deviceLabels: { pc: string; sp: string };
+    viewAll: string;
   };
   process: {
     intro: string;
@@ -133,6 +135,8 @@ export const messages: Record<Locale, Messages> = {
       personalLabel: "個人",
       graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "キャンペーンバナー" },
       graphicCount: "{n}点",
+      deviceLabels: { pc: "PC専用", sp: "SP専用" },
+      viewAll: "タップで全体を見る",
     },
     process: {
       intro: "こまめにお見せして、ご相談しながら進めます。",
@@ -231,6 +235,8 @@ export const messages: Record<Locale, Messages> = {
       personalLabel: "Personal",
       graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },
       graphicCount: "{n} pieces",
+      deviceLabels: { pc: "Desktop", sp: "Mobile" },
+      viewAll: "Tap to view all",
     },
     process: {
       intro: "I share work early and often, and shape it together with you.",

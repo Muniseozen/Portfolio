@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { projects, projectTypeLabels, works, graphicCategories } from "@/data/projects";
+import { projects, projectTypeLabels, graphicCategories, graphicWorkCount } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
 import { localize, localePath } from "@/i18n/messages";
 
@@ -167,7 +167,7 @@ export default function Projects() {
               href={localePath(locale, `/design/${cat.key}`)}
               image={cat.cover}
               title={m.projects.graphicCategories[cat.key]}
-              subtitle={m.projects.graphicCount.replace("{n}", String(works.filter((w) => w.category === cat.key).length))}
+              subtitle={m.projects.graphicCount.replace("{n}", String(graphicWorkCount(cat)))}
               isWork
               index={index}
             />
