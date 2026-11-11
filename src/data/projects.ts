@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "自社コーポレートサイトのリニューアルとブランディングです。サイト構成・コピーライティング・デザインを担当しました。",
     longDescription:
       "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクトです。サイト全体の構成設計と文章作成から、ブランドイメージの刷新、FigmaでのUI/UXデザインまでを担当しました。フロントエンド実装のコードレビューとWordPress構築のディレクションも行いました。",
-    role: "Planner / Copywriter / UI/UX Designer",
+    role: "企画・UI/UXデザイン",
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
     url: "https://y-n-p.co.jp/",
     preview: "/images/projects/ynp-preview.webp",
     designProcess: "/images/projects/ynp-figma-grids.webp",
-    duration: "",
+    duration: "2024.5 — 2025.9",
     team: "",
     status: "Completed",
     category: "work",
@@ -72,7 +72,7 @@ export const projects: Project[] = [
         "Renewal and rebranding of the company's corporate website. Handled site structure, copywriting, and design.",
       longDescription:
         "A renewal project for the company's corporate website (y-n-p.co.jp). I handled everything from the overall site structure and copywriting to refreshing the brand image and UI/UX design in Figma. I also reviewed the frontend code and directed the WordPress build.",
-      role: "Planner / Copywriter / UI/UX Designer",
+      role: "Planning / UI/UX Design",
       roleBreakdown: [
         { title: "Design", tasks: ["Wireframes and UI design in Figma", "Responsive design planning"] },
         { title: "Frontend", tasks: ["Code review of HTML/CSS/JS", "Direction of the WordPress theme"] },
@@ -93,14 +93,14 @@ export const projects: Project[] = [
       "内定者向けLPの企画・構成・コピーライティング・デザインを全て担当しました。ターゲットに響く情報設計で仕上げました。",
     longDescription:
       "内定者向けの情報発信を目的としたランディングページを企画からデザインまで一人で担当しました。LPの構成設計、キャッチコピー・文章の作成、ビジュアルデザインまで全て自分で考え、Canvaで制作しました。内定者が知りたい情報を整理し、直感的に伝わるレイアウトに仕上げています。",
-    role: "Planner / Copywriter / UI/UX Designer",
+    role: "企画・UI/UXデザイン",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
     emoji: "&#x1F4C4;",
     thumbnail: "/images/projects/naitei-lp-thumbnail.webp",
     url: "https://ynp-naitei.my.canva.site/lp",
     preview: "/images/projects/naitei-lp-preview.webp",
-    duration: "",
+    duration: "2024.5 — 2025.9",
     team: "",
     status: "Completed",
     category: "work",
@@ -117,7 +117,7 @@ export const projects: Project[] = [
         "Handled planning, structure, copywriting, and design of a landing page for incoming hires, built around the information they want to know.",
       longDescription:
         "I took a landing page for incoming hires from planning to design on my own. I designed the structure, wrote the headlines and copy, and created the visuals in Canva. I organized the information new hires want to know into a layout that communicates intuitively.",
-      role: "Planner / Copywriter / UI/UX Designer",
+      role: "Planning / UI/UX Design",
       roleBreakdown: [
         { title: "Planning & Structure", tasks: ["Overall LP structure and information architecture", "Headlines and copywriting"] },
         { title: "Design", tasks: ["Visual design and production in Canva", "Tone design tailored to the target audience"] },
@@ -134,13 +134,13 @@ export const projects: Project[] = [
       "オランダのIT企業で研修を行うブートキャンプ型プログラムの集客LPです。企画・構成・コピーライティング・デザインを担当しました。",
     longDescription:
       "オランダのIT企業での実践型研修プログラムを訴求するランディングページを、企画・構成・デザインまで一貫して担当しました。ターゲットが「海外でキャリアを広げたいエンジニア」であることから、日本のLPによくある明るいトーンではなく、ダークネイビーを基調にした海外風のビジュアルに振り切りました。現地オフィスや街並みの写真を大きく配置し、「ここで働く自分」をイメージできる世界観を意識しています。プログラムの特長・スケジュール・料金・研修生の声・FAQなど情報量が多いLPですが、セクションごとにメリハリをつけたレイアウトで、スクロールしても読み疲れしない構成に仕上げました。",
-    role: "Planner / Copywriter / UI/UX Designer",
+    role: "企画・UI/UXデザイン",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#1a1f3d] via-[#2a3060] to-[#3a4080]",
     emoji: "&#x1F1F3;&#x1F1F1;",
     thumbnail: "/images/projects/netherlands-lp-thumbnail.webp",
     preview: "/images/projects/netherlands-lp-preview.webp",
-    duration: "",
+    duration: "2024.5 — 2025.9",
     team: "",
     status: "Completed",
     category: "work",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
         "A lead-generation LP for a bootcamp-style program that trains participants at IT companies in the Netherlands. Handled planning, structure, copywriting, and design.",
       longDescription:
         "I led a landing page promoting a hands-on training program at IT companies in the Netherlands, from planning and structure through design. Since the target audience was engineers looking to grow their careers abroad, I went all in on an international look built on dark navy, rather than the bright tone common in Japanese LPs. Large photos of the local offices and streets help visitors picture themselves working there. The page carries a lot of information — program highlights, schedule, pricing, participant testimonials, and FAQ — but a clear rhythm between sections keeps it easy to read all the way down.",
-      role: "Planner / Copywriter / UI/UX Designer",
+      role: "Planning / UI/UX Design",
       roleBreakdown: [
         { title: "Planning & Structure", tasks: ["Overall LP structure and information architecture", "Headlines and section copy", "Organizing training content, pricing, and flow"] },
         { title: "Design", tasks: ["Visual design and production in Canva", "Tone design based on dark navy", "Layouts using photos and maps"] },
@@ -174,7 +174,7 @@ export const projects: Project[] = [
       "30〜40代の女性に向けた連載美容コラムから、3号をピックアップして紹介します。",
     longDescription:
       "30〜40代の女性に向けた連載美容コラムの、スマートフォン専用のページデザインです。シリーズの中から、「UVケア」「毛穴ケア」「コラーゲン」をテーマにした3号をピックアップしました。\n\n淡い配色と繊細な装飾で、甘くなりすぎない、清潔感のある女性らしさを表現しました。長い記事でもスマートフォンで読み進めやすいよう、見出しや余白で情報を区切り、比較は横並び、ポイントは番号付きで整理しています。図解やイラストも交え、内容を視覚的に理解しやすくしました。\n\nシリーズ共通のタイトルや見出しのルールを保ちながら、号ごとにアクセントカラーや囲みの形を変え、統一感とテーマごとの違いを両立させています。",
-    role: "Planner / Designer",
+    role: "企画・デザイン",
     tech: ["Editorial Design", "Figma"],
     gradient: "from-[#c2456e] via-[#d4567e] to-[#e88560]",
     emoji: "&#x1F484;",
@@ -189,7 +189,10 @@ export const projects: Project[] = [
     status: "Completed",
     category: "work",
     type: "web",
-    roleBreakdown: [],
+    roleBreakdown: [
+      { title: "Planning & Structure", tasks: ["訴求内容と情報の優先順位の整理", "記事ごとのページ構成の検討"] },
+      { title: "Design", tasks: ["スマートフォン向けページのデザイン", "号ごとのテーマに合わせた配色・装飾", "関係部署との制作調整・修正対応"] },
+    ],
     challenges: [],
     en: {
       title: "E-commerce Beauty Column Vol. 10–12",
@@ -198,8 +201,11 @@ export const projects: Project[] = [
         "Three issues picked from a beauty column series aimed at women in their 30s and 40s.",
       longDescription:
         "Smartphone-only page design for a beauty column series aimed at women in their 30s and 40s. From the series, I picked three issues on UV care, pore care, and collagen.\n\nPale colors and delicate ornaments express a clean, feminine feel that never gets too sweet. So that long articles stay easy to read on a smartphone, information is divided with headings and spacing, comparisons are laid out side by side, and key points are numbered. Diagrams and illustrations make the content easier to grasp visually.\n\nWhile keeping the series' shared rules for titles and headings, each issue changes its accent color and box shapes, balancing consistency with the character of each theme.",
-      role: "Planner / Designer",
-      roleBreakdown: [],
+      role: "Planning / Design",
+      roleBreakdown: [
+        { title: "Planning & Structure", tasks: ["Sorting out the message and the priority of information", "Planning the page structure for each article"] },
+        { title: "Design", tasks: ["Page design for smartphones", "Colors and ornaments tailored to each issue's theme", "Coordinating with related departments and handling revisions"] },
+      ],
       challenges: [],
       screens: [
         { src: "/images/projects/beauty-column-vol10.webp", label: "Vol. 10", title: "Fun facts about UV care and ultraviolet rays", width: 750, height: 9316 },
@@ -217,7 +223,7 @@ export const projects: Project[] = [
       "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。",
     longDescription:
       "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。数値の多い結果画面を、利用者が自身の状態や変化を把握しやすいように設計しました。\n\n総合判定や主要な指標を画面上部にまとめ、全体の傾向から詳しい結果へと読み進められる構成にしています。項目ごとの比較には棒グラフ、時系列の変化には折れ線グラフなど、情報に合わせて表現を使い分けました。グラフで傾向をつかみ、表で具体的な数値を確認できるようにしています。\n\n清潔感のあるブルーを基調に、余白とカードで情報を整理しました。判定は色だけに頼らず、ラベルやアイコンも添えて伝えています。PC・スマートフォンそれぞれで情報の配置を調整し、画面サイズが変わっても結果を確認しやすいデザインにまとめました。",
-    role: "UI/UX Designer",
+    role: "UI/UXデザイン",
     tech: ["UI/UX Design", "Figma"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F4CA;",
@@ -235,7 +241,10 @@ export const projects: Project[] = [
     status: "Completed",
     category: "work",
     type: "web",
-    roleBreakdown: [],
+    roleBreakdown: [
+      { title: "Planning & Structure", tasks: ["結果の見せ方に沿った情報整理とユーザー導線の設計", "ワイヤーフレームによる画面構成の具体化"] },
+      { title: "Design", tasks: ["視認性と操作性を考慮した画面レイアウト・UIデザイン", "デザインレビューへの対応、開発チームとの仕様調整"] },
+    ],
     challenges: [],
     en: {
       title: "Mental Health Management System",
@@ -244,8 +253,11 @@ export const projects: Project[] = [
         "UI design for a mental health care system where employees review the results of stress checks and other surveys.",
       longDescription:
         "UI design for a mental health care system where employees review the results of stress checks and other surveys. I designed the number-heavy results screens so users can easily understand their own condition and how it has changed.\n\nThe overall assessment and key indicators are gathered at the top of the screen, so users can read from overall trends down to detailed results. Each kind of information gets a fitting format: bar charts for comparing items, line charts for changes over time. Charts show the trends, and tables give the specific numbers.\n\nA clean blue base, generous spacing, and cards keep the information organized. Ratings never rely on color alone; labels and icons accompany them. The layout is adjusted separately for desktop and smartphone, so results stay easy to check at any screen size.",
-      role: "UI/UX Designer",
-      roleBreakdown: [],
+      role: "UI/UX Design",
+      roleBreakdown: [
+        { title: "Planning & Structure", tasks: ["Information design and user flows built around how results are presented", "Turning the screen structure into wireframes"] },
+        { title: "Design", tasks: ["Screen layouts and UI design that balance readability and usability", "Handling design reviews and aligning specs with the development team"] },
+      ],
       challenges: [],
       samples: [
         { src: "/images/projects/mental-health-presenteeism-1item.webp", title: "Presenteeism (Single-Item)", width: 1600, height: 2300 },
@@ -263,7 +275,7 @@ export const projects: Project[] = [
       "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。",
     longDescription:
       "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。\n\n管理者向けのPC画面では、応募者の氏名・連絡先・来場情報・ステータスを一覧で確認でき、詳細や受注情報へすぐに移動できる構成にしました。ステータスは色付きのラベルで示し、対応状況をひと目で把握できるようにしています。\n\n応募者向けのスマートフォン画面では、入職までの手続きを4つのステップに分け、いま何をすればよいかが分かるマイページにまとめました。",
-    role: "UI/UX Designer",
+    role: "UI/UXデザイン",
     tech: ["UI/UX Design", "Figma"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F4CB;",
@@ -281,7 +293,10 @@ export const projects: Project[] = [
     status: "Completed",
     category: "work",
     type: "web",
-    roleBreakdown: [],
+    roleBreakdown: [
+      { title: "Planning & Structure", tasks: ["企画内容に基づく情報整理・コンテンツ構成の設計", "ユーザー導線・画面遷移の設計", "ワイヤーフレームの作成"] },
+      { title: "Design", tasks: ["管理画面・ダッシュボード・一覧・詳細画面のUIデザイン", "開発チームとの仕様調整・デザイン修正対応"] },
+    ],
     challenges: [],
     en: {
       title: "Staff Management Portal",
@@ -290,8 +305,11 @@ export const projects: Project[] = [
         "UI design for a staff management system that brings together applicant management and the steps up to onboarding.",
       longDescription:
         "UI design for a staff management system that brings together applicant management and the steps up to onboarding.\n\nOn the desktop screen for administrators, applicants' names, contact details, visit information, and status are listed in one table, with quick access to their details and order information. Statuses are shown as colored labels so progress can be grasped at a glance.\n\nOn the smartphone screen for applicants, the steps up to onboarding are divided into four stages and gathered on a My Page that makes clear what to do next.",
-      role: "UI/UX Designer",
-      roleBreakdown: [],
+      role: "UI/UX Design",
+      roleBreakdown: [
+        { title: "Planning & Structure", tasks: ["Information design and content structure based on the plan", "User flows and screen transitions", "Wireframes"] },
+        { title: "Design", tasks: ["UI design for the admin screens, dashboard, lists, and detail views", "Aligning specs with the development team and handling design revisions"] },
+      ],
       challenges: [],
       samples: [
         { src: "/images/projects/staff-portal-applicant-detail.webp", title: "Applicant Details (Desktop)", width: 1440, height: 3390 },
@@ -308,7 +326,7 @@ export const projects: Project[] = [
       "求職者と企業をつなぐマッチングプラットフォームです。iOSアプリと企業向けWebダッシュボードを設計・開発しました。",
     longDescription:
       "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。iOSアプリは企画からリリースまで担当し、FigmaでのUI/UXデザイン、SwiftUIでのフロントエンド実装、AWSバックエンドの構築まで幅広く担当しました。企業向けWebダッシュボードではReactでの実装をリードし、求人管理・応募者管理・マッチングデータの可視化を実現しています。",
-    role: "PM / UI/UX Designer / iOS Engineer / Frontend Engineer",
+    role: "PM・UI/UXデザイン・開発",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS", "React", "Tailwind CSS"],
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
     emoji: "&#x1F91D;",
@@ -336,7 +354,7 @@ export const projects: Project[] = [
         "A matching platform connecting job seekers and companies. Designed and built an iOS app and a web dashboard for employers.",
       longDescription:
         "I designed and developed a platform that smoothly matches job seekers with companies, covering both the mobile app and the web admin. For the iOS app, I was involved from planning to release, spanning UI/UX design in Figma, frontend implementation in SwiftUI, and building the AWS backend. For the employer web dashboard, I led the implementation in React, delivering job management, applicant management, and visualization of matching data.",
-      role: "PM / UI/UX Designer / iOS Engineer / Frontend Engineer",
+      role: "PM / UI/UX Design / Development",
       roleBreakdown: [
         { title: "PM", tasks: ["Product roadmap planning", "Sprint planning and team management"] },
         { title: "UI/UX Design", tasks: ["User flows and UI design in Figma", "Usability testing and iteration"] },
@@ -355,7 +373,7 @@ export const projects: Project[] = [
       "インフルエンサー向けのフリマアプリです。出品・購入・決済までアプリ内で完結し、SNSシェア・クーポン機能も搭載しています。",
     longDescription:
       "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるiOSアプリです。企画からUI/UXデザイン、Swift実装、AWSバックエンド構築、PMまで一気通貫で担当しました。",
-    role: "PM / UI/UX Designer / iOS Engineer",
+    role: "PM・UI/UXデザイン・開発",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS"],
     gradient: "from-[#e07850] via-[#e8956a] to-[#f0b080]",
     emoji: "&#x1F45C;",
@@ -379,7 +397,7 @@ export const projects: Project[] = [
         "A flea-market app for influencers. Listing, purchase, and payment all happen in-app, with social sharing and coupon features.",
       longDescription:
         "An iOS app that lets influencers sell secondhand items while keeping their personal brand intact. I handled everything end to end: planning, UI/UX design, Swift implementation, the AWS backend, and project management.",
-      role: "PM / UI/UX Designer / iOS Engineer",
+      role: "PM / UI/UX Design / Development",
       roleBreakdown: [
         { title: "PM", tasks: ["Product planning and business requirements", "Release planning and quality management"] },
         { title: "UI/UX Design", tasks: ["Customizable UI system design", "User flows from listing to purchase and payment"] },
@@ -447,6 +465,7 @@ export const works: DesignWork[] = [
 export type GraphicCategory = {
   key: WorkCategory;
   cover: string; // トップページのカードに使う代表画像
+  subtitle: string; // 詳細ページのタイトル上に出す分類（プロジェクトの subtitle と同じ役割）
   kind: string; // 制作区分：実案件／自主制作／スクール課題
   summary: string; // 制作概要
   purpose: string; // 目的：商品購入、イベント申し込み、サービス認知など
@@ -479,6 +498,7 @@ export const graphicCategories: GraphicCategory[] = [
   {
     key: "recruit",
     cover: "/images/design/recruit-cover.webp",
+    subtitle: "Banner / Recruiting",
     kind: "実案件",
     summary: "SES企業の求人媒体・アプリ内に掲載する採用バナー15点を制作しました。",
     purpose: "未経験からIT業界への転職を検討している方に、研修制度や働く環境を伝え、求人への関心と応募につなげます。",
@@ -488,11 +508,12 @@ export const graphicCategories: GraphicCategory[] = [
       "求人サイトに並ぶ多数の求人の中でも目を引くよう、鮮やかな配色とメリハリのある文字・図形の配置を取り入れました。社員の笑顔や動きのあるポーズを大きく見せることで、若手社員が活躍する、明るく活気のある社風を表現しています。",
       "各バナーでは「研修制度」「休日」「子育て支援」など、求職者の関心に合わせて訴求を変え、挑戦を支える環境や働きやすさを伝えました。「この仲間と一緒に働きたい」「ここで新しいキャリアに挑戦したい」と感じてもらえるデザインを目指しました。",
     ],
-    role: "",
-    tools: [],
+    role: "企画・デザイン・制作",
+    tools: ["Canva", "Figma"],
     time: "",
     result: "バナー変更後、求人のクリック数が従来の約3倍に増加しました。",
     en: {
+      role: "Planning / Design / Production",
       kind: "Client Work",
       summary: "Created 15 recruitment banners for an SES (IT staffing) company, published on job boards and in-app job listings.",
       purpose: "Show people considering a move into IT with no prior experience what the training programs and work environment are like, and turn that interest into applications.",
@@ -507,6 +528,7 @@ export const graphicCategories: GraphicCategory[] = [
   {
     key: "campaign",
     cover: "/images/design/campaign-cover.webp",
+    subtitle: "Banner / E-commerce",
     kind: "実案件（ブランド名非公開）",
     summary:
       "大手化粧品企業のECサイト向けに制作したバナーです。ブランド名は非公開とし、掲載画像の一部をポートフォリオ用に差し替えています。キャンペーン内容やデザインの異なる7企画をピックアップしました。同じブランドの中でも、企画ごとの目的や季節感に合わせて表現を変えています。各企画のPC・スマートフォン向けデザインを紹介します。",
@@ -517,7 +539,7 @@ export const graphicCategories: GraphicCategory[] = [
       "企画ごとに訴求内容と情報の優先順位を整理し、割引率や期間など伝えるべき情報がひと目で分かる構成にしました。",
       "月ごとのテーマや季節感に合わせて配色やビジュアルを変えながら、ブランドイメージとの一貫性を保ちました。PC・スマートフォンそれぞれでの見やすさにも配慮しています。",
     ],
-    role: "バナーのデザイン・制作、関係部署との制作調整・修正対応",
+    role: "デザイン・制作",
     tools: ["Adobe XD", "Figma"],
     time: "",
     result: "",
@@ -623,12 +645,12 @@ export const graphicCategories: GraphicCategory[] = [
     ],
     en: {
       kind: "Client Work (brand undisclosed)",
+      role: "Design / Production",
       purpose: "Convey the appeal of each month's campaigns and products, and turn it into purchases on the e-commerce site.",
       intent: [
         "For each campaign, I sorted out the message and the priority of information so key details like the discount and dates are clear at a glance.",
         "Colors and visuals change with each month's theme and season while staying consistent with the brand image. Readability on both desktop and smartphone was also taken into account.",
       ],
-      role: "Banner design and production, coordinating with related departments, and handling revisions",
       target: "Women in their 30s–40s",
       placement: "On the e-commerce site",
       summary:
@@ -638,6 +660,7 @@ export const graphicCategories: GraphicCategory[] = [
   {
     key: "app",
     cover: "/images/design/sns-ad-thumbnail.webp",
+    subtitle: "Ad / Social Media",
     kind: "実案件",
     summary: "",
     purpose: "Uplyアプリのダウンロード数を増やします。",
@@ -648,11 +671,12 @@ export const graphicCategories: GraphicCategory[] = [
       "実際のアプリ画面を見せ、「応募」「スキップ」のスタンプでスワイプ操作を直感的に伝えました。",
       "App StoreボタンとQRコードを下部に置き、その場でダウンロードできるようにしました。",
     ],
-    role: "",
-    tools: [],
+    role: "企画・デザイン・制作",
+    tools: ["Figma", "Canva"],
     time: "",
     result: "",
     en: {
+      role: "Planning / Design / Production",
       kind: "Client Work",
       purpose: "Drive downloads of the Uply app",
       target: "Job seekers considering a career change who want to spend less time searching for jobs",

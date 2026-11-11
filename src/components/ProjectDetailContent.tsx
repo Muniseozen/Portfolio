@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import PdfViewer from "@/components/PdfViewer";
+import PrevNextNav from "@/components/PrevNextNav";
 import { useLocale } from "@/i18n/LocaleContext";
 import { localize, localePath } from "@/i18n/messages";
 import { getProjectBySlug, getAdjacentProjects, getProjectNumber, projectTypeLabels } from "@/data/projects";
@@ -506,7 +506,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
             <div className="grid md:grid-cols-[7fr_3fr] gap-6 items-start">
               {project.designSystem && (
                 <FadeIn>
-                  <h3 className="text-lg font-bold text-zinc-900 mb-3">Design System & Components</h3>
+                  <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                    <span className="gradient-text">Design System</span>
+                  </h2>
                   <button type="button" className="block w-full rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.designSystem!)}>
                     <Image
                       src={project.designSystem}
@@ -520,7 +522,9 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               )}
               {project.prototype && (
                 <FadeIn delay={0.1}>
-                  <h3 className="text-lg font-bold text-zinc-900 mb-3">Prototype</h3>
+                  <h2 className="section-title text-2xl md:text-3xl font-black mb-5">
+                    <span className="gradient-text">Prototype</span>
+                  </h2>
                   <button type="button" className="block w-full rounded-2xl overflow-hidden card-clickable cursor-pointer" onClick={() => setLightbox(project.prototype!)}>
                     <Image
                       src={project.prototype}
@@ -597,28 +601,10 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
       <section className="py-10 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className="flex justify-between items-center">
-              {prev ? (
-                <Link href={localePath(locale, `/projects/${prev.slug}`)} className="flex flex-col items-center gap-3 group">
-                  <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
-                    <svg className="w-5 h-5 text-zinc-500 transition-colors group-hover:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
-                  </div>
-                  <span className="text-sm text-zinc-500 tracking-widest uppercase">Previous</span>
-                </Link>
-              ) : (
-                <div />
-              )}
-              {next ? (
-                <Link href={localePath(locale, `/projects/${next.slug}`)} className="flex flex-col items-center gap-3 group">
-                  <div className="w-14 h-14 rounded-full border-2 border-zinc-300 flex items-center justify-center transition-colors group-hover:border-zinc-500">
-                    <svg className="w-5 h-5 text-zinc-500 transition-colors group-hover:text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </div>
-                  <span className="text-sm text-zinc-500 tracking-widest uppercase">Next</span>
-                </Link>
-              ) : (
-                <div />
-              )}
-            </div>
+            <PrevNextNav
+              prevHref={prev ? localePath(locale, `/projects/${prev.slug}`) : null}
+              nextHref={next ? localePath(locale, `/projects/${next.slug}`) : null}
+            />
           </FadeIn>
         </div>
       </section>

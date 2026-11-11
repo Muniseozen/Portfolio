@@ -6,9 +6,10 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
+import PrevNextNav from "@/components/PrevNextNav";
 import { works, shuffledWorks, graphicCategories, graphicWorkCount, type DesignWork } from "@/data/projects";
 import { useLocale } from "@/i18n/LocaleContext";
-import { localize, messages } from "@/i18n/messages";
+import { localize, localePath, messages } from "@/i18n/messages";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -44,12 +45,15 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
   const categoryWorks = (isClient ? shuffledWorks : works).filter((w) => w.category === cat.key);
 
   const metaItems = [
+    ...(cat.role ? [{ label: "Role", value: cat.role }] : []),
     ...(cat.kind ? [{ label: "Type", value: cat.kind }] : []),
     ...(cat.target ? [{ label: "Target", value: cat.target }] : []),
     ...(cat.placement ? [{ label: "Placement", value: cat.placement }] : []),
     ...(cat.time ? [{ label: "Time", value: cat.time }] : []),
     { label: "Works", value: m.projects.graphicCount.replace("{n}", String(graphicWorkCount(cat))) },
   ];
+  const prev = graphicCategories[index - 1] ?? null;
+  const next = graphicCategories[index + 1] ?? null;
   const overviewItems = [
     ...(cat.purpose ? [{ label: "Goal", value: cat.purpose }] : []),
   ];
@@ -67,13 +71,25 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
             transition={{ duration: 0.6, ease }}
           >
             <span className="text-base md:text-lg font-mono uppercase tracking-widest text-zinc-900">
-              Graphic {String(index + 1).padStart(2, "0")}
+              Graphic {String(index + 1).padStart(2, "0")}  —  {cat.subtitle}
             </span>
             {/* タイトルは英語を大きく見せ、日本語版ではその下に日本語を添える */}
             <h1 className="section-title text-4xl md:text-5xl font-black mt-3 mb-4">
               <span className="gradient-text">{messages.en.projects.graphicCategories[cat.key]}</span>
             </h1>
             {locale === "ja" && <p className="-mt-2 mb-5 text-lg text-zinc-500">{m.projects.graphicCategories[cat.key]}</p>}
+            {cat.tools.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {cat.tools.map((t) => (
+                  <span
+                    key={t}
+                    className="px-3 py-1 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
         </div>
       </section>
@@ -82,7 +98,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
       <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
           <FadeIn delay={0.15}>
-            <div className={`grid grid-cols-2 gap-8 ${{ 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4" }[metaItems.length] ?? "md:grid-cols-4"}`}>
+            <div className={`grid grid-cols-2 gap-8 ${{ 1: "md:grid-cols-1", 2: "md:grid-cols-2", 3: "md:grid-cols-3", 4: "md:grid-cols-4", 5: "md:grid-cols-5" }[metaItems.length] ?? "md:grid-cols-5"}`}>
               {metaItems.map((item) => (
                 <div key={item.label}>
                   <span className="text-sm font-mono uppercase tracking-widest text-zinc-500">
@@ -97,7 +113,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
       </section>
 
       {/* Overview: 目的・ターゲット ＋ 担当範囲・使用ツール */}
-      {(cat.summary || overviewItems.length > 0 || cat.role || cat.tools.length > 0) && (
+      {(cat.summary || overviewItems.length > 0 || cat.tools.length > 0) && (
         <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8">
@@ -115,21 +131,20 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                   ))}
                 </dl>
               </FadeIn>
-              {(cat.role || cat.tools.length > 0) && (
-                <FadeIn delay={0.3}>
-                  <div className="card-dark rounded-2xl p-6 space-y-4">
-                    {cat.role && (
-                      <div>
-                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-1">Role</h3>
-                        <p className="text-sm text-zinc-900">{cat.role}</p>
-                      </div>
-                    )}
-                    {cat.tools.length > 0 && (
-                      <div>
-                        <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-1">Tools</h3>
-                        <p className="text-sm text-zinc-900">{cat.tools.join(" / ")}</p>
-                      </div>
-                    )}
+              {cat.tools.length > 0 && (
+                <FadeIn delay={0.15}>
+                  <div className="card-dark rounded-2xl p-6">
+                    <h3 className="text-sm font-mono uppercase tracking-widest text-zinc-500 mb-3">
+                      Tech Stack
+                    </h3>
+                    <div className="flex flex-col gap-3">
+                      {cat.tools.map((t) => (
+                        <div key={t} className="flex items-center gap-3 text-zinc-500">
+                          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#a8305f] to-[#e88560]" />
+                          <span className="text-sm">{t}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </FadeIn>
               )}
@@ -177,7 +192,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
 
       {/* Sets: 企画ごとに画像と説明を並べる */}
       {cat.sets && (
-        <section className="py-6 pb-20 px-6">
+        <section className="py-6 px-6">
           <div className="max-w-5xl mx-auto">
             {cat.sets.map((rawSet, i) => {
               const set = localize(rawSet, locale);
@@ -227,7 +242,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
 
       {/* Gallery */}
       {categoryWorks.length > 0 && (
-      <section className="py-6 pb-20 px-6">
+      <section className="py-6 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="columns-2 md:columns-3 gap-3">
             {categoryWorks.map((work, i) => (
@@ -258,6 +273,18 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
         </div>
       </section>
       )}
+
+      {/* Prev / Next Navigation */}
+      <section className="py-10 px-6">
+        <div className="max-w-5xl mx-auto">
+          <FadeIn>
+            <PrevNextNav
+              prevHref={prev ? localePath(locale, `/design/${prev.key}`) : null}
+              nextHref={next ? localePath(locale, `/design/${next.key}`) : null}
+            />
+          </FadeIn>
+        </div>
+      </section>
 
       {/* Lightbox */}
       <AnimatePresence>
