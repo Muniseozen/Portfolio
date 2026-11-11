@@ -36,7 +36,7 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
     title: "Version Control",
     tools: [
       { name: "GitHub", logo: "/images/tools/github.png" },
-      { name: "BitBucket", logo: "/images/tools/bitbucket.png" },
+      { name: "Bitbucket", logo: "/images/tools/bitbucket.png" },
     ],
   },
 ];

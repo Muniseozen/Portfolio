@@ -4,11 +4,11 @@ import RootDocument from "@/app/_shared/RootDocument";
 export const metadata: Metadata = {
   title: "Munise Haruyama | Designer & Developer",
   description:
-    "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
+    "UI/UXデザインを軸に、iOSアプリやWebの実装まで手がける Munise Haruyama のポートフォリオです。",
   openGraph: {
     title: "Munise Haruyama | Designer & Developer",
     description:
-      "PM/UX Designer & Frontend Developer. Specializing in web applications, mobile apps, and UI/UX design.",
+      "UI/UXデザインを軸に、iOSアプリやWebの実装まで手がける Munise Haruyama のポートフォリオです。",
     type: "website",
   },
 };

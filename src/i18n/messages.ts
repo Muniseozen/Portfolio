@@ -59,7 +59,7 @@ export const messages: Record<Locale, Messages> = {
     hero: {
       description:
         "アイデアを整理して、デザインして、動く形へ。\nUIデザインを軸に、iOSアプリやWebの実装、企画の整理まで関わっています。\n話して、つくって、試して。少しずつ形にしていくのが好きです。",
-      ctaWorks: "つくったもの見る",
+      ctaWorks: "つくったものを見る",
     },
     about: {
       tagline: "これまでのことと、ものづくりで大切にしていること。",
@@ -125,8 +125,8 @@ export const messages: Record<Locale, Messages> = {
       sampleNote: "実際の制作画面は公開できないため、制作実績をもとに、内容を一部変更したサンプルを掲載しています。",
     },
     process: {
-      intro: "こまめにお見せして、ご相談しながら進めます。",
-      loopLabel: "必要に応じてくり返し",
+      intro: "一緒に形にしていくまでの流れ。",
+      loopLabel: "必要に応じて繰り返し",
       steps: [
         { title: "ご相談", body: "作りたいものや目的、ご予算、スケジュールを伺います。まだ決まっていないことがあっても大丈夫です。" },
         { title: "リサーチ", body: "ターゲットや競合を調べ、伝えるべきことを見極めます。" },
@@ -203,7 +203,7 @@ export const messages: Record<Locale, Messages> = {
     },
     projects: {
       tagline: "Web, app, and graphic work I've created so far.",
-      workLabel: "Client",
+      workLabel: "Work",
       personalLabel: "Personal",
       graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },
       graphicCount: "{n} pieces",
@@ -212,7 +212,7 @@ export const messages: Record<Locale, Messages> = {
       sampleNote: "The actual production screens can't be made public, so these are samples based on the real work, with some content changed.",
     },
     process: {
-      intro: "I share work early and often, and shape it together with you.",
+      intro: "How we shape your idea together, step by step.",
       loopLabel: "Repeat as needed",
       steps: [
         { title: "Consultation", body: "Tell me what you'd like to make, its goals, budget, and timeline. It's fine if some things aren't decided yet." },

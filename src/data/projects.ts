@@ -38,12 +38,12 @@ export const projects: Project[] = [
     id: 1,
     slug: "ynp-homepage",
     title: "株式会社YNP ホームページ",
-    subtitle: "Web / UI・UX Design / Frontend",
+    subtitle: "Web / UI/UX Design / Frontend",
     description:
       "自社コーポレートサイトのリニューアルとブランディングです。サイト構成・コピーライティング・デザインを担当しました。",
     longDescription:
       "自社コーポレートサイト（y-n-p.co.jp）のリニューアルプロジェクトです。サイト全体の構成設計と文章作成から、ブランドイメージの刷新、FigmaでのUI/UXデザインまでを担当しました。フロントエンド実装のコードレビューとWordPress構築のディレクションも行いました。",
-    role: "Planner / Copywriter / UI・UX Designer",
+    role: "Planner / Copywriter / UI/UX Designer",
     tech: ["UI/UX Design", "Figma", "HTML", "CSS", "JavaScript", "WordPress"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F3A8;",
@@ -88,12 +88,12 @@ export const projects: Project[] = [
     id: 2,
     slug: "naitei-lp",
     title: "内定者向けLP制作",
-    subtitle: "LP / UI・UX Design / Planning",
+    subtitle: "LP / UI/UX Design / Planning",
     description:
       "内定者向けLPの企画・構成・コピーライティング・デザインを全て担当しました。ターゲットに響く情報設計で仕上げました。",
     longDescription:
       "内定者向けの情報発信を目的としたランディングページを企画からデザインまで一人で担当しました。LPの構成設計、キャッチコピー・文章の作成、ビジュアルデザインまで全て自分で考え、Canvaで制作しました。内定者が知りたい情報を整理し、直感的に伝わるレイアウトに仕上げています。",
-    role: "Planner / Copywriter / UI・UX Designer",
+    role: "Planner / Copywriter / UI/UX Designer",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#a83660] via-[#b84468] to-[#c2456e]",
     emoji: "&#x1F4C4;",
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     category: "work",
     type: "web",
     roleBreakdown: [
-      { title: "企画・構成", tasks: ["LPの全体構成・情報設計", "キャッチコピー・文章の作成"] },
+      { title: "Planning & Structure", tasks: ["LPの全体構成・情報設計", "キャッチコピー・文章の作成"] },
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ターゲットに合わせたトーン設計"] },
     ],
     challenges: [],
@@ -129,12 +129,12 @@ export const projects: Project[] = [
     id: 3,
     slug: "netherlands-lp",
     title: "オランダIT研修LP制作",
-    subtitle: "LP / UI・UX Design / Planning",
+    subtitle: "LP / UI/UX Design / Planning",
     description:
       "オランダのIT企業で研修を行うブートキャンプ型プログラムの集客LPです。企画・構成・コピーライティング・デザインを担当しました。",
     longDescription:
       "オランダのIT企業での実践型研修プログラムを訴求するランディングページを、企画・構成・デザインまで一貫して担当しました。ターゲットが「海外でキャリアを広げたいエンジニア」であることから、日本のLPによくある明るいトーンではなく、ダークネイビーを基調にした海外風のビジュアルに振り切りました。現地オフィスや街並みの写真を大きく配置し、「ここで働く自分」をイメージできる世界観を意識しています。プログラムの特長・スケジュール・料金・研修生の声・FAQなど情報量が多いLPですが、セクションごとにメリハリをつけたレイアウトで、スクロールしても読み疲れしない構成に仕上げました。",
-    role: "Planner / Copywriter / UI・UX Designer",
+    role: "Planner / Copywriter / UI/UX Designer",
     tech: ["UI/UX Design", "Canva"],
     gradient: "from-[#1a1f3d] via-[#2a3060] to-[#3a4080]",
     emoji: "&#x1F1F3;&#x1F1F1;",
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     category: "work",
     type: "web",
     roleBreakdown: [
-      { title: "企画・構成", tasks: ["LP全体の構成・情報設計", "キャッチコピー・セクション文章の作成", "研修内容・料金・フローの情報整理"] },
+      { title: "Planning & Structure", tasks: ["LP全体の構成・情報設計", "キャッチコピー・セクション文章の作成", "研修内容・料金・フローの情報整理"] },
       { title: "Design", tasks: ["Canvaでのビジュアルデザイン・制作", "ダークネイビー基調のトーン設計", "写真・マップを活用したレイアウト設計"] },
     ],
     challenges: [],
@@ -212,12 +212,12 @@ export const projects: Project[] = [
     id: 7,
     slug: "mental-health-system",
     title: "メンタルヘルス管理システム",
-    subtitle: "Web / UI・UX Design",
+    subtitle: "Web / UI/UX Design",
     description:
       "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。",
     longDescription:
       "従業員のストレスチェックや各種サーベイの結果を確認する、メンタルヘルスケアシステムのUIデザインです。数値の多い結果画面を、利用者が自身の状態や変化を把握しやすいように設計しました。\n\n総合判定や主要な指標を画面上部にまとめ、全体の傾向から詳しい結果へと読み進められる構成にしています。項目ごとの比較には棒グラフ、時系列の変化には折れ線グラフなど、情報に合わせて表現を使い分けました。グラフで傾向をつかみ、表で具体的な数値を確認できるようにしています。\n\n清潔感のあるブルーを基調に、余白とカードで情報を整理しました。判定は色だけに頼らず、ラベルやアイコンも添えて伝えています。PC・スマートフォンそれぞれで情報の配置を調整し、画面サイズが変わっても結果を確認しやすいデザインにまとめました。",
-    role: "UI・UX Designer",
+    role: "UI/UX Designer",
     tech: ["UI/UX Design", "Figma"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F4CA;",
@@ -258,12 +258,12 @@ export const projects: Project[] = [
     id: 8,
     slug: "staff-portal",
     title: "スタッフ管理ポータル",
-    subtitle: "Web / UI・UX Design",
+    subtitle: "Web / UI/UX Design",
     description:
       "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。",
     longDescription:
       "応募者の管理と、入職までの手続きをまとめたスタッフ管理システムのUIデザインです。\n\n管理者向けのPC画面では、応募者の氏名・連絡先・来場情報・ステータスを一覧で確認でき、詳細や受注情報へすぐに移動できる構成にしました。ステータスは色付きのラベルで示し、対応状況をひと目で把握できるようにしています。\n\n応募者向けのスマートフォン画面では、入職までの手続きを4つのステップに分け、いま何をすればよいかが分かるマイページにまとめました。",
-    role: "UI・UX Designer",
+    role: "UI/UX Designer",
     tech: ["UI/UX Design", "Figma"],
     gradient: "from-[#9b2c5a] via-[#a83660] to-[#c2456e]",
     emoji: "&#x1F4CB;",
@@ -303,12 +303,12 @@ export const projects: Project[] = [
     id: 4,
     slug: "hr-matching-platform",
     title: "人材マッチングプラットフォーム",
-    subtitle: "iOS & Web / UI・UX Design / PM",
+    subtitle: "iOS & Web / UI/UX Design / PM",
     description:
       "求職者と企業をつなぐマッチングプラットフォームです。iOSアプリと企業向けWebダッシュボードを設計・開発しました。",
     longDescription:
       "求職者と企業をスムーズにマッチングさせるプラットフォームを、モバイルアプリとWeb管理画面の両面から設計・開発しました。iOSアプリは企画からリリースまで担当し、FigmaでのUI/UXデザイン、SwiftUIでのフロントエンド実装、AWSバックエンドの構築まで幅広く担当しました。企業向けWebダッシュボードではReactでの実装をリードし、求人管理・応募者管理・マッチングデータの可視化を実現しています。",
-    role: "PM / UI・UX Designer / iOS Dev / Frontend Dev",
+    role: "PM / UI/UX Designer / iOS Engineer / Frontend Engineer",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS", "React", "Tailwind CSS"],
     gradient: "from-[#c2456e] via-[#d45e6a] to-[#e07850]",
     emoji: "&#x1F91D;",
@@ -325,8 +325,8 @@ export const projects: Project[] = [
     roleBreakdown: [
       { title: "PM", tasks: ["プロダクトロードマップの策定", "スプリント計画とチームマネジメント"] },
       { title: "UI/UX Design", tasks: ["Figmaでのユーザーフロー・UI設計", "ユーザビリティテストの実施と改善"] },
-      { title: "Mobile App (iOS)", tasks: ["SwiftUIでのフロントエンド実装", "AWSバックエンドとの連携"] },
-      { title: "+ Web Dashboard", tasks: ["Reactでの管理画面実装", "求人管理・応募者管理・ダッシュボード機能"] },
+      { title: "iOS Development", tasks: ["SwiftUIでのフロントエンド実装", "AWSバックエンドとの連携"] },
+      { title: "Web Dashboard", tasks: ["Reactでの管理画面実装", "求人管理・応募者管理・ダッシュボード機能"] },
     ],
     challenges: [],
     en: {
@@ -336,12 +336,12 @@ export const projects: Project[] = [
         "A matching platform connecting job seekers and companies. Designed and built an iOS app and a web dashboard for employers.",
       longDescription:
         "I designed and developed a platform that smoothly matches job seekers with companies, covering both the mobile app and the web admin. For the iOS app, I was involved from planning to release, spanning UI/UX design in Figma, frontend implementation in SwiftUI, and building the AWS backend. For the employer web dashboard, I led the implementation in React, delivering job management, applicant management, and visualization of matching data.",
-      role: "PM / UI/UX Designer / iOS Dev / Frontend Dev",
+      role: "PM / UI/UX Designer / iOS Engineer / Frontend Engineer",
       roleBreakdown: [
         { title: "PM", tasks: ["Product roadmap planning", "Sprint planning and team management"] },
         { title: "UI/UX Design", tasks: ["User flows and UI design in Figma", "Usability testing and iteration"] },
-        { title: "Mobile App (iOS)", tasks: ["Frontend implementation in SwiftUI", "Integration with the AWS backend"] },
-        { title: "+ Web Dashboard", tasks: ["Admin dashboard built with React", "Job management, applicant management, and dashboard features"] },
+        { title: "iOS Development", tasks: ["Frontend implementation in SwiftUI", "Integration with the AWS backend"] },
+        { title: "Web Dashboard", tasks: ["Admin dashboard built with React", "Job management, applicant management, and dashboard features"] },
       ],
       challenges: [],
     },
@@ -350,12 +350,12 @@ export const projects: Project[] = [
     id: 5,
     slug: "mycloset",
     title: "My Closet",
-    subtitle: "iOS / UI・UX Design / PM",
+    subtitle: "iOS / UI/UX Design / PM",
     description:
       "インフルエンサー向けのフリマアプリです。出品・購入・決済までアプリ内で完結し、SNSシェア・クーポン機能も搭載しています。",
     longDescription:
       "インフルエンサーが自分のブランディングを保ちながら中古品を販売できるiOSアプリです。企画からUI/UXデザイン、Swift実装、AWSバックエンド構築、PMまで一気通貫で担当しました。",
-    role: "PM / UI・UX Designer / iOS Dev",
+    role: "PM / UI/UX Designer / iOS Engineer",
     tech: ["UI/UX Design", "Figma", "Swift", "SwiftUI", "AWS"],
     gradient: "from-[#e07850] via-[#e8956a] to-[#f0b080]",
     emoji: "&#x1F45C;",
@@ -379,7 +379,7 @@ export const projects: Project[] = [
         "A flea-market app for influencers. Listing, purchase, and payment all happen in-app, with social sharing and coupon features.",
       longDescription:
         "An iOS app that lets influencers sell secondhand items while keeping their personal brand intact. I handled everything end to end: planning, UI/UX design, Swift implementation, the AWS backend, and project management.",
-      role: "PM / UI/UX Designer / iOS Dev",
+      role: "PM / UI/UX Designer / iOS Engineer",
       roleBreakdown: [
         { title: "PM", tasks: ["Product planning and business requirements", "Release planning and quality management"] },
         { title: "UI/UX Design", tasks: ["Customizable UI system design", "User flows from listing to purchase and payment"] },
@@ -507,7 +507,7 @@ export const graphicCategories: GraphicCategory[] = [
   {
     key: "campaign",
     cover: "/images/design/campaign-cover.webp",
-    kind: "実績・ブランド名非公開",
+    kind: "実案件（ブランド名非公開）",
     summary:
       "化粧品メーカーのECサイト向けに制作したバナーです。ブランド名は非公開とし、掲載画像の一部をポートフォリオ用に差し替えています。キャンペーン内容やデザインの異なる7企画をピックアップしました。同じブランドの中でも、企画ごとの目的や季節感に合わせて表現を変えています。各企画のPC・スマートフォン向けデザインを紹介します。",
     purpose: "",

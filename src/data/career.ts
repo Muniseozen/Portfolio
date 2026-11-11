@@ -134,7 +134,7 @@ export const careerProjects: CareerProject[] = [
         "オランダLP制作",
         "クライアントLP制作",
       ],
-      tech: ["HTML/CSS", "JavaScript", "Figma"],
+      tech: ["HTML / CSS", "JavaScript", "Figma"],
     },
     en: {
       title: "Uply (HR Matching App)",
@@ -152,7 +152,7 @@ export const careerProjects: CareerProject[] = [
           "Netherlands program LP",
           "Client LP",
         ],
-        tech: ["HTML/CSS", "JavaScript", "Figma"],
+        tech: ["HTML / CSS", "JavaScript", "Figma"],
       },
     },
   },

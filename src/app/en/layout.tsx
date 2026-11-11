@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import RootDocument from "@/app/_shared/RootDocument";
 
 export const metadata: Metadata = {
-  title: "Munise Haruyama | Designer × Developer",
+  title: "Munise Haruyama | Designer & Developer",
   description:
-    "UI/UX Designer who codes. Specializing in web applications, mobile apps, and UI/UX design.",
+    "Portfolio of Munise Haruyama, a UI/UX designer who also builds iOS apps and web frontends.",
   openGraph: {
-    title: "Munise Haruyama | Designer × Developer",
+    title: "Munise Haruyama | Designer & Developer",
     description:
-      "UI/UX Designer who codes. Specializing in web applications, mobile apps, and UI/UX design.",
+      "Portfolio of Munise Haruyama, a UI/UX designer who also builds iOS apps and web frontends.",
     type: "website",
   },
 };
