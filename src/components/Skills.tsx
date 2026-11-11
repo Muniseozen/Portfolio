@@ -43,7 +43,8 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
 
 const skillCategories = [
   { title: "UI / UX Design", icon: "~ *", skills: ["UI Design", "UX Research", "Prototyping", "Design System"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
-  { title: "Frontend", icon: "{ }", skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "Frontend", icon: "{ }", skills: ["React", "JavaScript", "HTML / CSS", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "iOS App", icon: "iOS", skills: ["Swift", "SwiftUI", "AWS", "MySQL"], gradient: "from-[#d45e6a] to-[#e88560]", border: "border-[#e88560]/30" },
 ];
 
 export default function Skills() {
@@ -56,7 +57,7 @@ export default function Skills() {
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
           <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.skills.tagline}</p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
             <motion.div key={category.title} initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}

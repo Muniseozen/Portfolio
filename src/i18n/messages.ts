@@ -58,7 +58,7 @@ export const messages: Record<Locale, Messages> = {
   ja: {
     hero: {
       description:
-        "アイデアを整理して、デザインして、動く形へ。\nUIデザインとフロントエンドを軸に、企画の整理から実装まで関わっています。\n話して、つくって、試して。少しずつ形にしていくのが好きです。",
+        "アイデアを整理して、デザインして、動く形へ。\nUIデザインを軸に、iOSアプリやWebの実装、企画の整理まで関わっています。\n話して、つくって、試して。少しずつ形にしていくのが好きです。",
       ctaWorks: "つくったもの見る",
     },
     about: {
@@ -104,13 +104,14 @@ export const messages: Record<Locale, Messages> = {
           description: "変化に合わせて学び続け、より良い形にしていきます。",
         },
       ],
-      careerLinkDescription: "テスターから開発リードへ。4年間の成長軌跡。",
+      careerLinkDescription: "テスターから開発部長へ。4年間の成長軌跡。",
     },
     skills: {
       tagline: "できることと、普段使っているツール。",
       categoryTaglines: [
         "体験設計からUI設計まで",
         "UIの実装とインタラクション設計",
+        "iOSアプリの設計・実装からリリースまで",
       ],
     },
     projects: {
@@ -135,16 +136,16 @@ export const messages: Record<Locale, Messages> = {
       ],
     },
     career: {
-      tagline: "テスターから開発リードへ。4年間の成長軌跡。",
+      tagline: "テスターから開発部長へ。4年間の成長軌跡。",
       description:
-        "テレビ制作会社でのAD経験（2020〜2022年）を経て、2023年にIT業界へ未経験転職しました。マニュアル作成・QAを経験後、自ら開発事業部の立ち上げを発案・提案し、承認を獲得しました。ゼロから5名のチームを組成し、iOSアプリを2本リリースしました。現在はReact + TypeScriptを軸としたWebシステムの開発リードを担っています。PM・デザイン・開発の三刀流と、事業部立ち上げ経験が最大の強みです。",
+        "テレビ制作会社でのAD経験（2020〜2021年）を経て、2023年にIT業界へ未経験転職しました。マニュアル作成・テストを経験後、自ら開発部門の立ち上げを発案・提案し、承認を獲得しました。開発部長としてゼロから6名のチームを組成し、iOSアプリを2本リリースしました。その後は、アプリと連携する企業向けWeb管理システムの開発や、大手化粧品企業ECサイトの口コミ機能開発・UI/UXデザインを担当しました。PM・デザイン・開発の三刀流と、開発部門の立ち上げ経験が最大の強みです。",
       concurrent: "同時進行",
     },
   },
   en: {
     hero: {
       description:
-        "Organizing ideas, designing them, and turning them into something that works.\nWith UI design and frontend at the core, I'm involved from shaping the plan to implementation.\nTalk, build, test. I love bringing things to life step by step.",
+        "Organizing ideas, designing them, and turning them into something that works.\nWith UI design at the core, I work across iOS and web implementation and shaping the plan.\nTalk, build, test. I love bringing things to life step by step.",
       ctaWorks: "See my work",
     },
     about: {
@@ -190,13 +191,14 @@ export const messages: Record<Locale, Messages> = {
           description: "I keep learning and keep improving the work.",
         },
       ],
-      careerLinkDescription: "From QA tester to dev lead — a four-year journey.",
+      careerLinkDescription: "From QA tester to head of development — a four-year journey.",
     },
     skills: {
       tagline: "What I can do, and the tools I use every day.",
       categoryTaglines: [
         "From UX research to UI design",
         "UI implementation and interaction design",
+        "iOS app design and implementation through release",
       ],
     },
     projects: {
@@ -221,9 +223,9 @@ export const messages: Record<Locale, Messages> = {
       ],
     },
     career: {
-      tagline: "From QA tester to dev lead — a four-year journey.",
+      tagline: "From QA tester to head of development — a four-year journey.",
       description:
-        "After starting my career in Japanese TV production as an assistant director (2020–2022), I transitioned into IT in 2023 with no prior experience. I began in technical documentation and QA, then proposed and launched a new development division — getting executive approval, building a team of five from scratch, and shipping two iOS apps to the App Store. Today I lead the development of React + TypeScript web systems. My greatest strengths are this triple capability across PM, design, and engineering, plus hands-on experience founding a new division.",
+        "After starting my career in Japanese TV production as an assistant director (2020–2021), I transitioned into IT in 2023 with no prior experience. I began in technical documentation and testing, then proposed and launched a new development department — getting executive approval, building a team of six from scratch as head of development, and shipping two iOS apps to the App Store. After that, I developed an employer web admin system connected to the app, and worked on a review feature and UI/UX design for a major cosmetics brand's e-commerce site. My greatest strengths are this triple capability across PM, design, and engineering, plus hands-on experience founding a development department.",
       concurrent: "in parallel",
     },
   },
