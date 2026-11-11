@@ -60,14 +60,14 @@ function ProjectCard({ project }: { project: CareerProject }) {
       {Array.isArray(project.description) ? (
         <ul className="mt-1 space-y-0.5">
           {project.description.map((item) => (
-            <li key={item} className="text-sm text-zinc-500 flex items-start gap-1.5">
+            <li key={item} className="text-sm text-zinc-600 flex items-start gap-1.5">
               <span className="gradient-text mt-0.5 shrink-0">▸</span>
               <span>{item}</span>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-zinc-500 leading-relaxed mt-1">{project.description}</p>
+        <p className="text-sm text-zinc-600 leading-relaxed mt-1">{project.description}</p>
       )}
       <div className="mt-2 flex flex-wrap gap-1">
         {project.tech.map((t) => (
@@ -89,14 +89,14 @@ function ConcurrentCard({ project }: { project: ConcurrentProject }) {
       {Array.isArray(project.description) ? (
         <ul className="mt-1 space-y-0.5">
           {project.description.map((item) => (
-            <li key={item} className="text-sm text-zinc-500 flex items-start gap-1.5">
+            <li key={item} className="text-sm text-zinc-600 flex items-start gap-1.5">
               <span className="text-[#e88560] mt-0.5 shrink-0">▸</span>
               <span>{item}</span>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="text-sm text-zinc-500 leading-relaxed mt-1">{project.description}</p>
+        <p className="text-sm text-zinc-600 leading-relaxed mt-1">{project.description}</p>
       )}
       <div className="mt-2 flex flex-wrap gap-1">
         {project.tech.map((t) => (
@@ -263,10 +263,10 @@ export default function Career() {
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">Career</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">
+          <p className="text-zinc-500 text-base max-w-xl mt-2">
             {m.career.tagline}
           </p>
-          <p className="text-sm text-zinc-500 leading-relaxed mt-4 max-w-3xl">
+          <p className="text-sm text-zinc-600 leading-relaxed mt-4 max-w-3xl">
             {m.career.description}
           </p>
         </motion.div>

@@ -340,7 +340,7 @@ export default function Hero() {
               <span className="text-base md:text-lg font-mono text-zinc-500">{">"} DESIGNER &amp; DEVELOPER</span>
             </motion.div>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-500 max-w-2xl leading-relaxed mb-8 whitespace-pre-line [word-break:auto-phrase]">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 1.3 }} className="text-sm md:text-base text-zinc-600 max-w-2xl leading-relaxed mb-8 whitespace-pre-line [word-break:auto-phrase]">
               {m.hero.description}
             </motion.p>
 

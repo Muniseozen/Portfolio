@@ -20,13 +20,14 @@ type CardProps = {
   image?: string;
   emoji?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  count?: string; // Graphic の点数。タイトルの横に並べる
   isWork: boolean;
   tags?: string[];
   index: number;
 };
 
-function GridCard({ href, image, emoji, title, subtitle, isWork, tags = [], index }: CardProps) {
+function GridCard({ href, image, emoji, title, subtitle, count, isWork, tags = [], index }: CardProps) {
   const { m } = useLocale();
   return (
     <motion.div
@@ -66,8 +67,9 @@ function GridCard({ href, image, emoji, title, subtitle, isWork, tags = [], inde
             </div>
             <h3 className="text-sm font-bold tracking-tight text-zinc-900 leading-snug">
               {title}
+              {count && <span className="ml-2 text-sm font-normal text-zinc-500">{count}</span>}
             </h3>
-            <p className="text-xs text-zinc-500 mt-0.5">{subtitle}</p>
+            {subtitle && <p className="text-xs text-zinc-500 mt-0.5">{subtitle}</p>}
             <div className="flex flex-wrap gap-1 mt-auto pt-3">
               {tags.slice(0, 3).map((t) => (
                 <span
@@ -129,7 +131,7 @@ export default function Projects() {
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">My Works</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">
+          <p className="text-zinc-500 text-base max-w-xl mt-2">
             {m.projects.tagline}
           </p>
         </motion.div>
@@ -167,8 +169,9 @@ export default function Projects() {
               href={localePath(locale, `/design/${cat.key}`)}
               image={cat.cover}
               title={m.projects.graphicCategories[cat.key]}
-              subtitle={m.projects.graphicCount.replace("{n}", String(graphicWorkCount(cat)))}
+              count={m.projects.graphicCount.replace("{n}", String(graphicWorkCount(cat)))}
               isWork
+              tags={cat.tools}
               index={index}
             />
           ))}

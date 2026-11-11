@@ -111,7 +111,7 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "体験設計からUI設計まで",
         "UIの実装とインタラクション設計",
-        "iOSアプリの設計・実装からリリースまで",
+        "iOSアプリの設計からリリースまで",
       ],
     },
     projects: {
@@ -198,7 +198,7 @@ export const messages: Record<Locale, Messages> = {
       categoryTaglines: [
         "From UX research to UI design",
         "UI implementation and interaction design",
-        "iOS app design and implementation through release",
+        "iOS apps from design to release",
       ],
     },
     projects: {

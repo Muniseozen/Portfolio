@@ -43,7 +43,7 @@ const toolCategories: { title: string; tools: { name: string; logo: string }[] }
 
 const skillCategories = [
   { title: "UI / UX Design", icon: "~ *", skills: ["UI Design", "UX Research", "Prototyping", "Design System"], gradient: "from-[#a8305f] to-[#d4567e]", border: "border-[#a8305f]/30" },
-  { title: "Frontend", icon: "{ }", skills: ["React", "JavaScript", "HTML / CSS", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
+  { title: "Frontend", icon: "{ }", skills: ["React", "Next.js", "JavaScript", "HTML / CSS", "Tailwind CSS"], gradient: "from-[#b53a65] to-[#d45e6a]", border: "border-[#b53a65]/30" },
   { title: "iOS App", icon: "iOS", skills: ["Swift", "SwiftUI", "AWS", "MySQL"], gradient: "from-[#d45e6a] to-[#e88560]", border: "border-[#e88560]/30" },
 ];
 
@@ -55,7 +55,7 @@ export default function Skills() {
       <div className="max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "0px 0px -150px 0px" }} transition={{ duration: 0.6 }} className="mb-8">
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2"><span className="gradient-text">Skills</span></h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.skills.tagline}</p>
+          <p className="text-zinc-500 text-base max-w-xl mt-2">{m.skills.tagline}</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
@@ -67,12 +67,12 @@ export default function Skills() {
                 <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${category.gradient} flex items-center justify-center text-xs font-mono font-bold text-white`}>{category.icon}</div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 leading-tight">{category.title}</h3>
-                  <span className="text-sm text-zinc-500">{m.skills.categoryTaglines[index]}</span>
+                  <span className="text-sm text-zinc-600">{m.skills.categoryTaglines[index]}</span>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-1.5 mt-3">
+              <div className="flex flex-wrap gap-1 mt-3">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="px-3 py-1 rounded-full text-sm font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
+                  <span key={skill} className="px-2 py-0.5 rounded-full text-xs font-mono bg-black/[0.03] border border-black/[0.06] text-zinc-500">{skill}</span>
                 ))}
               </div>
             </motion.div>

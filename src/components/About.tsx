@@ -43,7 +43,7 @@ export default function About() {
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2">
             <span className="gradient-text">About</span>
           </h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">
+          <p className="text-zinc-500 text-base max-w-xl mt-2">
             {m.about.tagline}
           </p>
         </motion.div>
@@ -58,7 +58,7 @@ export default function About() {
           >
             <h3 className="text-lg font-bold text-zinc-900 mb-4">{m.about.selfIntroTitle}</h3>
             <div className="card-dark rounded-2xl p-6">
-              <div className="space-y-3 text-sm text-zinc-500 leading-relaxed">
+              <div className="space-y-3 text-sm text-zinc-600 leading-relaxed">
                 {m.about.selfIntroParagraphs.map((paragraph, pi) => (
                   <p key={pi}>
                     {paragraph.map((seg, si) =>
@@ -97,7 +97,7 @@ export default function About() {
                   <div className="flex-shrink-0 mt-0.5">{valueIcons[index]}</div>
                   <div>
                     <p className="text-sm font-semibold text-[#a8305f] mb-1">{value.label}</p>
-                    <p className="text-sm text-zinc-500">{value.description}</p>
+                    <p className="text-sm text-zinc-600">{value.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -119,7 +119,7 @@ export default function About() {
             <div className="rounded-2xl p-5 md:p-6 bg-gradient-to-r from-[#a8305f]/8 to-[#e88560]/8 bg-white/70 border border-[#a8305f]/15 flex items-center justify-between hover:from-[#a8305f]/12 hover:to-[#e88560]/12 transition-colors">
               <div>
                 <span className="text-lg md:text-xl font-black tracking-tight gradient-text">My Career Story</span>
-                <p className="text-sm text-zinc-500 mt-0.5">{m.about.careerLinkDescription}</p>
+                <p className="text-sm text-zinc-600 mt-0.5">{m.about.careerLinkDescription}</p>
               </div>
               <div className="flex items-center gap-2 shrink-0 ml-4">
                 <span className="text-xs text-[#a8305f] tracking-widest uppercase hidden md:inline">View Timeline</span>

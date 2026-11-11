@@ -121,12 +121,12 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                 <h2 className="section-title text-2xl md:text-3xl font-black mb-4">
                   <span className="gradient-text">Overview</span>
                 </h2>
-                {cat.summary && <p className="text-sm text-zinc-500 leading-relaxed mb-4">{cat.summary}</p>}
+                {cat.summary && <p className="text-sm text-zinc-600 leading-relaxed mb-4">{cat.summary}</p>}
                 <dl className="space-y-4">
                   {overviewItems.map((item) => (
                     <div key={item.label}>
                       <dt className="text-sm font-mono uppercase tracking-widest text-zinc-500">{item.label}</dt>
-                      <dd className="text-sm text-zinc-500 leading-relaxed mt-1">{item.value}</dd>
+                      <dd className="text-sm text-zinc-600 leading-relaxed mt-1">{item.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -139,7 +139,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                     </h3>
                     <div className="flex flex-col gap-3">
                       {cat.tools.map((t) => (
-                        <div key={t} className="flex items-center gap-3 text-zinc-500">
+                        <div key={t} className="flex items-center gap-3 text-zinc-600">
                           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#a8305f] to-[#e88560]" />
                           <span className="text-sm">{t}</span>
                         </div>
@@ -164,7 +164,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
               <div className="card-dark rounded-2xl p-6">
                 <ul className="space-y-3">
                   {cat.intent.map((item) => (
-                    <li key={item} className="text-sm text-zinc-500 flex items-start gap-2">
+                    <li key={item} className="text-sm text-zinc-600 flex items-start gap-2">
                       <span className="gradient-text mt-1 flex-shrink-0">&bull;</span>
                       <span>{item}</span>
                     </li>
@@ -184,7 +184,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
               <h2 className="section-title text-2xl md:text-3xl font-black mb-4">
                 <span className="gradient-text">Results</span>
               </h2>
-              <p className="text-sm text-zinc-500 leading-relaxed">{cat.result}</p>
+              <p className="text-sm text-zinc-600 leading-relaxed">{cat.result}</p>
             </FadeIn>
           </div>
         </section>
@@ -208,7 +208,7 @@ export default function GraphicDetailContent({ categoryKey }: { categoryKey: str
                   <h2 className="text-lg font-bold text-zinc-900">
                     {String(i + 1).padStart(2, "0")} - {set.title}
                   </h2>
-                  <p className="text-sm text-zinc-500 leading-relaxed mt-3">{set.description}</p>
+                  <p className="text-sm text-zinc-600 leading-relaxed mt-3">{set.description}</p>
                   {/* PC版・SP版を高さをそろえて横に並べる（幅を縦横比で配分） */}
                   <div className="mt-8 flex flex-col md:flex-row gap-6 md:gap-3">
                     {set.images.map((img) => (

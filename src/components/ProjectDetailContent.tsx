@@ -341,12 +341,12 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
               {/* 空行（\n\n）で段落を分ける */}
               <div className="space-y-4">
                 {project.longDescription.split("\n\n").map((paragraph) => (
-                  <p key={paragraph} className="text-sm text-zinc-500 leading-relaxed">
+                  <p key={paragraph} className="text-sm text-zinc-600 leading-relaxed">
                     {paragraph}
                   </p>
                 ))}
                 {/* サンプル画面がある場合は、実際の画面ではない旨を添える */}
-                {project.samples && <p className="text-sm text-zinc-500 leading-relaxed">{m.projects.sampleNote}</p>}
+                {project.samples && <p className="text-sm text-zinc-600 leading-relaxed">{m.projects.sampleNote}</p>}
               </div>
             </FadeIn>
             <FadeIn delay={0.15}>
@@ -358,7 +358,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                   {project.tech.map((t) => (
                     <div
                       key={t}
-                      className="flex items-center gap-3 text-zinc-500"
+                      className="flex items-center gap-3 text-zinc-600"
                     >
                       <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${project.gradient}`} />
                       <span className="text-sm">{t}</span>
@@ -391,7 +391,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                       {role.tasks.map((task) => (
                         <li
                           key={task}
-                          className="text-sm text-zinc-500 flex items-start gap-2"
+                          className="text-sm text-zinc-600 flex items-start gap-2"
                         >
                           <span className="gradient-text mt-1 flex-shrink-0">
                             &bull;
@@ -426,7 +426,7 @@ export default function ProjectDetailContent({ slug }: { slug: string }) {
                         <div className="flex-shrink-0 w-8 h-8 rounded-full bg-zinc-200 flex items-center justify-center">
                           <span className="text-sm text-zinc-500 font-bold">B</span>
                         </div>
-                        <p className="text-sm text-zinc-500 leading-relaxed pt-1">
+                        <p className="text-sm text-zinc-600 leading-relaxed pt-1">
                           {item.problem}
                         </p>
                       </div>

@@ -25,7 +25,7 @@ export default function Process() {
           className="mb-8 md:mb-20"
         >
           <h2 className="section-title text-5xl md:text-6xl font-black mb-2 pr-2"><span className="gradient-text">How I Work</span></h2>
-          <p className="text-zinc-500 text-lg max-w-xl mt-2">{m.process.intro}</p>
+          <p className="text-zinc-500 text-base max-w-xl mt-2">{m.process.intro}</p>
         </motion.div>
 
         {/* タイムライン: スマホは左に縦線、PC は上に横線 */}
@@ -105,7 +105,7 @@ export default function Process() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-sm font-bold text-zinc-900 mt-2">{step.title}</h3>
-                <p className="text-sm text-zinc-500 leading-relaxed mt-2">{step.body}</p>
+                <p className="text-sm text-zinc-600 leading-relaxed mt-2">{step.body}</p>
                 {index === LOOP_FROM && (
                   <p className="md:hidden mt-3 text-xs font-mono text-[#a8305f]">↻ {m.process.loopLabel}</p>
                 )}

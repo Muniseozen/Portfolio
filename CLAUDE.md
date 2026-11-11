@@ -23,8 +23,8 @@
   - 幅: 本文・ナビ・フッターとも `px-6` の内側に `max-w-5xl mx-auto`。トップと Career のセクションは `py-8`、見出しブロックは `mb-8`
   - 見出し: トップ / Career のセクション見出しは `section-title text-5xl md:text-6xl font-black` + `gradient-text`
   - 文字サイズは `text-xs` 以上（Hero の装飾モック内は例外）
-  - 読ませる文字の色は `zinc-500` 以上の濃さ、小さいアクセント文字は wine `#a8305f`（`zinc-300/400`・wine-light・rose はコントラスト不足のため文字に使わない。装飾・アイコンは可）
-  - タグ: `rounded-full font-mono`。小 `px-2 py-0.5 text-xs`（カード内）／大 `px-3 py-1 text-sm`（単独で並べるとき）
+  - 本文（説明文・箇条書き・カードの文章）は `zinc-600`、サブタイトル・タグ・ラベル・キャプションなど補助の文字は `zinc-500`。読ませる文字は `zinc-500` 以上の濃さ、小さいアクセント文字は wine `#a8305f`（`zinc-300/400`・wine-light・rose はコントラスト不足のため文字に使わない。装飾・アイコンは可）
+  - タグ: `rounded-full font-mono`。小 `px-2 py-0.5 text-xs`（カード内。My Works・Skills・Career）／大 `px-3 py-1 text-sm`（詳細ページのタイトル下だけ）
   - 角丸: グリッド・リストで繰り返すカードは `rounded-xl`、単独のパネルは `rounded-2xl`
   - クリックできる画像は `<button type="button">` にする。閉じるボタンなどアイコンだけのボタンには `aria-label`。装飾（NumberRain・Marquee）は `aria-hidden`
   - 「視差効果を減らす」設定には `MotionConfig reducedMotion="user"` と globals.css の `prefers-reduced-motion` で対応済み。新しい無限ループアニメーションを作ったら globals.css の一覧に追加する
