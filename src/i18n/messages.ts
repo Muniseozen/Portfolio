@@ -78,7 +78,7 @@ export const messages: Record<Locale, Messages> = {
         [
           { text: "大切にしているのは、" },
           { text: "「どうすれば、もっと伝わるだろう？」" },
-          { text: "と考えること。使う人が迷わず、開発する人も実装しやすいデザインを目指しています。" },
+          { text: "と考えること。使う人が迷わず、開発する人も実装しやすい設計を目指しています。" },
         ],
         [
           { text: "「やってみよう」と、まず動いてみるタイプ" },
@@ -104,7 +104,7 @@ export const messages: Record<Locale, Messages> = {
           description: "変化に合わせて学び続け、より良い形にしていきます。",
         },
       ],
-      careerLinkDescription: "テスターから開発部長へ。4年間の成長軌跡。",
+      careerLinkDescription: "4年間の成長軌跡。",
     },
     skills: {
       tagline: "できることと、普段使っているツール。",
@@ -118,7 +118,7 @@ export const messages: Record<Locale, Messages> = {
       tagline: "これまでに手がけた、Web・アプリ・グラフィック。",
       workLabel: "実務",
       personalLabel: "個人",
-      graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "キャンペーンバナー" },
+      graphicCategories: { recruit: "求人バナー", app: "SNS広告", campaign: "ECバナー" },
       graphicCount: "{n}点",
       deviceLabels: { pc: "PC専用", sp: "SP専用" },
       viewAll: "タップで全体を見る",
@@ -136,7 +136,7 @@ export const messages: Record<Locale, Messages> = {
       ],
     },
     career: {
-      tagline: "テスターから開発部長へ。4年間の成長軌跡。",
+      tagline: "4年間の成長軌跡。",
       description:
         "テレビ制作会社でのAD経験（2020〜2021年）を経て、2023年にIT業界へ未経験転職しました。マニュアル作成・テストを経験後、自ら開発部門の立ち上げを発案・提案し、承認を獲得しました。開発部長としてゼロから6名のチームを組成し、iOSアプリを2本リリースしました。その後は、アプリと連携する企業向けWeb管理システムの開発や、大手化粧品企業ECサイトの口コミ機能開発・UI/UXデザインを担当しました。PM・デザイン・開発の三刀流と、開発部門の立ち上げ経験が最大の強みです。",
       concurrent: "同時進行",
@@ -165,7 +165,7 @@ export const messages: Record<Locale, Messages> = {
         [
           { text: "What I care about most is asking, " },
           { text: "\"How can this come across even better?\"" },
-          { text: " I aim for designs that users can navigate without getting lost and that developers can implement easily." },
+          { text: " I aim for a well-planned structure that users can navigate without getting lost and that developers can implement easily." },
         ],
         [
           { text: "I'm the type who says \"let's try it\" and gets moving first." },
@@ -191,7 +191,7 @@ export const messages: Record<Locale, Messages> = {
           description: "I keep learning and keep improving the work.",
         },
       ],
-      careerLinkDescription: "From QA tester to head of development — a four-year journey.",
+      careerLinkDescription: "A four-year journey of growth.",
     },
     skills: {
       tagline: "What I can do, and the tools I use every day.",
@@ -205,7 +205,7 @@ export const messages: Record<Locale, Messages> = {
       tagline: "Web, app, and graphic work I've created so far.",
       workLabel: "Work",
       personalLabel: "Personal",
-      graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "Campaign Banners" },
+      graphicCategories: { recruit: "Recruitment Banners", app: "Social Media Ads", campaign: "E-commerce Banners" },
       graphicCount: "{n} pieces",
       deviceLabels: { pc: "Desktop", sp: "Mobile" },
       viewAll: "Tap to view all",
@@ -223,7 +223,7 @@ export const messages: Record<Locale, Messages> = {
       ],
     },
     career: {
-      tagline: "From QA tester to head of development — a four-year journey.",
+      tagline: "A four-year journey of growth.",
       description:
         "After starting my career in Japanese TV production as an assistant director (2020–2021), I transitioned into IT in 2023 with no prior experience. I began in technical documentation and testing, then proposed and launched a new development department — getting executive approval, building a team of six from scratch as head of development, and shipping two iOS apps to the App Store. After that, I developed an employer web admin system connected to the app, and worked on a review feature and UI/UX design for a major cosmetics brand's e-commerce site. My greatest strengths are this triple capability across PM, design, and engineering, plus hands-on experience founding a development department.",
       concurrent: "in parallel",

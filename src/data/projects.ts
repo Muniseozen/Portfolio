@@ -509,13 +509,16 @@ export const graphicCategories: GraphicCategory[] = [
     cover: "/images/design/campaign-cover.webp",
     kind: "実案件（ブランド名非公開）",
     summary:
-      "化粧品メーカーのECサイト向けに制作したバナーです。ブランド名は非公開とし、掲載画像の一部をポートフォリオ用に差し替えています。キャンペーン内容やデザインの異なる7企画をピックアップしました。同じブランドの中でも、企画ごとの目的や季節感に合わせて表現を変えています。各企画のPC・スマートフォン向けデザインを紹介します。",
-    purpose: "",
+      "大手化粧品企業のECサイト向けに制作したバナーです。ブランド名は非公開とし、掲載画像の一部をポートフォリオ用に差し替えています。キャンペーン内容やデザインの異なる7企画をピックアップしました。同じブランドの中でも、企画ごとの目的や季節感に合わせて表現を変えています。各企画のPC・スマートフォン向けデザインを紹介します。",
+    purpose: "毎月のキャンペーンや商品の魅力を伝え、ECサイトでの購入につなげます。",
     target: "30〜40代女性",
     placement: "ECサイト内",
-    intent: [],
-    role: "",
-    tools: [],
+    intent: [
+      "企画ごとに訴求内容と情報の優先順位を整理し、割引率や期間など伝えるべき情報がひと目で分かる構成にしました。",
+      "月ごとのテーマや季節感に合わせて配色やビジュアルを変えながら、ブランドイメージとの一貫性を保ちました。PC・スマートフォンそれぞれでの見やすさにも配慮しています。",
+    ],
+    role: "バナーのデザイン・制作、関係部署との制作調整・修正対応",
+    tools: ["Adobe XD", "Figma"],
     time: "",
     result: "",
     sets: [
@@ -620,10 +623,16 @@ export const graphicCategories: GraphicCategory[] = [
     ],
     en: {
       kind: "Client Work (brand undisclosed)",
+      purpose: "Convey the appeal of each month's campaigns and products, and turn it into purchases on the e-commerce site.",
+      intent: [
+        "For each campaign, I sorted out the message and the priority of information so key details like the discount and dates are clear at a glance.",
+        "Colors and visuals change with each month's theme and season while staying consistent with the brand image. Readability on both desktop and smartphone was also taken into account.",
+      ],
+      role: "Banner design and production, coordinating with related departments, and handling revisions",
       target: "Women in their 30s–40s",
       placement: "On the e-commerce site",
       summary:
-        "Banners created for a cosmetics maker's e-commerce site. The brand name is kept private, and some images have been replaced for this portfolio. Seven campaigns with different content and design are featured here. Even within one brand, the look shifts to fit each campaign's goal and season. Each campaign is shown in its desktop and mobile versions.",
+        "Banners created for a major cosmetics brand's e-commerce site. The brand name is kept private, and some images have been replaced for this portfolio. Seven campaigns with different content and design are featured here. Even within one brand, the look shifts to fit each campaign's goal and season. Each campaign is shown in its desktop and mobile versions.",
     },
   },
   {
