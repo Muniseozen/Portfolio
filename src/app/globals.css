@@ -10,6 +10,8 @@
   --color-wine: #a8305f;
   --color-wine-light: #d4567e;
   --color-rose: #e88560;
+  /* 色付きの背景でも補助文字が読めるよう、zinc-500 を一段濃くする */
+  --color-zinc-500: #5f5f68;
   --font-sans: var(--font-noto-sans-jp);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-geist-sans);
@@ -21,7 +23,7 @@ html {
 }
 
 body {
-  background: #fdf8f8;
+  background: #f6e6e0;
   color: #18181b;
   font-family: var(--font-sans), system-ui, sans-serif;
 }
@@ -69,13 +71,13 @@ body::before {
 }
 
 .card-dark {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: none;
 }
 
 .card-clickable {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.3s, transform 0.3s;

@@ -66,6 +66,11 @@ export type Messages = {
     sending: string;
     success: string;
     error: string;
+    lineTitle: string;
+    lineBody: string;
+    lineScan: string;
+    lineButton: string;
+    lineQrAlt: string;
   };
 };
 
@@ -170,6 +175,11 @@ export const messages: Record<Locale, Messages> = {
       sending: "送信中…",
       success: "送信しました。内容を確認のうえ、ご連絡します。",
       error: "送信できませんでした。時間をおいて、もう一度お試しください。",
+      lineTitle: "気軽に相談する",
+      lineBody: "LINEなら簡単にやりとりできます。",
+      lineScan: "スマホで読み取る",
+      lineButton: "LINEで友だち追加",
+      lineQrAlt: "LINE公式アカウントの友だち追加用QRコード",
     },
   },
   en: {
@@ -272,6 +282,11 @@ export const messages: Record<Locale, Messages> = {
       sending: "Sending…",
       success: "Thank you! Your message has been sent. I'll get back to you soon.",
       error: "Your message couldn't be sent. Please try again later.",
+      lineTitle: "Quick chat",
+      lineBody: "Reach me faster on LINE.",
+      lineScan: "Scan with your phone",
+      lineButton: "Add me on LINE",
+      lineQrAlt: "QR code to add the LINE official account",
     },
   },
 };
