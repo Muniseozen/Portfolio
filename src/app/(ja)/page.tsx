@@ -9,6 +9,7 @@ const Skills = dynamic(() => import("@/components/Skills"));
 const Marquee = dynamic(() => import("@/components/Marquee"));
 const Projects = dynamic(() => import("@/components/Projects"));
 const Process = dynamic(() => import("@/components/Process"));
+const Contact = dynamic(() => import("@/components/Contact"));
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         />
         <Projects />
         <Process />
+        <Contact />
       </main>
       <Footer />
     </PageTransition>

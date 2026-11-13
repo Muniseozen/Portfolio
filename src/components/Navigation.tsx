@@ -14,6 +14,7 @@ function buildNavLinks(homeHref: string, locale: Locale) {
     { href: `${homeHref}#skills`, label: "Skills" },
     { href: localePath(locale, "/career"), label: "Career" },
     { href: `${homeHref}#projects`, label: "My Works" },
+    { href: `${homeHref}#contact`, label: "Contact" },
   ];
 }
 

@@ -52,6 +52,21 @@ export type Messages = {
     description: string;
     concurrent: string;
   };
+  contact: {
+    tagline: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    type: string;
+    typePlaceholder: string;
+    types: string[];
+    message: string;
+    messagePlaceholder: string;
+    submit: string;
+    sending: string;
+    success: string;
+    error: string;
+  };
 };
 
 export const messages: Record<Locale, Messages> = {
@@ -141,6 +156,21 @@ export const messages: Record<Locale, Messages> = {
         "テレビ制作会社でのAD経験（2020〜2021年）を経て、2023年にIT業界へ未経験転職しました。マニュアル作成・テストを経験後、自ら開発部門の立ち上げを発案・提案し、承認を獲得しました。開発部長としてゼロから6名のチームを組成し、iOSアプリを2本リリースしました。その後は、アプリと連携する企業向けWeb管理システムの開発や、大手化粧品企業ECサイトの口コミ機能開発・UI/UXデザインを担当しました。PM・デザイン・開発の三刀流と、開発部門の立ち上げ経験が最大の強みです。",
       concurrent: "同時進行",
     },
+    contact: {
+      tagline: "お仕事のご相談は、こちらからどうぞ。",
+      name: "お名前",
+      namePlaceholder: "山田 太郎",
+      email: "メールアドレス",
+      type: "ご相談内容",
+      typePlaceholder: "選択してください",
+      types: ["Webサイト・LP制作", "アプリ・Webシステム開発", "UI/UXデザイン", "バナー制作", "その他"],
+      message: "メッセージ",
+      messagePlaceholder: "ご相談の内容をお書きください。",
+      submit: "送信する",
+      sending: "送信中…",
+      success: "送信しました。内容を確認のうえ、ご連絡します。",
+      error: "送信できませんでした。時間をおいて、もう一度お試しください。",
+    },
   },
   en: {
     hero: {
@@ -227,6 +257,21 @@ export const messages: Record<Locale, Messages> = {
       description:
         "After starting my career in Japanese TV production as an assistant director (2020–2021), I transitioned into IT in 2023 with no prior experience. I began in technical documentation and testing, then proposed and launched a new development department — getting executive approval, building a team of six from scratch as head of development, and shipping two iOS apps to the App Store. After that, I developed an employer web admin system connected to the app, and worked on a review feature and UI/UX design for a major cosmetics brand's e-commerce site. My greatest strengths are this triple capability across PM, design, and engineering, plus hands-on experience founding a development department.",
       concurrent: "in parallel",
+    },
+    contact: {
+      tagline: "For project inquiries, feel free to reach out here.",
+      name: "Name",
+      namePlaceholder: "Jane Smith",
+      email: "Email",
+      type: "Inquiry type",
+      typePlaceholder: "Please select",
+      types: ["Website / Landing page", "App / Web system development", "UI/UX design", "Banner design", "Other"],
+      message: "Message",
+      messagePlaceholder: "Tell me about what you have in mind.",
+      submit: "Send",
+      sending: "Sending…",
+      success: "Thank you! Your message has been sent. I'll get back to you soon.",
+      error: "Your message couldn't be sent. Please try again later.",
     },
   },
 };
