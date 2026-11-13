@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import localFont from "next/font/local";
 import { useLocale } from "@/i18n/LocaleContext";
 
 // Web3Forms のアクセスキー（.env.local と公開先の環境変数に設定する）。送信内容はキー発行時に登録したメールに届く
@@ -10,6 +11,8 @@ const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 // LINE公式アカウントの友だち追加URL
 const LINE_URL = "https://lin.ee/TGc7FPm";
 const LINE_ID = "@625jkxnb";
+// LINE の公式フォント（「LINE」の文字だけに使う）
+const lineSeed = localFont({ src: "../fonts/LINESeedSans_W_Bd.woff2", weight: "700", display: "swap" });
 
 const field =
   "w-full px-4 py-2.5 rounded-xl bg-transparent border border-zinc-400 text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-[#a8305f]/60 focus:ring-1 focus:ring-[#a8305f]/30 transition-colors";
@@ -103,22 +106,23 @@ export default function Contact() {
           {/* LINE：PC は左の列に QR コード、スマホはフォームの下にボタンだけ。
               PC ではフォームと同じ高さに伸ばし、上はラベルの分（28px）、下は送信ボタンの行の分（74px）を空けて、
               「お名前」の入力欄の上端とメッセージ欄の下端にそろえる */}
-          <div className="relative card-dark rounded-2xl p-6 order-last md:order-first flex flex-col md:mt-[28px] md:mb-[74px]">
+          <div className="relative bg-white/70 border border-[#a8305f]/15 rounded-2xl p-6 order-last md:order-first flex flex-col md:mt-[28px] md:mb-[74px]">
             {/* カードのふちから顔を出すキャラクター（装飾）。体の下端をカードの上辺に合わせる */}
             <Image src="/images/contact/line-character.png" alt="" aria-hidden="true" width={286} height={159} className="absolute right-5 bottom-full translate-y-[3px] w-[104px] h-auto pointer-events-none" />
-            <p className="text-xs font-mono tracking-[0.15em] text-[#a8305f]">LINE</p>
+            {/* 「LINE」はLINEの公式カラーと公式フォント */}
+            <p className="text-xs tracking-[0.15em] text-zinc-900"><span className={`${lineSeed.className} text-[#06C755]`}>LINE</span>{t.lineLabelSuffix}</p>
             <h3 className="mt-2 text-base font-bold text-zinc-900">{t.lineTitle}</h3>
             <p className="mt-1 text-sm text-zinc-600">{t.lineBody}</p>
-            <div className="hidden md:flex items-center gap-4 mt-4 mb-4 p-2.5 rounded-xl border border-black/[0.06]">
+            <div className="hidden md:flex items-center gap-4 mt-4 mb-4 p-2.5 rounded-xl bg-white/60 border border-[#a8305f]/15">
               <Image src="/images/contact/line-qr.png" alt={t.lineQrAlt} width={360} height={360} className="w-16 h-16 shrink-0" />
               <div>
                 <p className="text-xs text-zinc-500">{t.lineScan}</p>
                 <p className="mt-1 text-sm font-mono text-zinc-900">{LINE_ID}</p>
               </div>
             </div>
-            <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="mt-4 md:mt-auto flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-full bg-white border border-black/[0.1] text-sm font-medium text-zinc-900 transition-[background-color,transform] duration-150 ease-out hover:bg-zinc-50 active:scale-[0.97]">
+            <a href={LINE_URL} target="_blank" rel="noopener noreferrer" className="mt-4 md:mt-auto flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-full bg-white/70 border border-[#a8305f]/15 text-sm font-medium text-zinc-900 transition-[background-color,transform] duration-150 ease-out hover:bg-gradient-to-r hover:from-[#a8305f]/12 hover:to-[#e88560]/12 active:scale-[0.97]">
               {t.lineButton}
-              <svg className="w-3.5 h-3.5 text-zinc-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" /></svg>
+              <svg className="w-3.5 h-3.5 text-[#a8305f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M9 7h8v8" /></svg>
             </a>
           </div>
         </motion.div>

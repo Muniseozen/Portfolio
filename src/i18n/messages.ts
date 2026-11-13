@@ -66,6 +66,7 @@ export type Messages = {
     sending: string;
     success: string;
     error: string;
+    lineLabelSuffix: string;
     lineTitle: string;
     lineBody: string;
     lineScan: string;
@@ -175,6 +176,7 @@ export const messages: Record<Locale, Messages> = {
       sending: "送信中…",
       success: "送信しました。内容を確認のうえ、ご連絡します。",
       error: "送信できませんでした。時間をおいて、もう一度お試しください。",
+      lineLabelSuffix: "で",
       lineTitle: "気軽に相談する",
       lineBody: "LINEなら簡単にやりとりできます。",
       lineScan: "スマホで読み取る",
@@ -282,6 +284,7 @@ export const messages: Record<Locale, Messages> = {
       sending: "Sending…",
       success: "Thank you! Your message has been sent. I'll get back to you soon.",
       error: "Your message couldn't be sent. Please try again later.",
+      lineLabelSuffix: "",
       lineTitle: "Quick chat",
       lineBody: "Reach me faster on LINE.",
       lineScan: "Scan with your phone",
